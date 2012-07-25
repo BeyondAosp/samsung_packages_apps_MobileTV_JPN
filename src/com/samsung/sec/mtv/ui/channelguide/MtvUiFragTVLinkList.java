@@ -10,6 +10,7 @@ import android.content.*;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.provider.MtvBMLManager;
@@ -29,27 +30,32 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
         private CharSequence getLinkNumber()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->getLinkNumber()Ljava/lang/CharSequence;");
             int i = 1 + mLinkId;
             return (new StringBuilder()).append(getResources().getString(0x7f07027d)).append(" ").append(i).toString();
         }
 
         private String getProgramInfo()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->getProgramInfo()Ljava/lang/String;");
             return mlink.getOutline();
         }
 
         private String getTitleText()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->getTitleText()Ljava/lang/String;");
             return mlink.getTitle();
         }
 
         private String getValidityDate()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->getValidityDate()Ljava/lang/String;");
             return (new SimpleDateFormat("yyyy/M/d H:mm")).format(mlink.getValidDate());
         }
 
         private Dialog initDetails(MtvCProBMInfo mtvcprobminfo)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->initDetails(Lcom/samsung/sec/mtv/provider/MtvCProBMInfo;)Landroid/app/Dialog;");
             makeLinkInfo();
             Activity activity = getActivity();
             ArrayList arraylist = mInfoList;
@@ -69,14 +75,16 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
                 public void onClick(DialogInterface dialoginterface, int i)
                 {
-                    if(mDialog != null)
-                        mDialog.dismiss();
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail$1;->onClick(Landroid/content/DialogInterface;I)V");
+                    if(Log.d(MTvlinkDetail.this) != null)
+                        Log.d(MTvlinkDetail.this).dismiss();
                 }
 
                 final MTvlinkDetail this$0;
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;)V");
                     this$0 = MTvlinkDetail.this;
                     super();
                 }
@@ -95,6 +103,7 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
         private void makeLinkInfo()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->makeLinkInfo()V");
             if(mlink == null)
             {
                 MtvUtilDebug.Error(TAG, "Mlink null!!!");
@@ -108,6 +117,7 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
         private void makeProgramInfo()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->makeProgramInfo()V");
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f07027f));
             map.put("MENU_VALUE", getProgramInfo());
@@ -116,6 +126,7 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
         private void makeTitleText()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->makeTitleText()V");
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f07027e));
             map.put("MENU_VALUE", getTitleText());
@@ -124,6 +135,7 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
         private void makeValidityDate()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->makeValidityDate()V");
             if(mlink.getValidDate().getTime() != 0L)
             {
                 map = new HashMap();
@@ -135,6 +147,7 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             if(bundle != null)
                 mLinkId = bundle.getInt("MtvLinkId");
             try
@@ -154,6 +167,7 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
         public void onSaveInstanceState(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->onSaveInstanceState(Landroid/os/Bundle;)V");
             bundle.putInt("MtvLinkId", mLinkId);
         }
 
@@ -166,10 +180,25 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
         private HashMap map;
         private MtvCProBMInfo mlink;
 
+        static 
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;-><clinit>()V");
+        }
 
+
+/*
+        static AlertDialog access$300(MTvlinkDetail mtvlinkdetail)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;->access$300(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;)Landroid/app/AlertDialog;");
+            return mtvlinkdetail.mDialog;
+        }
+
+*/
 
         public MTvlinkDetail()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;-><init>()V");
+            super();
             map = null;
             mInfoList = new ArrayList();
             mDialog = null;
@@ -180,18 +209,20 @@ public class MtvUiFragTVLinkList extends MtvUiFrag
 
                 public boolean onKey(DialogInterface dialoginterface, int i, KeyEvent keyevent)
                 {
-                    boolean flag = true;
+                    boolean flag;
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail$2;->onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z");
+                    flag = true;
                     i;
-                    JVM INSTR tableswitch 4 4: default 24
-                //                               4 30;
+                    JVM INSTR tableswitch 4 4: default 32
+                //                               4 38;
                        goto _L1 _L2
 _L1:
                     flag = false;
 _L4:
                     return flag;
 _L2:
-                    if(keyevent.getAction() == flag && mDialog != null)
-                        mDialog.dismiss();
+                    if(keyevent.getAction() == flag && Log.d(MTvlinkDetail.this) != null)
+                        Log.d(MTvlinkDetail.this).dismiss();
                     if(true) goto _L4; else goto _L3
 _L3:
                 }
@@ -200,6 +231,7 @@ _L3:
 
                 _cls2()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail$2;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;)V");
                     this$0 = MTvlinkDetail.this;
                     super();
                 }
@@ -210,6 +242,8 @@ _L3:
 
         public MTvlinkDetail(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$MTvlinkDetail;-><init>(I)V");
+            super();
             map = null;
             mInfoList = new ArrayList();
             mDialog = null;
@@ -226,6 +260,7 @@ _L3:
         {
             View view1;
             MtvCProBMInfo mtvcprobminfo;
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             view1 = view;
             if(view1 == null)
                 view1 = ((LayoutInflater)getContext().getSystemService("layout_inflater")).inflate(0x7f03000f, null);
@@ -237,12 +272,12 @@ _L1:
             imageview = (ImageView)view1.findViewById(0x7f0a004a);
             textview = (TextView)view1.findViewById(0x7f0a004b);
             mtvcprobminfo.getCproBMType();
-            JVM INSTR tableswitch 0 4: default 104
-        //                       0 142
-        //                       1 152
-        //                       2 104
-        //                       3 162
-        //                       4 162;
+            JVM INSTR tableswitch 0 4: default 112
+        //                       0 150
+        //                       1 160
+        //                       2 112
+        //                       3 170
+        //                       4 170;
                goto _L3 _L4 _L5 _L3 _L6 _L6
 _L3:
             textview.setText((new StringBuilder()).append(" ").append(mtvcprobminfo.getTitle()).toString());
@@ -266,6 +301,7 @@ _L7:
 
         public TvLinkAdapter(Context context, int i, MtvCProBMInfo amtvcprobminfo[])
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkAdapter;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;Landroid/content/Context;I[Lcom/samsung/sec/mtv/provider/MtvCProBMInfo;)V");
             this$0 = MtvUiFragTVLinkList.this;
             super(context, i, amtvcprobminfo);
             mMtvLinks = amtvcprobminfo;
@@ -277,6 +313,7 @@ _L7:
 
         public static TvLinkDialogFragment newInstance(int i, int j, int k)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;->newInstance(III)Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;");
             com/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;
             JVM INSTR monitorenter ;
             TvLinkDialogFragment tvlinkdialogfragment;
@@ -294,12 +331,14 @@ _L7:
 
         public Dialog createDialog(int i, int j, MtvCProBMInfo mtvcprobminfo)
         {
-            Object obj = null;
+            Object obj;
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;->createDialog(IILcom/samsung/sec/mtv/provider/MtvCProBMInfo;)Landroid/app/Dialog;");
+            obj = null;
             i;
-            JVM INSTR tableswitch 1 3: default 32
-        //                       1 35
-        //                       2 105
-        //                       3 209;
+            JVM INSTR tableswitch 1 3: default 40
+        //                       1 43
+        //                       2 113
+        //                       3 217;
                goto _L1 _L2 _L3 _L4
 _L1:
             return ((Dialog) (obj));
@@ -310,18 +349,19 @@ _L2:
 
                 public void onClick(DialogInterface dialoginterface, int k)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$1;->onClick(Landroid/content/DialogInterface;I)V");
                     k;
-                    JVM INSTR tableswitch 0 1: default 24
-                //                               0 25
-                //                               1 58;
+                    JVM INSTR tableswitch 0 1: default 32
+                //                               0 33
+                //                               1 66;
                        goto _L1 _L2 _L3
 _L1:
                     return;
 _L2:
-                    (new MTvlinkDetail(mLink.getID())).show(getFragmentManager(), MTvlinkDetail.TAG);
+                    (new MTvlinkDetail(Log.d(TvLinkDialogFragment.this).getID())).show(getFragmentManager(), MTvlinkDetail.TAG);
                     continue; /* Loop/switch isn't completed */
 _L3:
-                    TvLinkDialogFragment.newInstance(3, -1, mLinkId).show(getFragmentManager(), "TvLinkDialogFragment");
+                    TvLinkDialogFragment.newInstance(3, -1, Log.d(TvLinkDialogFragment.this)).show(getFragmentManager(), "TvLinkDialogFragment");
                     if(true) goto _L1; else goto _L4
 _L4:
                 }
@@ -330,6 +370,7 @@ _L4:
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)V");
                     this$0 = TvLinkDialogFragment.this;
                     super();
                 }
@@ -345,6 +386,7 @@ _L3:
 
                 public void onClick(DialogInterface dialoginterface, int k)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$2;->onClick(Landroid/content/DialogInterface;I)V");
                     dialoginterface.dismiss();
                 }
 
@@ -352,6 +394,7 @@ _L3:
 
                 _cls2()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$2;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)V");
                     this$0 = TvLinkDialogFragment.this;
                     super();
                 }
@@ -363,10 +406,11 @@ _L3:
 
                 public void onClick(DialogInterface dialoginterface, int k)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$4;->onClick(Landroid/content/DialogInterface;I)V");
                     dialoginterface.dismiss();
-                    if(positionOrLinkIndex == 2)
+                    if(Log.d(TvLinkDialogFragment.this) == 2)
                     {
-                        Uri uri = Uri.parse(mLink.getDstURI());
+                        Uri uri = Uri.parse(Log.d(TvLinkDialogFragment.this).getDstURI());
                         if(uri != null)
                         {
                             Intent intent = new Intent("android.intent.action.VIEW", uri);
@@ -382,6 +426,7 @@ _L3:
 
                 _cls4()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$4;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)V");
                     this$0 = TvLinkDialogFragment.this;
                     super();
                 }
@@ -393,6 +438,7 @@ _L3:
 
                 public void onClick(DialogInterface dialoginterface, int k)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$3;->onClick(Landroid/content/DialogInterface;I)V");
                     dialoginterface.dismiss();
                 }
 
@@ -400,6 +446,7 @@ _L3:
 
                 _cls3()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$3;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)V");
                     this$0 = TvLinkDialogFragment.this;
                     super();
                 }
@@ -417,7 +464,8 @@ _L4:
 
                 public void onClick(DialogInterface dialoginterface, int k)
                 {
-                    MtvBMLManager.deleteCProBMInfo(mLink.getID());
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$6;->onClick(Landroid/content/DialogInterface;I)V");
+                    MtvBMLManager.deleteCProBMInfo(Log.d(TvLinkDialogFragment.this).getID());
                     MtvUiFrag mtvuifrag = (MtvUiFrag)getFragmentManager().findFragmentByTag("tvlink");
                     if(mtvuifrag != null)
                         mtvuifrag.onUpdate(1, null);
@@ -427,6 +475,7 @@ _L4:
 
                 _cls6()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$6;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)V");
                     this$0 = TvLinkDialogFragment.this;
                     super();
                 }
@@ -438,6 +487,7 @@ _L4:
 
                 public void onClick(DialogInterface dialoginterface, int k)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$5;->onClick(Landroid/content/DialogInterface;I)V");
                     dialoginterface.dismiss();
                 }
 
@@ -445,6 +495,7 @@ _L4:
 
                 _cls5()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment$5;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)V");
                     this$0 = TvLinkDialogFragment.this;
                     super();
                 }
@@ -458,11 +509,13 @@ _L5:
 
         public void onCreate(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;->onCreate(Landroid/os/Bundle;)V");
             super.onCreate(bundle);
         }
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             if(bundle != null)
             {
                 dialogId = bundle.getInt("dialogId");
@@ -486,6 +539,7 @@ _L5:
 
         public void onSaveInstanceState(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V");
             bundle.putInt("dialogId", dialogId);
             bundle.putInt("positionOrLinkIndex", positionOrLinkIndex);
             bundle.putInt("mLinkId", mLinkId);
@@ -497,16 +551,47 @@ _L5:
         private int positionOrLinkIndex;
 
 
+/*
+        static MtvCProBMInfo access$000(TvLinkDialogFragment tvlinkdialogfragment)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;->access$000(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)Lcom/samsung/sec/mtv/provider/MtvCProBMInfo;");
+            return tvlinkdialogfragment.mLink;
+        }
 
+*/
+
+
+/*
+        static int access$100(TvLinkDialogFragment tvlinkdialogfragment)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;->access$100(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)I");
+            return tvlinkdialogfragment.mLinkId;
+        }
+
+*/
+
+
+/*
+        static int access$200(TvLinkDialogFragment tvlinkdialogfragment)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;->access$200(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;)I");
+            return tvlinkdialogfragment.positionOrLinkIndex;
+        }
+
+*/
 
         public TvLinkDialogFragment()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList$TvLinkDialogFragment;-><init>()V");
+            super();
         }
     }
 
 
     public MtvUiFragTVLinkList()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;-><init>()V");
+        super();
         mLinks = null;
         mListView = null;
         mUriString = null;
@@ -518,6 +603,7 @@ _L5:
 
     private void populateTVLinkList()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->populateTVLinkList()V");
         MtvUtilDebug.Low(TAG, "populateTVLinkList");
         mListView.setVisibility(0);
         mListView.bringToFront();
@@ -534,12 +620,14 @@ _L5:
 
     public void onActivityResult(int i, int j, Intent intent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->onActivityResult(IILandroid/content/Intent;)V");
         populateTVLinkList();
         super.onActivityResult(i, j, intent);
     }
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->onCreate(Landroid/os/Bundle;)V");
         MtvUtilDebug.Low(TAG, "onCreate called...");
         super.onCreate(bundle);
         mActivity = getActivity();
@@ -549,6 +637,7 @@ _L5:
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V");
         MtvUtilDebug.Low(TAG, "onCreateOptionsMenu called...");
         menu.clear();
         if(mLinks != null && mLinks.length > 0)
@@ -557,6 +646,7 @@ _L5:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         MtvUtilDebug.Low(TAG, "onCreateView called :");
         mLayoutView = layoutinflater.inflate(0x7f030020, viewgroup, false);
         mListView = (ListView)mLayoutView.findViewById(0x7f0a00a0);
@@ -569,6 +659,7 @@ _L5:
 
     public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
         mTvLinkDetail = (MtvCProBMInfo)view.getTag();
         mLink = (MtvCProBMInfo)view.getTag();
         mLinkIndex = -1;
@@ -613,6 +704,7 @@ _L7:
 
     public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z");
         mTvLinkDetail = (MtvCProBMInfo)view.getTag();
         if(mTvLinkDetail == null)
             MtvUtilDebug.Error(TAG, "TabLink :onItemLongClick invalid tag");
@@ -623,9 +715,10 @@ _L7:
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         menuitem.getItemId();
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 26;
+        JVM INSTR tableswitch 0 0: default 32
+    //                   0 34;
            goto _L1 _L2
 _L1:
         return true;
@@ -639,9 +732,10 @@ _L3:
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;->onUpdate(ILjava/lang/Object;)V");
         i;
-        JVM INSTR tableswitch 1 1: default 20
-    //                   1 21;
+        JVM INSTR tableswitch 1 1: default 28
+    //                   1 29;
            goto _L1 _L2
 _L1:
         return;
@@ -663,4 +757,8 @@ _L3:
     protected MtvCProBMInfo mTvLinkDetail;
     protected String mUriString;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVLinkList;-><clinit>()V");
+    }
 }

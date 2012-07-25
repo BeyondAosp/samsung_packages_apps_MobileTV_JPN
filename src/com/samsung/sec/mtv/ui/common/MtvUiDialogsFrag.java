@@ -9,6 +9,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import com.samsung.sec.mtv.app.player.MtvAppPlayerOneSeg;
 import com.samsung.sec.mtv.provider.*;
@@ -22,6 +23,7 @@ public class MtvUiDialogsFrag extends DialogFragment
 
         public static EPGErrorDialogFragment newInstance(int i, int j)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment;->newInstance(II)Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment;");
             EPGErrorDialogFragment epgerrordialogfragment = new EPGErrorDialogFragment();
             epgerrordialogfragment.myStringId = i;
             epgerrordialogfragment.myTitleID = j;
@@ -30,6 +32,7 @@ public class MtvUiDialogsFrag extends DialogFragment
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             if(bundle != null)
             {
                 myStringId = bundle.getInt("myStringId");
@@ -41,6 +44,7 @@ public class MtvUiDialogsFrag extends DialogFragment
 
                 public void onClick(DialogInterface dialoginterface, int i)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment$1;->onClick(Landroid/content/DialogInterface;I)V");
                     dismiss();
                 }
 
@@ -48,6 +52,7 @@ public class MtvUiDialogsFrag extends DialogFragment
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment;)V");
                     this$0 = EPGErrorDialogFragment.this;
                     super();
                 }
@@ -60,6 +65,7 @@ public class MtvUiDialogsFrag extends DialogFragment
 
         public void onDismiss(DialogInterface dialoginterface)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment;->onDismiss(Landroid/content/DialogInterface;)V");
             if(getActivity() instanceof MtvUiFrag.IMtvFragEventListener)
                 ((MtvUiFrag.IMtvFragEventListener)getActivity()).onFragEvent(276, Boolean.valueOf(true));
             super.onDismiss(dialoginterface);
@@ -67,6 +73,7 @@ public class MtvUiDialogsFrag extends DialogFragment
 
         public void onSaveInstanceState(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V");
             bundle.putInt("myStringId", myStringId);
             bundle.putInt("myTitleID", myTitleID);
             super.onSaveInstanceState(bundle);
@@ -77,35 +84,41 @@ public class MtvUiDialogsFrag extends DialogFragment
 
         public EPGErrorDialogFragment()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$EPGErrorDialogFragment;-><init>()V");
+            super();
         }
     }
 
 
     public MtvUiDialogsFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;-><init>()V");
+        super();
         mPreferences = null;
         mListener = null;
     }
 
     private AlertDialog createDialogByType(int i, Bundle bundle)
     {
-        int j = 0;
+        int j;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->createDialogByType(ILandroid/os/Bundle;)Landroid/app/AlertDialog;");
+        j = 0;
         i;
-        JVM INSTR tableswitch 1 14: default 72
-    //                   1 78
-    //                   2 237
-    //                   3 339
-    //                   4 395
-    //                   5 485
-    //                   6 551
-    //                   7 649
-    //                   8 725
-    //                   9 902
-    //                   10 970
-    //                   11 1038
-    //                   12 1110
-    //                   13 72
-    //                   14 1174;
+        JVM INSTR tableswitch 1 14: default 84
+    //                   1 90
+    //                   2 254
+    //                   3 356
+    //                   4 412
+    //                   5 502
+    //                   6 570
+    //                   7 670
+    //                   8 746
+    //                   9 924
+    //                   10 992
+    //                   11 1060
+    //                   12 1132
+    //                   13 84
+    //                   14 1196;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L1 _L14
 _L1:
         AlertDialog alertdialog = null;
@@ -128,15 +141,16 @@ _L2:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$2;->onClick(Landroid/content/DialogInterface;I)V");
                 MtvUtilDebug.Mid("MtvUiDialogsFrag", (new StringBuilder()).append("which button = ").append(i1).append(" areaId=").append(area[i1].mAreaId).toString());
                 if(area[i1].mAreaId == -1)
                 {
-                    mListener.onFragEvent(602, Integer.valueOf(i1));
+                    Log.d(MtvUiDialogsFrag.this).onFragEvent(602, Integer.valueOf(i1));
                 } else
                 {
                     MtvUtilDebug.Mid("MtvUiDialogsFrag", (new StringBuilder()).append("changeArea SlotID=").append(i1).append(" - already updated").toString());
-                    mListener.onFragEvent(603, Integer.valueOf(i1));
-                    mListener = null;
+                    Log.d(MtvUiDialogsFrag.this).onFragEvent(603, Integer.valueOf(i1));
+                    Log.d(MtvUiDialogsFrag.this, null);
                 }
                 dialoginterface.dismiss();
             }
@@ -146,6 +160,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;[Lcom/samsung/sec/mtv/provider/MtvArea;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 area = amtvarea;
                 super();
@@ -160,8 +175,9 @@ _L3:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$4;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
-                mListener.onFragEvent(601, intent);
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(601, intent);
             }
 
             final MtvUiDialogsFrag this$0;
@@ -169,6 +185,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$4;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;Landroid/content/Intent;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 intent = intent1;
                 super();
@@ -177,6 +194,7 @@ _L3:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$3;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
             }
 
@@ -184,6 +202,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$3;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -196,22 +215,23 @@ _L4:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$5;->onClick(Landroid/content/DialogInterface;I)V");
                 i1;
-                JVM INSTR tableswitch 0 2: default 28
-            //                           0 29
-            //                           1 48
-            //                           2 67;
+                JVM INSTR tableswitch 0 2: default 36
+            //                           0 37
+            //                           1 56
+            //                           2 75;
                    goto _L1 _L2 _L3 _L4
 _L1:
                 return;
 _L2:
-                mListener.onFragEvent(275, null);
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(275, null);
                 continue; /* Loop/switch isn't completed */
 _L3:
-                mListener.onFragEvent(271, null);
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(271, null);
                 continue; /* Loop/switch isn't completed */
 _L4:
-                mListener.onFragEvent(281, null);
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(281, null);
                 if(true) goto _L1; else goto _L5
 _L5:
             }
@@ -220,6 +240,7 @@ _L5:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$5;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -234,19 +255,20 @@ _L5:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$7;->onClick(Landroid/content/DialogInterface;I)V");
                 if(fileType != 2)
-                    mListener.onFragEvent(283, null);
+                    Log.d(MtvUiDialogsFrag.this).onFragEvent(283, null);
                 dialoginterface.dismiss();
                 MtvFileManager.deleteTvFile(fileIndex, filePath, MtvAppPlayerOneSeg.getInstance());
-                if(mPreferences.getSelectedFileIndex() != mPreferences.getLatestFileIndex()) goto _L2; else goto _L1
+                if(Log.d(MtvUiDialogsFrag.this).getSelectedFileIndex() != Log.d(MtvUiDialogsFrag.this).getLatestFileIndex()) goto _L2; else goto _L1
 _L1:
-                mPreferences.setLatestFileIndex(0);
+                Log.d(MtvUiDialogsFrag.this).setLatestFileIndex(0);
 _L4:
-                mListener.onFragEvent(272, null);
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(272, null);
                 return;
 _L2:
-                if(mPreferences.getSelectedFileIndex() < mPreferences.getLatestFileIndex())
-                    mPreferences.setLatestFileIndex(-1 + mPreferences.getLatestFileIndex());
+                if(Log.d(MtvUiDialogsFrag.this).getSelectedFileIndex() < Log.d(MtvUiDialogsFrag.this).getLatestFileIndex())
+                    Log.d(MtvUiDialogsFrag.this).setLatestFileIndex(-1 + Log.d(MtvUiDialogsFrag.this).getLatestFileIndex());
                 if(true) goto _L4; else goto _L3
 _L3:
             }
@@ -258,6 +280,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$7;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;IILjava/lang/String;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 fileType = i;
                 fileIndex = j;
@@ -268,6 +291,7 @@ _L3:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$6;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
             }
 
@@ -275,6 +299,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$6;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -288,14 +313,15 @@ _L6:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$8;->onClick(Landroid/content/DialogInterface;I)V");
                 i1;
-                JVM INSTR tableswitch 0 0: default 20
-            //                           0 21;
+                JVM INSTR tableswitch 0 0: default 28
+            //                           0 29;
                    goto _L1 _L2
 _L1:
                 return;
 _L2:
-                mListener.onFragEvent(273, Integer.valueOf(id));
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(273, Integer.valueOf(id));
                 if(true) goto _L1; else goto _L3
 _L3:
             }
@@ -305,6 +331,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$8;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;I)V");
                 this$0 = MtvUiDialogsFrag.this;
                 id = i;
                 super();
@@ -324,6 +351,7 @@ _L7:
 
                 public void onClick(DialogInterface dialoginterface, int i1)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$10;->onClick(Landroid/content/DialogInterface;I)V");
                     MtvUtilSetReservationAlarm.setReservationAlarm(getActivity(), ((MtvProgram) (reserve)).mTimeStart, false, true);
                 }
 
@@ -332,6 +360,7 @@ _L7:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$10;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;Lcom/samsung/sec/mtv/provider/MtvReservation;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 reserve = mtvreservation;
                 super();
@@ -340,6 +369,7 @@ _L7:
 
                 public void onClick(DialogInterface dialoginterface, int i1)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$9;->onClick(Landroid/content/DialogInterface;I)V");
                     dialoginterface.dismiss();
                 }
 
@@ -347,6 +377,7 @@ _L7:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$9;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -360,7 +391,8 @@ _L8:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
-                mListener.onFragEvent(274, getArguments());
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$12;->onClick(Landroid/content/DialogInterface;I)V");
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(274, getArguments());
                 dialoginterface.dismiss();
             }
 
@@ -368,6 +400,7 @@ _L8:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$12;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -375,6 +408,7 @@ _L8:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$11;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
             }
 
@@ -382,6 +416,7 @@ _L8:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$11;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -409,6 +444,7 @@ _L9:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$13;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
             }
 
@@ -416,6 +452,7 @@ _L9:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$13;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -427,7 +464,8 @@ _L10:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
-                mListener.onFragEvent(276, null);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$15;->onClick(Landroid/content/DialogInterface;I)V");
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(276, null);
                 dialoginterface.dismiss();
             }
 
@@ -435,6 +473,7 @@ _L10:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$15;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -442,6 +481,7 @@ _L10:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$14;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
             }
 
@@ -449,6 +489,7 @@ _L10:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$14;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -460,7 +501,8 @@ _L11:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
-                mListener.onFragEvent(277, null);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$17;->onClick(Landroid/content/DialogInterface;I)V");
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(277, null);
                 dialoginterface.dismiss();
             }
 
@@ -468,6 +510,7 @@ _L11:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$17;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -475,6 +518,7 @@ _L11:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$16;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
             }
 
@@ -482,6 +526,7 @@ _L11:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$16;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -493,14 +538,16 @@ _L12:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$19;->onClick(Landroid/content/DialogInterface;I)V");
                 MtvUtilDebug.Low("MtvUiDialogsFrag", (new StringBuilder()).append("MtvUiDialogsFrag isVisible?").append(isVisible()).toString());
-                mListener.onFragEvent(278, null);
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(278, null);
             }
 
             final MtvUiDialogsFrag this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$19;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -508,12 +555,14 @@ _L12:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$18;->onClick(Landroid/content/DialogInterface;I)V");
                 class _cls1
                     implements Runnable
                 {
 
                     public void run()
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$18$1;->run()V");
                         MtvUiDialogsFrag.removeDialog(getFragmentManager(), "signal_alert_retry_exit");
                         Bundle bundle1 = new Bundle();
                         bundle1.putInt("dialogType", 12);
@@ -524,6 +573,7 @@ _L12:
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$18$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$18;)V");
                             this$1 = _cls18.this;
                             super();
                         }
@@ -536,6 +586,7 @@ _L12:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$18;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -547,7 +598,8 @@ _L13:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
-                mListener.onFragEvent(276, null);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$20;->onClick(Landroid/content/DialogInterface;I)V");
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(276, null);
                 dialoginterface.dismiss();
             }
 
@@ -555,6 +607,7 @@ _L13:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$20;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -567,7 +620,8 @@ _L14:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
-                mListener.onFragEvent(280, null);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$22;->onClick(Landroid/content/DialogInterface;I)V");
+                Log.d(MtvUiDialogsFrag.this).onFragEvent(280, null);
                 dialoginterface.dismiss();
             }
 
@@ -575,6 +629,7 @@ _L14:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$22;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -582,6 +637,7 @@ _L14:
 
             public void onClick(DialogInterface dialoginterface, int i1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$21;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
             }
 
@@ -589,6 +645,7 @@ _L14:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$21;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -601,6 +658,7 @@ _L15:
 
     public static MtvUiDialogsFrag newInstance(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->newInstance(Landroid/os/Bundle;)Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;");
         MtvUiDialogsFrag mtvuidialogsfrag = new MtvUiDialogsFrag();
         mtvuidialogsfrag.setArguments(bundle);
         return mtvuidialogsfrag;
@@ -608,6 +666,7 @@ _L15:
 
     public static void removeDialog(FragmentManager fragmentmanager, String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->removeDialog(Landroid/app/FragmentManager;Ljava/lang/String;)V");
         if(s != null && fragmentmanager != null)
         {
             FragmentTransaction fragmenttransaction = fragmentmanager.beginTransaction();
@@ -622,6 +681,7 @@ _L15:
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -636,11 +696,12 @@ _L15:
 
     public void onCancel(DialogInterface dialoginterface)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->onCancel(Landroid/content/DialogInterface;)V");
         super.onCancel(dialoginterface);
         getArguments().getInt("dialogType");
-        JVM INSTR tableswitch 11 12: default 36
-    //                   11 37
-    //                   12 55;
+        JVM INSTR tableswitch 11 12: default 48
+    //                   11 49
+    //                   12 67;
            goto _L1 _L2 _L3
 _L1:
         return;
@@ -649,6 +710,7 @@ _L2:
 
             public void run()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$1;->run()V");
                 Bundle bundle = new Bundle();
                 bundle.putInt("dialogType", 12);
                 MtvUiDialogsFrag.newInstance(bundle).show(getFragmentManager(), "signal_alert_terminate");
@@ -658,6 +720,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)V");
                 this$0 = MtvUiDialogsFrag.this;
                 super();
             }
@@ -672,6 +735,7 @@ _L4:
 
     public Dialog onCreateDialog(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
         mPreferences = new MtvPreferences(getActivity().getApplicationContext());
         mListener = (MtvUiFrag.IMtvFragEventListener)getActivity();
         Bundle bundle1 = getArguments();
@@ -685,16 +749,39 @@ _L4:
     private MtvUiFrag.IMtvFragEventListener mListener;
     private MtvPreferences mPreferences;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;-><clinit>()V");
+    }
 
+
+/*
+    static MtvUiFrag.IMtvFragEventListener access$000(MtvUiDialogsFrag mtvuidialogsfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->access$000(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)Lcom/samsung/sec/mtv/ui/common/MtvUiFrag$IMtvFragEventListener;");
+        return mtvuidialogsfrag.mListener;
+    }
+
+*/
 
 
 /*
     static MtvUiFrag.IMtvFragEventListener access$002(MtvUiDialogsFrag mtvuidialogsfrag, MtvUiFrag.IMtvFragEventListener imtvfrageventlistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->access$002(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;Lcom/samsung/sec/mtv/ui/common/MtvUiFrag$IMtvFragEventListener;)Lcom/samsung/sec/mtv/ui/common/MtvUiFrag$IMtvFragEventListener;");
         mtvuidialogsfrag.mListener = imtvfrageventlistener;
         return imtvfrageventlistener;
     }
 
 */
 
+
+/*
+    static MtvPreferences access$100(MtvUiDialogsFrag mtvuidialogsfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiDialogsFrag;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+        return mtvuidialogsfrag.mPreferences;
+    }
+
+*/
 }

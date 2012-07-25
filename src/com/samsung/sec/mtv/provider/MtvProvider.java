@@ -11,6 +11,7 @@ import android.database.SQLException;
 import android.database.sqlite.*;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import java.util.List;
 
 // Referenced classes of package com.samsung.sec.mtv.provider:
@@ -24,6 +25,7 @@ public class MtvProvider extends ContentProvider
 
         private void createDefaultContents(SQLiteDatabase sqlitedatabase)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider$DatabaseHelper;->createDefaultContents(Landroid/database/sqlite/SQLiteDatabase;)V");
             for(int i = 0; i < 10; i++)
                 sqlitedatabase.insert("areas", null, MtvAreaManager.getContentValues(new MtvArea(-1, "Empty")));
 
@@ -31,6 +33,7 @@ public class MtvProvider extends ContentProvider
 
         public static DatabaseHelper getInstance(Context context)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider$DatabaseHelper;->getInstance(Landroid/content/Context;)Lcom/samsung/sec/mtv/provider/MtvProvider$DatabaseHelper;");
             if(mDatabaseHelperInstance == null)
                 mDatabaseHelperInstance = new DatabaseHelper(context);
             return mDatabaseHelperInstance;
@@ -38,6 +41,7 @@ public class MtvProvider extends ContentProvider
 
         public void onCreate(SQLiteDatabase sqlitedatabase)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider$DatabaseHelper;->onCreate(Landroid/database/sqlite/SQLiteDatabase;)V");
             MtvUtilDebug.Mid("DatabaseHelper", "onCreate");
             sqlitedatabase.execSQL("CREATE TABLE areas (_id INTEGER PRIMARY KEY,area_id INTEGER,area_name TEXT);");
             sqlitedatabase.execSQL("CREATE TABLE channels (_id INTEGER PRIMARY KEY,ch_vch INTEGER,ch_pch INTEGER DEFAULT -1,ch_fav INTEGER DEFAULT 0,ch_avlb INTEGER DEFAULT 0,ch_name TEXT,ch_slot INTEGER,ch_svcid1 INTEGER  DEFAULT -1,ch_svcid2 INTEGER  DEFAULT -1);");
@@ -48,6 +52,7 @@ public class MtvProvider extends ContentProvider
 
         public void onUpgrade(SQLiteDatabase sqlitedatabase, int i, int j)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider$DatabaseHelper;->onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V");
             MtvUtilDebug.Mid("DatabaseHelper", "onUpgrade");
             sqlitedatabase.execSQL("DROP TABLE IF EXISTS areas");
             sqlitedatabase.execSQL("DROP TABLE IF EXISTS channels");
@@ -58,9 +63,14 @@ public class MtvProvider extends ContentProvider
 
         private static DatabaseHelper mDatabaseHelperInstance = null;
 
+        static 
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider$DatabaseHelper;-><clinit>()V");
+        }
 
         private DatabaseHelper(Context context)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider$DatabaseHelper;-><init>(Landroid/content/Context;)V");
             super(context, "mtv.db", null, 7);
         }
     }
@@ -68,11 +78,14 @@ public class MtvProvider extends ContentProvider
 
     public MtvProvider()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;-><init>()V");
+        super();
         mOpenHelper = null;
     }
 
     private Uri insert_area(Uri uri, ContentValues contentvalues)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->insert_area(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;");
         ContentValues contentvalues1;
         long l;
         if(contentvalues != null)
@@ -93,6 +106,7 @@ public class MtvProvider extends ContentProvider
 
     private Uri insert_channel(Uri uri, ContentValues contentvalues)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->insert_channel(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;");
         ContentValues contentvalues1;
         long l;
         if(contentvalues != null)
@@ -113,6 +127,7 @@ public class MtvProvider extends ContentProvider
 
     private Uri insert_program(Uri uri, ContentValues contentvalues)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->insert_program(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;");
         ContentValues contentvalues1;
         long l;
         if(contentvalues != null)
@@ -133,6 +148,7 @@ public class MtvProvider extends ContentProvider
 
     private Uri insert_reservation(Uri uri, ContentValues contentvalues)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->insert_reservation(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;");
         ContentValues contentvalues1;
         long l;
         if(contentvalues != null)
@@ -154,21 +170,22 @@ public class MtvProvider extends ContentProvider
     public int delete(Uri uri, String s, String as[])
     {
         SQLiteDatabase sqlitedatabase;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvProvider", (new StringBuilder()).append("delete ").append(uri.toString()).toString());
         sqlitedatabase = mOpenHelper.getWritableDatabase();
         mUriMatcher.match(uri);
-        JVM INSTR tableswitch 1 10: default 104
-    //                   1 149
-    //                   2 163
-    //                   3 104
-    //                   4 256
-    //                   5 270
-    //                   6 104
-    //                   7 363
-    //                   8 377
-    //                   9 104
-    //                   10 131;
+        JVM INSTR tableswitch 1 10: default 112
+    //                   1 157
+    //                   2 171
+    //                   3 112
+    //                   4 264
+    //                   5 278
+    //                   6 112
+    //                   7 371
+    //                   8 385
+    //                   9 112
+    //                   10 139;
            goto _L1 _L2 _L3 _L1 _L4 _L5 _L1 _L6 _L7 _L1 _L8
 _L1:
         throw new IllegalArgumentException((new StringBuilder()).append("Unknown URI ").append(uri).toString());
@@ -218,20 +235,21 @@ _L9:
 
     public String getType(Uri uri)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->getType(Landroid/net/Uri;)Ljava/lang/String;");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvProvider", (new StringBuilder()).append("getType ").append(uri.toString()).toString());
         mUriMatcher.match(uri);
-        JVM INSTR tableswitch 1 10: default 96
-    //                   1 128
-    //                   2 134
-    //                   3 96
-    //                   4 140
-    //                   5 146
-    //                   6 96
-    //                   7 152
-    //                   8 158
-    //                   9 96
-    //                   10 123;
+        JVM INSTR tableswitch 1 10: default 104
+    //                   1 136
+    //                   2 142
+    //                   3 104
+    //                   4 148
+    //                   5 154
+    //                   6 104
+    //                   7 160
+    //                   8 166
+    //                   9 104
+    //                   10 131;
            goto _L1 _L2 _L3 _L1 _L4 _L5 _L1 _L6 _L7 _L1 _L8
 _L1:
         throw new IllegalArgumentException((new StringBuilder()).append("Unknown URI ").append(uri).toString());
@@ -262,14 +280,15 @@ _L9:
 
     public Uri insert(Uri uri, ContentValues contentvalues)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvProvider", (new StringBuilder()).append("insert ").append(uri.toString()).toString());
         mUriMatcher.match(uri);
-        JVM INSTR lookupswitch 4: default 84
-    //                   1: 120
-    //                   4: 130
-    //                   7: 140
-    //                   10: 111;
+        JVM INSTR lookupswitch 4: default 92
+    //                   1: 130
+    //                   4: 141
+    //                   7: 152
+    //                   10: 119;
            goto _L1 _L2 _L3 _L4 _L5
 _L1:
         throw new IllegalArgumentException((new StringBuilder()).append("Unknown URI ").append(uri).toString());
@@ -291,6 +310,7 @@ _L6:
 
     public boolean onCreate()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->onCreate()Z");
         MtvUtilDebug.Mid("MtvProvider", "onCreate");
         mOpenHelper = DatabaseHelper.getInstance(getContext());
         return true;
@@ -299,25 +319,26 @@ _L6:
     public Cursor query(Uri uri, String as[], String s, String as1[], String s1)
     {
         SQLiteQueryBuilder sqlitequerybuilder;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvProvider", (new StringBuilder()).append("query ").append(uri.toString()).append(" where: ").append(s).toString());
         sqlitequerybuilder = new SQLiteQueryBuilder();
         mUriMatcher.match(uri);
-        JVM INSTR tableswitch 1 11: default 116
-    //                   1 277
-    //                   2 313
-    //                   3 571
-    //                   4 375
-    //                   5 411
-    //                   6 633
-    //                   7 473
-    //                   8 509
-    //                   9 695
-    //                   10 143
-    //                   11 215;
+        JVM INSTR tableswitch 1 11: default 128
+    //                   1 290
+    //                   2 326
+    //                   3 584
+    //                   4 388
+    //                   5 424
+    //                   6 646
+    //                   7 486
+    //                   8 522
+    //                   9 708
+    //                   10 155
+    //                   11 228;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12
 _L10:
-        break MISSING_BLOCK_LABEL_695;
+        break MISSING_BLOCK_LABEL_708;
 _L1:
         throw new IllegalArgumentException((new StringBuilder()).append("Unknown URI ").append(uri).toString());
 _L11:
@@ -410,21 +431,22 @@ _L7:
     public int update(Uri uri, ContentValues contentvalues, String s, String as[])
     {
         SQLiteDatabase sqlitedatabase;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvProvider", (new StringBuilder()).append("update uri=").append(uri).toString());
         sqlitedatabase = mOpenHelper.getWritableDatabase();
         mUriMatcher.match(uri);
-        JVM INSTR tableswitch 1 10: default 100
-    //                   1 155
-    //                   2 171
-    //                   3 100
-    //                   4 266
-    //                   5 282
-    //                   6 100
-    //                   7 377
-    //                   8 393
-    //                   9 100
-    //                   10 127;
+        JVM INSTR tableswitch 1 10: default 112
+    //                   1 167
+    //                   2 183
+    //                   3 112
+    //                   4 278
+    //                   5 294
+    //                   6 112
+    //                   7 389
+    //                   8 405
+    //                   9 112
+    //                   10 139;
            goto _L1 _L2 _L3 _L1 _L4 _L5 _L1 _L6 _L7 _L1 _L8
 _L1:
         throw new IllegalArgumentException((new StringBuilder()).append("Unknown URI ").append(uri).toString());
@@ -477,6 +499,7 @@ _L9:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProvider;-><clinit>()V");
         mUriMatcher = new UriMatcher(-1);
         mUriMatcher.addURI("com.samsung.sec.mtv", "areas", 10);
         mUriMatcher.addURI("com.samsung.sec.mtv", "areas/count", 11);

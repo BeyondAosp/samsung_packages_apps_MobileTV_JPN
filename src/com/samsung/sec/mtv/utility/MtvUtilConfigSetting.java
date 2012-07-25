@@ -7,18 +7,22 @@ package com.samsung.sec.mtv.utility;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 public class MtvUtilConfigSetting
 {
 
     public MtvUtilConfigSetting()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilConfigSetting;-><init>()V");
+        super();
         iTsFileSimul = false;
         iTsCapture = false;
     }
 
     public static float convertDpToPixel(float f, Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilConfigSetting;->convertDpToPixel(FLandroid/content/Context;)F");
         return f * ((float)context.getResources().getDisplayMetrics().densityDpi / 160F);
     }
 
@@ -26,4 +30,8 @@ public class MtvUtilConfigSetting
     public boolean iTsCapture;
     public boolean iTsFileSimul;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilConfigSetting;-><clinit>()V");
+    }
 }

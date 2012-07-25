@@ -6,6 +6,7 @@ package com.samsung.sec.mtv.ui.common;
 
 import android.app.*;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,10 +17,13 @@ public class MtvUiMemInfoFrag extends DialogFragment
 
     public MtvUiMemInfoFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMemInfoFrag;-><init>()V");
+        super();
     }
 
     private Dialog buildDialog(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMemInfoFrag;->buildDialog(Landroid/view/View;)Landroid/app/Dialog;");
         AlertDialog alertdialog = (new android.app.AlertDialog.Builder(getActivity())).setTitle(0x7f07028b).setView(view).setNegativeButton(0x7f070034, new _cls1()).create();
         alertdialog.requestWindowFeature(1);
         alertdialog.getWindow().setFlags(1024, 1024);
@@ -28,6 +32,7 @@ public class MtvUiMemInfoFrag extends DialogFragment
 
     private View constructDetails()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMemInfoFrag;->constructDetails()Landroid/view/View;");
         LinearLayout linearlayout = (LinearLayout)getActivity().getLayoutInflater().inflate(0x7f030032, null);
         ((TextView)linearlayout.findViewById(0x7f0a0126)).setText((new StringBuilder()).append(getString(0x7f0700b4)).append(" :").toString());
         ((TextView)linearlayout.findViewById(0x7f0a0127)).setText(getString(0x7f0700e9));
@@ -50,6 +55,7 @@ public class MtvUiMemInfoFrag extends DialogFragment
 
     private String formatRemainTime(long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMemInfoFrag;->formatRemainTime(J)Ljava/lang/String;");
         String s1;
         if(l < 1L)
         {
@@ -96,6 +102,7 @@ public class MtvUiMemInfoFrag extends DialogFragment
 
     public Dialog onCreateDialog(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMemInfoFrag;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
         return buildDialog(constructDetails());
     }
 
@@ -105,6 +112,7 @@ public class MtvUiMemInfoFrag extends DialogFragment
 
         public void onClick(DialogInterface dialoginterface, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMemInfoFrag$1;->onClick(Landroid/content/DialogInterface;I)V");
             dismiss();
         }
 
@@ -112,6 +120,7 @@ public class MtvUiMemInfoFrag extends DialogFragment
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMemInfoFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiMemInfoFrag;)V");
             this$0 = MtvUiMemInfoFrag.this;
             super();
         }

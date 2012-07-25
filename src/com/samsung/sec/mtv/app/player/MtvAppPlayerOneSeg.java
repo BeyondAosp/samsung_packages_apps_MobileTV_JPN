@@ -15,6 +15,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.*;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 import com.samsung.sec.mtv.app.context.*;
 
 // Referenced classes of package com.samsung.sec.mtv.app.player:
@@ -36,11 +37,30 @@ public class MtvAppPlayerOneSeg
         final MtvAppPlayerOneSeg this$0;
 
 
+/*
+        static Context access$100(MtvAppPlayerPendingParams mtvappplayerpendingparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$100(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;)Landroid/content/Context;");
+            return mtvappplayerpendingparams.mAppContext;
+        }
+
+*/
+
+
+/*
+        static MtvURI access$1000(MtvAppPlayerPendingParams mtvappplayerpendingparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$1000(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;)Landroid/broadcast/helper/MtvURI;");
+            return mtvappplayerpendingparams.mNewURI;
+        }
+
+*/
 
 
 /*
         static MtvURI access$1002(MtvAppPlayerPendingParams mtvappplayerpendingparams, MtvURI mtvuri)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$1002(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;Landroid/broadcast/helper/MtvURI;)Landroid/broadcast/helper/MtvURI;");
             mtvappplayerpendingparams.mNewURI = mtvuri;
             return mtvuri;
         }
@@ -51,6 +71,7 @@ public class MtvAppPlayerOneSeg
 /*
         static Context access$102(MtvAppPlayerPendingParams mtvappplayerpendingparams, Context context)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$102(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;Landroid/content/Context;)Landroid/content/Context;");
             mtvappplayerpendingparams.mAppContext = context;
             return context;
         }
@@ -58,10 +79,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static int access$2000(MtvAppPlayerPendingParams mtvappplayerpendingparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$2000(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;)I");
+            return mtvappplayerpendingparams.mPendingCmd;
+        }
+
+*/
+
 
 /*
         static int access$2002(MtvAppPlayerPendingParams mtvappplayerpendingparams, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$2002(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;I)I");
             mtvappplayerpendingparams.mPendingCmd = i;
             return i;
         }
@@ -69,10 +100,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static boolean access$2300(MtvAppPlayerPendingParams mtvappplayerpendingparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$2300(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;)Z");
+            return mtvappplayerpendingparams.mcmdServiced;
+        }
+
+*/
+
 
 /*
         static boolean access$2302(MtvAppPlayerPendingParams mtvappplayerpendingparams, boolean flag)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$2302(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;Z)Z");
             mtvappplayerpendingparams.mcmdServiced = flag;
             return flag;
         }
@@ -80,10 +121,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static int access$2400(MtvAppPlayerPendingParams mtvappplayerpendingparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$2400(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;)I");
+            return mtvappplayerpendingparams.mCmdStatus;
+        }
+
+*/
+
 
 /*
         static int access$2402(MtvAppPlayerPendingParams mtvappplayerpendingparams, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$2402(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;I)I");
             mtvappplayerpendingparams.mCmdStatus = i;
             return i;
         }
@@ -91,10 +142,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static int access$2500(MtvAppPlayerPendingParams mtvappplayerpendingparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$2500(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;)I");
+            return mtvappplayerpendingparams.mCmdExtraInfo;
+        }
+
+*/
+
 
 /*
         static int access$2502(MtvAppPlayerPendingParams mtvappplayerpendingparams, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$2502(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;I)I");
             mtvappplayerpendingparams.mCmdExtraInfo = i;
             return i;
         }
@@ -102,10 +163,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static MtvAppPlaybackContext access$400(MtvAppPlayerPendingParams mtvappplayerpendingparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$400(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
+            return mtvappplayerpendingparams.mNewContext;
+        }
+
+*/
+
 
 /*
         static MtvAppPlaybackContext access$402(MtvAppPlayerPendingParams mtvappplayerpendingparams, MtvAppPlaybackContext mtvappplaybackcontext)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;->access$402(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
             mtvappplayerpendingparams.mNewContext = mtvappplaybackcontext;
             return mtvappplaybackcontext;
         }
@@ -114,6 +185,7 @@ public class MtvAppPlayerOneSeg
 
         private MtvAppPlayerPendingParams()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;-><init>(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)V");
             this$0 = MtvAppPlayerOneSeg.this;
             super();
             mcmdServiced = false;
@@ -125,6 +197,11 @@ public class MtvAppPlayerOneSeg
             mNewContext = null;
         }
 
+        MtvAppPlayerPendingParams(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;-><init>(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$1;)V");
+            this();
+        }
     }
 
     private class MtvAppPlayerSeekParams
@@ -138,10 +215,20 @@ public class MtvAppPlayerOneSeg
         final MtvAppPlayerOneSeg this$0;
 
 
+/*
+        static int access$2600(MtvAppPlayerSeekParams mtvappplayerseekparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$2600(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;)I");
+            return mtvappplayerseekparams.mTrickMode;
+        }
+
+*/
+
 
 /*
         static int access$2602(MtvAppPlayerSeekParams mtvappplayerseekparams, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$2602(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;I)I");
             mtvappplayerseekparams.mTrickMode = i;
             return i;
         }
@@ -149,10 +236,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static int access$2700(MtvAppPlayerSeekParams mtvappplayerseekparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$2700(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;)I");
+            return mtvappplayerseekparams.mCurTimeStamp;
+        }
+
+*/
+
 
 /*
         static int access$2702(MtvAppPlayerSeekParams mtvappplayerseekparams, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$2702(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;I)I");
             mtvappplayerseekparams.mCurTimeStamp = i;
             return i;
         }
@@ -160,10 +257,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static boolean access$2900(MtvAppPlayerSeekParams mtvappplayerseekparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$2900(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;)Z");
+            return mtvappplayerseekparams.mSeekFail;
+        }
+
+*/
+
 
 /*
         static boolean access$2902(MtvAppPlayerSeekParams mtvappplayerseekparams, boolean flag)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$2902(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;Z)Z");
             mtvappplayerseekparams.mSeekFail = flag;
             return flag;
         }
@@ -171,10 +278,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static int access$3000(MtvAppPlayerSeekParams mtvappplayerseekparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$3000(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;)I");
+            return mtvappplayerseekparams.mSeekStatus;
+        }
+
+*/
+
 
 /*
         static int access$3002(MtvAppPlayerSeekParams mtvappplayerseekparams, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$3002(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;I)I");
             mtvappplayerseekparams.mSeekStatus = i;
             return i;
         }
@@ -182,10 +299,20 @@ public class MtvAppPlayerOneSeg
 */
 
 
+/*
+        static int access$3100(MtvAppPlayerSeekParams mtvappplayerseekparams)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$3100(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;)I");
+            return mtvappplayerseekparams.mSeekedTimeStamp;
+        }
+
+*/
+
 
 /*
         static int access$3102(MtvAppPlayerSeekParams mtvappplayerseekparams, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;->access$3102(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;I)I");
             mtvappplayerseekparams.mSeekedTimeStamp = i;
             return i;
         }
@@ -194,6 +321,7 @@ public class MtvAppPlayerOneSeg
 
         private MtvAppPlayerSeekParams()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;-><init>(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)V");
             this$0 = MtvAppPlayerOneSeg.this;
             super();
             mCurTimeStamp = 0;
@@ -203,11 +331,18 @@ public class MtvAppPlayerOneSeg
             mSeekedTimeStamp = 0;
         }
 
+        MtvAppPlayerSeekParams(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerSeekParams;-><init>(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$1;)V");
+            this();
+        }
     }
 
 
     private MtvAppPlayerOneSeg()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;-><init>()V");
+        super();
         mPlayerHdlr = null;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Constructor Called");
         HandlerThread handlerthread = new HandlerThread("MtvAppPlayerOneSeg");
@@ -220,6 +355,7 @@ public class MtvAppPlayerOneSeg
 
     private void flushPlayerThreadMsg()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->flushPlayerThreadMsg()V");
         if(mPlayerHdlr != null)
         {
             for(int i = 20480; i < 20496; i++)
@@ -236,6 +372,7 @@ public class MtvAppPlayerOneSeg
 
     public static IMtvAppPlayerOneSeg getInstance()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->getInstance()Lcom/samsung/sec/mtv/app/player/IMtvAppPlayerOneSeg;");
         if(mPlayer == null)
         {
             MtvUtilDebug.Low("MtvAppPlayerOneSeg", "PlayerOneSeg Instance is null, Instantiating the constructor");
@@ -246,19 +383,21 @@ public class MtvAppPlayerOneSeg
 
     private boolean getPendingOpStatus()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->getPendingOpStatus()Z");
         return mOpStatus;
     }
 
     private void handleBuffering(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handleBuffering(III)V");
         if(mCurContext == null)
-            break MISSING_BLOCK_LABEL_106;
+            break MISSING_BLOCK_LABEL_114;
         MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Buffering Status [").append(j).append("]").toString());
         j;
-        JVM INSTR tableswitch 204 206: default 64
-    //                   204 77
-    //                   205 84
-    //                   206 91;
+        JVM INSTR tableswitch 204 206: default 72
+    //                   204 85
+    //                   205 92
+    //                   206 99;
            goto _L1 _L2 _L3 _L4
 _L1:
         mCurContext.getState().triggerNotification(i, j, k);
@@ -280,7 +419,9 @@ _L4:
 
     private boolean handleClose(boolean flag)
     {
-        boolean flag1 = true;
+        boolean flag1;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handleClose(Z)Z");
+        flag1 = true;
         if(mCurContext == null || mPendingParam == null) goto _L2; else goto _L1
 _L1:
         if(flag != flag1) goto _L4; else goto _L3
@@ -295,7 +436,7 @@ _L8:
         if(!flag2)
         {
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Successfully closed the playback session ");
-            mPendingParam.mcmdServiced = false;
+            Log.d(mPendingParam, 0);
             mCurContext.getAttribute().reset();
             mCurContext.getComponents().getCaption().reset();
             setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED, 20494, 24581, 0, flag1);
@@ -318,13 +459,15 @@ _L7:
 
     private boolean handleLocalPlayback(int i, int j, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, int k)
     {
-        int l = mCurContext.getState().getOp();
+        int l;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handleLocalPlayback(IILcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;I)Z");
+        l = mCurContext.getState().getOp();
         l;
-        JVM INSTR tableswitch 20489 20492: default 44
-    //                   20489 78
-    //                   20490 78
-    //                   20491 195
-    //                   20492 195;
+        JVM INSTR tableswitch 20489 20492: default 52
+    //                   20489 86
+    //                   20490 86
+    //                   20491 203
+    //                   20492 203;
            goto _L1 _L2 _L2 _L3 _L3
 _L1:
         MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Invalid Command [").append(l).append("]. Failure in handling commands in local playback").toString());
@@ -343,13 +486,14 @@ _L2:
         }
         continue; /* Loop/switch isn't completed */
 _L3:
-        handleSeek(l, j, mSeekParam.mTrickMode, mSeekParam.mCurTimeStamp, i, k);
+        handleSeek(l, j, Log.d(mSeekParam), Log.d(mSeekParam), i, k);
         if(true) goto _L5; else goto _L4
 _L4:
     }
 
     private void handleLowSignal(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handleLowSignal(Z)V");
         if(mPlayerHdlr != null)
         {
             if(flag)
@@ -371,14 +515,15 @@ _L4:
     {
         boolean flag;
         boolean flag1;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handleNewCommand(IIILcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Landroid/broadcast/helper/MtvURI;Landroid/content/Context;)Z");
         flag = false;
         flag1 = false;
         if(mCurContext == null) goto _L2; else goto _L1
 _L1:
         if(mCurContext.getState().getOp() != 20480) goto _L4; else goto _L3
 _L3:
-        if(mPendingParam.mNewURI != null)
-            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Already one session [URI: ").append(mPendingParam.mNewURI).append("] [chnl Num: ").append(mPendingParam.mNewURI.chnlNum()).append("] [fileIndex: ").append(mPendingParam.mNewURI.fileIndex()).append("] is going on, Got a request for session change:: Posting CLOSE_CMD to end the current session").toString());
+        if(Log.d(mPendingParam) != null)
+            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Already one session [URI: ").append(Log.d(mPendingParam)).append("] [chnl Num: ").append(Log.d(mPendingParam).chnlNum()).append("] [fileIndex: ").append(Log.d(mPendingParam).fileIndex()).append("] is going on, Got a request for session change:: Posting CLOSE_CMD to end the current session").toString());
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", (new StringBuilder()).append("Setting the pending operation as cmd [").append(i).append("] ").toString());
         flag = setPendingOperation(false, i, 0, 0, mtvappplaybackcontext, context, mtvuri);
         if(!flag) goto _L6; else goto _L5
@@ -416,8 +561,8 @@ _L4:
             }
         } else
         {
-            if(mPendingParam.mNewURI != null)
-                MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Current Session is in the middle. CurCmd[").append(mCurContext.getState().getOp()).append("] URI [").append(mPendingParam.mNewURI).append("] ChnlNum [").append(mPendingParam.mNewURI.chnlNum()).append("] [fileIndex: ").append(mPendingParam.mNewURI.fileIndex()).append("]").toString());
+            if(Log.d(mPendingParam) != null)
+                MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Current Session is in the middle. CurCmd[").append(mCurContext.getState().getOp()).append("] URI [").append(Log.d(mPendingParam)).append("] ChnlNum [").append(Log.d(mPendingParam).chnlNum()).append("] [fileIndex: ").append(Log.d(mPendingParam).fileIndex()).append("]").toString());
             MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Cannot issue CLOSE immediately.. Setting Pending CMD [").append(i).append("] with appropriate parameters").toString());
             if(i != 20486)
                 flag1 = true;
@@ -429,29 +574,30 @@ _L9:
 
     private boolean handlePendingCommand(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handlePendingCommand(I)Z");
         boolean flag = false;
         if(mCurContext != null)
         {
             int j = mCurContext.getState().getOp();
-            if(mPendingParam != null && mPendingParam.mPendingCmd != 0)
+            if(mPendingParam != null && Log.d(mPendingParam) != 0)
             {
                 if(j == i)
                 {
-                    if(!mPendingParam.mcmdServiced)
+                    if(!Log.d(mPendingParam))
                     {
-                        MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Pending CMD [").append(mPendingParam.mPendingCmd).append("] will be serviced now").toString());
+                        MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Pending CMD [").append(Log.d(mPendingParam)).append("] will be serviced now").toString());
                         setPendingOpStatus(true);
-                        if(mPendingParam.mNewContext != null && mPendingParam.mNewContext != mCurContext)
+                        if(Log.d(mPendingParam) != null && Log.d(mPendingParam) != mCurContext)
                         {
                             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Context Differs -- Setting the NewContext and henceforth all the CBs will be triggered to the new context ");
-                            mCurContext = mPendingParam.mNewContext;
+                            mCurContext = Log.d(mPendingParam);
                             mCurContext.getState().setState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED);
                             MtvAppPlaybackContextManager.getInstance().setCurrentContext(mCurContext);
                         }
-                        sendPlayerThreadMsg(mPendingParam.mPendingCmd, mPendingParam.mCmdStatus, mPendingParam.mCmdExtraInfo, null);
-                        mPendingParam.mCmdExtraInfo = 0;
-                        mPendingParam.mCmdStatus = 0;
-                        mPendingParam.mPendingCmd = 0;
+                        sendPlayerThreadMsg(Log.d(mPendingParam), Log.d(mPendingParam), Log.d(mPendingParam), null);
+                        Log.d(mPendingParam, 0);
+                        Log.d(mPendingParam, 0);
+                        Log.d(mPendingParam, 0);
                     } else
                     {
                         MtvUtilDebug.High("MtvAppPlayerOneSeg", "Closing the current on-going session");
@@ -478,6 +624,7 @@ _L9:
 
     private void handleRetryChnlSearch(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handleRetryChnlSearch(Z)V");
         if(mPlayerHdlr != null)
         {
             if(flag)
@@ -488,7 +635,7 @@ _L9:
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Retry Cnt [").append(mRetryCnt).append("].. Max times searched, Got Fedup - Leave it Yaar - Why do you want to play TV when there is no Siganl!!!").toString());
                     mPlayerHdlr.removeCallbacks(mRetryChnlSearch);
                     mRetryCnt = 0;
-                    setContextParams(20480, 20482, 24580, mPendingParam.mNewURI.chnlNum(), true);
+                    setContextParams(20480, 20482, 24580, Log.d(mPendingParam).chnlNum(), true);
                 } else
                 {
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Retry Cnt [").append(mRetryCnt).append("].. Retrying for Channel:: Sleeping for 5sec").toString());
@@ -509,16 +656,18 @@ _L9:
 
     private boolean handleSeek(int i, int j, int k, int l, int i1, int j1)
     {
-        char c = '\u6004';
+        char c;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handleSeek(IIIIII)Z");
+        c = '\u6004';
         if(mCurContext == null) goto _L2; else goto _L1
 _L1:
         i1;
-        JVM INSTR lookupswitch 5: default 64
-    //                   0: 165
-    //                   1: 231
-    //                   16: 463
-    //                   256: 570
-    //                   4096: 552;
+        JVM INSTR lookupswitch 5: default 72
+    //                   0: 173
+    //                   1: 239
+    //                   16: 473
+    //                   256: 580
+    //                   4096: 562;
            goto _L3 _L4 _L5 _L6 _L7 _L8
 _L3:
         MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Invalid seek status [").append(i1).append("]. Failure in Seek(), Don't know which event to send!!! ").toString());
@@ -552,9 +701,9 @@ _L4:
             mSeekParam = new MtvAppPlayerSeekParams();
             if(mSeekParam != null)
             {
-                mSeekParam.mCurTimeStamp = l;
-                mSeekParam.mTrickMode = k;
-                mSeekParam.mSeekFail = false;
+                Log.d(mSeekParam, l);
+                Log.d(mSeekParam, k);
+                Log.d(mSeekParam, 0);
             }
         }
         if(mOneSegServ == null) goto _L10; else goto _L9
@@ -570,15 +719,15 @@ _L12:
 _L13:
         if(i == 20491)
         {
-            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("SEEK - Calling Trickmode with Mode [").append(mSeekParam.mTrickMode).append("] newTimeStamp [").append(mSeekParam.mCurTimeStamp).append("]").toString());
-            if(mSeekParam.mTrickMode == 0)
-                mSeekParam.mSeekStatus = 4096;
-            flag1 = mOneSegServ.trickmodePlay(mSeekParam.mTrickMode, mSeekParam.mCurTimeStamp);
+            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("SEEK - Calling Trickmode with Mode [").append(Log.d(mSeekParam)).append("] newTimeStamp [").append(Log.d(mSeekParam)).append("]").toString());
+            if(Log.d(mSeekParam) == 0)
+                Log.d(mSeekParam, 4096);
+            flag1 = mOneSegServ.trickmodePlay(Log.d(mSeekParam), Log.d(mSeekParam));
         } else
         if(i == 20492)
         {
-            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("SEEK - Calling Reposition with newTimeStamp [").append(mSeekParam.mCurTimeStamp).append("]").toString());
-            flag1 = mOneSegServ.repositionPlay(mSeekParam.mCurTimeStamp);
+            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("SEEK - Calling Reposition with newTimeStamp [").append(Log.d(mSeekParam)).append("]").toString());
+            flag1 = mOneSegServ.repositionPlay(Log.d(mSeekParam));
         } else
         {
             flag1 = false;
@@ -586,7 +735,7 @@ _L13:
         if(!flag1)
         {
             MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Resuming the play as there is failure in seek() operation");
-            mSeekParam.mSeekFail = true;
+            Log.d(mSeekParam, 1);
             if(mOneSegServ != null)
                 flag1 = mOneSegServ.resume();
         }
@@ -596,11 +745,11 @@ _L6:
         {
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "SEEK - SEEK Done");
             if(mSeekParam != null)
-                mSeekParam.mSeekedTimeStamp = j1;
+                Log.d(mSeekParam, j1);
         } else
         {
             MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Failure in [").append(i).append("] session. resuming the playback").toString());
-            mSeekParam.mSeekFail = true;
+            Log.d(mSeekParam, 1);
         }
         if(mOneSegServ == null) goto _L10; else goto _L14
 _L14:
@@ -608,9 +757,9 @@ _L14:
           goto _L11
 _L8:
         MtvUtilDebug.High("MtvAppPlayerOneSeg", "SEEK - got onTrickModeEnd() Callback -- Post the Event now");
-        mSeekParam.mSeekStatus = 4096;
+        Log.d(mSeekParam, 4096);
 _L7:
-        if(mSeekParam.mSeekStatus != 4096)
+        if(Log.d(mSeekParam) != 4096)
         {
             if(j == 201)
             {
@@ -618,19 +767,19 @@ _L7:
                 flag1 = true;
             } else
             {
-                mSeekParam.mSeekFail = true;
-                mSeekParam.mSeekedTimeStamp = 0;
+                Log.d(mSeekParam, 1);
+                Log.d(mSeekParam, 0);
                 flag1 = false;
             }
         } else
         {
             flag1 = true;
         }
-        if(i == 20492 || i == 20491 && mSeekParam.mSeekStatus == 4096)
+        if(i == 20492 || i == 20491 && Log.d(mSeekParam) == 4096)
         {
             if(flag1 && mSeekParam != null)
             {
-                if(!mSeekParam.mSeekFail)
+                if(!Log.d(mSeekParam))
                 {
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Success in [").append(i).append("] for the playback ").toString());
                     c = '\u6005';
@@ -640,12 +789,12 @@ _L7:
                     c = '\u6004';
                 }
                 mCurContext.getState().setOp(20480);
-                setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING, i, c, mSeekParam.mSeekedTimeStamp, true);
+                setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING, i, c, Log.d(mSeekParam), true);
                 mSeekParam = null;
             }
         } else
         {
-            MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Current Command = [").append(i).append("] SeekStatus = [").append(mSeekParam.mSeekStatus).append("]. May be still under processing !!").toString());
+            MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Current Command = [").append(i).append("] SeekStatus = [").append(Log.d(mSeekParam)).append("]. May be still under processing !!").toString());
         }
           goto _L11
 _L2:
@@ -656,6 +805,7 @@ _L2:
 
     private void handleSignalUpdate(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->handleSignalUpdate(Z)V");
         if(mPlayerHdlr != null)
         {
             if(flag)
@@ -674,6 +824,7 @@ _L2:
 
     private void resetApp()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->resetApp()V");
         if(mOneSegServ != null)
         {
             mOneSegServ.unregisterListener(this);
@@ -694,6 +845,7 @@ _L2:
 
     private boolean sendPlayerThreadMsg(int i, int j, int k, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->sendPlayerThreadMsg(IIILjava/lang/Object;)Z");
         boolean flag = false;
         if(mPlayerHdlr != null)
         {
@@ -718,6 +870,7 @@ _L2:
 
     private void setContextParams(int i, int j, int k, int l, boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->setContextParams(IIIIZ)V");
         if(mCurContext != null)
         {
             mCurContext.getState().setOp(i);
@@ -727,6 +880,7 @@ _L2:
 
     private void setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, int i, int j, int k, boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->setContextState(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;IIIZ)V");
         if(mCurContext != null)
         {
             mCurContext.getState().setState(state);
@@ -736,33 +890,36 @@ _L2:
 
     private void setPendingOpStatus(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->setPendingOpStatus(Z)V");
         mOpStatus = flag;
     }
 
     private boolean setPendingOperation(boolean flag, int i, int j, int k, MtvAppPlaybackContext mtvappplaybackcontext, Context context, MtvURI mtvuri)
     {
         boolean flag1;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->setPendingOperation(ZIIILcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Landroid/content/Context;Landroid/broadcast/helper/MtvURI;)Z");
         flag1 = false;
         if(mPendingParam == null)
-            break MISSING_BLOCK_LABEL_94;
+            break MISSING_BLOCK_LABEL_103;
         MtvAppPlayerPendingParams mtvappplayerpendingparams = mPendingParam;
         mtvappplayerpendingparams;
         JVM INSTR monitorenter ;
-        mPendingParam.mcmdServiced = flag;
-        mPendingParam.mPendingCmd = i;
-        mPendingParam.mCmdStatus = j;
-        mPendingParam.mCmdExtraInfo = k;
-        mPendingParam.mNewContext = mtvappplaybackcontext;
-        mPendingParam.mAppContext = context;
-        mPendingParam.mNewURI = mtvuri;
+        Log.d(mPendingParam, flag);
+        Log.d(mPendingParam, i);
+        Log.d(mPendingParam, j);
+        Log.d(mPendingParam, k);
+        Log.d(mPendingParam, mtvappplaybackcontext);
+        Log.d(mPendingParam, context);
+        Log.d(mPendingParam, mtvuri);
         flag1 = true;
-        break MISSING_BLOCK_LABEL_102;
+        break MISSING_BLOCK_LABEL_111;
         MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Invalid Handler:: Cannot Store parameters for next session -- Cannot continue operation");
         return flag1;
     }
 
     public boolean cancelRecord(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->cancelRecord(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered cancelRecord()");
@@ -784,6 +941,7 @@ _L2:
 
     public boolean cancelScanChannels(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->cancelScanChannels(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered cancelScanChannels()");
@@ -809,6 +967,7 @@ _L2:
 
     public boolean captFrame(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->captFrame(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered captFrame()");
@@ -835,6 +994,7 @@ _L2:
 
     public boolean create(MtvAppPlaybackContext mtvappplaybackcontext, Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->create(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Landroid/content/Context;)Z");
         boolean flag = false;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered create()");
         if(mCurContext == null)
@@ -888,6 +1048,7 @@ _L2:
 
     public void delete(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->delete(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)V");
         boolean flag = false;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered delete()");
         if(mtvappplaybackcontext != null && mCurContext == mtvappplaybackcontext)
@@ -912,6 +1073,7 @@ _L2:
 
     public boolean deleteTVFile(MtvAppPlaybackContext mtvappplaybackcontext, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->deleteTVFile(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;I)Z");
         boolean flag = false;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered deleteTVFile()");
         if(mtvappplaybackcontext != null && mCurContext == mtvappplaybackcontext)
@@ -924,12 +1086,14 @@ _L2:
 
     public void onServiceNotify(int i, int j, int k, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->onServiceNotify(IIILjava/lang/Object;)V");
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", (new StringBuilder()).append("Got Callback from backend, command [").append(i).append("], status [").append(j).append("]").toString());
         sendPlayerThreadMsg(i, j, k, obj);
     }
 
     public boolean open(MtvAppPlaybackContext mtvappplaybackcontext, MtvURI mtvuri)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->open(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Landroid/broadcast/helper/MtvURI;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered open()");
@@ -945,7 +1109,7 @@ _L2:
                 {
                     if(mPendingParam != null)
                     {
-                        setPendingOperation(false, 0, 0, 0, mCurContext, mPendingParam.mAppContext, mtvuri);
+                        setPendingOperation(false, 0, 0, 0, mCurContext, Log.d(mPendingParam), mtvuri);
                         flag = sendPlayerThreadMsg(20482, 0, 0, null);
                         if(flag)
                             mtvappplaybackcontext.getState().triggerNotification(20482, 24577, 0);
@@ -956,7 +1120,7 @@ _L2:
                 } else
                 {
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Already one session is going on curState [").append(state).append("] curCmd [").append(i).append("] -- Checking whether the new command [OPEN] [newChnl: ").append(mtvuri.chnlNum()).append("]  [new fileIndex: ").append(mtvuri.fileIndex()).append("] can be serviced or not").toString());
-                    flag = handleNewCommand(20482, 0, 0, mtvappplaybackcontext, mtvuri, mPendingParam.mAppContext);
+                    flag = handleNewCommand(20482, 0, 0, mtvappplaybackcontext, mtvuri, Log.d(mPendingParam));
                 }
             } else
             {
@@ -974,6 +1138,7 @@ _L2:
 
     public boolean open(MtvAppPlaybackContext mtvappplaybackcontext, MtvURI mtvuri, Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->open(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Landroid/broadcast/helper/MtvURI;Landroid/content/Context;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered open()");
@@ -1018,6 +1183,7 @@ _L2:
 
     public boolean pause(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->pause(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered pause()");
@@ -1044,6 +1210,7 @@ _L2:
 
     public boolean reposition(MtvAppPlaybackContext mtvappplaybackcontext, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->reposition(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;I)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", (new StringBuilder()).append("Entered reposition() rePositionTimeStamp [").append(i).append("]").toString());
@@ -1070,6 +1237,7 @@ _L2:
 
     public boolean resume(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->resume(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered resume()");
@@ -1096,6 +1264,7 @@ _L2:
 
     public boolean scanChannels(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->scanChannels(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered scanChannels()");
@@ -1123,6 +1292,7 @@ _L2:
 
     public boolean startRecord(MtvAppPlaybackContext mtvappplaybackcontext, String s, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->startRecord(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Ljava/lang/String;I)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered startRecord()");
@@ -1155,6 +1325,7 @@ _L2:
 
     public boolean startTVLink(MtvAppPlaybackContext mtvappplaybackcontext, MtvOneSegTVLink mtvonesegtvlink, Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->startTVLink(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Landroid/broadcast/helper/types/MtvOneSegTVLink;Landroid/content/Context;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered startTVLink()");
@@ -1183,6 +1354,7 @@ _L2:
 
     public boolean stopRecord(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->stopRecord(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered stopRecord()");
@@ -1204,6 +1376,7 @@ _L2:
 
     public boolean stopTVLink(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->stopTVLink(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered stopTVLink()");
@@ -1225,6 +1398,7 @@ _L2:
 
     public boolean trickmode(MtvAppPlaybackContext mtvappplaybackcontext, int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->trickmode(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;II)Z");
         boolean flag = false;
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
         MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Entered trickmode()");
@@ -1262,52 +1436,53 @@ _L2:
 
         public boolean handleMessage(Message message)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$1;->handleMessage(Landroid/os/Message;)Z");
             MtvUtilDebug.Low("MtvAppPlayerOneSeg", (new StringBuilder()).append("Got Command[").append(message.what).append("] in thread").toString());
-            if(MtvAppPlayerOneSeg.mCurContext == null)
-                if(MtvAppPlayerOneSeg.mPendingParam != null)
+            if(Log.d() == null)
+                if(Log.d() != null)
                 {
-                    MtvAppPlayerOneSeg.mCurContext = MtvAppPlayerOneSeg.mPendingParam.mNewContext;
-                    MtvAppPlaybackContextManager.getInstance().setCurrentContext(MtvAppPlayerOneSeg.mCurContext);
+                    Log.d(Log.d(Log.d()));
+                    MtvAppPlaybackContextManager.getInstance().setCurrentContext(Log.d());
                 } else
                 {
                     MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Problem in receiving message, cannot set context:: Cannont continue operation");
                 }
-            if(MtvAppPlayerOneSeg.mCurContext == null) goto _L2; else goto _L1
+            if(Log.d() == null) goto _L2; else goto _L1
 _L1:
             message.what;
-            JVM INSTR lookupswitch 32: default 340
-        //                       16: 1894
-        //                       17: 1866
-        //                       101: 1914
-        //                       102: 2042
-        //                       103: 2652
-        //                       105: 2762
-        //                       106: 2815
-        //                       107: 3009
-        //                       108: 3220
-        //                       109: 3718
-        //                       110: 3738
-        //                       111: 3796
-        //                       112: 3898
-        //                       113: 3258
-        //                       114: 2377
-        //                       115: 3955
-        //                       116: 4021
-        //                       117: 4089
-        //                       118: 4101
-        //                       20481: 384
-        //                       20482: 525
-        //                       20485: 1071
-        //                       20486: 1181
-        //                       20487: 877
-        //                       20488: 817
-        //                       20489: 1284
-        //                       20490: 1347
-        //                       20491: 1410
-        //                       20492: 1456
-        //                       20493: 1524
-        //                       20494: 1669
-        //                       20495: 1701;
+            JVM INSTR lookupswitch 32: default 348
+        //                       16: 1906
+        //                       17: 1878
+        //                       101: 1926
+        //                       102: 2054
+        //                       103: 2664
+        //                       105: 2774
+        //                       106: 2827
+        //                       107: 3021
+        //                       108: 3232
+        //                       109: 3730
+        //                       110: 3750
+        //                       111: 3808
+        //                       112: 3910
+        //                       113: 3270
+        //                       114: 2389
+        //                       115: 3967
+        //                       116: 4033
+        //                       117: 4101
+        //                       118: 4113
+        //                       20481: 392
+        //                       20482: 533
+        //                       20485: 1082
+        //                       20486: 1192
+        //                       20487: 885
+        //                       20488: 825
+        //                       20489: 1295
+        //                       20490: 1358
+        //                       20491: 1421
+        //                       20492: 1467
+        //                       20493: 1535
+        //                       20494: 1681
+        //                       20495: 1713;
                goto _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L23 _L24 _L25 _L26 _L27 _L28 _L29 _L30 _L31 _L32 _L33 _L34 _L35
 _L3:
             MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Unknown Command [").append(message.what).append("] Ignoring...").toString());
@@ -1316,102 +1491,102 @@ _L56:
 _L23:
             boolean flag10 = false;
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Create Operation Started");
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20481);
-            if(getPendingOpStatus())
+            Log.d().getState().setOp(20481);
+            if(Log.d(MtvAppPlayerOneSeg.this))
             {
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20481, 24577, 0);
-                setPendingOpStatus(false);
+                Log.d().getState().triggerNotification(20481, 24577, 0);
+                Log.d(MtvAppPlayerOneSeg.this, 0);
             }
-            MtvAppPlayerOneSeg.mOneSegServ = MtvOneSegFactory.getService();
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
+            Log.d(MtvOneSegFactory.getService());
+            if(Log.d() != null)
             {
-                flag10 = MtvAppPlayerOneSeg.mOneSegServ.registerListener(MtvAppPlayerOneSeg.this);
-                if(flag10 && MtvAppPlayerOneSeg.mPendingParam != null)
-                    flag10 = MtvAppPlayerOneSeg.mOneSegServ.create(MtvAppPlayerOneSeg.mPendingParam.mAppContext);
+                flag10 = Log.d().registerListener(MtvAppPlayerOneSeg.this);
+                if(flag10 && Log.d() != null)
+                    flag10 = Log.d().create(Log.d(Log.d()));
             }
             if(!flag10)
             {
-                setContextParams(20480, 20481, 24580, 0, true);
-                resetApp();
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20481, 24580, 0, 1);
+                Log.d(MtvAppPlayerOneSeg.this);
             }
             continue; /* Loop/switch isn't completed */
 _L24:
             boolean flag9 = false;
-            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Open Operation Started ChnlNum [").append(MtvAppPlayerOneSeg.mPendingParam.mNewURI.chnlNum()).append("] fileIndex [").append(MtvAppPlayerOneSeg.mPendingParam.mNewURI.fileIndex()).append("]").toString());
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20482);
-            if(getPendingOpStatus())
+            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Open Operation Started ChnlNum [").append(Log.d(Log.d()).chnlNum()).append("] fileIndex [").append(Log.d(Log.d()).fileIndex()).append("]").toString());
+            Log.d().getState().setOp(20482);
+            if(Log.d(MtvAppPlayerOneSeg.this))
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "Posting OPEN_START to UiPlayer ");
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20482, 24577, 0);
-                setPendingOpStatus(false);
+                Log.d().getState().triggerNotification(20482, 24577, 0);
+                Log.d(MtvAppPlayerOneSeg.this, 0);
             }
-            if(MtvAppPlayerOneSeg.mOneSegServ != null && MtvAppPlayerOneSeg.mPendingParam != null)
+            if(Log.d() != null && Log.d() != null)
             {
-                if(MtvAppPlayerOneSeg.mPendingParam.mNewURI.pbType() == 2 || MtvAppPlayerOneSeg.mPendingParam.mNewURI.pbType() == 4)
+                if(Log.d(Log.d()).pbType() == 2 || Log.d(Log.d()).pbType() == 4)
                 {
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", "As it is live/testmode, starting SignalQty Runnable ");
-                    handleSignalUpdate(true);
+                    Log.d(MtvAppPlayerOneSeg.this, 1);
                 }
-                if(MtvAppPlayerOneSeg.mCurContext.getComponents() != null)
+                if(Log.d().getComponents() != null)
                 {
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", "Enabling Captions ");
-                    if(MtvAppPlayerOneSeg.mCurContext.getComponents().getCaption() != null)
+                    if(Log.d().getComponents().getCaption() != null)
                     {
-                        MtvAppPlayerOneSeg.mCurContext.getComponents().getCaption().setControlInterface(MtvOneSegFactory.getCaptionControl());
-                        MtvAppPlayerOneSeg.mCurContext.getComponents().getCaption().enable();
+                        Log.d().getComponents().getCaption().setControlInterface(MtvOneSegFactory.getCaptionControl());
+                        Log.d().getComponents().getCaption().enable();
                     }
                 }
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "Calling OneSegService.Open() ");
-                flag9 = MtvAppPlayerOneSeg.mOneSegServ.open(MtvAppPlayerOneSeg.mPendingParam.mNewURI);
+                flag9 = Log.d().open(Log.d(Log.d()));
             } else
-            if(MtvAppPlayerOneSeg.mPendingParam == null)
+            if(Log.d() == null)
                 MtvUtilDebug.Error("MtvAppPlayerOneSeg", "OpenURI is not set -- Cannot start playback session");
             else
                 MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Invalid Handler: OneSegServiceHdl - null. Cannot start playback session");
             if(!flag9)
-                setContextParams(20480, 20482, 24580, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20482, 24580, 0, 1);
             continue; /* Loop/switch isn't completed */
 _L28:
             boolean flag8 = false;
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "CAPTURE Operation Started");
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20488);
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
-                flag8 = MtvAppPlayerOneSeg.mOneSegServ.captureFrame();
+            Log.d().getState().setOp(20488);
+            if(Log.d() != null)
+                flag8 = Log.d().captureFrame();
             if(!flag8)
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20488, 24580, 0);
+                Log.d().getState().triggerNotification(20488, 24580, 0);
             continue; /* Loop/switch isn't completed */
 _L27:
             boolean flag7;
             flag7 = false;
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20487);
-            if(MtvAppPlayerOneSeg.mOneSegServ == null) goto _L37; else goto _L36
+            Log.d().getState().setOp(20487);
+            if(Log.d() == null) goto _L37; else goto _L36
 _L36:
             message.arg1;
-            JVM INSTR tableswitch 1 3: default 928
-        //                       1 996
-        //                       2 1025
-        //                       3 1043;
+            JVM INSTR tableswitch 1 3: default 936
+        //                       1 1004
+        //                       2 1033
+        //                       3 1052;
                goto _L38 _L39 _L40 _L41
 _L38:
             MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Invalid Status [").append(message.arg1).append("] with REC Command. Cannot service it").toString());
 _L42:
             if(!flag7)
             {
-                MtvAppPlayerOneSeg.mCurContext.getState().setOp(20480);
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20487, 24580, 0);
+                Log.d().getState().setOp(20480);
+                Log.d().getState().triggerNotification(20487, 24580, 0);
             }
             continue; /* Loop/switch isn't completed */
 _L39:
             MtvUtilDebug.Low("MtvAppPlayerOneSeg", "startRecord() Operation Started");
-            flag7 = MtvAppPlayerOneSeg.mOneSegServ.startRecord((String)message.obj, message.arg2);
+            flag7 = Log.d().startRecord((String)message.obj, message.arg2);
             continue; /* Loop/switch isn't completed */
 _L40:
             MtvUtilDebug.Low("MtvAppPlayerOneSeg", "cancelRecord() Operation Started");
-            flag7 = MtvAppPlayerOneSeg.mOneSegServ.cancelRecord();
+            flag7 = Log.d().cancelRecord();
             continue; /* Loop/switch isn't completed */
 _L41:
             MtvUtilDebug.Low("MtvAppPlayerOneSeg", "stopRecord() Operation Started");
-            flag7 = MtvAppPlayerOneSeg.mOneSegServ.stopRecord();
+            flag7 = Log.d().stopRecord();
             continue; /* Loop/switch isn't completed */
 _L37:
             MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Invalid Service Handle. Cannot Continue Recording");
@@ -1419,141 +1594,141 @@ _L37:
 _L25:
             boolean flag6 = false;
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "SCAN Operation Started");
-            MtvAppPlayerOneSeg.mCurContext.getState().setState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED);
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20485);
-            if(getPendingOpStatus())
+            Log.d().getState().setState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED);
+            Log.d().getState().setOp(20485);
+            if(Log.d(MtvAppPlayerOneSeg.this))
             {
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20485, 24577, 0);
-                setPendingOpStatus(false);
+                Log.d().getState().triggerNotification(20485, 24577, 0);
+                Log.d(MtvAppPlayerOneSeg.this, 0);
             }
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
-                flag6 = MtvAppPlayerOneSeg.mOneSegServ.scanChannels();
+            if(Log.d() != null)
+                flag6 = Log.d().scanChannels();
             if(!flag6)
-                setContextParams(20480, 20485, 24580, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20485, 24580, 0, 1);
             continue; /* Loop/switch isn't completed */
 _L26:
             boolean flag5 = false;
-            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("CANCEL SCAN Operation Started LastSetScanned Chnl [").append(MtvAppPlayerOneSeg.mCurContext.getAttribute().getLastScannedChannel()).append("]").toString());
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20486);
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
-                flag5 = MtvAppPlayerOneSeg.mOneSegServ.cancelScanChannels();
+            MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("CANCEL SCAN Operation Started LastSetScanned Chnl [").append(Log.d().getAttribute().getLastScannedChannel()).append("]").toString());
+            Log.d().getState().setOp(20486);
+            if(Log.d() != null)
+                flag5 = Log.d().cancelScanChannels();
             if(!flag5)
             {
-                MtvAppPlayerOneSeg.mCurContext.getState().setOp(20480);
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20486, 24580, 0);
+                Log.d().getState().setOp(20480);
+                Log.d().getState().triggerNotification(20486, 24580, 0);
             }
             continue; /* Loop/switch isn't completed */
 _L29:
             boolean flag4 = false;
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Pause Operation Started");
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20489);
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
-                flag4 = MtvAppPlayerOneSeg.mOneSegServ.pause();
+            Log.d().getState().setOp(20489);
+            if(Log.d() != null)
+                flag4 = Log.d().pause();
             if(!flag4)
-                setContextParams(20480, 20489, 24580, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20489, 24580, 0, 1);
             continue; /* Loop/switch isn't completed */
 _L30:
             boolean flag3 = false;
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Resume Operation Started");
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20490);
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
-                flag3 = MtvAppPlayerOneSeg.mOneSegServ.resume();
+            Log.d().getState().setOp(20490);
+            if(Log.d() != null)
+                flag3 = Log.d().resume();
             if(!flag3)
-                setContextParams(20480, 20490, 24580, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20490, 24580, 0, 1);
             continue; /* Loop/switch isn't completed */
 _L31:
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "TrcikMode Operation Started");
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20491);
-            handleSeek(message.what, 0, message.arg1, message.arg2, 0, 0);
+            Log.d().getState().setOp(20491);
+            Log.d(MtvAppPlayerOneSeg.this, message.what, 0, message.arg1, message.arg2, 0, 0);
             continue; /* Loop/switch isn't completed */
 _L32:
             MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Reposition Operation Started repositionTimeStamp [").append(message.arg1).append("]").toString());
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20492);
-            handleSeek(message.what, 0, 0, message.arg1, 0, 0);
+            Log.d().getState().setOp(20492);
+            Log.d(MtvAppPlayerOneSeg.this, message.what, 0, 0, message.arg1, 0, 0);
             continue; /* Loop/switch isn't completed */
 _L33:
             boolean flag2 = false;
-            if(MtvAppPlayerOneSeg.mOneSegServ == null) goto _L44; else goto _L43
+            if(Log.d() == null) goto _L44; else goto _L43
 _L43:
             message.arg1;
-            JVM INSTR tableswitch 1 2: default 1560
-        //                       1 1620
-        //                       2 1658;
+            JVM INSTR tableswitch 1 2: default 1572
+        //                       1 1632
+        //                       2 1670;
                goto _L45 _L46 _L47
 _L45:
             MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Invalid command [").append(message.arg1).append("] in TVLink Operation. Failure in TVLInk Operation()").toString());
 _L44:
             if(!flag2)
-                setContextParams(20480, 20493, 24580, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20493, 24580, 0, 1);
             continue; /* Loop/switch isn't completed */
 _L46:
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "TVLink Operation Started ");
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20493);
-            flag2 = MtvAppPlayerOneSeg.mOneSegServ.startTVLink((MtvOneSegTVLink)message.obj);
+            Log.d().getState().setOp(20493);
+            flag2 = Log.d().startTVLink((MtvOneSegTVLink)message.obj);
             continue; /* Loop/switch isn't completed */
 _L47:
-            flag2 = MtvAppPlayerOneSeg.mOneSegServ.stopTVLink();
+            flag2 = Log.d().stopTVLink();
             if(true) goto _L44; else goto _L34
 _L34:
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Close Operation Started");
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20494);
-            handleClose(true);
+            Log.d().getState().setOp(20494);
+            Log.d(MtvAppPlayerOneSeg.this, 1);
             continue; /* Loop/switch isn't completed */
 _L35:
             boolean flag1;
             flag1 = false;
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Delete Operation Started");
-            if(MtvAppPlayerOneSeg.mCurContext.getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED && MtvAppPlayerOneSeg.mCurContext.getState().getOp() != 20485) goto _L49; else goto _L48
+            if(Log.d().getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED && Log.d().getState().getOp() != 20485) goto _L49; else goto _L48
 _L48:
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
+            if(Log.d() != null)
             {
-                setPendingOperation(false, 20495, 0, 0, MtvAppPlayerOneSeg.mCurContext, null, null);
-                flag1 = handleClose(true);
+                Log.d(MtvAppPlayerOneSeg.this, 0, 20495, 0, 0, Log.d(), null, null);
+                flag1 = Log.d(MtvAppPlayerOneSeg.this, 1);
             }
 _L50:
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20495);
+            Log.d().getState().setOp(20495);
             if(!flag1)
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "Successfully deleted the playback session ");
-                setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, 20495, 24581, 0, true);
-                resetApp();
+                Log.d(MtvAppPlayerOneSeg.this, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, 20495, 24581, 0, 1);
+                Log.d(MtvAppPlayerOneSeg.this);
             }
             continue; /* Loop/switch isn't completed */
 _L49:
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
+            if(Log.d() != null)
             {
-                setPendingOperation(false, 20495, 0, 0, MtvAppPlayerOneSeg.mCurContext, null, null);
-                flag1 = MtvAppPlayerOneSeg.mOneSegServ.delete();
+                Log.d(MtvAppPlayerOneSeg.this, 0, 20495, 0, 0, Log.d(), null, null);
+                flag1 = Log.d().delete();
             }
             if(true) goto _L50; else goto _L5
 _L5:
-            handleRetryChnlSearch(false);
-            handlePendingCommand(MtvAppPlayerOneSeg.mCurContext.getState().getOp());
+            Log.d(MtvAppPlayerOneSeg.this, 0);
+            Log.d(MtvAppPlayerOneSeg.this, Log.d().getState().getOp());
             continue; /* Loop/switch isn't completed */
 _L4:
-            if(MtvAppPlayerOneSeg.mOneSegServ != null)
-                MtvAppPlayerOneSeg.mOneSegServ.deleteTVFile(message.arg1);
+            if(Log.d() != null)
+                Log.d().deleteTVFile(message.arg1);
             continue; /* Loop/switch isn't completed */
 _L6:
             if(message.arg1 == 201)
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "Successfully created the playback session");
-                MtvAppPlayerOneSeg.mCurContext.getState().setOp(20480);
-                setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED, 20481, 24581, 0, true);
-                if(MtvAppPlayerOneSeg.mOneSegServ != null)
+                Log.d().getState().setOp(20480);
+                Log.d(MtvAppPlayerOneSeg.this, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED, 20481, 24581, 0, 1);
+                if(Log.d() != null)
                 {
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().setSignalStatistics(MtvAppPlayerOneSeg.mOneSegServ.getSignalStatistics());
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().setSignalLevel(MtvAppPlayerOneSeg.mOneSegServ.getSignalQuality());
-                    mRunnableUpdateSignal.run();
+                    Log.d().getAttribute().setSignalStatistics(Log.d().getSignalStatistics());
+                    Log.d().getAttribute().setSignalLevel(Log.d().getSignalQuality());
+                    Log.d(MtvAppPlayerOneSeg.this).run();
                 }
             } else
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "Failure in creating the playback session ");
-                setContextParams(20480, 20481, 24580, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20481, 24580, 0, 1);
             }
             continue; /* Loop/switch isn't completed */
 _L7:
-            boolean flag = handlePendingCommand(20482);
+            boolean flag = Log.d(MtvAppPlayerOneSeg.this, 20482);
             if(!flag)
                 switch(message.arg1)
                 {
@@ -1563,21 +1738,21 @@ _L7:
                     break;
 
                 case 201: 
-                    handleRetryChnlSearch(false);
+                    Log.d(MtvAppPlayerOneSeg.this, 0);
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", "Successfully opened the playback session ");
-                    setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.OPENED, 20482, 24581, 0, true);
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().setChannel((MtvOneSegChannel)message.obj);
+                    Log.d(MtvAppPlayerOneSeg.this, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.OPENED, 20482, 24581, 0, 1);
+                    Log.d().getAttribute().setChannel((MtvOneSegChannel)message.obj);
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", "Play Operation Started");
-                    setContextParams(20484, 20484, 24577, 0, true);
-                    int l = MtvAppPlayerOneSeg.mPendingParam.mNewURI.pbType();
+                    Log.d(MtvAppPlayerOneSeg.this, 20484, 20484, 24577, 0, 1);
+                    int l = Log.d(Log.d()).pbType();
                     if(l != 5 && l != 3)
                     {
-                        if(MtvAppPlayerOneSeg.mOneSegServ != null)
-                            flag = MtvAppPlayerOneSeg.mOneSegServ.start((MtvOneSegChannel)message.obj);
+                        if(Log.d() != null)
+                            flag = Log.d().start((MtvOneSegChannel)message.obj);
                         if(!flag)
                         {
                             MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Failure in starting player.. Govinda Govinda !!");
-                            setContextParams(20480, 20484, 24580, 0, true);
+                            Log.d(MtvAppPlayerOneSeg.this, 20480, 20484, 24580, 0, 1);
                         }
                     }
                     break;
@@ -1585,23 +1760,23 @@ _L7:
                 case 204: 
                 case 205: 
                 case 206: 
-                    handleBuffering(20482, message.arg1, message.arg2);
+                    Log.d(MtvAppPlayerOneSeg.this, 20482, message.arg1, message.arg2);
                     break;
 
                 case 203: 
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", "Failure in opening the playback session ");
-                    if(MtvAppPlayerOneSeg.mPendingParam.mNewURI.pbType() == 2 || MtvAppPlayerOneSeg.mPendingParam.mNewURI.pbType() == 4)
-                        handleRetryChnlSearch(true);
+                    if(Log.d(Log.d()).pbType() == 2 || Log.d(Log.d()).pbType() == 4)
+                        Log.d(MtvAppPlayerOneSeg.this, 1);
                     else
-                        setContextParams(20480, 20482, 24580, 0, true);
+                        Log.d(MtvAppPlayerOneSeg.this, 20480, 20482, 24580, 0, 1);
                     break;
                 }
             continue; /* Loop/switch isn't completed */
 _L18:
             if(message.arg1 == 215)
-                setContextParams(20480, 20484, 24593, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20484, 24593, 0, 1);
             else
-            if(!handlePendingCommand(20484))
+            if(!Log.d(MtvAppPlayerOneSeg.this, 20484))
             {
                 switch(message.arg1)
                 {
@@ -1619,24 +1794,24 @@ _L18:
 
                 case 201: 
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", "Successfully started the playback session ");
-                    MtvAppPlayerOneSeg.mCurContext.getState().setOp(20480);
-                    setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING, 20484, 24581, 0, true);
+                    Log.d().getState().setOp(20480);
+                    Log.d(MtvAppPlayerOneSeg.this, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING, 20484, 24581, 0, 1);
                     break;
 
                 case 204: 
                 case 205: 
                 case 206: 
-                    handleBuffering(20484, message.arg1, message.arg2);
+                    Log.d(MtvAppPlayerOneSeg.this, 20484, message.arg1, message.arg2);
                     break;
 
                 case 214: 
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", "End of file reached");
-                    setContextParams(20480, 20484, 24592, 0, true);
+                    Log.d(MtvAppPlayerOneSeg.this, 20480, 20484, 24592, 0, 1);
                     break;
 
                 case 203: 
                     MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Failure in starting the playback session ");
-                    setContextParams(20480, 20484, 24580, 0, true);
+                    Log.d(MtvAppPlayerOneSeg.this, 20480, 20484, 24580, 0, 1);
                     break;
                 }
                 if(false)
@@ -1649,16 +1824,16 @@ _L8:
             c4 = '\u6004';
             k = 0;
             message.arg1;
-            JVM INSTR lookupswitch 3: default 2700
-        //                       201: 2719
-        //                       216: 2746
-        //                       217: 2754;
+            JVM INSTR lookupswitch 3: default 2712
+        //                       201: 2731
+        //                       216: 2758
+        //                       217: 2766;
                goto _L51 _L52 _L53 _L54
 _L51:
-            MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20487, c4, k);
+            Log.d().getState().triggerNotification(20487, c4, k);
             continue; /* Loop/switch isn't completed */
 _L52:
-            MtvAppPlayerOneSeg.mCurContext.getComponents().getVideo().setCaptFrameName((String)message.obj);
+            Log.d().getComponents().getVideo().setCaptFrameName((String)message.obj);
             c4 = '\u6002';
             continue; /* Loop/switch isn't completed */
 _L53:
@@ -1671,30 +1846,30 @@ _L9:
             char c3 = '\u6004';
             if(message.arg1 == 201)
                 c3 = '\u6005';
-            MtvAppPlayerOneSeg.mCurContext.getState().setOp(20480);
-            MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20487, c3, message.arg2);
+            Log.d().getState().setOp(20480);
+            Log.d().getState().triggerNotification(20487, c3, message.arg2);
             continue; /* Loop/switch isn't completed */
 _L10:
-            int j = MtvAppPlayerOneSeg.mCurContext.getState().getOp();
+            int j = Log.d().getState().getOp();
             MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Got the captured frame");
             if(j == 20488)
             {
-                MtvAppPlayerOneSeg.mCurContext.getState().setOp(20480);
+                Log.d().getState().setOp(20480);
                 if(message.arg1 == 201)
                 {
-                    MtvAppPlayerOneSeg.mCurContext.getComponents().getVideo().setCaptFrame((Bitmap)message.obj);
-                    MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(j, 24581, 0);
+                    Log.d().getComponents().getVideo().setCaptFrame((Bitmap)message.obj);
+                    Log.d().getState().triggerNotification(j, 24581, 0);
                 } else
                 {
-                    MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(j, 24580, 0);
+                    Log.d().getState().triggerNotification(j, 24580, 0);
                 }
             } else
             if(j == 20487)
             {
                 if(message.arg1 == 201)
                 {
-                    MtvAppPlayerOneSeg.mCurContext.getComponents().getVideo().setCaptFrame((Bitmap)message.obj);
-                    MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(j, 24596, 0);
+                    Log.d().getComponents().getVideo().setCaptFrame((Bitmap)message.obj);
+                    Log.d().getState().triggerNotification(j, 24596, 0);
                 }
             } else
             {
@@ -1702,7 +1877,7 @@ _L10:
             }
             continue; /* Loop/switch isn't completed */
 _L11:
-            if(!handlePendingCommand(20485) && MtvAppPlayerOneSeg.mCurContext.getState().getOp() == 20485)
+            if(!Log.d(MtvAppPlayerOneSeg.this, 20485) && Log.d().getState().getOp() == 20485)
             {
                 switch(message.arg1)
                 {
@@ -1712,13 +1887,13 @@ _L11:
 
                 case 202: 
                     char c2 = '\u6016';
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().setLastScannedChannel(message.arg2);
+                    Log.d().getAttribute().setLastScannedChannel(message.arg2);
                     if(message.obj != null)
                     {
-                        MtvAppPlayerOneSeg.mCurContext.getAttribute().setChannel((MtvOneSegChannel)message.obj);
+                        Log.d().getAttribute().setChannel((MtvOneSegChannel)message.obj);
                         c2 = '\u6015';
                     }
-                    MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20485, c2, message.arg2);
+                    Log.d().getState().triggerNotification(20485, c2, message.arg2);
                     break;
 
                 case 201: 
@@ -1726,8 +1901,8 @@ _L11:
                     char c1 = '\u6004';
                     if(message.arg1 == 201)
                         c1 = '\u6005';
-                    setContextParams(20480, 20485, c1, 0, true);
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().reset();
+                    Log.d(MtvAppPlayerOneSeg.this, 20480, 20485, c1, 0, 1);
+                    Log.d().getAttribute().reset();
                     break;
                 }
                 if(false)
@@ -1736,8 +1911,8 @@ _L11:
             continue; /* Loop/switch isn't completed */
 _L12:
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Got CANCEL_SCAN from Service");
-            setContextParams(20480, 20486, 24581, 0, true);
-            MtvAppPlayerOneSeg.mCurContext.getAttribute().reset();
+            Log.d(MtvAppPlayerOneSeg.this, 20480, 20486, 24581, 0, 1);
+            Log.d().getAttribute().reset();
             continue; /* Loop/switch isn't completed */
 _L17:
             switch(message.arg1)
@@ -1751,107 +1926,107 @@ _L17:
                 break;
 
             case 208: 
-                if(MtvAppPlayerOneSeg.mCurContext.getState().getOp() != 20494)
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().setProgram((android.broadcast.helper.types.MtvOneSegProgram[])(android.broadcast.helper.types.MtvOneSegProgram[])message.obj);
+                if(Log.d().getState().getOp() != 20494)
+                    Log.d().getAttribute().setProgram((android.broadcast.helper.types.MtvOneSegProgram[])(android.broadcast.helper.types.MtvOneSegProgram[])message.obj);
                 break;
 
             case 209: 
-                if(MtvAppPlayerOneSeg.mCurContext.getState().getOp() != 20494)
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().setTot(((Long)message.obj).longValue());
+                if(Log.d().getState().getOp() != 20494)
+                    Log.d().getAttribute().setTot(((Long)message.obj).longValue());
                 break;
 
             case 210: 
-                if(MtvAppPlayerOneSeg.mPendingParam.mPendingCmd == 0)
+                if(Log.d(Log.d()) == 0)
                 {
                     if(message.arg2 == 2)
-                        handleLowSignal(true);
+                        Log.d(MtvAppPlayerOneSeg.this, 1);
                     else
-                        handleLowSignal(false);
+                        Log.d(MtvAppPlayerOneSeg.this, 0);
                 } else
                 {
-                    MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("As there are pending commands [").append(MtvAppPlayerOneSeg.mPendingParam.mPendingCmd).append("] to be serviced, ignoring LOW_SIGNAL from Player").toString());
+                    MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("As there are pending commands [").append(Log.d(Log.d())).append("] to be serviced, ignoring LOW_SIGNAL from Player").toString());
                 }
                 break;
 
             case 211: 
-                int i = MtvAppPlayerOneSeg.mCurContext.getState().getOp();
+                int i = Log.d().getState().getOp();
                 if(i != 20494 && i != 20491 && i != 20492)
                 {
-                    MtvAppPlayerOneSeg.mCurContext.getComponents().getCaption().setBuffer((SpannableStringBuilder)message.obj);
-                    MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20483, 24589, 0);
+                    Log.d().getComponents().getCaption().setBuffer((SpannableStringBuilder)message.obj);
+                    Log.d().getState().triggerNotification(20483, 24589, 0);
                 }
                 break;
 
             case 212: 
                 MtvUtilDebug.Low("MtvAppPlayerOneSeg", (new StringBuilder()).append("Got Time Update:: New time is [").append(message.arg2).append("]").toString());
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20483, 24590, message.arg2);
+                Log.d().getState().triggerNotification(20483, 24590, message.arg2);
                 break;
 
             case 213: 
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20483, 24591, 0);
+                Log.d().getState().triggerNotification(20483, 24591, 0);
                 break;
 
             case 218: 
                 char c = '\u6004';
                 if(message.arg2 == 201)
                     c = '\u6003';
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20483, 24599, c);
+                Log.d().getState().triggerNotification(20483, 24599, c);
                 break;
 
             case 207: 
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20483, 24585, 0);
+                Log.d().getState().triggerNotification(20483, 24585, 0);
                 break;
             }
             continue; /* Loop/switch isn't completed */
 _L13:
-            handleLocalPlayback(1, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PAUSED, 0);
+            Log.d(MtvAppPlayerOneSeg.this, 1, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PAUSED, 0);
             continue; /* Loop/switch isn't completed */
 _L14:
             MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Got Resume SUCCESS from Service: New time is: [").append(message.arg2).append("]").toString());
-            handleLocalPlayback(256, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING, message.arg2);
+            Log.d(MtvAppPlayerOneSeg.this, 256, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING, message.arg2);
             continue; /* Loop/switch isn't completed */
 _L15:
             if(message.arg1 == 201)
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Got Trickmode SUCCESS from Service: New time is: [").append(message.arg2).append("]").toString());
-                handleLocalPlayback(16, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, message.arg2);
+                Log.d(MtvAppPlayerOneSeg.this, 16, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, message.arg2);
             } else
             if(message.arg1 == 202)
-                handleLocalPlayback(4096, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, message.arg2);
+                Log.d(MtvAppPlayerOneSeg.this, 4096, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, message.arg2);
             continue; /* Loop/switch isn't completed */
 _L16:
             MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Got Reposition SUCCESS from Service: New time is: [").append(message.arg2).append("]").toString());
-            handleLocalPlayback(16, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, message.arg2);
+            Log.d(MtvAppPlayerOneSeg.this, 16, message.arg1, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, message.arg2);
             continue; /* Loop/switch isn't completed */
 _L19:
             if(message.arg1 == 201)
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "Got CMD_TVLINK_START SUCCESS from Service:");
-                MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20493, 24578, 0);
+                Log.d().getState().triggerNotification(20493, 24578, 0);
             } else
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "Got CMD_TVLINK_START FAILURE!!! from Service:");
-                setContextParams(20480, 20493, 24580, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20493, 24580, 0, 1);
             }
             continue; /* Loop/switch isn't completed */
 _L20:
             if(message.arg1 == 201)
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "CMD_TVLINK_STOP:TVLink Operation Completed ");
-                setContextParams(20480, 20493, 24581, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20493, 24581, 0, 1);
             } else
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "CMD_TVLINK_STOP FAILURE!!!! ");
-                setContextParams(20480, 20493, 24580, 0, true);
+                Log.d(MtvAppPlayerOneSeg.this, 20480, 20493, 24580, 0, 1);
             }
             continue; /* Loop/switch isn't completed */
 _L21:
-            handleClose(false);
+            Log.d(MtvAppPlayerOneSeg.this, 0);
             continue; /* Loop/switch isn't completed */
 _L22:
             MtvUtilDebug.High("MtvAppPlayerOneSeg", "Successfully deleted the playback session ");
-            setContextState(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, 20495, 24581, 0, true);
-            resetApp();
+            Log.d(MtvAppPlayerOneSeg.this, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE, 20495, 24581, 0, 1);
+            Log.d(MtvAppPlayerOneSeg.this);
             continue; /* Loop/switch isn't completed */
 _L2:
             MtvUtilDebug.Error("MtvAppPlayerOneSeg", "******Invalid Context. Cannot Handle commands in PlayerThread******");
@@ -1863,6 +2038,7 @@ _L55:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$1;-><init>(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)V");
                 this$0 = MtvAppPlayerOneSeg.this;
                 super();
             }
@@ -1871,13 +2047,14 @@ _L55:
 
         public void run()
         {
-            if(MtvAppPlayerOneSeg.mCurContext != null && MtvAppPlayerOneSeg.mCurContext.getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED && MtvAppPlayerOneSeg.mPendingParam != null)
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$2;->run()V");
+            if(Log.d() != null && Log.d().getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED && Log.d() != null)
             {
                 MtvUtilDebug.Low("MtvAppPlayerOneSeg", "Posting OPEN from Retry Runnable ");
-                sendPlayerThreadMsg(20482, 0, 0, MtvAppPlayerOneSeg.mPendingParam.mNewURI);
+                Log.d(MtvAppPlayerOneSeg.this, 20482, 0, 0, Log.d(Log.d()));
             } else
             {
-                MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Invalid Parameters mCurContext [").append(MtvAppPlayerOneSeg.mCurContext).append(" ] mPendingParam [").append(MtvAppPlayerOneSeg.mPendingParam).append("] Cannot retry channel search").toString());
+                MtvUtilDebug.Error("MtvAppPlayerOneSeg", (new StringBuilder()).append("Invalid Parameters mCurContext [").append(Log.d()).append(" ] mPendingParam [").append(Log.d()).append("] Cannot retry channel search").toString());
             }
         }
 
@@ -1885,6 +2062,7 @@ _L55:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$2;-><init>(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)V");
                 this$0 = MtvAppPlayerOneSeg.this;
                 super();
             }
@@ -1893,20 +2071,21 @@ _L55:
 
         public void run()
         {
-            if(mPlayerHdlr != null && MtvAppPlayerOneSeg.mCurContext != null)
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$3;->run()V");
+            if(Log.d(MtvAppPlayerOneSeg.this) != null && Log.d() != null)
             {
                 MtvUtilDebug.High("MtvAppPlayerOneSeg", "Low- Signal:: Go to good signal area else TV will be stopped immediately!!!");
-                if(MtvAppPlayerOneSeg.mCurContext.getType() == com.samsung.sec.mtv.app.context.MtvAppPlaybackContext.Type.LIVETV)
+                if(Log.d().getType() == com.samsung.sec.mtv.app.context.MtvAppPlaybackContext.Type.LIVETV)
                 {
-                    if(MtvAppPlayerOneSeg.mPendingParam != null && MtvAppPlayerOneSeg.mPendingParam.mNewURI != null)
-                        MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20483, 24588, MtvAppPlayerOneSeg.mPendingParam.mNewURI.chnlNum());
+                    if(Log.d() != null && Log.d(Log.d()) != null)
+                        Log.d().getState().triggerNotification(20483, 24588, Log.d(Log.d()).chnlNum());
                     else
                         MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Invalid Pending Parameters.. May be nobody interested in receiving the notification !!");
                 } else
                 {
                     MtvUtilDebug.Error("MtvAppPlayerOneSeg", "Live is not going on! How come low-signal now -- Anyways ignore it!!");
                 }
-                handleLowSignal(false);
+                Log.d(MtvAppPlayerOneSeg.this, 0);
             }
         }
 
@@ -1914,6 +2093,7 @@ _L55:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$3;-><init>(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)V");
                 this$0 = MtvAppPlayerOneSeg.this;
                 super();
             }
@@ -1922,25 +2102,26 @@ _L55:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$4;->run()V");
             com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State _tmp = com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE;
-            if(mPlayerHdlr != null && MtvAppPlayerOneSeg.mCurContext != null)
+            if(Log.d(MtvAppPlayerOneSeg.this) != null && Log.d() != null)
             {
-                com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state = MtvAppPlayerOneSeg.mCurContext.getState().getState();
+                com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state = Log.d().getState().getState();
                 if(state == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED || state == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.OPENED || state == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING)
                 {
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().setSignalStatistics(MtvAppPlayerOneSeg.mOneSegServ.getSignalStatistics());
-                    int i = MtvAppPlayerOneSeg.mOneSegServ.getSignalQuality();
+                    Log.d().getAttribute().setSignalStatistics(Log.d().getSignalStatistics());
+                    int i = Log.d().getSignalQuality();
                     MtvUtilDebug.High("MtvAppPlayerOneSeg", (new StringBuilder()).append("Current SignalQuality [").append(i).append("]").toString());
-                    MtvAppPlayerOneSeg.mCurContext.getAttribute().setSignalLevel(i);
+                    Log.d().getAttribute().setSignalLevel(i);
                     if(i > 0);
-                    if(MtvAppPlayerOneSeg.mLowSigCnt == 3)
+                    if(Log.d() == 3)
                     {
                         MtvUtilDebug.High("MtvAppPlayerOneSeg", "Low- Signal:: Go to good signal area else TV will be stopped immediately!!!");
-                        MtvAppPlayerOneSeg.mCurContext.getState().triggerNotification(20483, 24588, 0);
-                        handleSignalUpdate(false);
+                        Log.d().getState().triggerNotification(20483, 24588, 0);
+                        Log.d(MtvAppPlayerOneSeg.this, 0);
                     } else
                     {
-                        handleSignalUpdate(true);
+                        Log.d(MtvAppPlayerOneSeg.this, 1);
                     }
                 } else
                 {
@@ -1953,26 +2134,126 @@ _L55:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$4;-><init>(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)V");
                 this$0 = MtvAppPlayerOneSeg.this;
                 super();
             }
     };
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;-><clinit>()V");
+    }
 
 
+/*
+    static void access$1100(MtvAppPlayerOneSeg mtvappplayeroneseg, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1100(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;Z)V");
+        mtvappplayeroneseg.handleSignalUpdate(flag);
+        return;
+    }
+
+*/
 
 
+/*
+    static boolean access$1200(MtvAppPlayerOneSeg mtvappplayeroneseg, int i, int j, int k, int l, int i1, int j1)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1200(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;IIIIII)Z");
+        return mtvappplayeroneseg.handleSeek(i, j, k, l, i1, j1);
+    }
+
+*/
 
 
+/*
+    static boolean access$1300(MtvAppPlayerOneSeg mtvappplayeroneseg, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1300(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;Z)Z");
+        return mtvappplayeroneseg.handleClose(flag);
+    }
+
+*/
 
 
+/*
+    static boolean access$1400(MtvAppPlayerOneSeg mtvappplayeroneseg, boolean flag, int i, int j, int k, MtvAppPlaybackContext mtvappplaybackcontext, Context context, MtvURI mtvuri)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1400(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;ZIIILcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Landroid/content/Context;Landroid/broadcast/helper/MtvURI;)Z");
+        return mtvappplayeroneseg.setPendingOperation(flag, i, j, k, mtvappplaybackcontext, context, mtvuri);
+    }
+
+*/
 
 
+/*
+    static void access$1500(MtvAppPlayerOneSeg mtvappplayeroneseg, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, int i, int j, int k, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1500(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;IIIZ)V");
+        mtvappplayeroneseg.setContextState(state, i, j, k, flag);
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$1600(MtvAppPlayerOneSeg mtvappplayeroneseg, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1600(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;Z)V");
+        mtvappplayeroneseg.handleRetryChnlSearch(flag);
+        return;
+    }
+
+*/
+
+
+/*
+    static boolean access$1700(MtvAppPlayerOneSeg mtvappplayeroneseg, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1700(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;I)Z");
+        return mtvappplayeroneseg.handlePendingCommand(i);
+    }
+
+*/
+
+
+/*
+    static Runnable access$1800(MtvAppPlayerOneSeg mtvappplayeroneseg)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1800(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)Ljava/lang/Runnable;");
+        return mtvappplayeroneseg.mRunnableUpdateSignal;
+    }
+
+*/
+
+
+/*
+    static void access$1900(MtvAppPlayerOneSeg mtvappplayeroneseg, int i, int j, int k)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$1900(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;III)V");
+        mtvappplayeroneseg.handleBuffering(i, j, k);
+        return;
+    }
+
+*/
+
+
+/*
+    static MtvAppPlaybackContext access$200()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$200()Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
+        return mCurContext;
+    }
+
+*/
 
 
 /*
     static MtvAppPlaybackContext access$202(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$202(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
         mCurContext = mtvappplaybackcontext;
         return mtvappplaybackcontext;
     }
@@ -1980,18 +2261,102 @@ _L55:
 */
 
 
+/*
+    static void access$2100(MtvAppPlayerOneSeg mtvappplayeroneseg, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$2100(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;Z)V");
+        mtvappplayeroneseg.handleLowSignal(flag);
+        return;
+    }
+
+*/
 
 
+/*
+    static boolean access$2200(MtvAppPlayerOneSeg mtvappplayeroneseg, int i, int j, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, int k)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$2200(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;IILcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;I)Z");
+        return mtvappplayeroneseg.handleLocalPlayback(i, j, state, k);
+    }
+
+*/
 
 
+/*
+    static MtvAppPlayerPendingParams access$300()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$300()Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg$MtvAppPlayerPendingParams;");
+        return mPendingParam;
+    }
+
+*/
 
 
+/*
+    static boolean access$3200(MtvAppPlayerOneSeg mtvappplayeroneseg, int i, int j, int k, Object obj)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$3200(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;IIILjava/lang/Object;)Z");
+        return mtvappplayeroneseg.sendPlayerThreadMsg(i, j, k, obj);
+    }
 
+*/
+
+
+/*
+    static Handler access$3300(MtvAppPlayerOneSeg mtvappplayeroneseg)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$3300(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)Landroid/os/Handler;");
+        return mtvappplayeroneseg.mPlayerHdlr;
+    }
+
+*/
+
+
+/*
+    static int access$3400()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$3400()I");
+        return mLowSigCnt;
+    }
+
+*/
+
+
+/*
+    static boolean access$500(MtvAppPlayerOneSeg mtvappplayeroneseg)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$500(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)Z");
+        return mtvappplayeroneseg.getPendingOpStatus();
+    }
+
+*/
+
+
+/*
+    static void access$600(MtvAppPlayerOneSeg mtvappplayeroneseg, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$600(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;Z)V");
+        mtvappplayeroneseg.setPendingOpStatus(flag);
+        return;
+    }
+
+*/
+
+
+/*
+    static MtvOneSegService access$700()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$700()Landroid/broadcast/oneseg/MtvOneSegService;");
+        return mOneSegServ;
+    }
+
+*/
 
 
 /*
     static MtvOneSegService access$702(MtvOneSegService mtvonesegservice)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$702(Landroid/broadcast/oneseg/MtvOneSegService;)Landroid/broadcast/oneseg/MtvOneSegService;");
         mOneSegServ = mtvonesegservice;
         return mtvonesegservice;
     }
@@ -1999,4 +2364,24 @@ _L55:
 */
 
 
+/*
+    static void access$800(MtvAppPlayerOneSeg mtvappplayeroneseg, int i, int j, int k, int l, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$800(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;IIIIZ)V");
+        mtvappplayeroneseg.setContextParams(i, j, k, l, flag);
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$900(MtvAppPlayerOneSeg mtvappplayeroneseg)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;->access$900(Lcom/samsung/sec/mtv/app/player/MtvAppPlayerOneSeg;)V");
+        mtvappplayeroneseg.resetApp();
+        return;
+    }
+
+*/
 }

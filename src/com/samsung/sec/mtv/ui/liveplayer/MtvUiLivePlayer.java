@@ -15,6 +15,7 @@ import android.media.AudioManager;
 import android.os.*;
 import android.telephony.TelephonyManager;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.context.*;
@@ -42,21 +43,22 @@ public class MtvUiLivePlayer extends Activity
             float f2;
             float f3;
             int i;
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ChannelGestureListener;->onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z");
             flag = true;
             if(!MtvUtilDebug.isReleaseMode())
                 MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("GestrueDetectorUiPlayer : onFling called ").append(f).toString());
             f2 = Math.abs(f);
             f3 = Math.abs(f1);
             i = 0;
-            if(lockImage.getVisibility() != 0) goto _L2; else goto _L1
+            if(Log.d(MtvUiLivePlayer.this).getVisibility() != 0) goto _L2; else goto _L1
 _L1:
             MtvUtilDebug.Low("MtvUiLivePlayer", "player locked , ignoring fling...");
 _L4:
             return flag;
 _L2:
-            if(mMtvAppPlaybackContext.getState().getOp() != 20487)
+            if(Log.d(MtvUiLivePlayer.this).getState().getOp() != 20487)
                 flag = false;
-            if(mMtvAppPlaybackContext == null || mMtvAppPlaybackContext.getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE || fragHandler == null || flag)
+            if(Log.d(MtvUiLivePlayer.this) == null || Log.d(MtvUiLivePlayer.this).getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE || Log.d(MtvUiLivePlayer.this) == null || flag)
                 break; /* Loop/switch isn't completed */
             if(motionevent1 != null && motionevent != null)
                 i = (int)(motionevent1.getX() - motionevent.getX());
@@ -67,21 +69,21 @@ _L2:
                 flag = false;
                 continue; /* Loop/switch isn't completed */
             }
-            if(fragHandler != null)
+            if(Log.d(MtvUiLivePlayer.this) != null)
             {
                 if(f > 0.0F)
                 {
                     MtvUtilDebug.Low("MtvUiLivePlayer", "onFling: Channel prev");
-                    mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(314));
+                    Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(314));
                 } else
                 if(f < 0.0F)
                 {
                     MtvUtilDebug.Low("MtvUiLivePlayer", "onFling: Channel next ");
-                    mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(313));
+                    Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(313));
                 }
-                fragHandler.removeFrag(12);
-                fragHandler.addFrag(15, -1L, false, new int[0]);
-                fragHandler.addFrag(0, -1L, false, new int[0]);
+                Log.d(MtvUiLivePlayer.this).removeFrag(12);
+                Log.d(MtvUiLivePlayer.this).addFrag(15, -1L, false, new int[0]);
+                Log.d(MtvUiLivePlayer.this).addFrag(0, -1L, false, new int[0]);
             }
 _L5:
             flag = super.onFling(motionevent, motionevent1, f, f1);
@@ -95,12 +97,13 @@ _L6:
 
         public void onLongPress(MotionEvent motionevent)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ChannelGestureListener;->onLongPress(Landroid/view/MotionEvent;)V");
             if(!MtvUtilDebug.isReleaseMode())
                 MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("onLongPress:").append(motionevent.toString()).toString());
             Bundle bundle = new Bundle();
-            if(mMtvAppPlaybackContext != null && mMtvPreferences != null && (fragHandler == null || !fragHandler.isFragPresent(5)))
+            if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this) != null && (Log.d(MtvUiLivePlayer.this) == null || !Log.d(MtvUiLivePlayer.this).isFragPresent(5)))
             {
-                MtvProgram mtvprogram = MtvProgramManager.getCurrentProgramByPhCh(getApplicationContext(), mMtvPreferences.getLatestPChannelFromVChannel(), mMtvAppPlaybackContext.getAttribute().getTot());
+                MtvProgram mtvprogram = MtvProgramManager.getCurrentProgramByPhCh(getApplicationContext(), Log.d(MtvUiLivePlayer.this).getLatestPChannelFromVChannel(), Log.d(MtvUiLivePlayer.this).getAttribute().getTot());
                 if(!MtvUtilDebug.isReleaseMode())
                     MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("pgm:").append(mtvprogram).toString());
                 if(mtvprogram != null)
@@ -124,41 +127,42 @@ _L6:
         {
             boolean flag;
             boolean flag1;
-            if(mMtvAppPlaybackContext != null && mMtvAppPlaybackContext.getState().getState().compareTo(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED) >= 0)
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ChannelGestureListener;->onSingleTapConfirmed(Landroid/view/MotionEvent;)Z");
+            if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this).getState().getState().compareTo(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED) >= 0)
                 flag = true;
             else
                 flag = false;
-            if(lockImage.getVisibility() != 0) goto _L2; else goto _L1
+            if(Log.d(MtvUiLivePlayer.this).getVisibility() != 0) goto _L2; else goto _L1
 _L1:
             MtvUtilDebug.Low("MtvUiLivePlayer", "player locked... ignoring singleTap...");
             flag1 = true;
 _L4:
             return flag1;
 _L2:
-            if(fragHandler != null && flag)
+            if(Log.d(MtvUiLivePlayer.this) != null && flag)
             {
-                if(fragHandler.isFragPresent(12))
-                    fragHandler.removeFrag(12);
-                if(fragHandler.isFragPresent(1))
+                if(Log.d(MtvUiLivePlayer.this).isFragPresent(12))
+                    Log.d(MtvUiLivePlayer.this).removeFrag(12);
+                if(Log.d(MtvUiLivePlayer.this).isFragPresent(1))
                     break; /* Loop/switch isn't completed */
-                if(!fragHandler.isFragPresent(15))
+                if(!Log.d(MtvUiLivePlayer.this).isFragPresent(15))
                 {
                     if(MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 1)
                     {
-                        fragHandler.addFrag(15, 3000L, false, new int[0]);
-                        fragHandler.addFrag(0, 3000L, false, new int[0]);
+                        Log.d(MtvUiLivePlayer.this).addFrag(15, 3000L, false, new int[0]);
+                        Log.d(MtvUiLivePlayer.this).addFrag(0, 3000L, false, new int[0]);
                     } else
                     {
-                        fragHandler.addFrag(15, -1L, false, new int[0]);
-                        fragHandler.addFrag(0, -1L, false, new int[0]);
+                        Log.d(MtvUiLivePlayer.this).addFrag(15, -1L, false, new int[0]);
+                        Log.d(MtvUiLivePlayer.this).addFrag(0, -1L, false, new int[0]);
                     }
-                    mLiveUiMsgHandler.post(RunnableUpdateProgramChannelInfo);
-                    mLiveUiMsgHandler.post(RunnableUpdateSignalInfo);
+                    Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
+                    Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
                 } else
                 if(MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 1)
                 {
-                    fragHandler.removeFrag(15);
-                    fragHandler.removeFrag(0);
+                    Log.d(MtvUiLivePlayer.this).removeFrag(15);
+                    Log.d(MtvUiLivePlayer.this).removeFrag(0);
                 }
             }
 _L5:
@@ -166,22 +170,22 @@ _L5:
             if(true) goto _L4; else goto _L3
 _L3:
             MtvUtilDebug.Low("MtvUiLivePlayer", "Tap on Record fragment");
-            if(!fragHandler.isFragPresent(15))
+            if(!Log.d(MtvUiLivePlayer.this).isFragPresent(15))
             {
                 MtvUtilDebug.Low("MtvUiLivePlayer", "status bar not present, adding status bar and showing record components");
-                fragHandler.addFrag(15, -1L, false, new int[0]);
-                mLiveUiMsgHandler.post(RunnableUpdateProgramChannelInfo);
-                mLiveUiMsgHandler.post(RunnableUpdateSignalInfo);
-                fragHandler.onUpdate(111, Boolean.valueOf(true), 1);
-                mLiveUiMsgHandler.removeCallbacks(mRunnableUpdateRecordComponents);
-                mLiveUiMsgHandler.postDelayed(mRunnableUpdateRecordComponents, 3000L);
+                Log.d(MtvUiLivePlayer.this).addFrag(15, -1L, false, new int[0]);
+                Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
+                Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
+                Log.d(MtvUiLivePlayer.this).onUpdate(111, Boolean.valueOf(true), 1);
+                Log.d(MtvUiLivePlayer.this).removeCallbacks(Log.d(MtvUiLivePlayer.this));
+                Log.d(MtvUiLivePlayer.this).postDelayed(Log.d(MtvUiLivePlayer.this), 3000L);
             } else
             {
                 MtvUtilDebug.Low("MtvUiLivePlayer", "status bar present, removing status bar and hiding record components");
                 if(MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 1)
                 {
-                    fragHandler.removeFrag(15);
-                    fragHandler.onUpdate(111, Boolean.valueOf(false), 1);
+                    Log.d(MtvUiLivePlayer.this).removeFrag(15);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(111, Boolean.valueOf(false), 1);
                 }
             }
               goto _L5
@@ -193,6 +197,7 @@ _L6:
 
         ChannelGestureListener()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ChannelGestureListener;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
             this$0 = MtvUiLivePlayer.this;
             super();
         }
@@ -204,52 +209,57 @@ _L6:
 
         private void controlAnimation()
         {
-            mAnimationDrawable = (AnimationDrawable)mAnimationImage.getBackground();
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;->controlAnimation()V");
+            mAnimationDrawable = (AnimationDrawable)Log.d(MtvUiLivePlayer.this).getBackground();
             MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("controlAnimation: called :").append(isEnable).toString());
             if(isEnable)
             {
-                mAnimationlayout.setVisibility(0);
-                mAnimationImage.setVisibility(0);
+                Log.d(MtvUiLivePlayer.this).setVisibility(0);
+                Log.d(MtvUiLivePlayer.this).setVisibility(0);
                 if(!mAnimationDrawable.isRunning())
                     mAnimationDrawable.start();
                 else
                     mAnimationDrawable.start();
                 if(mStrAnimation != null)
-                    mTxtAnimation.setText(mStrAnimation);
+                    Log.d(MtvUiLivePlayer.this).setText(mStrAnimation);
             } else
             {
                 if(mAnimationDrawable.isRunning())
                 {
                     mAnimationDrawable.stop();
-                    mTxtAnimation.setText("");
-                    mAnimationlayout.setVisibility(4);
+                    Log.d(MtvUiLivePlayer.this).setText("");
+                    Log.d(MtvUiLivePlayer.this).setVisibility(4);
                 }
-                mAnimationImage.setVisibility(4);
-                mAnimationImage.invalidate();
-                mAnimationlayout.invalidate();
+                Log.d(MtvUiLivePlayer.this).setVisibility(4);
+                Log.d(MtvUiLivePlayer.this).invalidate();
+                Log.d(MtvUiLivePlayer.this).invalidate();
             }
         }
 
         private void postAnimationToRunInUIThread()
         {
-            mAnimationImage.removeCallbacks(this);
-            mAnimationImage.post(this);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;->postAnimationToRunInUIThread()V");
+            Log.d(MtvUiLivePlayer.this).removeCallbacks(this);
+            Log.d(MtvUiLivePlayer.this).post(this);
         }
 
         private void setAnimationEnable(boolean flag)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;->setAnimationEnable(Z)V");
             MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("ControlAnimationRunnable: setAnimationEnable :").append(flag).toString());
             isEnable = flag;
         }
 
         private void setAnimationText(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;->setAnimationText(Ljava/lang/String;)V");
             MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("ControlAnimationRunnable: setAnimationText :").append(s).toString());
             mStrAnimation = s;
         }
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;->run()V");
             controlAnimation();
         }
 
@@ -259,10 +269,41 @@ _L6:
         final MtvUiLivePlayer this$0;
 
 
+/*
+        static void access$300(ControlAnimationRunnable controlanimationrunnable, boolean flag)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;->access$300(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;Z)V");
+            controlanimationrunnable.setAnimationEnable(flag);
+            return;
+        }
 
+*/
+
+
+/*
+        static void access$400(ControlAnimationRunnable controlanimationrunnable, String s)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;->access$400(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;Ljava/lang/String;)V");
+            controlanimationrunnable.setAnimationText(s);
+            return;
+        }
+
+*/
+
+
+/*
+        static void access$500(ControlAnimationRunnable controlanimationrunnable)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;->access$500(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;)V");
+            controlanimationrunnable.postAnimationToRunInUIThread();
+            return;
+        }
+
+*/
 
         private ControlAnimationRunnable()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
             this$0 = MtvUiLivePlayer.this;
             super();
             isEnable = false;
@@ -270,6 +311,11 @@ _L6:
             MtvUtilDebug.Low("MtvUiLivePlayer", "ControlAnimationRunnable...");
         }
 
+        ControlAnimationRunnable(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$1;)V");
+            this();
+        }
     }
 
     public static class ErrorDialogFragment extends DialogFragment
@@ -277,6 +323,7 @@ _L6:
 
         public static ErrorDialogFragment newInstance(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ErrorDialogFragment;->newInstance(I)Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ErrorDialogFragment;");
             ErrorDialogFragment errordialogfragment = new ErrorDialogFragment();
             errordialogfragment.myStringId = i;
             return errordialogfragment;
@@ -284,6 +331,7 @@ _L6:
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ErrorDialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             if(bundle != null)
                 myStringId = bundle.getInt("myStringId");
             class _cls1
@@ -292,6 +340,7 @@ _L6:
 
                 public void onClick(DialogInterface dialoginterface, int i)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ErrorDialogFragment$1;->onClick(Landroid/content/DialogInterface;I)V");
                     dialoginterface.dismiss();
                 }
 
@@ -299,6 +348,7 @@ _L6:
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ErrorDialogFragment$1;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ErrorDialogFragment;)V");
                     this$0 = ErrorDialogFragment.this;
                     super();
                 }
@@ -311,6 +361,7 @@ _L6:
 
         public void onSaveInstanceState(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ErrorDialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V");
             bundle.putInt("myStringId", myStringId);
             super.onSaveInstanceState(bundle);
         }
@@ -319,6 +370,8 @@ _L6:
 
         public ErrorDialogFragment()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ErrorDialogFragment;-><init>()V");
+            super();
         }
     }
 
@@ -328,99 +381,107 @@ _L6:
 
         public void onMtvAppAndroidServiceNotify(int i, Object obj)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$MtvUiLiveServiceListener;->onMtvAppAndroidServiceNotify(ILjava/lang/Object;)V");
             MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("onMtvAppAndroidServiceNotify called: what=").append(i).toString());
             i;
-            JVM INSTR tableswitch 1 14: default 96
-        //                       1 105
-        //                       2 133
-        //                       3 161
-        //                       4 260
-        //                       5 96
-        //                       6 96
-        //                       7 189
-        //                       8 217
-        //                       9 288
-        //                       10 316
-        //                       11 344
-        //                       12 372
-        //                       13 96
-        //                       14 97;
+            JVM INSTR tableswitch 1 14: default 104
+        //                       1 113
+        //                       2 141
+        //                       3 169
+        //                       4 268
+        //                       5 104
+        //                       6 104
+        //                       7 197
+        //                       8 225
+        //                       9 296
+        //                       10 324
+        //                       11 352
+        //                       12 380
+        //                       13 104
+        //                       14 105;
                goto _L1 _L2 _L3 _L4 _L5 _L1 _L1 _L6 _L7 _L8 _L9 _L10 _L11 _L1 _L12
 _L1:
             return;
 _L12:
             setRequestedOrientation(5);
 _L2:
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(302, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(302, obj));
             continue; /* Loop/switch isn't completed */
 _L3:
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(303, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(303, obj));
             continue; /* Loop/switch isn't completed */
 _L4:
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(304, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(304, obj));
             continue; /* Loop/switch isn't completed */
 _L6:
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(312, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(312, obj));
             continue; /* Loop/switch isn't completed */
 _L7:
-            checkIsReservationAndEnd(2);
+            Log.d(MtvUiLivePlayer.this, 2);
             MtvUtilDebug.Low("MtvUiLivePlayer", "MTVAPP_ANDROID_SERVICE_APP_FINISH_FOREGROUND notified to LivePlayer");
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(306, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(306, obj));
             continue; /* Loop/switch isn't completed */
 _L5:
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(305, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(305, obj));
             continue; /* Loop/switch isn't completed */
 _L8:
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(316, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(316, obj));
             continue; /* Loop/switch isn't completed */
 _L9:
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(322, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(322, obj));
             continue; /* Loop/switch isn't completed */
 _L10:
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(306, obj));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(306, obj));
             continue; /* Loop/switch isn't completed */
 _L11:
-            runOnUiThread(RunnableReservationEndPopupExpire);
+            runOnUiThread(Log.d(MtvUiLivePlayer.this));
             if(true) goto _L1; else goto _L13
 _L13:
         }
 
         public void onMtvAppFinishNotify(Object obj)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$MtvUiLiveServiceListener;->onMtvAppFinishNotify(Ljava/lang/Object;)V");
             Intent intent = (Intent)obj;
-            checkIsReservationAndEnd(2);
-            if(mMtvAppPlaybackContext.getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING && mMtvAppPlaybackContext.getState().getOp() == 20487)
-                stopRecording();
-            mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
-            mMtvAppPlaybackContext.getState().registerListener(MtvUiLivePlayer.this);
+            Log.d(MtvUiLivePlayer.this, 2);
+            if(Log.d(MtvUiLivePlayer.this).getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING && Log.d(MtvUiLivePlayer.this).getState().getOp() == 20487)
+                Log.d(MtvUiLivePlayer.this);
+            Log.d(MtvUiLivePlayer.this, MtvAppPlaybackContextManager.getInstance().getCurrentContext());
+            Log.d(MtvUiLivePlayer.this).getState().registerListener(MtvUiLivePlayer.this);
             if(intent.getAction().equals("com.samsung.sec.mtv.ACTION_MTV_APP_FINISH_ACTIVITIES_ALONE"))
             {
                 MtvUtilDebug.Mid("MtvUiLivePlayer", "com.samsung.sec.mtv.ACTION_MTV_APP_FINISH_ACTIVITIES_ALONE");
                 MtvUtilDebug.Mid("MtvUiLivePlayer", "looks like something already went wrong in middleware... just finishing liveplayer without doing anything...");
-                mExitProgressDialog = new ProgressDialog(MtvUiLivePlayer.this);
-                hideNotification();
+                Log.d(MtvUiLivePlayer.this, new ProgressDialog(MtvUiLivePlayer.this));
+                Log.d(MtvUiLivePlayer.this);
             } else
             if(intent.getAction().equals("com.samsung.sec.mtv.ACTION_MTV_APP_FINISH_BACKGROUND"))
             {
-                mExitProgressDialog = new ProgressDialog(MtvUiLivePlayer.this);
+                Log.d(MtvUiLivePlayer.this, new ProgressDialog(MtvUiLivePlayer.this));
                 MtvUtilDebug.Mid("MtvUiLivePlayer", "com.samsung.sec.mtv.ACTION_MTV_APP_FINISH_BACKGROUND");
-                hideNotification();
+                Log.d(MtvUiLivePlayer.this);
             } else
             {
-                mExitProgressDialog = null;
+                Log.d(MtvUiLivePlayer.this, null);
                 MtvUtilDebug.Mid("MtvUiLivePlayer", "com.samsung.sec.mtv.ACTION_MTV_APP_FINISH_FOREGROUND");
             }
-            mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(306, Boolean.valueOf(true)));
+            Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(306, Boolean.valueOf(true)));
         }
 
         final MtvUiLivePlayer this$0;
 
         private MtvUiLiveServiceListener()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$MtvUiLiveServiceListener;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
             this$0 = MtvUiLivePlayer.this;
             super();
         }
 
+        MtvUiLiveServiceListener(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$MtvUiLiveServiceListener;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$1;)V");
+            this();
+        }
     }
 
     private class RunnableShowSignalAlertDialog
@@ -429,6 +490,7 @@ _L13:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$RunnableShowSignalAlertDialog;->run()V");
             showSignalAlertDialog(mType);
         }
 
@@ -437,6 +499,7 @@ _L13:
 
         public RunnableShowSignalAlertDialog(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$RunnableShowSignalAlertDialog;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
             this$0 = MtvUiLivePlayer.this;
             super();
             mType = i;
@@ -446,6 +509,8 @@ _L13:
 
     public MtvUiLivePlayer()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;-><init>()V");
+        super();
         mExitProgressDialog = null;
         mExitAppDialog = null;
         mNoSignalAlertDialog = null;
@@ -466,10 +531,11 @@ _L13:
 
             public void run()
             {
-                if(fragHandler != null && fragHandler.isFragPresent(15) && MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 1)
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$1;->run()V");
+                if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this).isFragPresent(15) && MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 1)
                 {
-                    fragHandler.removeFrag(15);
-                    fragHandler.onUpdate(111, Boolean.valueOf(false), 1);
+                    Log.d(MtvUiLivePlayer.this).removeFrag(15);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(111, Boolean.valueOf(false), 1);
                 }
             }
 
@@ -477,6 +543,7 @@ _L13:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$1;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -485,36 +552,37 @@ _L13:
 
             public void handleMessage(Message message)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$2;->handleMessage(Landroid/os/Message;)V");
                 MtvUtilDebug.Mid("MtvUiLivePlayer", (new StringBuilder()).append("handleMessage : ").append(message.what).toString());
                 message.what;
-                JVM INSTR tableswitch 300 326: default 152
-            //                           300 153
-            //                           301 257
-            //                           302 285
-            //                           303 313
-            //                           304 981
-            //                           305 441
-            //                           306 465
-            //                           307 842
-            //                           308 862
-            //                           309 884
-            //                           310 910
-            //                           311 152
-            //                           312 931
-            //                           313 1065
-            //                           314 1065
-            //                           315 1037
-            //                           316 1416
-            //                           317 1598
-            //                           318 1640
-            //                           319 1687
-            //                           320 1734
-            //                           321 1251
-            //                           322 1752
-            //                           323 152
-            //                           324 1762
-            //                           325 1880
-            //                           326 1977;
+                JVM INSTR tableswitch 300 326: default 160
+            //                           300 161
+            //                           301 265
+            //                           302 293
+            //                           303 321
+            //                           304 990
+            //                           305 449
+            //                           306 473
+            //                           307 851
+            //                           308 871
+            //                           309 893
+            //                           310 919
+            //                           311 160
+            //                           312 940
+            //                           313 1074
+            //                           314 1074
+            //                           315 1046
+            //                           316 1425
+            //                           317 1607
+            //                           318 1649
+            //                           319 1696
+            //                           320 1743
+            //                           321 1260
+            //                           322 1761
+            //                           323 160
+            //                           324 1771
+            //                           325 1889
+            //                           326 1986;
                    goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L1 _L13 _L14 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L1 _L23 _L24 _L25
 _L1:
                 return;
@@ -522,27 +590,27 @@ _L2:
                 String s1 = null;
                 if(message.obj != null)
                     s1 = (String)message.obj;
-                if(mControlAnimationRunnable == null)
-                    mControlAnimationRunnable = new ControlAnimationRunnable();
+                if(Log.d(MtvUiLivePlayer.this) == null)
+                    Log.d(MtvUiLivePlayer.this, new ControlAnimationRunnable());
                 if(s1 != null)
                 {
-                    mControlAnimationRunnable.setAnimationEnable(true);
-                    mControlAnimationRunnable.setAnimationText(s1);
+                    Log.d(Log.d(MtvUiLivePlayer.this), 1);
+                    Log.d(Log.d(MtvUiLivePlayer.this), s1);
                 } else
                 {
-                    mControlAnimationRunnable.setAnimationEnable(false);
+                    Log.d(Log.d(MtvUiLivePlayer.this), 0);
                 }
-                mControlAnimationRunnable.postAnimationToRunInUIThread();
+                Log.d(Log.d(MtvUiLivePlayer.this));
                 continue; /* Loop/switch isn't completed */
 _L3:
-                if(MtvUiLivePlayer.showStatusNotification)
-                    showNotification(true);
+                if(Log.d())
+                    Log.d(MtvUiLivePlayer.this, 1);
                 else
                     MtvUtilDebug.Mid("MtvUiLivePlayer", "showStatusNotification is false");
                 continue; /* Loop/switch isn't completed */
 _L4:
-                if(fragHandler != null)
-                    fragHandler.onUpdate(103, null, 15);
+                if(Log.d(MtvUiLivePlayer.this) != null)
+                    Log.d(MtvUiLivePlayer.this).onUpdate(103, null, 15);
                 continue; /* Loop/switch isn't completed */
 _L5:
                 if(message.obj != null)
@@ -560,18 +628,18 @@ _L5:
                     MtvBatteryInfo.setBatteryChargeStatus(flag2);
                     if(l < 15 && !flag2)
                     {
-                        mLiveUiMsgHandler.sendEmptyMessage(304);
+                        Log.d(MtvUiLivePlayer.this).sendEmptyMessage(304);
                     } else
                     {
                         MtvBatteryInfo.updateBatteryLevel(l, k);
-                        if(fragHandler != null)
-                            fragHandler.onUpdate(102, null, 15);
+                        if(Log.d(MtvUiLivePlayer.this) != null)
+                            Log.d(MtvUiLivePlayer.this).onUpdate(102, null, 15);
                     }
                 }
                 continue; /* Loop/switch isn't completed */
 _L7:
-                hideNotification();
-                mLiveUiMsgHandler.sendEmptyMessage(306);
+                Log.d(MtvUiLivePlayer.this);
+                Log.d(MtvUiLivePlayer.this).sendEmptyMessage(306);
                 continue; /* Loop/switch isn't completed */
 _L8:
                 boolean flag1;
@@ -586,28 +654,28 @@ _L8:
                     setRequestedOrientation(8);
                 else
                     setRequestedOrientation(1);
-                hideNotification();
+                Log.d(MtvUiLivePlayer.this);
                 if(!isResumed() && !flag1)
                 {
                     MtvUtilDebug.Error("MtvUiLivePlayer", (new StringBuilder()).append("isResumed?: ").append(isResumed()).append(" isBackgroundFinishAllowed?: ").append(flag1).toString());
                     MtvUtilDebug.Error("MtvUiLivePlayer", "skipping finish as LivePlayer activity is not the topActivity - !!");
                 } else
                 {
-                    if(mExitProgressDialog == null)
+                    if(Log.d(MtvUiLivePlayer.this) == null)
                         showExitingAppDialog();
                     MtvUtilDebug.Low("MtvUiLivePlayer", "inside306");
                     isScheduledReservationProgram();
-                    mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
-                    if(mMtvAppPlaybackContext != null)
+                    Log.d(MtvUiLivePlayer.this, MtvAppPlaybackContextManager.getInstance().getCurrentContext());
+                    if(Log.d(MtvUiLivePlayer.this) != null)
                     {
-                        mMtvAppPlaybackContext.getState().registerListener(MtvUiLivePlayer.this);
-                        if(mMtvAppPlaybackContext.getState().getState() != com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE)
+                        Log.d(MtvUiLivePlayer.this).getState().registerListener(MtvUiLivePlayer.this);
+                        if(Log.d(MtvUiLivePlayer.this).getState().getState() != com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE)
                         {
-                            MtvUtilDebug.Mid("MtvUiLivePlayer", (new StringBuilder()).append("Exiting - OneSeg already initialized so deleting OneSeg and waiting till delete callback  ").append(mMtvAppPlaybackContext.getState().getState()).append("  ").append(mMtvAppPlaybackContext.getState().getOp()).toString());
-                            mLiveUiMsgHandler.removeCallbacks(RunnableNextPreviousChannel);
-                            deleteMtvPlayer();
+                            MtvUtilDebug.Mid("MtvUiLivePlayer", (new StringBuilder()).append("Exiting - OneSeg already initialized so deleting OneSeg and waiting till delete callback  ").append(Log.d(MtvUiLivePlayer.this).getState().getState()).append("  ").append(Log.d(MtvUiLivePlayer.this).getState().getOp()).toString());
+                            Log.d(MtvUiLivePlayer.this).removeCallbacks(Log.d(MtvUiLivePlayer.this));
+                            Log.d(MtvUiLivePlayer.this);
                         } else
-                        if(mMtvAppPlaybackContext.getState().getOp() == 20481)
+                        if(Log.d(MtvUiLivePlayer.this).getState().getOp() == 20481)
                             MtvUtilDebug.Mid("MtvUiLivePlayer", "Exiting - Create in Progress, so will be finish on Create callback");
                     } else
                     {
@@ -617,20 +685,20 @@ _L8:
                 }
                 continue; /* Loop/switch isn't completed */
 _L9:
-                setScreenRatio(((Integer)message.obj).intValue());
+                Log.d(MtvUiLivePlayer.this, ((Integer)message.obj).intValue());
                 continue; /* Loop/switch isn't completed */
 _L10:
-                if(MtvUiLivePlayer.mBmlSurface != null)
-                    MtvUiLivePlayer.mBmlSurface.updateBMLSurfaceView();
-                setCaptionViewVisibility();
+                if(Log.d() != null)
+                    Log.d().updateBMLSurfaceView();
+                Log.d(MtvUiLivePlayer.this);
                 continue; /* Loop/switch isn't completed */
 _L11:
-                mCaptionView.setText("");
-                mCaptionView.invalidate();
+                Log.d(MtvUiLivePlayer.this).setText("");
+                Log.d(MtvUiLivePlayer.this).invalidate();
                 continue; /* Loop/switch isn't completed */
 _L12:
                 SpannableStringBuilder spannablestringbuilder = (SpannableStringBuilder)message.obj;
-                setCaptionText(spannablestringbuilder);
+                Log.d(MtvUiLivePlayer.this, spannablestringbuilder);
                 continue; /* Loop/switch isn't completed */
 _L13:
                 if(!isFinishing())
@@ -651,8 +719,8 @@ _L6:
                 }
                 continue; /* Loop/switch isn't completed */
 _L15:
-                if(fragHandler != null)
-                    fragHandler.onUpdate(104, null, 15);
+                if(Log.d(MtvUiLivePlayer.this) != null)
+                    Log.d(MtvUiLivePlayer.this).onUpdate(104, null, 15);
                 continue; /* Loop/switch isn't completed */
 _L14:
                 StringBuilder stringbuilder = (new StringBuilder()).append("changing cannel - ");
@@ -667,30 +735,30 @@ _L14:
                     flag = true;
                 else
                     flag = false;
-                checkIsReservationAndEnd(1);
-                if(mMtvPlayerOneSeg != null)
+                Log.d(MtvUiLivePlayer.this, 1);
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
-                    getNextPreviousChannelNumber(flag);
-                    mLiveUiMsgHandler.removeCallbacks(RunnableNextPreviousChannel);
-                    mLiveUiMsgHandler.postDelayed(RunnableNextPreviousChannel, calculateDelayForStartChannel());
-                    mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(300, getString(0x7f070087)));
+                    Log.d(MtvUiLivePlayer.this, flag);
+                    Log.d(MtvUiLivePlayer.this).removeCallbacks(Log.d(MtvUiLivePlayer.this));
+                    Log.d(MtvUiLivePlayer.this).postDelayed(Log.d(MtvUiLivePlayer.this), calculateDelayForStartChannel());
+                    Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(300, getString(0x7f070087)));
                 }
-                invalidateLiveViews();
+                Log.d(MtvUiLivePlayer.this);
                 continue; /* Loop/switch isn't completed */
 _L21:
                 int j = ((Integer)message.obj).intValue();
-                if(fragHandler != null)
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
-                    fragHandler.removeFrag(6);
+                    Log.d(MtvUiLivePlayer.this).removeFrag(6);
                     MtvUtilDebug.Mid("MtvUiLivePlayer", (new StringBuilder()).append("changing channel to - ").append(j).toString());
-                    if(mMtvPlayerOneSeg != null)
+                    if(Log.d(MtvUiLivePlayer.this) != null)
                     {
-                        setLatestChannelsByPChannel(j);
-                        mLiveUiMsgHandler.removeCallbacks(RunnableNextPreviousChannel);
-                        mLiveUiMsgHandler.postDelayed(RunnableNextPreviousChannel, calculateDelayForStartChannel());
-                        mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(300, getString(0x7f070087)));
+                        Log.d(MtvUiLivePlayer.this, j);
+                        Log.d(MtvUiLivePlayer.this).removeCallbacks(Log.d(MtvUiLivePlayer.this));
+                        Log.d(MtvUiLivePlayer.this).postDelayed(Log.d(MtvUiLivePlayer.this), calculateDelayForStartChannel());
+                        Log.d(MtvUiLivePlayer.this).sendMessage(Log.d(MtvUiLivePlayer.this).obtainMessage(300, getString(0x7f070087)));
                     }
-                    invalidateLiveViews();
+                    Log.d(MtvUiLivePlayer.this);
                 }
                 continue; /* Loop/switch isn't completed */
 _L16:
@@ -700,34 +768,34 @@ _L16:
                     int i = ((Intent)message.obj).getIntExtra("state", 0);
                     if(i == 0)
                     {
-                        if(mMtvPreferences == null)
-                            mMtvPreferences = new MtvPreferences(getApplicationContext());
-                        mMtvPreferences.setAudio51Enabled(false);
-                        if(fragHandler != null && fragHandler.isFragPresent(15))
-                            fragHandler.onUpdate(104, Integer.valueOf(i), 15);
-                        if(fragHandler != null && fragHandler.isFragPresent(2))
-                            fragHandler.onUpdate(109, Integer.valueOf(i), 2);
+                        if(Log.d(MtvUiLivePlayer.this) == null)
+                            Log.d(MtvUiLivePlayer.this, new MtvPreferences(getApplicationContext()));
+                        Log.d(MtvUiLivePlayer.this).setAudio51Enabled(false);
+                        if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this).isFragPresent(15))
+                            Log.d(MtvUiLivePlayer.this).onUpdate(104, Integer.valueOf(i), 15);
+                        if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this).isFragPresent(2))
+                            Log.d(MtvUiLivePlayer.this).onUpdate(109, Integer.valueOf(i), 2);
                     }
                 }
-                postDelayed(postHeadsetUpdate, 300L);
+                postDelayed(Log.d(MtvUiLivePlayer.this), 300L);
                 continue; /* Loop/switch isn't completed */
 _L17:
-                if(fragHandler != null)
-                    fragHandler.onUpdate(110, mMtvAppPlaybackContext.getComponents().getVideo().getCaptFrame(), 4);
+                if(Log.d(MtvUiLivePlayer.this) != null)
+                    Log.d(MtvUiLivePlayer.this).onUpdate(110, Log.d(MtvUiLivePlayer.this).getComponents().getVideo().getCaptFrame(), 4);
                 continue; /* Loop/switch isn't completed */
 _L18:
-                if(optionsMenu != null)
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
                     closeOptionsMenu();
-                    optionsMenu = null;
+                    Log.d(MtvUiLivePlayer.this, null);
                 }
-                showToast(0x7f0700d0);
-                checkIsReservationAndStart();
+                Log.d(MtvUiLivePlayer.this, 0x7f0700d0);
+                Log.d(MtvUiLivePlayer.this);
                 continue; /* Loop/switch isn't completed */
 _L19:
-                if(fragHandler != null)
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
-                    MtvUiFragHandler mtvuifraghandler = fragHandler;
+                    MtvUiFragHandler mtvuifraghandler = Log.d(MtvUiLivePlayer.this);
                     int ai[] = new int[1];
                     ai[0] = 0x7f0a0019;
                     mtvuifraghandler.addFrag(6, -1L, false, ai);
@@ -742,10 +810,11 @@ _L20:
                     {
                         MtvOneSegProgram amtvonesegprogram[];
                         int i1;
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$2$1;->run()V");
                         amtvonesegprogram = getProgram();
-                        if(mMtvPreferences == null)
-                            mMtvPreferences = new MtvPreferences(getApplicationContext());
-                        i1 = mMtvPreferences.getLatestVChannel();
+                        if(Log.d(_fld0) == null)
+                            Log.d(_fld0, new MtvPreferences(getApplicationContext()));
+                        i1 = Log.d(_fld0).getLatestVChannel();
                         MtvProgramManager.delete(_fld0, null);
                         if(amtvonesegprogram == null || amtvonesegprogram.length <= 0) goto _L2; else goto _L1
 _L1:
@@ -767,6 +836,7 @@ _L4:
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$2$1;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$2;)V");
                             this$1 = _cls2.this;
                             super();
                         }
@@ -775,53 +845,53 @@ _L4:
                 runOnUiThread(new _cls1());
                 continue; /* Loop/switch isn't completed */
 _L22:
-                endReservationProgramAndShowAlert();
+                Log.d(MtvUiLivePlayer.this);
                 continue; /* Loop/switch isn't completed */
 _L23:
-                if(optionsMenu != null)
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
                     closeOptionsMenu();
-                    optionsMenu = null;
+                    Log.d(MtvUiLivePlayer.this, null);
                 }
-                cancelRecording();
+                Log.d(MtvUiLivePlayer.this);
                 if(isResumed())
                 {
                     if(24595 == message.arg1)
                     {
-                        showErrorDialog(0x7f0700d6);
-                        CheckIsreservationAndUpdatefailureReason(5);
+                        Log.d(MtvUiLivePlayer.this, 0x7f0700d6);
+                        Log.d(MtvUiLivePlayer.this, 5);
                     } else
                     {
-                        showErrorDialog(0x7f0700d8);
-                        CheckIsreservationAndUpdatefailureReason(2);
+                        Log.d(MtvUiLivePlayer.this, 0x7f0700d8);
+                        Log.d(MtvUiLivePlayer.this, 2);
                     }
                 } else
                 {
-                    MtvUiLivePlayer.mPendingPlayerNotification = obtainMessage(message.what, message.arg1, message.arg2);
+                    Log.d(obtainMessage(message.what, message.arg1, message.arg2));
                 }
                 continue; /* Loop/switch isn't completed */
 _L24:
-                if(optionsMenu != null)
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
                     closeOptionsMenu();
-                    optionsMenu = null;
+                    Log.d(MtvUiLivePlayer.this, null);
                 }
-                stopRecording();
+                Log.d(MtvUiLivePlayer.this);
                 if(isResumed())
                 {
                     if(24594 == message.arg1)
                     {
-                        showErrorDialog(0x7f0700d4);
-                        CheckIsReservationPartialOrNone(5);
+                        Log.d(MtvUiLivePlayer.this, 0x7f0700d4);
+                        Log.d(MtvUiLivePlayer.this, 5);
                     }
                 } else
                 {
-                    MtvUiLivePlayer.mPendingPlayerNotification = obtainMessage(message.what, message.arg1, message.arg2);
+                    Log.d(obtainMessage(message.what, message.arg1, message.arg2));
                 }
                 continue; /* Loop/switch isn't completed */
 _L25:
-                if(fragHandler != null)
-                    fragHandler.onUpdate(111, Boolean.valueOf(true), 1);
+                if(Log.d(MtvUiLivePlayer.this) != null)
+                    Log.d(MtvUiLivePlayer.this).onUpdate(111, Boolean.valueOf(true), 1);
                 if(true) goto _L1; else goto _L26
 _L26:
             }
@@ -830,6 +900,7 @@ _L26:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$2;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -838,11 +909,12 @@ _L26:
 
             public void run()
             {
-                if(fragHandler != null)
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$3;->run()V");
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
-                    fragHandler.onUpdate(108, null, 12);
-                    fragHandler.onUpdate(108, null, 0);
-                    fragHandler.onUpdate(108, null, 1);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(108, null, 12);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(108, null, 0);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(108, null, 1);
                     MtvUtilAudioManager.getInstance(getApplicationContext()).updateCurrentAudioEffectAndMode();
                 }
             }
@@ -851,6 +923,7 @@ _L26:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$3;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -859,16 +932,18 @@ _L26:
 
             public void run()
             {
-                if(mLiveVideoSurfaceView != null)
-                    mLiveVideoSurfaceView.setKeepScreenOn(false);
-                if(mHiddenSurfaceView != null)
-                    mHiddenSurfaceView.setKeepScreenOn(false);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$4;->run()V");
+                if(Log.d(MtvUiLivePlayer.this) != null)
+                    Log.d(MtvUiLivePlayer.this).setKeepScreenOn(false);
+                if(Log.d(MtvUiLivePlayer.this) != null)
+                    Log.d(MtvUiLivePlayer.this).setKeepScreenOn(false);
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$4;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -877,16 +952,18 @@ _L26:
 
             public void run()
             {
-                if(mLiveVideoSurfaceView != null)
-                    mLiveVideoSurfaceView.setKeepScreenOn(true);
-                if(mHiddenSurfaceView != null)
-                    mHiddenSurfaceView.setKeepScreenOn(true);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$5;->run()V");
+                if(Log.d(MtvUiLivePlayer.this) != null)
+                    Log.d(MtvUiLivePlayer.this).setKeepScreenOn(true);
+                if(Log.d(MtvUiLivePlayer.this) != null)
+                    Log.d(MtvUiLivePlayer.this).setKeepScreenOn(true);
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$5;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -895,21 +972,24 @@ _L26:
 
             public void onServiceConnected(ComponentName componentname, IBinder ibinder)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$6;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V");
                 MtvUtilDebug.Low("MtvUiLivePlayer", "onServiceConnected...");
-                mService = (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService();
-                mService.registerListener(mMtvUiLiveServiceListener = new MtvUiLiveServiceListener());
+                Log.d(MtvUiLivePlayer.this, (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService());
+                Log.d(MtvUiLivePlayer.this).registerListener(Log.d(MtvUiLivePlayer.this, new MtvUiLiveServiceListener()));
             }
 
             public void onServiceDisconnected(ComponentName componentname)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$6;->onServiceDisconnected(Landroid/content/ComponentName;)V");
                 MtvUtilDebug.Low("MtvUiLivePlayer", "onServiceConnected...");
-                mService.unregisterListener(mMtvUiLiveServiceListener);
+                Log.d(MtvUiLivePlayer.this).unregisterListener(Log.d(MtvUiLivePlayer.this));
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$6;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -918,20 +998,22 @@ _L26:
 
             public void run()
             {
-                if(fragHandler != null)
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$7;->run()V");
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
-                    fragHandler.onUpdate(106, null, 0);
-                    fragHandler.onUpdate(106, null, 12);
-                    fragHandler.onUpdate(106, null, 1);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(106, null, 0);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(106, null, 12);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(106, null, 1);
                 }
-                if(mMtvAudMgr != null && mMtvAudMgr.getVolumeLevel() != 15)
-                    mLiveUiMsgHandler.postDelayed(runnableVolumeEscalating, 100L);
+                if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this).getVolumeLevel() != 15)
+                    Log.d(MtvUiLivePlayer.this).postDelayed(Log.d(MtvUiLivePlayer.this), 100L);
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$7;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -940,20 +1022,22 @@ _L26:
 
             public void run()
             {
-                if(fragHandler != null)
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$8;->run()V");
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
-                    fragHandler.onUpdate(107, null, 0);
-                    fragHandler.onUpdate(107, null, 12);
-                    fragHandler.onUpdate(107, null, 1);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(107, null, 0);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(107, null, 12);
+                    Log.d(MtvUiLivePlayer.this).onUpdate(107, null, 1);
                 }
-                if(mMtvAudMgr != null && mMtvAudMgr.getVolumeLevel() != 0)
-                    mLiveUiMsgHandler.postDelayed(runnableVolumeDecreasing, 100L);
+                if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this).getVolumeLevel() != 0)
+                    Log.d(MtvUiLivePlayer.this).postDelayed(Log.d(MtvUiLivePlayer.this), 100L);
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$8;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -962,14 +1046,16 @@ _L26:
 
             public void run()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$18;->run()V");
                 MtvUtilDebug.Error("MtvUiLivePlayer", "MTV_ERROR_SERVICE_UNKONWN : Abnormal termination NOW");
-                mLiveUiMsgHandler.sendEmptyMessage(306);
+                Log.d(MtvUiLivePlayer.this).sendEmptyMessage(306);
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$18;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -978,13 +1064,15 @@ _L26:
 
             public void run()
             {
-                showNotification();
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$19;->run()V");
+                Log.d(MtvUiLivePlayer.this);
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$19;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -993,25 +1081,28 @@ _L26:
 
             public void run()
             {
-                if(mMtvPlayerOneSeg != null)
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$20;->run()V");
+                if(Log.d(MtvUiLivePlayer.this) != null)
                 {
                     MtvUtilDebug.Low("MtvUiLivePlayer", "RunnableNextPreviousChannel dispatched from Queue -> Gonna Open !");
-                    MtvURI mtvuri = new MtvURI(2, mMtvPreferences.getLatestPChannelFromVChannel());
-                    mMtvPlayerOneSeg.open(MtvAppPlaybackContextManager.getInstance().getLiveTV(), mtvuri);
+                    MtvURI mtvuri = new MtvURI(2, Log.d(MtvUiLivePlayer.this).getLatestPChannelFromVChannel());
+                    Log.d(MtvUiLivePlayer.this).open(MtvAppPlaybackContextManager.getInstance().getLiveTV(), mtvuri);
                     class _cls1
                         implements Runnable
                     {
 
                         public void run()
                         {
-                            if(MtvUiLivePlayer.mBmlSurface != null)
-                                MtvUiLivePlayer.mBmlSurface.setVisibility(4);
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$20$1;->run()V");
+                            if(Log.d() != null)
+                                Log.d().setVisibility(4);
                         }
 
                         final _cls20 this$1;
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$20$1;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$20;)V");
                             this$1 = _cls20.this;
                             super();
                         }
@@ -1025,6 +1116,7 @@ _L26:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$20;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -1033,17 +1125,18 @@ _L26:
 
             public void run()
             {
-                if(fragHandler != null && mMtvPreferences != null)
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$21;->run()V");
+                if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this) != null)
                 {
-                    if(fragHandler.isFragPresent(15))
+                    if(Log.d(MtvUiLivePlayer.this).isFragPresent(15))
                     {
                         MtvUtilDebug.Low("MtvUiLivePlayer", "RunnableUpdateProgramChannelInfo");
-                        fragHandler.onUpdate(101, getCurrentChannelProgramTitle(false, true), 15);
+                        Log.d(MtvUiLivePlayer.this).onUpdate(101, Log.d(MtvUiLivePlayer.this, 0, 1), 15);
                     }
-                    if(fragHandler.isFragPresent(0))
+                    if(Log.d(MtvUiLivePlayer.this).isFragPresent(0))
                     {
                         MtvUtilDebug.Low("MtvUiLivePlayer", "RunnableUpdateProgramChannelInfo");
-                        fragHandler.onUpdate(101, getCurrentChannelProgramTitle(false, false), 0);
+                        Log.d(MtvUiLivePlayer.this).onUpdate(101, Log.d(MtvUiLivePlayer.this, 0, 0), 0);
                     }
                 }
             }
@@ -1052,6 +1145,7 @@ _L26:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$21;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -1060,21 +1154,23 @@ _L26:
 
             public void run()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$22;->run()V");
                 int i = 0;
-                MtvOneSegSignal mtvonesegsignal = getSignalValue();
+                MtvOneSegSignal mtvonesegsignal = Log.d(MtvUiLivePlayer.this);
                 if(mtvonesegsignal != null)
                     i = mtvonesegsignal.getSignalQuality();
                 MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("RunnableUpdateSignalInfo - signalValue: ").append(i).toString());
-                if(fragHandler != null && fragHandler.isFragPresent(15))
-                    fragHandler.onUpdate(100, Integer.valueOf(i), 15);
+                if(Log.d(MtvUiLivePlayer.this) != null && Log.d(MtvUiLivePlayer.this).isFragPresent(15))
+                    Log.d(MtvUiLivePlayer.this).onUpdate(100, Integer.valueOf(i), 15);
                 if(i > 0)
-                    mLiveUiMsgHandler.post(RunnableRemoveWeakSignalDialogue);
+                    Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$22;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -1083,6 +1179,7 @@ _L26:
 
             public void run()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$23;->run()V");
                 if(getFragmentManager().findFragmentByTag("signal_alert_retry_exit") != null && isResumed())
                 {
                     MtvUtilDebug.Low("MtvUiLivePlayer", "RunnableRemoveWeakSignalDialogue... removed");
@@ -1094,6 +1191,7 @@ _L26:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$23;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -1102,11 +1200,12 @@ _L26:
 
             public void run()
             {
-                mLiveUiMsgHandler.removeCallbacks(RunnableReservationEndPopupExpire);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$24;->run()V");
+                Log.d(MtvUiLivePlayer.this).removeCallbacks(Log.d(MtvUiLivePlayer.this));
                 DialogFragment dialogfragment = (DialogFragment)getFragmentManager().findFragmentByTag("reserve_end_dialog");
                 if(dialogfragment != null)
                 {
-                    endReservationProgram(dialogfragment.getArguments());
+                    Log.d(MtvUiLivePlayer.this, dialogfragment.getArguments());
                     dialogfragment.dismiss();
                 }
             }
@@ -1115,6 +1214,7 @@ _L26:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$24;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -1123,15 +1223,17 @@ _L26:
 
             public void run()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$25;->run()V");
                 MtvUtilDebug.Low("MtvUiLivePlayer", "reseting ComingReservationID ..");
-                mLiveUiMsgHandler.removeCallbacks(RunnableresetComingReservationID);
-                mMtvPreferences.setComingReservationID(-1);
+                Log.d(MtvUiLivePlayer.this).removeCallbacks(Log.d(MtvUiLivePlayer.this));
+                Log.d(MtvUiLivePlayer.this).setComingReservationID(-1);
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$25;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -1140,14 +1242,16 @@ _L26:
 
             public void run()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$26;->run()V");
                 MtvUtilDebug.Low("MtvUiLivePlayer", "RunnableCheckIsReservationAndStart...");
-                checkIsReservationAndStart();
+                Log.d(MtvUiLivePlayer.this);
             }
 
             final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$26;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -1157,6 +1261,7 @@ _L26:
     private void CheckIsReservationPartialOrNone(int i)
     {
         int j;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->CheckIsReservationPartialOrNone(I)V");
         if(mMtvPreferences == null)
             mMtvPreferences = new MtvPreferences(getApplicationContext());
         j = mMtvPreferences.getReservationAlertID();
@@ -1166,9 +1271,9 @@ _L1:
         if(mtvreservation == null) goto _L2; else goto _L3
 _L3:
         i;
-        JVM INSTR tableswitch 4 5: default 72
-    //                   4 82
-    //                   5 140;
+        JVM INSTR tableswitch 4 5: default 84
+    //                   4 94
+    //                   5 155;
            goto _L4 _L5 _L6
 _L4:
         MtvUtilDebug.Low("MtvUiLivePlayer", "No Above");
@@ -1204,6 +1309,7 @@ _L7:
     private void CheckIsreservationAndUpdatefailureReason(int i)
     {
         MtvReservation mtvreservation;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->CheckIsreservationAndUpdatefailureReason(I)V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "CheckIsreservationAndUpdatefailureReason");
         mtvreservation = MtvReservationManager.find(this, mMtvPreferences.getReservationAlertID());
         if(mtvreservation != null) goto _L2; else goto _L1
@@ -1260,6 +1366,7 @@ _L6:
 
     private void LaunchChannelGuideActivity(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->LaunchChannelGuideActivity(I)V");
         if(fragHandler != null && fragHandler.isFragPresent(12))
             fragHandler.removeFrag(12);
         Intent intent = new Intent(getApplicationContext(), com/samsung/sec/mtv/ui/channelguide/MtvUiChannelGuide);
@@ -1271,6 +1378,7 @@ _L6:
 
     private boolean blockUiEventsForReservation()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->blockUiEventsForReservation()Z");
         boolean flag = false;
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("").append(mMtvPreferences.isReservationProgram()).append("   :::   ").append(mMtvAppPlaybackContext).toString());
@@ -1288,6 +1396,7 @@ _L6:
 
     private void cancelRecording()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->cancelRecording()V");
         if(fragHandler != null)
         {
             fragHandler.removeFrag(15);
@@ -1305,6 +1414,7 @@ _L6:
 
     private boolean checkIsCalling(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->checkIsCalling(Z)Z");
         boolean flag1;
         if(((TelephonyManager)getSystemService("phone")).getCallState() == 2)
         {
@@ -1333,7 +1443,9 @@ _L6:
 
     private boolean checkIsMassStorageUSBEnabled()
     {
-        boolean flag = false;
+        boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->checkIsMassStorageUSBEnabled()Z");
+        flag = false;
         if(Environment.getExternalStorageState().equals("mounted")) goto _L2; else goto _L1
 _L1:
         if(mExitToast == null)
@@ -1359,6 +1471,7 @@ _L3:
 
     private boolean checkIsRelaunched()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->checkIsRelaunched()Z");
         boolean flag = false;
         if(!isTaskRoot())
         {
@@ -1373,6 +1486,7 @@ _L3:
 
     private void checkIsReservationAndEnd(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->checkIsReservationAndEnd(I)V");
         shownToastforOperationNA = false;
         if(mMtvPreferences == null)
             mMtvPreferences = new MtvPreferences(getApplicationContext());
@@ -1400,6 +1514,7 @@ _L3:
     {
         boolean flag;
         Bundle bundle;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->checkIsReservationAndStart()Z");
         flag = false;
         MtvUtilDebug.Low("MtvUiLivePlayer", "checkIsReservationAndStart()");
         bundle = getIntent().getExtras();
@@ -1421,7 +1536,7 @@ _L4:
         MtvReservation mtvreservation = MtvReservationManager.find(this, i);
         boolean flag2 = bundle.getBoolean("youNeedToShowAlert", false);
         if(mtvreservation == null || mtvreservation.mPgmStatus != 0 || mtvreservation.mTimeEnd <= System.currentTimeMillis())
-            break MISSING_BLOCK_LABEL_534;
+            break MISSING_BLOCK_LABEL_546;
         if(MtvAreaManager.getCount(this) == 0)
         {
             checkIsReservationAndEnd(2);
@@ -1482,12 +1597,14 @@ _L2:
 
     private void checkRecordingTime()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->checkRecordingTime()V");
         if(fragHandler != null)
             fragHandler.onUpdate(116, null, 1);
     }
 
     private void deleteMtvPlayer()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->deleteMtvPlayer()V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "inside deleteMtvPlayer...");
         mMtvPlayerOneSeg = MtvAppPlayerOneSeg.getInstance();
         mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
@@ -1502,6 +1619,7 @@ _L2:
 
     private void endFailReservationProgram(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->endFailReservationProgram(Landroid/os/Bundle;)V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "endReservationProgram");
         if(bundle != null) goto _L2; else goto _L1
 _L1:
@@ -1532,6 +1650,7 @@ _L3:
 
     private void endReservationProgram(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->endReservationProgram(Landroid/os/Bundle;)V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "endReservationProgram");
         if(bundle != null) goto _L2; else goto _L1
 _L1:
@@ -1563,6 +1682,7 @@ _L3:
     {
         boolean flag;
         MtvReservation mtvreservation;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->endReservationProgramAndShowAlert()V");
         flag = false;
         MtvUtilDebug.Low("MtvUiLivePlayer", "endReservationProgramAndShowAlert");
         if(mMtvPreferences == null)
@@ -1659,6 +1779,7 @@ _L6:
 
     private SpannableStringBuilder getCaptionText()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getCaptionText()Landroid/text/SpannableStringBuilder;");
         SpannableStringBuilder spannablestringbuilder = null;
         if(mMtvAppPlaybackContext != null)
             spannablestringbuilder = mMtvAppPlaybackContext.getComponents().getCaption().getBuffer();
@@ -1667,6 +1788,7 @@ _L6:
 
     private String getCurrentChannelProgramTitle(boolean flag, boolean flag1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getCurrentChannelProgramTitle(ZZ)Ljava/lang/String;");
         MtvOneSegProgram amtvonesegprogram[] = null;
         String s = "";
         String s1 = "";
@@ -1698,6 +1820,7 @@ _L6:
 
     private SurfaceView getLiveVideoSurfaceView(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getLiveVideoSurfaceView(Z)Landroid/view/SurfaceView;");
         SurfaceView surfaceview;
         if(!flag)
             mLiveVideoSurfaceView.setVisibility(8);
@@ -1719,6 +1842,7 @@ _L6:
         int j;
         int k;
         int l;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getNextPreviousChannelNumber(Z)I");
         i = 62;
         j = -1;
         k = mMtvPreferences.getLatestVChannel();
@@ -1775,11 +1899,13 @@ _L5:
 
     private String getNotificationContent()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getNotificationContent()Ljava/lang/String;");
         return getCurrentChannelProgramTitle(false, true);
     }
 
     private MtvOneSegSignal getSignalValue()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getSignalValue()Landroid/broadcast/helper/types/MtvOneSegSignal;");
         MtvOneSegSignal mtvonesegsignal;
         if(mMtvAppPlaybackContext != null)
             mtvonesegsignal = mMtvAppPlaybackContext.getAttribute().getSignalStatistics();
@@ -1790,12 +1916,14 @@ _L5:
 
     private void hideNotification()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->hideNotification()V");
         if(mNotificationManager != null)
             mNotificationManager.cancel(0x7f020113);
     }
 
     private void initMtvPlayer()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->initMtvPlayer()V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "initMtvPlayer...");
         mMtvPlayerOneSeg = MtvAppPlayerOneSeg.getInstance();
         mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
@@ -1863,6 +1991,7 @@ _L5:
 
     private void initViewControl()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->initViewControl()V");
         setContentView(0x7f030004);
         lockImage = (ImageView)findViewById(0x7f0a0025);
         mAnimationlayout = (RelativeLayout)findViewById(0x7f0a0021);
@@ -1882,6 +2011,7 @@ _L5:
 
     private void invalidateLiveViews()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->invalidateLiveViews()V");
         if(!mBmlSurface.IsBMLFullView()) goto _L2; else goto _L1
 _L1:
         return;
@@ -1905,6 +2035,7 @@ _L3:
 
     private void latestChannelValidity()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->latestChannelValidity()V");
         if(mMtvPreferences.getLatestPChannel() < 0 && mMtvPreferences.getLatestVChannel() < 0)
         {
             MtvUtilDebug.Low("MtvUiLivePlayer", "Lost Track of last Channel,may be its first time run , reseting to  Default Channel");
@@ -1915,11 +2046,13 @@ _L3:
 
     private void registerMediaButtonReceiver()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->registerMediaButtonReceiver()V");
         mAudioManager.registerMediaButtonEventReceiver(new ComponentName(getPackageName(), com/samsung/sec/mtv/reciever/MtvBroadcastReceiver.getName()));
     }
 
     private void registerVideoSurfaceView(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->registerVideoSurfaceView(Z)V");
         if(mMtvAppPlaybackContext != null)
         {
             mMtvAppPlaybackContext.getComponents().getVideo().enable();
@@ -1952,6 +2085,7 @@ _L3:
 
     private void releaseMtvPlayer()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->releaseMtvPlayer()V");
         if(mMtvAppPlaybackContext != null)
         {
             if(mBmlSurface != null)
@@ -1965,6 +2099,7 @@ _L3:
 
     private void removeFragments()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->removeFragments()V");
         if(fragHandler.isFragPresent(12))
             fragHandler.removeFrag(12);
         if(fragHandler.isFragPresent(15))
@@ -1975,23 +2110,24 @@ _L3:
 
     private boolean requestSystemKeyEvent(int i, boolean flag)
     {
-        IWindowManager iwindowmanager;
-        iwindowmanager = android.view.IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->requestSystemKeyEvent(IZ)Z");
+        android.view.IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
         MtvUtilDebug.Low("MtvUiLivePlayer", "requestSystemKeyEvent");
-        boolean flag2 = iwindowmanager.requestSystemKeyEvent(i, getComponentName(), flag);
-        boolean flag1 = flag2;
-_L2:
-        return flag1;
-        RemoteException remoteexception;
-        remoteexception;
-        remoteexception.printStackTrace();
-        flag1 = false;
-        if(true) goto _L2; else goto _L1
-_L1:
+        try
+        {
+            getComponentName();
+            return true;
+        }
+        catch(RemoteException remoteexception)
+        {
+            remoteexception.printStackTrace();
+        }
+        return false;
     }
 
     private void saveTVFileThumbnail()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->saveTVFileThumbnail()V");
         boolean flag = false;
         if(mMtvAppPlaybackContext == null)
             mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
@@ -2017,6 +2153,7 @@ _L1:
 
     private void setActivityProperty()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->setActivityProperty()V");
         requestWindowFeature(1);
         if(MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 0)
             getWindow().clearFlags(1024);
@@ -2027,11 +2164,13 @@ _L1:
 
     private void setCaptionText(SpannableStringBuilder spannablestringbuilder)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->setCaptionText(Landroid/text/SpannableStringBuilder;)V");
         mCaptionView.setText(spannablestringbuilder);
     }
 
     private void setCaptionViewVisibility()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->setCaptionViewVisibility()V");
         if(mMtvPreferences.isCaptionEnabled() && !isBmlFullView())
         {
             mCaptionView.setVisibility(0);
@@ -2045,6 +2184,7 @@ _L1:
 
     private void setImageViewDuringNoChannel(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->setImageViewDuringNoChannel(Z)V");
         if(flag)
         {
             mLiveVideoSurfaceView.setVisibility(8);
@@ -2059,6 +2199,7 @@ _L1:
 
     private void setLatestChannelsByPChannel(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->setLatestChannelsByPChannel(I)V");
         int j = -1;
         MtvChannel mtvchannel = MtvChannelManager.findByPChannel(this, i);
         if(mtvchannel != null)
@@ -2069,6 +2210,7 @@ _L1:
 
     private void setScreenRatio(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->setScreenRatio(I)V");
         Context context = getApplicationContext();
         int j;
         int k;
@@ -2127,11 +2269,13 @@ _L1:
 
     private void showErrorDialog(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showErrorDialog(I)V");
         ErrorDialogFragment.newInstance(i).show(getFragmentManager(), "ErrorDialogFragment");
     }
 
     private void showNotification()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showNotification()V");
         if(!MtvUtilAppService.isAppExiting())
         {
             Notification notification = new Notification();
@@ -2159,6 +2303,7 @@ _L1:
 
     private void showNotification(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showNotification(Z)V");
         MtvUtilDebug.High("MtvUiLivePlayer", (new StringBuilder()).append("showNotification() called.. showTicker").append(flag).toString());
         hideNotification();
         if(mMtvAppPlaybackContext != null)
@@ -2213,6 +2358,7 @@ _L1:
 
     private void showReservationAlert()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showReservationAlert()V");
         if(!isResumed())
         {
             MtvUtilDebug.High("MtvUiLivePlayer", "Live Player not resumed continuing with recording without showing popup...");
@@ -2231,6 +2377,7 @@ _L1:
 
     private void showToast(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showToast(I)V");
         ActivityManager activitymanager = (ActivityManager)getApplicationContext().getSystemService("activity");
         String s;
         if(activitymanager != null)
@@ -2254,6 +2401,7 @@ _L5:
 
     private void showToastforNoOperation(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showToastforNoOperation(I)V");
         if(shownToastforOperationNA) goto _L2; else goto _L1
 _L1:
         ActivityManager activitymanager = (ActivityManager)getApplicationContext().getSystemService("activity");
@@ -2280,6 +2428,7 @@ _L6:
 
     private int startRecording()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->startRecording()I");
         String s = null;
         String s1 = null;
         Date date = new Date();
@@ -2344,6 +2493,7 @@ _L6:
 
     private void startReservationProgram(MtvReservation mtvreservation)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->startReservationProgram(Lcom/samsung/sec/mtv/provider/MtvReservation;)V");
         MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append(" startReservationProgram() : !!! Starting from ").append(mMtvPreferences.getReserveAlertFrom()).append("Reservation ID ").append(mMtvPreferences.getReservationAlertID()).toString());
         if(mMtvPlayerOneSeg != null && mMtvAppPlaybackContext != null && mMtvAppPlaybackContext.getState().getState() != com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE) goto _L2; else goto _L1
 _L1:
@@ -2434,6 +2584,7 @@ _L3:
 
     private void startVolumeControlBar()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->startVolumeControlBar()V");
         if(fragHandler != null && !fragHandler.isFragPresent(1))
         {
             if(!fragHandler.isFragPresent(15))
@@ -2479,6 +2630,7 @@ _L3:
 
     private void stopRecording()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->stopRecording()V");
         int i = MtvUtilAppService.getCurrentOrientation(getApplicationContext());
         MtvUtilDebug.Mid("MtvUiLivePlayer", "stopRecording in LivePlayer");
         mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
@@ -2560,6 +2712,7 @@ _L9:
 
     private void unRegisterMediaButtonReceiver()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->unRegisterMediaButtonReceiver()V");
         if(mAudioManager != null)
             mAudioManager.unregisterMediaButtonEventReceiver(new ComponentName(getPackageName(), com/samsung/sec/mtv/reciever/MtvBroadcastReceiver.getName()));
     }
@@ -2567,6 +2720,7 @@ _L9:
     private void updateFragmentsOnLock()
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->updateFragmentsOnLock()V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "inside updateFragmentsOnLock...");
         if(mMtvAppPlaybackContext != null)
         {
@@ -2614,6 +2768,7 @@ _L3:
     private void updateFragmentsOnStateChange()
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->updateFragmentsOnStateChange()V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "inside updateFragmentsOnStateChange...");
         orientation = MtvUtilAppService.getCurrentOrientation(getApplicationContext());
         flag = false;
@@ -2664,6 +2819,7 @@ _L3:
 
     private void updateLiveViews()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->updateLiveViews()V");
         mLiveUiMsgHandler.sendMessage(mLiveUiMsgHandler.obtainMessage(310, getCaptionText()));
         if(fragHandler != null)
         {
@@ -2677,6 +2833,7 @@ _L3:
     public boolean HomeKeyPresses(Context context)
     {
         String s;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->HomeKeyPresses(Landroid/content/Context;)Z");
         s = null;
         ActivityManager activitymanager = (ActivityManager)context.getSystemService("activity");
         if(activitymanager != null)
@@ -2698,6 +2855,7 @@ _L4:
 
     void bindLiveUItoService()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->bindLiveUItoService()V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "bindLiveUItoService called");
         Intent intent = new Intent(getApplicationContext(), com/samsung/sec/mtv/app/service/MtvAppAndroidService);
         startService(intent);
@@ -2706,6 +2864,7 @@ _L4:
 
     long calculateDelayForStartChannel()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->calculateDelayForStartChannel()J");
         long l = System.currentTimeMillis();
         long l1 = l - mPreviousChannelChangeTime;
         long l2;
@@ -2720,6 +2879,7 @@ _L4:
 
     public MtvOneSegChannel getChannel()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getChannel()Landroid/broadcast/helper/types/MtvOneSegChannel;");
         MtvOneSegChannel mtvonesegchannel;
         if(mMtvAppPlaybackContext != null)
             mtvonesegchannel = mMtvAppPlaybackContext.getAttribute().getChannel();
@@ -2730,6 +2890,7 @@ _L4:
 
     public MtvOneSegProgram getCurrentProgramDetails(MtvOneSegProgram amtvonesegprogram[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getCurrentProgramDetails([Landroid/broadcast/helper/types/MtvOneSegProgram;)Landroid/broadcast/helper/types/MtvOneSegProgram;");
         MtvOneSegProgram mtvonesegprogram = null;
         long l = getStreamTime();
         int i = amtvonesegprogram.length;
@@ -2753,6 +2914,7 @@ label0:
 
     public MtvOneSegProgram[] getProgram()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getProgram()[Landroid/broadcast/helper/types/MtvOneSegProgram;");
         MtvOneSegProgram amtvonesegprogram[];
         if(mMtvAppPlaybackContext != null)
             amtvonesegprogram = mMtvAppPlaybackContext.getAttribute().getProgram();
@@ -2763,6 +2925,7 @@ label0:
 
     public long getStreamTime()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->getStreamTime()J");
         long l;
         if(mMtvAppPlaybackContext != null)
             l = mMtvAppPlaybackContext.getAttribute().getTot();
@@ -2773,6 +2936,7 @@ label0:
 
     public boolean isBmlFullView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->isBmlFullView()Z");
         boolean flag;
         if(mBmlSurface != null)
             flag = mBmlSurface.IsBMLFullView();
@@ -2783,6 +2947,7 @@ label0:
 
     protected void isScheduledReservationProgram()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->isScheduledReservationProgram()V");
         if(mMtvPreferences == null)
             mMtvPreferences = new MtvPreferences(getApplicationContext());
         MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("isScheduledReservationProgram: mMtvPreferences: ").append(mMtvPreferences).append(" mMtvPreferences.isReservationProgram(): ").append(mMtvPreferences.isReservationProgram()).append(" mMtvPreferences.getReservationAlertID(): ").append(mMtvPreferences.getReservationAlertID()).toString());
@@ -2809,6 +2974,7 @@ _L6:
 
     protected void onActivityResult(int i, int j, Intent intent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onActivityResult(IILandroid/content/Intent;)V");
         MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("onActivityResult: requestCode=").append(i).append(", resultCode").append(j).toString());
         if(i == 0 && j == -1)
         {
@@ -2827,6 +2993,7 @@ _L6:
 
     public void onBackPressed()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onBackPressed()V");
         if(!MtvUiFragHandler.removeUnManagedFrag("ProgInfoFrag", this)) goto _L2; else goto _L1
 _L1:
         if(fragHandler != null)
@@ -2854,6 +3021,7 @@ _L3:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onCreate(Landroid/os/Bundle;)V");
         mExitToast = null;
         MtvUtilDebug.Low("MtvUiLivePlayer", "onCreate...");
         super.onCreate(bundle);
@@ -2932,6 +3100,7 @@ _L6:
 
     protected void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onDestroy()V");
         super.onDestroy();
         MtvUtilDebug.Low("MtvUiLivePlayer", "...onDestroy()");
         if(mLiveUiMsgHandler.hasMessages(306))
@@ -3005,6 +3174,7 @@ _L6:
     public void onFragEvent(int i, Object obj)
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onFragEvent(ILjava/lang/Object;)V");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("onFragEvent: event[").append(i).append("]").toString());
         if(mMtvAppPlaybackContext != null && com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING == mMtvAppPlaybackContext.getState().getState() && 20487 == mMtvAppPlaybackContext.getState().getOp())
@@ -3012,34 +3182,34 @@ _L6:
         else
             flag = false;
         i;
-        JVM INSTR lookupswitch 27: default 308
-    //                   201: 724
-    //                   202: 749
-    //                   203: 770
-    //                   211: 328
-    //                   212: 314
-    //                   213: 343
-    //                   220: 350
-    //                   223: 514
-    //                   224: 559
-    //                   225: 591
-    //                   226: 683
-    //                   227: 449
-    //                   228: 1282
-    //                   230: 647
-    //                   231: 669
-    //                   241: 791
-    //                   242: 826
-    //                   243: 308
-    //                   244: 861
-    //                   251: 949
-    //                   252: 967
-    //                   253: 1115
-    //                   261: 991
-    //                   274: 1104
-    //                   276: 1195
-    //                   277: 1177
-    //                   278: 1217;
+        JVM INSTR lookupswitch 27: default 316
+    //                   201: 733
+    //                   202: 758
+    //                   203: 779
+    //                   211: 337
+    //                   212: 323
+    //                   213: 352
+    //                   220: 359
+    //                   223: 523
+    //                   224: 568
+    //                   225: 600
+    //                   226: 692
+    //                   227: 458
+    //                   228: 1294
+    //                   230: 656
+    //                   231: 678
+    //                   241: 800
+    //                   242: 836
+    //                   243: 316
+    //                   244: 872
+    //                   251: 961
+    //                   252: 979
+    //                   253: 1127
+    //                   261: 1003
+    //                   274: 1116
+    //                   276: 1207
+    //                   277: 1189
+    //                   278: 1229;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L1 _L19 _L20 _L21 _L22 _L23 _L24 _L25 _L26 _L27
 _L1:
         return;
@@ -3231,6 +3401,7 @@ _L28:
 
     public boolean onKeyDown(int i, KeyEvent keyevent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onKeyDown(ILandroid/view/KeyEvent;)Z");
         boolean flag = false;
         boolean flag1 = true;
         if(mMtvAppPlaybackContext != null && mMtvAppPlaybackContext.getState().getState().compareTo(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.INITIALIZED) >= 0)
@@ -3264,6 +3435,7 @@ _L28:
 
     public boolean onKeyLongPress(int i, KeyEvent keyevent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onKeyLongPress(ILandroid/view/KeyEvent;)Z");
         boolean flag = true;
         if(i == 24)
             mLiveUiMsgHandler.postDelayed(runnableVolumeEscalating, 10L);
@@ -3280,6 +3452,7 @@ _L28:
         boolean flag;
         boolean flag1;
         boolean flag2;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onKeyUp(ILandroid/view/KeyEvent;)Z");
         flag = true;
         if(mMtvAppPlaybackContext.getState().getState().compareTo(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.OPENED) >= 0)
             flag1 = flag;
@@ -3361,6 +3534,7 @@ _L3:
 
     protected void onNewIntent(Intent intent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onNewIntent(Landroid/content/Intent;)V");
         super.onNewIntent(intent);
         MtvUtilDebug.Low("MtvUiLivePlayer", "onNewIntent()...");
         if(!checkIsCalling(true)) goto _L2; else goto _L1
@@ -3410,33 +3584,35 @@ _L3:
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
-        boolean flag = false;
+        boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
+        flag = false;
         menuitem.getItemId();
-        JVM INSTR tableswitch 0 23: default 120
-    //                   0 122
-    //                   1 129
-    //                   2 249
-    //                   3 257
-    //                   4 300
-    //                   5 323
-    //                   6 346
-    //                   7 354
-    //                   8 120
-    //                   9 559
-    //                   10 590
-    //                   11 605
-    //                   12 615
-    //                   13 120
-    //                   14 120
-    //                   15 120
-    //                   16 625
-    //                   17 120
-    //                   18 408
-    //                   19 362
-    //                   20 505
-    //                   21 120
-    //                   22 454
-    //                   23 525;
+        JVM INSTR tableswitch 0 23: default 128
+    //                   0 130
+    //                   1 137
+    //                   2 257
+    //                   3 265
+    //                   4 308
+    //                   5 331
+    //                   6 354
+    //                   7 362
+    //                   8 128
+    //                   9 570
+    //                   10 601
+    //                   11 616
+    //                   12 626
+    //                   13 128
+    //                   14 128
+    //                   15 128
+    //                   16 636
+    //                   17 128
+    //                   18 416
+    //                   19 370
+    //                   20 513
+    //                   21 128
+    //                   22 462
+    //                   23 533;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L1 _L10 _L11 _L12 _L13 _L1 _L1 _L1 _L14 _L1 _L15 _L16 _L17 _L1 _L18 _L19
 _L1:
         return flag;
@@ -3551,12 +3727,14 @@ _L20:
 
     public void onOptionsMenuClosed(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onOptionsMenuClosed(Landroid/view/Menu;)V");
         optionsMenu = null;
         super.onOptionsMenuClosed(menu);
     }
 
     protected void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onPause()V");
         super.onPause();
         unRegisterMediaButtonReceiver();
         if(mBmlSurface != null)
@@ -3566,28 +3744,29 @@ _L20:
 
     public void onPlayerNotification(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onPlayerNotification(III)V");
         MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("onPlayerNotification ...:command : ").append(i).append(" status : ").append(j).toString());
         if(mMtvAudMgr == null)
             mMtvAudMgr = MtvUtilAudioManager.getInstance(getApplicationContext());
         if(mMtvPreferences == null)
             mMtvPreferences = new MtvPreferences(getApplicationContext());
         i;
-        JVM INSTR tableswitch 20481 20495: default 152
-    //                   20481 153
-    //                   20482 464
-    //                   20483 1211
-    //                   20484 743
-    //                   20485 152
-    //                   20486 1643
-    //                   20487 1352
-    //                   20488 1560
-    //                   20489 152
-    //                   20490 152
-    //                   20491 152
-    //                   20492 152
-    //                   20493 152
-    //                   20494 396
-    //                   20495 1176;
+        JVM INSTR tableswitch 20481 20495: default 160
+    //                   20481 161
+    //                   20482 472
+    //                   20483 1219
+    //                   20484 751
+    //                   20485 160
+    //                   20486 1651
+    //                   20487 1360
+    //                   20488 1568
+    //                   20489 160
+    //                   20490 160
+    //                   20491 160
+    //                   20492 160
+    //                   20493 160
+    //                   20494 404
+    //                   20495 1184;
            goto _L1 _L2 _L3 _L4 _L5 _L1 _L6 _L7 _L8 _L1 _L1 _L1 _L1 _L1 _L9 _L10
 _L12:
         return;
@@ -3607,13 +3786,15 @@ _L2:
 
                         public void run()
                         {
-                            MtvUiLivePlayer.mBmlSurface.onResume(mMtvAppPlaybackContext);
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$9;->run()V");
+                            Log.d().onResume(Log.d(MtvUiLivePlayer.this));
                         }
 
                         final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$9;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3626,6 +3807,7 @@ _L2:
 
                         public void run()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$10;->run()V");
                             Intent intent = getIntent();
                             boolean flag1;
                             if(intent.getAction() != null && intent.getAction().equalsIgnoreCase("ACTION_DTV_VIEW"))
@@ -3633,13 +3815,14 @@ _L2:
                             else
                                 flag1 = false;
                             if(!isFinishing() && !flag1)
-                                LaunchChannelGuideActivity(0);
+                                Log.d(MtvUiLivePlayer.this, 0);
                         }
 
                         final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$10;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3650,13 +3833,15 @@ _L2:
 
                         public void run()
                         {
-                            registerVideoSurfaceView(true);
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$11;->run()V");
+                            Log.d(MtvUiLivePlayer.this, 1);
                         }
 
                         final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$11;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3666,19 +3851,20 @@ _L2:
 
                         public void run()
                         {
-                            if(fragHandler != null && !fragHandler.isPhoneLocked())
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$12;->run()V");
+                            if(Log.d(MtvUiLivePlayer.this) != null && !Log.d(MtvUiLivePlayer.this).isPhoneLocked())
                             {
-                                if(!fragHandler.isFragPresent(15))
+                                if(!Log.d(MtvUiLivePlayer.this).isFragPresent(15))
                                 {
                                     MtvUtilDebug.Low("MtvUiLivePlayer", "onPlayerNotification, adding Status fragment in CMD_CREATE, STAT_COMPLETED");
-                                    fragHandler.addFrag(15, -1L, false, new int[0]);
-                                    mLiveUiMsgHandler.post(RunnableUpdateProgramChannelInfo);
-                                    mLiveUiMsgHandler.post(RunnableUpdateSignalInfo);
+                                    Log.d(MtvUiLivePlayer.this).addFrag(15, -1L, false, new int[0]);
+                                    Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
+                                    Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
                                 }
-                                if(!fragHandler.isFragPresent(0))
+                                if(!Log.d(MtvUiLivePlayer.this).isFragPresent(0))
                                 {
                                     MtvUtilDebug.Low("MtvUiLivePlayer", "onPlayerNotification, adding Main fragment in CMD_CREATE, STAT_COMPLETED");
-                                    fragHandler.addFrag(0, -1L, false, new int[0]);
+                                    Log.d(MtvUiLivePlayer.this).addFrag(0, -1L, false, new int[0]);
                                 }
                             }
                         }
@@ -3687,6 +3873,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$12;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3763,26 +3950,27 @@ _L5:
 
                 public void run()
                 {
-                    if(fragHandler != null && !fragHandler.isPhoneLocked())
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$13;->run()V");
+                    if(Log.d(MtvUiLivePlayer.this) != null && !Log.d(MtvUiLivePlayer.this).isPhoneLocked())
                     {
-                        if(fragHandler.isFragPresent(12))
+                        if(Log.d(MtvUiLivePlayer.this).isFragPresent(12))
                         {
                             MtvUtilDebug.Low("MtvUiLivePlayer", "onPlayerNotification, removing Volume fragment");
                             if(MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 1)
-                                fragHandler.removeFrag(12);
+                                Log.d(MtvUiLivePlayer.this).removeFrag(12);
                         }
                         if(MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 1)
                         {
-                            if(fragHandler.isFragPresent(15))
+                            if(Log.d(MtvUiLivePlayer.this).isFragPresent(15))
                             {
                                 MtvUtilDebug.Low("MtvUiLivePlayer", "onPlayerNotification, removing status fragment");
-                                fragHandler.removeFrag(15);
+                                Log.d(MtvUiLivePlayer.this).removeFrag(15);
                             }
-                            if(fragHandler.isFragPresent(0))
+                            if(Log.d(MtvUiLivePlayer.this).isFragPresent(0))
                             {
                                 MtvUtilDebug.Low("MtvUiLivePlayer", "onPlayerNotification, removing main fragment");
                                 if(MtvUtilAppService.getCurrentOrientation(getApplicationContext()) == 1)
-                                    fragHandler.removeFrag(0);
+                                    Log.d(MtvUiLivePlayer.this).removeFrag(0);
                             }
                         }
                     }
@@ -3792,6 +3980,7 @@ _L5:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$13;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3800,18 +3989,20 @@ _L5:
 
                 public void run()
                 {
-                    if(optionsMenu != null)
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$14;->run()V");
+                    if(Log.d(MtvUiLivePlayer.this) != null)
                     {
                         closeOptionsMenu();
-                        optionsMenu = null;
+                        Log.d(MtvUiLivePlayer.this, null);
                     }
-                    MtvUiLivePlayer.mBmlSurface.setVisibility(0);
+                    Log.d().setVisibility(0);
                 }
 
                 final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$14;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3871,6 +4062,7 @@ _L10:
 
                 public void run()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$15;->run()V");
                     finish();
                 }
 
@@ -3878,6 +4070,7 @@ _L10:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$15;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3910,16 +4103,17 @@ _L7:
 
                 public void run()
                 {
-                    if(fragHandler != null)
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$16;->run()V");
+                    if(Log.d(MtvUiLivePlayer.this) != null)
                     {
-                        fragHandler.addFrag(15, -1L, false, new int[0]);
-                        mLiveUiMsgHandler.post(RunnableUpdateProgramChannelInfo);
-                        mLiveUiMsgHandler.post(RunnableUpdateSignalInfo);
-                        if(MtvUiLivePlayer.mBmlSurface != null && MtvUiLivePlayer.mBmlSurface.IsBMLFullView())
+                        Log.d(MtvUiLivePlayer.this).addFrag(15, -1L, false, new int[0]);
+                        Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
+                        Log.d(MtvUiLivePlayer.this).post(Log.d(MtvUiLivePlayer.this));
+                        if(Log.d() != null && Log.d().IsBMLFullView())
                             setBMLLayoutFullView(false);
-                        fragHandler.addFrag(1, -1L, false, new int[0]);
-                        if(fragHandler.isFragPresent(0))
-                            fragHandler.removeFrag(0);
+                        Log.d(MtvUiLivePlayer.this).addFrag(1, -1L, false, new int[0]);
+                        if(Log.d(MtvUiLivePlayer.this).isFragPresent(0))
+                            Log.d(MtvUiLivePlayer.this).removeFrag(0);
                     }
                 }
 
@@ -3927,6 +4121,7 @@ _L7:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$16;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3974,16 +4169,18 @@ _L6:
 
                 public void run()
                 {
-                    mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getLiveTV();
-                    mMtvAppPlaybackContext.getState().registerListener(MtvUiLivePlayer.this);
-                    mMtvAppPlaybackContext.getAttribute().registerListener(MtvUiLivePlayer.this);
-                    checkIsReservationAndStart();
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$17;->run()V");
+                    Log.d(MtvUiLivePlayer.this, MtvAppPlaybackContextManager.getInstance().getLiveTV());
+                    Log.d(MtvUiLivePlayer.this).getState().registerListener(MtvUiLivePlayer.this);
+                    Log.d(MtvUiLivePlayer.this).getAttribute().registerListener(MtvUiLivePlayer.this);
+                    Log.d(MtvUiLivePlayer.this);
                 }
 
                 final MtvUiLivePlayer this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$17;-><init>(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
                 this$0 = MtvUiLivePlayer.this;
                 super();
             }
@@ -3996,7 +4193,9 @@ _L16:
 
     public boolean onPrepareOptionsMenu(Menu menu)
     {
-        boolean flag = true;
+        boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onPrepareOptionsMenu(Landroid/view/Menu;)Z");
+        flag = true;
         if(MtvAreaManager.getCount(getApplicationContext()) != 0) goto _L2; else goto _L1
 _L1:
         return flag;
@@ -4061,12 +4260,13 @@ _L5:
 
     public void onProgramAttributeUpdated(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onProgramAttributeUpdated(I)V");
         MtvUtilDebug.Low("MtvUiLivePlayer", (new StringBuilder()).append("onProgramAttributeUpdated: ").append(i).toString());
         i;
-        JVM INSTR lookupswitch 3: default 60
-    //                   2: 72
-    //                   3: 61
-    //                   16: 109;
+        JVM INSTR lookupswitch 3: default 72
+    //                   2: 84
+    //                   3: 73
+    //                   16: 121;
            goto _L1 _L2 _L3 _L4
 _L1:
         return;
@@ -4086,6 +4286,7 @@ _L5:
 
     protected void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onResume()V");
         super.onResume();
         fragHandler.setEnabled(true);
         MtvUtilAppService.setMtvVisibiltySettings(getApplicationContext());
@@ -4201,16 +4402,17 @@ _L2:
         if(true) goto _L4; else goto _L3
 _L3:
         if(flag || fragHandler.isFragPresent(5))
-            break MISSING_BLOCK_LABEL_651;
+            break MISSING_BLOCK_LABEL_660;
         MtvUtilDebug.Low("MtvUiLivePlayer", "onResume: not in reservation so resume the audio");
         mMtvAudMgr.stopOtherSound();
-        break MISSING_BLOCK_LABEL_651;
+        break MISSING_BLOCK_LABEL_660;
         if(true) goto _L4; else goto _L5
 _L5:
     }
 
     protected void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onSaveInstanceState(Landroid/os/Bundle;)V");
         MtvUtilDebug.Low("MtvUiLivePlayer", "onSaveInstanceState");
         if(!isFinishing())
         {
@@ -4224,6 +4426,7 @@ _L5:
 
     protected void onStart()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onStart()V");
         super.onStart();
         if(mBmlSurface != null)
             mBmlSurface.onStart(fragHandler);
@@ -4231,10 +4434,12 @@ _L5:
 
     public void onStateChanged(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onStateChanged(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;)V");
     }
 
     protected void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onStop()V");
         if(MtvUtilAppService.isScreenOn(getApplicationContext()) && !isFinishing())
             if(showStatusNotification && HomeKeyPresses(getApplicationContext()))
                 showNotification(true);
@@ -4249,8 +4454,9 @@ _L5:
     public boolean onTouchEvent(MotionEvent motionevent)
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onTouchEvent(Landroid/view/MotionEvent;)Z");
         flag = false;
-        break MISSING_BLOCK_LABEL_2;
+        break MISSING_BLOCK_LABEL_11;
         if(!mBmlSurface.IsBMLFullView() && mChannelGestureDetector.onTouchEvent(motionevent))
             flag = true;
         return flag;
@@ -4258,6 +4464,7 @@ _L5:
 
     protected void onUserLeaveHint()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onUserLeaveHint()V");
         MtvUtilDebug.Mid("MtvUiLivePlayer", "onUserLeaveHint");
         showStatusNotification = true;
         super.onUserLeaveHint();
@@ -4265,6 +4472,7 @@ _L5:
 
     public void onWindowFocusChanged(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->onWindowFocusChanged(Z)V");
         if(flag)
         {
             requestSystemKeyEvent(26, true);
@@ -4278,7 +4486,9 @@ _L5:
 
     public void setBMLLayoutFullView(boolean flag)
     {
-        View view = findViewById(0x7f0a0028);
+        View view;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->setBMLLayoutFullView(Z)V");
+        view = findViewById(0x7f0a0028);
         if(view == null || mBmlSurface == null) goto _L2; else goto _L1
 _L1:
         if(!flag) goto _L4; else goto _L3
@@ -4307,6 +4517,7 @@ _L5:
 
     public void showExitApplicationDialog()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showExitApplicationDialog()V");
         Bundle bundle = new Bundle();
         if(fragHandler != null && !fragHandler.isFragPresent(1))
         {
@@ -4323,6 +4534,7 @@ _L5:
 
     public void showExitingAppDialog()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showExitingAppDialog()V");
         mExitProgressDialog = new ProgressDialog(this);
         mExitProgressDialog.setTitle(0x7f07009f);
         mExitProgressDialog.setMessage(getString(0x7f0700a0));
@@ -4333,6 +4545,7 @@ _L5:
 
     public void showSignalAlertDialog(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->showSignalAlertDialog(I)V");
         if(getFragmentManager().findFragmentByTag("signal_alert_retry_exit") == null)
         {
             Bundle bundle = new Bundle();
@@ -4405,14 +4618,46 @@ _L1:
     private Runnable runnableVolumeEscalating;
     private boolean shownToastforOperationNA;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;-><clinit>()V");
+    }
 
 
+/*
+    static MtvUiFragHandler access$000(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$000(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;");
+        return mtvuiliveplayer.fragHandler;
+    }
 
+*/
+
+
+/*
+    static ControlAnimationRunnable access$100(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$100(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;");
+        return mtvuiliveplayer.mControlAnimationRunnable;
+    }
+
+*/
+
+
+/*
+    static ProgressDialog access$1000(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1000(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/app/ProgressDialog;");
+        return mtvuiliveplayer.mExitProgressDialog;
+    }
+
+*/
 
 
 /*
     static ProgressDialog access$1002(MtvUiLivePlayer mtvuiliveplayer, ProgressDialog progressdialog)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1002(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;");
         mtvuiliveplayer.mExitProgressDialog = progressdialog;
         return progressdialog;
     }
@@ -4423,6 +4668,7 @@ _L1:
 /*
     static ControlAnimationRunnable access$102(MtvUiLivePlayer mtvuiliveplayer, ControlAnimationRunnable controlanimationrunnable)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$102(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;)Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$ControlAnimationRunnable;");
         mtvuiliveplayer.mControlAnimationRunnable = controlanimationrunnable;
         return controlanimationrunnable;
     }
@@ -4430,10 +4676,20 @@ _L1:
 */
 
 
+/*
+    static MtvAppPlaybackContext access$1100(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1100(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
+        return mtvuiliveplayer.mMtvAppPlaybackContext;
+    }
+
+*/
+
 
 /*
     static MtvAppPlaybackContext access$1102(MtvUiLivePlayer mtvuiliveplayer, MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1102(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
         mtvuiliveplayer.mMtvAppPlaybackContext = mtvappplaybackcontext;
         return mtvappplaybackcontext;
     }
@@ -4441,22 +4697,147 @@ _L1:
 */
 
 
+/*
+    static Runnable access$1200(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1200(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.RunnableNextPreviousChannel;
+    }
+
+*/
 
 
+/*
+    static void access$1300(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1300(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
+        mtvuiliveplayer.deleteMtvPlayer();
+        return;
+    }
+
+*/
 
 
+/*
+    static void access$1400(MtvUiLivePlayer mtvuiliveplayer, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1400(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
+        mtvuiliveplayer.setScreenRatio(i);
+        return;
+    }
+
+*/
 
 
+/*
+    static MtvUiBmlSurfaceView access$1500()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1500()Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;");
+        return mBmlSurface;
+    }
+
+*/
 
 
+/*
+    static void access$1600(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1600(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
+        mtvuiliveplayer.setCaptionViewVisibility();
+        return;
+    }
+
+*/
 
 
+/*
+    static TextView access$1700(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1700(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/widget/TextView;");
+        return mtvuiliveplayer.mCaptionView;
+    }
 
+*/
+
+
+/*
+    static void access$1800(MtvUiLivePlayer mtvuiliveplayer, SpannableStringBuilder spannablestringbuilder)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1800(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Landroid/text/SpannableStringBuilder;)V");
+        mtvuiliveplayer.setCaptionText(spannablestringbuilder);
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$1900(MtvUiLivePlayer mtvuiliveplayer, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$1900(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
+        mtvuiliveplayer.checkIsReservationAndEnd(i);
+        return;
+    }
+
+*/
+
+
+/*
+    static IMtvAppPlayerOneSeg access$2000(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2000(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Lcom/samsung/sec/mtv/app/player/IMtvAppPlayerOneSeg;");
+        return mtvuiliveplayer.mMtvPlayerOneSeg;
+    }
+
+*/
+
+
+/*
+    static int access$2100(MtvUiLivePlayer mtvuiliveplayer, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2100(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Z)I");
+        return mtvuiliveplayer.getNextPreviousChannelNumber(flag);
+    }
+
+*/
+
+
+/*
+    static void access$2200(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2200(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
+        mtvuiliveplayer.invalidateLiveViews();
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$2300(MtvUiLivePlayer mtvuiliveplayer, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2300(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
+        mtvuiliveplayer.setLatestChannelsByPChannel(i);
+        return;
+    }
+
+*/
+
+
+/*
+    static MtvPreferences access$2400(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2400(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+        return mtvuiliveplayer.mMtvPreferences;
+    }
+
+*/
 
 
 /*
     static MtvPreferences access$2402(MtvUiLivePlayer mtvuiliveplayer, MtvPreferences mtvpreferences)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2402(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Lcom/samsung/sec/mtv/utility/MtvPreferences;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
         mtvuiliveplayer.mMtvPreferences = mtvpreferences;
         return mtvpreferences;
     }
@@ -4464,11 +4845,30 @@ _L1:
 */
 
 
+/*
+    static Runnable access$2500(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2500(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.postHeadsetUpdate;
+    }
+
+*/
+
+
+/*
+    static Menu access$2600(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2600(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/view/Menu;");
+        return mtvuiliveplayer.optionsMenu;
+    }
+
+*/
 
 
 /*
     static Menu access$2602(MtvUiLivePlayer mtvuiliveplayer, Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2602(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Landroid/view/Menu;)Landroid/view/Menu;");
         mtvuiliveplayer.optionsMenu = menu;
         return menu;
     }
@@ -4476,15 +4876,75 @@ _L1:
 */
 
 
+/*
+    static void access$2700(MtvUiLivePlayer mtvuiliveplayer, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2700(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
+        mtvuiliveplayer.showToast(i);
+        return;
+    }
+
+*/
 
 
+/*
+    static boolean access$2800(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2800(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Z");
+        return mtvuiliveplayer.checkIsReservationAndStart();
+    }
+
+*/
 
 
+/*
+    static void access$2900(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$2900(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
+        mtvuiliveplayer.endReservationProgramAndShowAlert();
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$3000(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3000(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
+        mtvuiliveplayer.cancelRecording();
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$3100(MtvUiLivePlayer mtvuiliveplayer, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3100(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
+        mtvuiliveplayer.showErrorDialog(i);
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$3200(MtvUiLivePlayer mtvuiliveplayer, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3200(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
+        mtvuiliveplayer.CheckIsreservationAndUpdatefailureReason(i);
+        return;
+    }
+
+*/
 
 
 /*
     static Message access$3302(Message message)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3302(Landroid/os/Message;)Landroid/os/Message;");
         mPendingPlayerNotification = message;
         return message;
     }
@@ -4492,18 +4952,102 @@ _L1:
 */
 
 
+/*
+    static void access$3400(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3400(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
+        mtvuiliveplayer.stopRecording();
+        return;
+    }
+
+*/
 
 
+/*
+    static void access$3500(MtvUiLivePlayer mtvuiliveplayer, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3500(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
+        mtvuiliveplayer.CheckIsReservationPartialOrNone(i);
+        return;
+    }
+
+*/
 
 
+/*
+    static ImageView access$3600(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3600(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/widget/ImageView;");
+        return mtvuiliveplayer.mAnimationImage;
+    }
+
+*/
 
 
+/*
+    static RelativeLayout access$3700(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3700(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/widget/RelativeLayout;");
+        return mtvuiliveplayer.mAnimationlayout;
+    }
 
+*/
+
+
+/*
+    static TextView access$3800(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3800(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/widget/TextView;");
+        return mtvuiliveplayer.mTxtAnimation;
+    }
+
+*/
+
+
+/*
+    static SurfaceView access$3900(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$3900(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/view/SurfaceView;");
+        return mtvuiliveplayer.mLiveVideoSurfaceView;
+    }
+
+*/
+
+
+/*
+    static SurfaceView access$4000(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4000(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/view/SurfaceView;");
+        return mtvuiliveplayer.mHiddenSurfaceView;
+    }
+
+*/
+
+
+/*
+    static Runnable access$4100(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4100(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.RunnableReservationEndPopupExpire;
+    }
+
+*/
+
+
+/*
+    static MtvAppAndroidService access$4200(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4200(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
+        return mtvuiliveplayer.mService;
+    }
+
+*/
 
 
 /*
     static MtvAppAndroidService access$4202(MtvUiLivePlayer mtvuiliveplayer, MtvAppAndroidService mtvappandroidservice)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4202(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
         mtvuiliveplayer.mService = mtvappandroidservice;
         return mtvappandroidservice;
     }
@@ -4511,10 +5055,20 @@ _L1:
 */
 
 
+/*
+    static MtvUiLiveServiceListener access$4300(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4300(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$MtvUiLiveServiceListener;");
+        return mtvuiliveplayer.mMtvUiLiveServiceListener;
+    }
+
+*/
+
 
 /*
     static MtvUiLiveServiceListener access$4302(MtvUiLivePlayer mtvuiliveplayer, MtvUiLiveServiceListener mtvuiliveservicelistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4302(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$MtvUiLiveServiceListener;)Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer$MtvUiLiveServiceListener;");
         mtvuiliveplayer.mMtvUiLiveServiceListener = mtvuiliveservicelistener;
         return mtvuiliveservicelistener;
     }
@@ -4522,21 +5076,198 @@ _L1:
 */
 
 
+/*
+    static ImageView access$4500(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4500(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/widget/ImageView;");
+        return mtvuiliveplayer.lockImage;
+    }
+
+*/
 
 
+/*
+    static Runnable access$4600(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4600(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.RunnableUpdateProgramChannelInfo;
+    }
+
+*/
 
 
+/*
+    static Runnable access$4700(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4700(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.RunnableUpdateSignalInfo;
+    }
+
+*/
 
 
+/*
+    static Runnable access$4800(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4800(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.mRunnableUpdateRecordComponents;
+    }
+
+*/
 
 
+/*
+    static MtvUtilAudioManager access$4900(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$4900(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;");
+        return mtvuiliveplayer.mMtvAudMgr;
+    }
+
+*/
 
 
+/*
+    static Runnable access$5000(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5000(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.runnableVolumeEscalating;
+    }
+
+*/
 
 
+/*
+    static Runnable access$5100(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5100(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.runnableVolumeDecreasing;
+    }
+
+*/
 
 
+/*
+    static void access$5200(MtvUiLivePlayer mtvuiliveplayer, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5200(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;I)V");
+        mtvuiliveplayer.LaunchChannelGuideActivity(i);
+        return;
+    }
+
+*/
 
 
+/*
+    static void access$5300(MtvUiLivePlayer mtvuiliveplayer, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5300(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Z)V");
+        mtvuiliveplayer.registerVideoSurfaceView(flag);
+        return;
+    }
 
+*/
+
+
+/*
+    static void access$5400(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5400(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
+        mtvuiliveplayer.showNotification();
+        return;
+    }
+
+*/
+
+
+/*
+    static String access$5500(MtvUiLivePlayer mtvuiliveplayer, boolean flag, boolean flag1)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5500(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;ZZ)Ljava/lang/String;");
+        return mtvuiliveplayer.getCurrentChannelProgramTitle(flag, flag1);
+    }
+
+*/
+
+
+/*
+    static MtvOneSegSignal access$5600(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5600(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/broadcast/helper/types/MtvOneSegSignal;");
+        return mtvuiliveplayer.getSignalValue();
+    }
+
+*/
+
+
+/*
+    static Runnable access$5700(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5700(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.RunnableRemoveWeakSignalDialogue;
+    }
+
+*/
+
+
+/*
+    static void access$5800(MtvUiLivePlayer mtvuiliveplayer, Bundle bundle)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5800(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Landroid/os/Bundle;)V");
+        mtvuiliveplayer.endReservationProgram(bundle);
+        return;
+    }
+
+*/
+
+
+/*
+    static Runnable access$5900(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$5900(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Ljava/lang/Runnable;");
+        return mtvuiliveplayer.RunnableresetComingReservationID;
+    }
+
+*/
+
+
+/*
+    static boolean access$600()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$600()Z");
+        return showStatusNotification;
+    }
+
+*/
+
+
+/*
+    static void access$700(MtvUiLivePlayer mtvuiliveplayer, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$700(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;Z)V");
+        mtvuiliveplayer.showNotification(flag);
+        return;
+    }
+
+*/
+
+
+/*
+    static Handler access$800(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$800(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)Landroid/os/Handler;");
+        return mtvuiliveplayer.mLiveUiMsgHandler;
+    }
+
+*/
+
+
+/*
+    static void access$900(MtvUiLivePlayer mtvuiliveplayer)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;->access$900(Lcom/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer;)V");
+        mtvuiliveplayer.hideNotification();
+        return;
+    }
+
+*/
 }

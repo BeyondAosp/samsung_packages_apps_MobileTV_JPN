@@ -5,12 +5,15 @@
 package com.samsung.sec.mtv.provider;
 
 import android.broadcast.helper.types.MtvOneSegChannel;
+import android.util.Log;
 
 public class MtvChannel
 {
 
     public MtvChannel(int i, int j, int k, int l, String s, int i1, int j1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannel;-><init>(IIIILjava/lang/String;II)V");
+        super();
         mUriId = -1;
         mServiceID1 = -1;
         mServiceID2 = -1;
@@ -26,6 +29,8 @@ public class MtvChannel
     public MtvChannel(int i, int j, int k, int l, String s, int i1, int j1, 
             int k1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannel;-><init>(IIIILjava/lang/String;III)V");
+        super();
         mUriId = -1;
         mServiceID1 = -1;
         mServiceID2 = -1;
@@ -42,6 +47,8 @@ public class MtvChannel
     public MtvChannel(int i, int j, int k, int l, String s, int i1, int j1, 
             int k1, int l1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannel;-><init>(IIIILjava/lang/String;IIII)V");
+        super();
         mUriId = -1;
         mServiceID1 = -1;
         mServiceID2 = -1;
@@ -58,6 +65,8 @@ public class MtvChannel
 
     public MtvChannel(MtvOneSegChannel mtvonesegchannel, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannel;-><init>(Landroid/broadcast/helper/types/MtvOneSegChannel;I)V");
+        super();
         mUriId = -1;
         mServiceID1 = -1;
         mServiceID2 = -1;
@@ -82,6 +91,7 @@ public class MtvChannel
 
     public String toString()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannel;->toString()Ljava/lang/String;");
         String s = (new StringBuilder()).append("MtvChannel").append("[virtual=").append(mVirtualNum).toString();
         String s1 = (new StringBuilder()).append(s).append(", physical=").append(mPhysicalNum).toString();
         String s2 = (new StringBuilder()).append(s1).append(", favorite=").append(mFavorite).toString();

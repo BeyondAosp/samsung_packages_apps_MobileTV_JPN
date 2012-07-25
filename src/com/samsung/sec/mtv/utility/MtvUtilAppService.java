@@ -10,6 +10,7 @@ import android.content.*;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.PowerManager;
+import android.util.Log;
 import android.view.*;
 import java.util.List;
 
@@ -21,16 +22,20 @@ public class MtvUtilAppService
 
     private MtvUtilAppService()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;-><init>()V");
+        super();
     }
 
     public static boolean forceresetMtvVisibiltySettings()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->forceresetMtvVisibiltySettings()Z");
         MtvUtilTvOut.resumeTvOut();
         return true;
     }
 
     public static int getCurrentOrientation(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->getCurrentOrientation(Landroid/content/Context;)I");
         int i = ((WindowManager)context.getSystemService("window")).getDefaultDisplay().getRotation();
         int j;
         if(i == 1 || i == 3)
@@ -49,21 +54,25 @@ public class MtvUtilAppService
 
     public static int getRotation(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->getRotation(Landroid/content/Context;)I");
         return ((WindowManager)context.getSystemService("window")).getDefaultDisplay().getRotation();
     }
 
     public static boolean isAbnormalExit()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->isAbnormalExit()Z");
         return isAbnormalExit;
     }
 
     public static boolean isAppExiting()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->isAppExiting()Z");
         return isAppExiting;
     }
 
     public static boolean isIntentAvailable(Context context, Intent intent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->isIntentAvailable(Landroid/content/Context;Landroid/content/Intent;)Z");
         boolean flag;
         if(context.getPackageManager().queryIntentActivities(intent, 0x10000).size() > 0)
             flag = true;
@@ -74,11 +83,13 @@ public class MtvUtilAppService
 
     public static boolean isScreenOn(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->isScreenOn(Landroid/content/Context;)Z");
         return ((PowerManager)context.getSystemService("power")).isScreenOn();
     }
 
     public static void releaseCPUPartialWakeLock()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->releaseCPUPartialWakeLock()V");
         if(mCpuWakeLock != null && mCpuWakeLock.isHeld())
             mCpuWakeLock.release();
     }
@@ -86,6 +97,7 @@ public class MtvUtilAppService
     public static boolean resetMtvVisibiltySettings(Context context)
     {
         String s;
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->resetMtvVisibiltySettings(Landroid/content/Context;)Z");
         s = null;
         ActivityManager activitymanager = (ActivityManager)context.getSystemService("activity");
         if(activitymanager != null)
@@ -110,16 +122,19 @@ _L4:
 
     public static void setAbnormalExit(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->setAbnormalExit(Z)V");
         isAbnormalExit = flag;
     }
 
     public static void setAppExiting(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->setAppExiting(Z)V");
         isAppExiting = flag;
     }
 
     public static boolean setMtvVisibiltySettings(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->setMtvVisibiltySettings(Landroid/content/Context;)Z");
         MtvUtilDebug.Low("MtvUtilAppService", "setMtvVisibiltySettings()");
         MtvUtilTvOut.suspendTvOut();
         return true;
@@ -127,6 +142,7 @@ _L4:
 
     public static void unbindDrawables(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;->unbindDrawables(Landroid/view/View;)V");
         if(view != null && view.getBackground() != null)
             view.getBackground().setCallback(null);
         if(view instanceof ViewGroup)
@@ -142,4 +158,8 @@ _L4:
     private static boolean isAppExiting = false;
     private static android.os.PowerManager.WakeLock mCpuWakeLock;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAppService;-><clinit>()V");
+    }
 }

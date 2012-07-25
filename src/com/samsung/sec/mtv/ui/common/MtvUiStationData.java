@@ -10,6 +10,7 @@ import android.content.*;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.service.*;
@@ -28,6 +29,7 @@ public class MtvUiStationData extends Activity
 
         public View getView(int i, View view, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$StationDataAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             View view1 = view;
             if(view1 == null)
                 view1 = ((LayoutInflater)getContext().getSystemService("layout_inflater")).inflate(0x7f03000c, null);
@@ -48,6 +50,7 @@ public class MtvUiStationData extends Activity
 
         public StationDataAdapter(Context context, int i, String as[])
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$StationDataAdapter;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;Landroid/content/Context;I[Ljava/lang/String;)V");
             this$0 = MtvUiStationData.this;
             super(context, i, as);
             mTitleName = as;
@@ -57,6 +60,8 @@ public class MtvUiStationData extends Activity
 
     public MtvUiStationData()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;-><init>()V");
+        super();
         mAdapter = null;
         mDeleteStationData = null;
         mStationDataListView = null;
@@ -65,20 +70,23 @@ public class MtvUiStationData extends Activity
 
             public void onServiceConnected(ComponentName componentname, IBinder ibinder)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$1;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V");
                 MtvUtilDebug.Low("MtvUiStationData", "onServiceConnected...");
-                mService = (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService();
-                mService.registerListener(listener);
+                Log.d(MtvUiStationData.this, (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService());
+                Log.d(MtvUiStationData.this).registerListener(Log.d(MtvUiStationData.this));
             }
 
             public void onServiceDisconnected(ComponentName componentname)
             {
-                mService.unregisterListener(listener);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$1;->onServiceDisconnected(Landroid/content/ComponentName;)V");
+                Log.d(MtvUiStationData.this).unregisterListener(Log.d(MtvUiStationData.this));
             }
 
             final MtvUiStationData this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;)V");
                 this$0 = MtvUiStationData.this;
                 super();
             }
@@ -87,16 +95,19 @@ public class MtvUiStationData extends Activity
 
             public void onMtvAppAndroidServiceNotify(int i, Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$2;->onMtvAppAndroidServiceNotify(ILjava/lang/Object;)V");
             }
 
             public void onMtvAppFinishNotify(Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$2;->onMtvAppFinishNotify(Ljava/lang/Object;)V");
                 class _cls1
                     implements Runnable
                 {
 
                     public void run()
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$2$1;->run()V");
                         finish();
                     }
 
@@ -104,6 +115,7 @@ public class MtvUiStationData extends Activity
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$2$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$2;)V");
                             this$1 = _cls2.this;
                             super();
                         }
@@ -116,6 +128,7 @@ public class MtvUiStationData extends Activity
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;)V");
                 this$0 = MtvUiStationData.this;
                 super();
             }
@@ -124,6 +137,7 @@ public class MtvUiStationData extends Activity
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setContentView(0x7f03000b);
         getWindow().addFlags(128);
@@ -137,12 +151,14 @@ public class MtvUiStationData extends Activity
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->onCreateOptionsMenu(Landroid/view/Menu;)Z");
         menu.add(0, 0, 0, 0x7f070296).setIcon(0x7f020103);
         return super.onCreateOptionsMenu(menu);
     }
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->onDestroy()V");
         MtvUtilDebug.Low("MtvUiStationData", "onDestroy call...");
         super.onDestroy();
         if(mService != null)
@@ -156,6 +172,7 @@ public class MtvUiStationData extends Activity
 
     public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
         MtvUtilDebug.Low("MtvUiStationData", (new StringBuilder()).append("position is ").append(i).toString());
         Intent intent = new Intent(this, com/samsung/sec/mtv/ui/common/MtvUiRemoveList);
         intent.putExtra("Remove_List_Type", 100);
@@ -165,9 +182,10 @@ public class MtvUiStationData extends Activity
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         menuitem.getItemId();
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 30;
+        JVM INSTR tableswitch 0 0: default 32
+    //                   0 38;
            goto _L1 _L2
 _L1:
         return super.onOptionsItemSelected(menuitem);
@@ -179,6 +197,7 @@ _L3:
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->onResume()V");
         super.onResume();
         MtvUtilAppService.setMtvVisibiltySettings(getApplicationContext());
         sendBroadcast(new Intent("intent.stop.app-in-app"));
@@ -203,6 +222,7 @@ _L3:
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->onStop()V");
         MtvUtilAppService.resetMtvVisibiltySettings(getApplicationContext());
         super.onStop();
     }
@@ -216,14 +236,33 @@ _L3:
     private ListView mStationDataListView;
 
 
+/*
+    static MtvAppAndroidService access$000(MtvUiStationData mtvuistationdata)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->access$000(Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
+        return mtvuistationdata.mService;
+    }
+
+*/
+
 
 /*
     static MtvAppAndroidService access$002(MtvUiStationData mtvuistationdata, MtvAppAndroidService mtvappandroidservice)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->access$002(Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
         mtvuistationdata.mService = mtvappandroidservice;
         return mtvappandroidservice;
     }
 
 */
 
+
+/*
+    static onMtvAppAndroidServiceListener access$100(MtvUiStationData mtvuistationdata)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiStationData;)Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;");
+        return mtvuistationdata.listener;
+    }
+
+*/
 }

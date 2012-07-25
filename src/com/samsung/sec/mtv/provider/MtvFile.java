@@ -4,6 +4,7 @@
 
 package com.samsung.sec.mtv.provider;
 
+import android.util.Log;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,6 +14,8 @@ public class MtvFile
 
     public MtvFile()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;-><init>()V");
+        super();
         index = -1;
         channelName = null;
         programName = null;
@@ -28,6 +31,7 @@ public class MtvFile
 
     public boolean equals(Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->equals(Ljava/lang/Object;)Z");
         boolean flag;
         if((obj instanceof MtvFile) && ((MtvFile)obj).filePath == filePath)
             flag = true;
@@ -38,81 +42,97 @@ public class MtvFile
 
     public String getChannelName()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getChannelName()Ljava/lang/String;");
         return channelName;
     }
 
     public Date getCreationTime()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getCreationTime()Ljava/util/Date;");
         return creationTime;
     }
 
     public int getDurationOfRecording()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getDurationOfRecording()I");
         return durationOfRecording;
     }
 
     public int getFileFormat()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getFileFormat()I");
         return fileFormat;
     }
 
     public String getFilePath()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getFilePath()Ljava/lang/String;");
         return filePath;
     }
 
     public long getFileSize()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getFileSize()J");
         return fileSize;
     }
 
     public int getIndex()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getIndex()I");
         return index;
     }
 
     public int getPidOfAudio()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getPidOfAudio()I");
         return pidOfAudio;
     }
 
     public int getPidOfVideo()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getPidOfVideo()I");
         return pidOfVideo;
     }
 
     public String getProgramName()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->getProgramName()Ljava/lang/String;");
         return programName;
     }
 
     public void setChannelName(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->setChannelName(Ljava/lang/String;)V");
         channelName = s;
     }
 
     public void setCreationTime(Date date)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->setCreationTime(Ljava/util/Date;)V");
         creationTime = date;
     }
 
     public void setFileFormat(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->setFileFormat(I)V");
         fileFormat = i;
     }
 
     public void setFilePath(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->setFilePath(Ljava/lang/String;)V");
         filePath = s;
     }
 
     public void setProgramName(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->setProgramName(Ljava/lang/String;)V");
         programName = s;
     }
 
     public String toString()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFile;->toString()Ljava/lang/String;");
         String s = (new StringBuilder()).append("MtvFile").append("[channelName=").append(channelName).toString();
         String s1 = (new StringBuilder()).append(s).append(", programName=").append(programName).toString();
         String s2 = (new StringBuilder()).append(s1).append(", creationTime=").append(creationTime).toString();

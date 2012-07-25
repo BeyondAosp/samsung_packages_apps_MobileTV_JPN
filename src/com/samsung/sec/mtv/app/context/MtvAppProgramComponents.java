@@ -7,6 +7,7 @@ package com.samsung.sec.mtv.app.context;
 import android.broadcast.*;
 import android.graphics.Bitmap;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 
 public class MtvAppProgramComponents
 {
@@ -15,12 +16,14 @@ public class MtvAppProgramComponents
 
         private void init()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgAudioComponent;->init()V");
             isEnabled = false;
             iface = null;
         }
 
         public void disable()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgAudioComponent;->disable()V");
             isEnabled = false;
             if(iface != null)
                 iface.disableAudio();
@@ -28,6 +31,7 @@ public class MtvAppProgramComponents
 
         public void enable()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgAudioComponent;->enable()V");
             isEnabled = true;
             if(iface != null)
                 iface.enableAudio();
@@ -35,6 +39,7 @@ public class MtvAppProgramComponents
 
         public IMtvOneSegAudioControl getControlInterface()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgAudioComponent;->getControlInterface()Landroid/broadcast/IMtvOneSegAudioControl;");
             IMtvOneSegAudioControl imtvonesegaudiocontrol;
             if(isEnabled)
                 imtvonesegaudiocontrol = iface;
@@ -45,11 +50,13 @@ public class MtvAppProgramComponents
 
         public void reset()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgAudioComponent;->reset()V");
             init();
         }
 
         public void setControlInterface(IMtvOneSegAudioControl imtvonesegaudiocontrol)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgAudioComponent;->setControlInterface(Landroid/broadcast/IMtvOneSegAudioControl;)V");
             iface = imtvonesegaudiocontrol;
         }
 
@@ -58,6 +65,8 @@ public class MtvAppProgramComponents
 
         MtvAppPrgAudioComponent()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgAudioComponent;-><init>()V");
+            super();
             init();
         }
     }
@@ -67,12 +76,14 @@ public class MtvAppProgramComponents
 
         private void init()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgBmlComponent;->init()V");
             isEnabled = false;
             iface = null;
         }
 
         public void enable()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgBmlComponent;->enable()V");
             isEnabled = true;
             if(iface != null)
                 iface.enableBml();
@@ -80,6 +91,7 @@ public class MtvAppProgramComponents
 
         public IMtvOneSegBmlViewControl getControlInterface()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgBmlComponent;->getControlInterface()Landroid/broadcast/IMtvOneSegBmlViewControl;");
             this;
             JVM INSTR monitorenter ;
             if(!isEnabled) goto _L2; else goto _L1
@@ -100,11 +112,13 @@ _L3:
 
         public void reset()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgBmlComponent;->reset()V");
             init();
         }
 
         public void setControlInterface(IMtvOneSegBmlViewControl imtvonesegbmlviewcontrol)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgBmlComponent;->setControlInterface(Landroid/broadcast/IMtvOneSegBmlViewControl;)V");
             this;
             JVM INSTR monitorenter ;
             iface = imtvonesegbmlviewcontrol;
@@ -121,6 +135,8 @@ _L3:
 
         MtvAppPrgBmlComponent()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgBmlComponent;-><init>()V");
+            super();
             init();
         }
     }
@@ -130,6 +146,7 @@ _L3:
 
         private void init()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgCaptionComponent;->init()V");
             isEnabled = false;
             iface = null;
             captBuffer = null;
@@ -137,6 +154,7 @@ _L3:
 
         public void enable()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgCaptionComponent;->enable()V");
             isEnabled = true;
             if(iface != null)
                 iface.enableCaption();
@@ -144,6 +162,7 @@ _L3:
 
         public SpannableStringBuilder getBuffer()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgCaptionComponent;->getBuffer()Landroid/text/SpannableStringBuilder;");
             this;
             JVM INSTR monitorenter ;
             if(!isEnabled) goto _L2; else goto _L1
@@ -164,11 +183,13 @@ _L3:
 
         public void reset()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgCaptionComponent;->reset()V");
             init();
         }
 
         public void setBuffer(SpannableStringBuilder spannablestringbuilder)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgCaptionComponent;->setBuffer(Landroid/text/SpannableStringBuilder;)V");
             this;
             JVM INSTR monitorenter ;
             captBuffer = spannablestringbuilder;
@@ -182,6 +203,7 @@ _L3:
 
         public void setControlInterface(IMtvOneSegCaptionControl imtvonesegcaptioncontrol)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgCaptionComponent;->setControlInterface(Landroid/broadcast/IMtvOneSegCaptionControl;)V");
             this;
             JVM INSTR monitorenter ;
             iface = imtvonesegcaptioncontrol;
@@ -199,6 +221,8 @@ _L3:
 
         MtvAppPrgCaptionComponent()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgCaptionComponent;-><init>()V");
+            super();
             init();
         }
     }
@@ -208,6 +232,7 @@ _L3:
 
         private void init()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->init()V");
             isEnabled = true;
             iface = null;
             captFrame = null;
@@ -216,6 +241,7 @@ _L3:
 
         public void disable()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->disable()V");
             isEnabled = false;
             if(iface != null)
                 iface.disableVideo();
@@ -223,6 +249,7 @@ _L3:
 
         public void enable()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->enable()V");
             isEnabled = true;
             if(iface != null)
                 iface.enableVideo();
@@ -230,6 +257,7 @@ _L3:
 
         public Bitmap getCaptFrame()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->getCaptFrame()Landroid/graphics/Bitmap;");
             this;
             JVM INSTR monitorenter ;
             if(!isEnabled) goto _L2; else goto _L1
@@ -250,6 +278,7 @@ _L3:
 
         public String getCaptFrameName()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->getCaptFrameName()Ljava/lang/String;");
             this;
             JVM INSTR monitorenter ;
             if(!isEnabled) goto _L2; else goto _L1
@@ -270,6 +299,7 @@ _L3:
 
         public IMtvOneSegVideoControl getControlInterface()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->getControlInterface()Landroid/broadcast/IMtvOneSegVideoControl;");
             this;
             JVM INSTR monitorenter ;
             if(!isEnabled) goto _L2; else goto _L1
@@ -290,11 +320,13 @@ _L3:
 
         public void reset()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->reset()V");
             init();
         }
 
         public void setCaptFrame(Bitmap bitmap)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->setCaptFrame(Landroid/graphics/Bitmap;)V");
             this;
             JVM INSTR monitorenter ;
             if(isEnabled)
@@ -309,6 +341,7 @@ _L3:
 
         public void setCaptFrameName(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->setCaptFrameName(Ljava/lang/String;)V");
             this;
             JVM INSTR monitorenter ;
             if(isEnabled)
@@ -323,6 +356,7 @@ _L3:
 
         public void setControlInterface(IMtvOneSegVideoControl imtvonesegvideocontrol)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;->setControlInterface(Landroid/broadcast/IMtvOneSegVideoControl;)V");
             this;
             JVM INSTR monitorenter ;
             iface = imtvonesegvideocontrol;
@@ -341,6 +375,8 @@ _L3:
 
         MtvAppPrgVideoComponent()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;-><init>()V");
+            super();
             init();
         }
     }
@@ -348,6 +384,8 @@ _L3:
 
     MtvAppProgramComponents()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents;-><init>()V");
+        super();
         audio = new MtvAppPrgAudioComponent();
         video = new MtvAppPrgVideoComponent();
         caption = new MtvAppPrgCaptionComponent();
@@ -357,26 +395,31 @@ _L3:
 
     public MtvAppPrgAudioComponent getAudio()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents;->getAudio()Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgAudioComponent;");
         return audio;
     }
 
     public MtvAppPrgBmlComponent getBml()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents;->getBml()Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgBmlComponent;");
         return bml;
     }
 
     public MtvAppPrgCaptionComponent getCaption()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents;->getCaption()Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgCaptionComponent;");
         return caption;
     }
 
     public MtvAppPrgVideoComponent getVideo()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents;->getVideo()Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents$MtvAppPrgVideoComponent;");
         return video;
     }
 
     public void reset()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppProgramComponents;->reset()V");
         availableComp = 0;
         audio.reset();
         video.reset();

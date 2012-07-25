@@ -6,17 +6,21 @@ package com.samsung.sec.mtv.utility;
 
 import android.broadcast.helper.MtvUtilDebug;
 import android.os.*;
+import android.util.Log;
 
 public class MtvUtilTvOut
 {
 
     public MtvUtilTvOut()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilTvOut;-><init>()V");
+        super();
     }
 
     public static void resumeTvOut()
     {
         ITvoutService itvoutservice;
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilTvOut;->resumeTvOut()V");
         MtvUtilDebug.Low("MtvUtilTvOut", "resumeTvOut() called");
         itvoutservice = android.os.ITvoutService.Stub.asInterface(ServiceManager.getService("tvoutservice"));
         if(itvoutservice != null) goto _L2; else goto _L1
@@ -44,6 +48,7 @@ _L3:
     public static void suspendTvOut()
     {
         ITvoutService itvoutservice;
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilTvOut;->suspendTvOut()V");
         MtvUtilDebug.Low("MtvUtilTvOut", "suspendTvOut() called");
         itvoutservice = android.os.ITvoutService.Stub.asInterface(ServiceManager.getService("tvoutservice"));
         if(itvoutservice != null) goto _L2; else goto _L1
@@ -55,9 +60,9 @@ _L2:
         int i = 1;
 _L4:
         if(i > 5)
-            break MISSING_BLOCK_LABEL_52;
+            break MISSING_BLOCK_LABEL_60;
         if(!itvoutservice.TvoutGetStatus())
-            break MISSING_BLOCK_LABEL_143;
+            break MISSING_BLOCK_LABEL_151;
         MtvUtilDebug.Low("MtvUtilTvOut", "TvoutGetStatus - enabled");
         if(itvoutservice.TvoutGetStatus() && !itvoutservice.TvoutGetSuspendStatus())
         {

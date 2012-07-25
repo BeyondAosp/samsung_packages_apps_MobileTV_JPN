@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
+import android.util.Log;
 import java.io.File;
 import java.text.DecimalFormat;
 
@@ -18,10 +19,13 @@ public class MtvUtilMemoryStatus
 
     public MtvUtilMemoryStatus()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilMemoryStatus;-><init>()V");
+        super();
     }
 
     public static long ConvertByteToTime(long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilMemoryStatus;->ConvertByteToTime(J)J");
         long l2;
         if(l < 0x204000L)
         {
@@ -38,6 +42,7 @@ public class MtvUtilMemoryStatus
 
     public static String formatSize(long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilMemoryStatus;->formatSize(J)Ljava/lang/String;");
         double d = l;
         String s;
         if((double)l >= 1024D)
@@ -64,6 +69,7 @@ public class MtvUtilMemoryStatus
 
     public static long getAvailableExternalMemorySize()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilMemoryStatus;->getAvailableExternalMemorySize()J");
         long l;
         if(isExternalMemoryAvailable())
         {
@@ -78,6 +84,7 @@ public class MtvUtilMemoryStatus
 
     public static long getAvailableInternalMemorySize()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilMemoryStatus;->getAvailableInternalMemorySize()J");
         StatFs statfs = new StatFs(Environment.getExternalStorageDirectory().getPath());
         return (long)statfs.getBlockSize() * (long)statfs.getAvailableBlocks();
     }
@@ -85,6 +92,7 @@ public class MtvUtilMemoryStatus
     public static boolean isExternalMemoryAvailable()
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilMemoryStatus;->isExternalMemoryAvailable()Z");
         mExternalStorageSdPath = new String();
         flag = false;
         if(mContext != null) goto _L2; else goto _L1
@@ -123,11 +131,13 @@ _L3:
 
     public static boolean isInternalMemoryAvailable()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilMemoryStatus;->isInternalMemoryAvailable()Z");
         return Environment.getExternalStorageState().equals("mounted");
     }
 
     public static void setAppComponents(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilMemoryStatus;->setAppComponents(Landroid/content/Context;)V");
         mContext = context;
     }
 

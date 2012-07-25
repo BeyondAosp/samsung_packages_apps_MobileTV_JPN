@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.*;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.provider.MtvFile;
@@ -41,11 +42,12 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
 
         public View getView(int i, View view, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$MtvFileAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             View view1 = view;
             if(view1 == null)
                 view1 = ((LayoutInflater)getContext().getSystemService("layout_inflater")).inflate(0x7f030030, null);
-            mPreImageView = (ImageView)view1.findViewById(0x7f0a0119);
-            mPlayImageView = (ImageView)view1.findViewById(0x7f0a011a);
+            Log.d(MtvUiFragTVFilesList.this, (ImageView)view1.findViewById(0x7f0a0119));
+            Log.d(MtvUiFragTVFilesList.this, (ImageView)view1.findViewById(0x7f0a011a));
             MtvFile mtvfile = mFileList[i];
             if(mtvfile != null)
             {
@@ -73,7 +75,7 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
                     s1 = mtvfile.getProgramName();
                 textview.setText(s1);
                 view1.setTag(mtvfile);
-                setFileInfo(mtvfile);
+                Log.d(MtvUiFragTVFilesList.this, mtvfile);
             }
             return view1;
         }
@@ -83,6 +85,7 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
 
         public MtvFileAdapter(Context context, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$MtvFileAdapter;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;Landroid/content/Context;I)V");
             this$0 = MtvUiFragTVFilesList.this;
             super(context, i);
             mFileList = null;
@@ -90,6 +93,7 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
 
         public MtvFileAdapter(Context context, int i, MtvFile amtvfile[])
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$MtvFileAdapter;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;Landroid/content/Context;I[Lcom/samsung/sec/mtv/provider/MtvFile;)V");
             this$0 = MtvUiFragTVFilesList.this;
             super(context, i, amtvfile);
             mFileList = null;
@@ -102,6 +106,7 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
 
         private Dialog buildDialog(ArrayList arraylist)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;->buildDialog(Ljava/util/ArrayList;)Landroid/app/Dialog;");
             Activity activity = getActivity();
             String as[] = new String[2];
             as[0] = "title";
@@ -116,6 +121,7 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
 
                 public void onClick(DialogInterface dialoginterface, int i)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment$1;->onClick(Landroid/content/DialogInterface;I)V");
                     if(dialoginterface != null)
                         dialoginterface.dismiss();
                 }
@@ -124,6 +130,7 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;)V");
                     this$0 = ViewDetailsFragment.this;
                     super();
                 }
@@ -137,6 +144,7 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
 
         private ArrayList constructDetails()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;->constructDetails()Ljava/util/ArrayList;");
             ArrayList arraylist = new ArrayList();
             String s = getString(0x7f0700d9);
             String s1 = getFileFormatString();
@@ -161,11 +169,12 @@ public class MtvUiFragTVFilesList extends MtvUiFrag
 
         private String getFileFormatString()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;->getFileFormatString()Ljava/lang/String;");
             mMtvFile.getFileFormat();
-            JVM INSTR tableswitch 0 2: default 32
-        //                       0 61
-        //                       1 51
-        //                       2 41;
+            JVM INSTR tableswitch 0 2: default 40
+        //                       0 69
+        //                       1 59
+        //                       2 49;
                goto _L1 _L2 _L3 _L4
 _L1:
             String s = getString(0x7f0700dc);
@@ -185,6 +194,7 @@ _L5:
 
         private String getFileLocationString()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;->getFileLocationString()Ljava/lang/String;");
             String s;
             if(mMtvFile.getFilePath().contains("PhMem") || mMtvFile.getFilePath().contains("Phone") || mMtvFile.getFilePath().contains("/sdcard/"))
                 s = getString(0x7f0700b4);
@@ -195,6 +205,7 @@ _L5:
 
         private String getFileSizeString()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;->getFileSizeString()Ljava/lang/String;");
             DecimalFormat decimalformat = new DecimalFormat("###,###.##");
             String s;
             if(mMtvFile.getFileSize() < 0x100000L)
@@ -206,6 +217,7 @@ _L5:
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             if(bundle != null)
                 mMtvFile = (MtvFile)bundle.getSerializable("mMtvFile");
             return buildDialog(constructDetails());
@@ -213,6 +225,7 @@ _L5:
 
         public void onSaveInstanceState(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;->onSaveInstanceState(Landroid/os/Bundle;)V");
             bundle.putSerializable("mMtvFile", mMtvFile);
         }
 
@@ -220,10 +233,13 @@ _L5:
 
         public ViewDetailsFragment()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;-><init>()V");
+            super();
         }
 
         public ViewDetailsFragment(MtvFile mtvfile)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$ViewDetailsFragment;-><init>(Lcom/samsung/sec/mtv/provider/MtvFile;)V");
             this();
             mMtvFile = mtvfile;
             MtvUtilDebug.Low("ViewDetailsFragment", (new StringBuilder()).append("mMTvFile :\n").append(mtvfile).toString());
@@ -233,6 +249,8 @@ _L5:
 
     public MtvUiFragTVFilesList()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;-><init>()V");
+        super();
         mMtvFileList = null;
         adapter = null;
         mProgressDialog = null;
@@ -240,12 +258,14 @@ _L5:
 
             public void handleMessage(Message message)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$1;->handleMessage(Landroid/os/Message;)V");
             }
 
             final MtvUiFragTVFilesList this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;)V");
                 this$0 = MtvUiFragTVFilesList.this;
                 super();
             }
@@ -254,20 +274,22 @@ _L5:
 
             public void run()
             {
-                MtvUtilDebug.Low(MtvUiFragTVFilesList.TAG, "Remove dialog progress");
-                mHandler.removeCallbacks(mTimedRemoveDialog);
-                if(mProgressDialog != null)
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$2;->run()V");
+                MtvUtilDebug.Low(Log.d(), "Remove dialog progress");
+                Log.d(MtvUiFragTVFilesList.this).removeCallbacks(Log.d(MtvUiFragTVFilesList.this));
+                if(Log.d(MtvUiFragTVFilesList.this) != null)
                 {
-                    mProgressDialog.dismiss();
-                    mProgressDialog = null;
+                    Log.d(MtvUiFragTVFilesList.this).dismiss();
+                    Log.d(MtvUiFragTVFilesList.this, null);
                 }
-                populateTVFileList();
+                Log.d(MtvUiFragTVFilesList.this);
             }
 
             final MtvUiFragTVFilesList this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList$2;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;)V");
                 this$0 = MtvUiFragTVFilesList.this;
                 super();
             }
@@ -278,6 +300,7 @@ _L5:
     {
         FileInputStream fileinputstream;
         Bitmap bitmap;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->decodeBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;");
         fileinputstream = null;
         bitmap = null;
         FileInputStream fileinputstream1 = new FileInputStream(s);
@@ -341,6 +364,7 @@ _L2:
 
     private String getPreviewThumbnailPath(MtvFile mtvfile)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->getPreviewThumbnailPath(Lcom/samsung/sec/mtv/provider/MtvFile;)Ljava/lang/String;");
         String s = mtvfile.getFilePath();
         String s1;
         String s2;
@@ -371,6 +395,7 @@ _L2:
 
     private void populateTVFileList()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->populateTVFileList()V");
         MtvUtilDebug.Low(TAG, "populateTVFileList");
         mListView = (ListView)mLayoutView.findViewById(0x7f0a009c);
         mMtvFileList = MtvFileManager.getAvailableTVRecFilesEx();
@@ -387,6 +412,7 @@ _L2:
 
     private void setFileInfo(MtvFile mtvfile)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->setFileInfo(Lcom/samsung/sec/mtv/provider/MtvFile;)V");
         if(mtvfile != null) goto _L2; else goto _L1
 _L1:
         mPreImageView.setTag(null);
@@ -398,10 +424,10 @@ _L2:
         if(mtvfile.getFilePath() == null) goto _L4; else goto _L3
 _L3:
         mtvfile.getFileFormat();
-        JVM INSTR tableswitch 0 2: default 68
-    //                   0 71
-    //                   1 307
-    //                   2 98;
+        JVM INSTR tableswitch 0 2: default 76
+    //                   0 79
+    //                   1 315
+    //                   2 106;
            goto _L4 _L5 _L6 _L7
 _L5:
         mPreImageView.setImageBitmap(decodeBitmap(getPreviewThumbnailPath(mtvfile)));
@@ -545,6 +571,7 @@ _L12:
 
     private void startFilePlayer(MtvFile mtvfile)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->startFilePlayer(Lcom/samsung/sec/mtv/provider/MtvFile;)V");
         Intent intent = new Intent(mActivity.getApplicationContext(), com/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayer);
         MtvUtilDebug.Low(TAG, "startFilePlayer");
         intent.putExtra("MtvFile", mtvfile);
@@ -553,6 +580,7 @@ _L12:
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onClick(Landroid/view/View;)V");
         if(mMtvFileList != null && mMtvFileList.length > 0)
         {
             MtvFile mtvfile = (MtvFile)view.getTag();
@@ -565,6 +593,7 @@ _L12:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onCreate(Landroid/os/Bundle;)V");
         MtvUtilDebug.Low(TAG, "onCreate called...");
         mPreferences = new MtvPreferences(getActivity().getApplicationContext());
         mActivity = getActivity();
@@ -574,12 +603,14 @@ _L12:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mLayoutView = layoutinflater.inflate(0x7f03001e, viewgroup, false);
         return mLayoutView;
     }
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onDestroy()V");
         mPreferences = null;
         super.onDestroy();
         mHandler.removeCallbacksAndMessages(null);
@@ -588,12 +619,14 @@ _L12:
 
     public void onDestroyView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onDestroyView()V");
         super.onDestroyView();
         adapter = null;
     }
 
     public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
         MtvUtilDebug.Low(TAG, "onItemClick");
         startFilePlayer((MtvFile)view.getTag());
         mPreferences.setLatestFileIndex(i);
@@ -602,6 +635,7 @@ _L12:
 
     public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z");
         if(mMtvFileList != null && mMtvFileList.length > 0)
         {
             Bundle bundle = new Bundle();
@@ -624,10 +658,11 @@ _L12:
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         menuitem.getItemId();
-        JVM INSTR tableswitch 0 1: default 28
-    //                   0 30
-    //                   1 43;
+        JVM INSTR tableswitch 0 1: default 36
+    //                   0 38
+    //                   1 51;
            goto _L1 _L2 _L3
 _L1:
         return true;
@@ -644,6 +679,7 @@ _L4:
 
     public void onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onPrepareOptionsMenu(Landroid/view/Menu;)V");
         super.onPrepareOptionsMenu(menu);
         menu.clear();
         menu.add(0, 0, 0, 0x7f07028b).setIcon(0x7f020101);
@@ -653,6 +689,7 @@ _L4:
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onResume()V");
         MtvUtilDebug.Low(TAG, "onResume called");
         populateTVFileList();
         super.onResume();
@@ -660,20 +697,22 @@ _L4:
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onStop()V");
         super.onStop();
         adapter = null;
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->onUpdate(ILjava/lang/Object;)V");
         i;
-        JVM INSTR lookupswitch 6: default 60
-    //                   1: 67
-    //                   2: 171
-    //                   3: 148
-    //                   4: 222
-    //                   115: 178
-    //                   127: 185;
+        JVM INSTR lookupswitch 6: default 68
+    //                   1: 75
+    //                   2: 179
+    //                   3: 156
+    //                   4: 230
+    //                   115: 186
+    //                   127: 193;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
 _L1:
         super.onUpdate(i, obj);
@@ -731,15 +770,56 @@ _L8:
     private ProgressDialog mProgressDialog;
     private Runnable mTimedRemoveDialog;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;-><clinit>()V");
+    }
 
 
+/*
+    static String access$000()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$000()Ljava/lang/String;");
+        return TAG;
+    }
+
+*/
 
 
+/*
+    static Runnable access$100(MtvUiFragTVFilesList mtvuifragtvfileslist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$100(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;)Ljava/lang/Runnable;");
+        return mtvuifragtvfileslist.mTimedRemoveDialog;
+    }
+
+*/
+
+
+/*
+    static Handler access$200(MtvUiFragTVFilesList mtvuifragtvfileslist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$200(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;)Landroid/os/Handler;");
+        return mtvuifragtvfileslist.mHandler;
+    }
+
+*/
+
+
+/*
+    static ProgressDialog access$300(MtvUiFragTVFilesList mtvuifragtvfileslist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$300(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;)Landroid/app/ProgressDialog;");
+        return mtvuifragtvfileslist.mProgressDialog;
+    }
+
+*/
 
 
 /*
     static ProgressDialog access$302(MtvUiFragTVFilesList mtvuifragtvfileslist, ProgressDialog progressdialog)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$302(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;");
         mtvuifragtvfileslist.mProgressDialog = progressdialog;
         return progressdialog;
     }
@@ -747,10 +827,21 @@ _L8:
 */
 
 
+/*
+    static void access$400(MtvUiFragTVFilesList mtvuifragtvfileslist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$400(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;)V");
+        mtvuifragtvfileslist.populateTVFileList();
+        return;
+    }
+
+*/
+
 
 /*
     static ImageView access$502(MtvUiFragTVFilesList mtvuifragtvfileslist, ImageView imageview)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$502(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;Landroid/widget/ImageView;)Landroid/widget/ImageView;");
         mtvuifragtvfileslist.mPreImageView = imageview;
         return imageview;
     }
@@ -761,10 +852,21 @@ _L8:
 /*
     static ImageView access$602(MtvUiFragTVFilesList mtvuifragtvfileslist, ImageView imageview)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$602(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;Landroid/widget/ImageView;)Landroid/widget/ImageView;");
         mtvuifragtvfileslist.mPlayImageView = imageview;
         return imageview;
     }
 
 */
 
+
+/*
+    static void access$700(MtvUiFragTVFilesList mtvuifragtvfileslist, MtvFile mtvfile)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;->access$700(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragTVFilesList;Lcom/samsung/sec/mtv/provider/MtvFile;)V");
+        mtvuifragtvfileslist.setFileInfo(mtvfile);
+        return;
+    }
+
+*/
 }

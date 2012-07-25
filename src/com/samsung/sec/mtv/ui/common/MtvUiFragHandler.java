@@ -8,6 +8,7 @@ import android.app.*;
 import android.broadcast.helper.MtvUtilDebug;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import com.samsung.sec.mtv.ui.bml.*;
 import com.samsung.sec.mtv.ui.channelguide.MtvUiChannelNumFrag;
 import com.samsung.sec.mtv.ui.fileplayer.MtvUiFilePlayerImgFrag;
@@ -24,6 +25,8 @@ public class MtvUiFragHandler
 
     private MtvUiFragHandler()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;-><init>()V");
+        super();
         String as[] = new String[17];
         as[0] = "MainFrag";
         as[1] = "RecordFrag";
@@ -56,6 +59,8 @@ public class MtvUiFragHandler
 
     public MtvUiFragHandler(FragmentManager fragmentmanager, int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;-><init>(Landroid/app/FragmentManager;II)V");
+        super();
         String as[] = new String[17];
         as[0] = "MainFrag";
         as[1] = "RecordFrag";
@@ -91,6 +96,7 @@ public class MtvUiFragHandler
 
     private void addFragInternal(int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->addFragInternal(IJ)V");
         if(i >= 0 && i <= 17)
         {
             MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("addFragInternal!!! FragType:").append(i).toString());
@@ -103,6 +109,7 @@ public class MtvUiFragHandler
 
     public static void addUnManagedFrag(String s, Bundle bundle, int i, Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->addUnManagedFrag(Ljava/lang/String;Landroid/os/Bundle;ILandroid/app/Activity;)V");
         if(activity == null || s == null) goto _L2; else goto _L1
 _L1:
         if(!s.equals("MemInfoFrag")) goto _L4; else goto _L3
@@ -125,6 +132,7 @@ _L5:
 
     private String getFragTag(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->getFragTag(I)Ljava/lang/String;");
         String s;
         if(i >= 0 && i <= 17)
             s = fragTags[i];
@@ -135,26 +143,28 @@ _L5:
 
     private transient Fragment getNewFrag(int i, int ai[])
     {
-        Object obj = null;
+        Object obj;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->getNewFrag(I[I)Landroid/app/Fragment;");
+        obj = null;
         i;
-        JVM INSTR tableswitch 0 16: default 84
-    //                   0 86
-    //                   1 97
-    //                   2 109
-    //                   3 84
-    //                   4 152
-    //                   5 163
-    //                   6 174
-    //                   7 185
-    //                   8 196
-    //                   9 207
-    //                   10 229
-    //                   11 218
-    //                   12 247
-    //                   13 289
-    //                   14 324
-    //                   15 258
-    //                   16 240;
+        JVM INSTR tableswitch 0 16: default 96
+    //                   0 99
+    //                   1 111
+    //                   2 124
+    //                   3 96
+    //                   4 169
+    //                   5 181
+    //                   6 193
+    //                   7 205
+    //                   8 217
+    //                   9 229
+    //                   10 253
+    //                   11 241
+    //                   12 273
+    //                   13 318
+    //                   14 355
+    //                   15 285
+    //                   16 265;
            goto _L1 _L2 _L3 _L4 _L1 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17
 _L1:
         return ((Fragment) (obj));
@@ -223,6 +233,7 @@ _L18:
 
     private int getTopFragType()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->getTopFragType()I");
         int i = -1;
         MtvUtilDebug.Mid("MtvUiFragHandler", (new StringBuilder()).append("getTopFragType : fragHandler Enabled?: ").append(isEnabled).toString());
         if(isEnabled)
@@ -238,6 +249,7 @@ _L18:
 
     private void hideAllFragments()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->hideAllFragments()V");
         MtvUtilDebug.Mid("MtvUiFragHandler", (new StringBuilder()).append("hideAllFragments : fragHandler Enabled?:").append(isEnabled).toString());
         if(isEnabled)
         {
@@ -264,6 +276,7 @@ _L18:
 
     private void remFragInternal(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->remFragInternal(I)V");
         if(i >= 0 && i <= 17)
         {
             MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("remFragInternal!!! FragType:").append(i).toString());
@@ -278,13 +291,14 @@ _L18:
     {
         boolean flag;
         FragmentManager fragmentmanager;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->removeUnManagedFrag(Ljava/lang/String;Landroid/app/Activity;)Z");
         flag = false;
         if(activity == null || s == null)
-            break MISSING_BLOCK_LABEL_49;
+            break MISSING_BLOCK_LABEL_61;
         fragmentmanager = activity.getFragmentManager();
         Fragment fragment = fragmentmanager.findFragmentByTag(s);
         if(fragment == null)
-            break MISSING_BLOCK_LABEL_49;
+            break MISSING_BLOCK_LABEL_61;
         FragmentTransaction fragmenttransaction = fragmentmanager.beginTransaction();
         fragmenttransaction.remove(fragment);
         fragmenttransaction.commit();
@@ -301,6 +315,7 @@ _L1:
 
     private void startTimer(int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->startTimer(IJ)V");
         Runnable runnable = null;
         MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("startTimer: fragType[").append(i).append("] timeOut[").append(l).append("]").toString());
         if(i == 0)
@@ -339,6 +354,7 @@ _L1:
     private void stopTimer(int i)
     {
         Runnable runnable;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->stopTimer(I)V");
         runnable = null;
         MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("stopTimer: fragType[").append(i).append("]").toString());
         if(i != 0) goto _L2; else goto _L1
@@ -369,6 +385,7 @@ _L3:
 
     private void unhideAllFragments()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->unhideAllFragments()V");
         MtvUtilDebug.Mid("MtvUiFragHandler", (new StringBuilder()).append("unhideAllFragments : fragHandler Enabled?:").append(isEnabled).toString());
         if(isEnabled)
         {
@@ -397,6 +414,7 @@ _L3:
     {
         Fragment fragment;
         String s;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->addFrag(IJZ[I)V");
         fragment = null;
         s = getFragTag(i);
         MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("addFrag: fragType[").append(i).append("] timeOut[").append(l).append("] addToBackStack[").append(flag).append("]").toString());
@@ -444,6 +462,7 @@ _L3:
 
     public boolean areFragmentsHidden()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->areFragmentsHidden()Z");
         int i = peekUiFragment();
         boolean flag;
         if(2 == i || 5 == i || 6 == i)
@@ -455,6 +474,7 @@ _L3:
 
     public void fillFragHandlerData(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->fillFragHandlerData(Landroid/os/Bundle;)V");
         int[] _tmp = new int[17];
         int ai[] = bundle.getIntArray("MtvUiFragHandler");
         if(ai != null)
@@ -477,11 +497,13 @@ _L3:
 
     public int getActivityType()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->getActivityType()I");
         return activityType;
     }
 
     public boolean isFragPresent(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->isFragPresent(I)Z");
         boolean flag = false;
         MtvUtilDebug.Mid("MtvUiFragHandler", (new StringBuilder()).append("isFragpresent : fragType:").append(i).toString());
         if(isEnabled && fragHashMap != null)
@@ -491,11 +513,13 @@ _L3:
 
     public boolean isPhoneLocked()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->isPhoneLocked()Z");
         return isFragPresent(5);
     }
 
     public boolean isValidFragment(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->isValidFragment(I)Z");
         MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("isValidFragment!! fragType:").append(i).toString());
         boolean flag;
         if(i >= 0 && i <= 17)
@@ -511,6 +535,7 @@ _L3:
 
     public void onUpdate(int i, Object obj, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->onUpdate(ILjava/lang/Object;I)V");
         MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("onUpdate: fragType[").append(j).append("] what[").append(i).append("]").toString());
         MtvUtilDebug.Mid("MtvUiFragHandler", (new StringBuilder()).append("onUpdate : fragHandler Enabled?:").append(isEnabled).toString());
         if(fragMgr != null)
@@ -538,11 +563,13 @@ _L3:
 
     public int peekUiFragment()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->peekUiFragment()I");
         return getTopFragType();
     }
 
     public void putFragHandlerData(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->putFragHandlerData(Landroid/os/Bundle;)V");
         Iterator iterator = fragHashMap.keySet().iterator();
         int ai[] = new int[17];
         int i = 0;
@@ -563,6 +590,7 @@ _L3:
 
     public void removeFrag(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->removeFrag(I)V");
         MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("removeFrag: fragType[").append(i).append("]").toString());
         if(isValidFragment(i)) goto _L2; else goto _L1
 _L1:
@@ -596,6 +624,7 @@ _L3:
 
     public void removeTimers()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->removeTimers()V");
         MtvUtilDebug.Low("MtvUiFragHandler", "removeTimers called...");
         if(mTimedMainFrag != null)
             mHandler.removeCallbacks(mTimedMainFrag);
@@ -613,6 +642,7 @@ _L3:
 
     public void reset()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->reset()V");
         removeTimers();
         fragHashMap.clear();
         mHandler.removeCallbacksAndMessages(null);
@@ -622,12 +652,14 @@ _L3:
 
     public void resetTimer(int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->resetTimer(IJ)V");
         MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("resetTimer: fragType[").append(i).append("] timeOut[").append(l).append("]").toString());
         startTimer(i, l);
     }
 
     public void setEnabled(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;->setEnabled(Z)V");
         isEnabled = flag;
         MtvUtilDebug.Low("MtvUiFragHandler", (new StringBuilder()).append("setEnabled : fragHandler isEnabled?:").append(isEnabled).toString());
     }
@@ -651,6 +683,7 @@ _L3:
 
         public void handleMessage(Message message)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$1;->handleMessage(Landroid/os/Message;)V");
             int _tmp = message.what;
         }
 
@@ -658,6 +691,7 @@ _L3:
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
             this$0 = MtvUiFragHandler.this;
             super();
         }
@@ -670,6 +704,7 @@ _L3:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$2;->run()V");
             MtvUtilDebug.Low("MtvUiFragHandler", "MainFrag time out, destroying it!!");
             removeFrag(0);
         }
@@ -678,6 +713,7 @@ _L3:
 
         _cls2()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
             this$0 = MtvUiFragHandler.this;
             super();
         }
@@ -690,6 +726,7 @@ _L3:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$3;->run()V");
             MtvUtilDebug.Low("MtvUiFragHandler", "StatusFrag time out, destroying it!!");
             removeFrag(15);
         }
@@ -698,6 +735,7 @@ _L3:
 
         _cls3()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$3;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
             this$0 = MtvUiFragHandler.this;
             super();
         }
@@ -710,6 +748,7 @@ _L3:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$4;->run()V");
             MtvUtilDebug.Low("MtvUiFragHandler", "mTimedVolumeControlBarFrag time out, destroying it!!");
             removeFrag(12);
         }
@@ -718,6 +757,7 @@ _L3:
 
         _cls4()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$4;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
             this$0 = MtvUiFragHandler.this;
             super();
         }
@@ -730,6 +770,7 @@ _L3:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$5;->run()V");
             MtvUtilDebug.Low("MtvUiFragHandler", "mTimedCaptureFrag time out, destroying it!!");
             removeFrag(4);
         }
@@ -738,6 +779,7 @@ _L3:
 
         _cls5()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$5;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
             this$0 = MtvUiFragHandler.this;
             super();
         }
@@ -750,6 +792,7 @@ _L3:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$6;->run()V");
             MtvUtilDebug.Low("MtvUiFragHandler", "mTimedFPImgFrag time out, destroying it!!");
             removeFrag(13);
         }
@@ -758,6 +801,7 @@ _L3:
 
         _cls6()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$6;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
             this$0 = MtvUiFragHandler.this;
             super();
         }
@@ -770,6 +814,7 @@ _L3:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$7;->run()V");
             MtvUtilDebug.Low("MtvUiFragHandler", "mTimedFPVidFrag time out, destroying it!!");
             removeFrag(14);
         }
@@ -778,6 +823,7 @@ _L3:
 
         _cls7()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler$7;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
             this$0 = MtvUiFragHandler.this;
             super();
         }

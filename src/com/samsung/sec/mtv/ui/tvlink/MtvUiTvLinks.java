@@ -12,6 +12,7 @@ import android.broadcast.helper.types.MtvOneSegTVLink;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.Toast;
 import com.samsung.sec.mtv.app.context.*;
@@ -31,6 +32,8 @@ public class MtvUiTvLinks extends Activity
 
     public MtvUiTvLinks()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;-><init>()V");
+        super();
         fragHandler = null;
         mLinks = null;
         mLink = null;
@@ -42,6 +45,7 @@ public class MtvUiTvLinks extends Activity
 
     public boolean isBmlFullView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->isBmlFullView()Z");
         boolean flag;
         if(mBMLSurfaceView != null)
             flag = mBMLSurfaceView.IsBMLFullView();
@@ -52,6 +56,7 @@ public class MtvUiTvLinks extends Activity
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         requestWindowFeature(1);
         setContentView(getLayoutInflater().inflate(0x7f030009, null));
@@ -76,6 +81,7 @@ public class MtvUiTvLinks extends Activity
 
     protected void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onDestroy()V");
         if(mBMLSurfaceView != null)
             mBMLSurfaceView.onDestroy();
         if(mMtvPlayerOneSeg != null)
@@ -91,10 +97,12 @@ public class MtvUiTvLinks extends Activity
 
     public void onFragEvent(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onFragEvent(ILjava/lang/Object;)V");
     }
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onPause()V");
         if(!isFinishing()) goto _L2; else goto _L1
 _L1:
         if(mBMLSurfaceView != null)
@@ -111,11 +119,12 @@ _L3:
 
     public void onPlayerNotification(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onPlayerNotification(III)V");
         j;
-        JVM INSTR lookupswitch 3: default 36
-    //                   24577: 36
-    //                   24578: 36
-    //                   24593: 37;
+        JVM INSTR lookupswitch 3: default 44
+    //                   24577: 44
+    //                   24578: 44
+    //                   24593: 45;
            goto _L1 _L1 _L1 _L2
 _L1:
         return;
@@ -134,10 +143,12 @@ _L3:
 
     public void onProgramAttributeUpdated(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onProgramAttributeUpdated(I)V");
     }
 
     protected void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onResume()V");
         sendBroadcast(new Intent("intent.stop.app-in-app"));
         mMtvPlayerOneSeg = MtvAppPlayerOneSeg.getInstance();
         if(mBMLSurfaceView != null)
@@ -170,6 +181,7 @@ _L3:
 
     protected void onStart()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onStart()V");
         super.onStart();
         if(mBMLSurfaceView != null)
             mBMLSurfaceView.onStart(fragHandler);
@@ -177,10 +189,12 @@ _L3:
 
     public void onStateChanged(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onStateChanged(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;)V");
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onStop()V");
         String s = null;
         if(mBMLSurfaceView != null)
             mBMLSurfaceView.onStop();
@@ -198,6 +212,7 @@ _L3:
 
     public boolean onTouchEvent(MotionEvent motionevent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;->onTouchEvent(Landroid/view/MotionEvent;)Z");
         MtvUtilDebug.Low(TAG, "onTouchEvent:entered");
         if(mBMLSurfaceView != null)
             mBMLSurfaceView.onTouchEvent(motionevent);
@@ -215,4 +230,8 @@ _L3:
     private IMtvAppPlayerOneSeg mMtvPlayerOneSeg;
     private MtvPreferences mMtvPreferences;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/tvlink/MtvUiTvLinks;-><clinit>()V");
+    }
 }

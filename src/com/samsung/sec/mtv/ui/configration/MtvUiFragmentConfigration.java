@@ -9,6 +9,7 @@ import android.app.Fragment;
 import android.broadcast.helper.MtvUtilDebug;
 import android.broadcast.helper.MtvUtilDebugSetting;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.CheckBox;
 import android.widget.Toast;
@@ -21,10 +22,13 @@ public class MtvUiFragmentConfigration extends Fragment
 
     public MtvUiFragmentConfigration()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;-><init>()V");
+        super();
     }
 
     private void initializeUI(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->initializeUI(Landroid/view/View;)V");
         mCheckBoxTSCapture = (CheckBox)view.findViewById(0x7f0a00f3);
         mCheckBoxFileSimulation = (CheckBox)view.findViewById(0x7f0a00f2);
         mCheckBoxDebugError = (CheckBox)view.findViewById(0x7f0a00f5);
@@ -102,38 +106,41 @@ public class MtvUiFragmentConfigration extends Fragment
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->onAttach(Landroid/app/Activity;)V");
         MtvUtilDebug.High("TAG", "onAttach");
         super.onAttach(activity);
     }
 
     public void onClick(View view)
     {
-        boolean flag = true;
+        boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->onClick(Landroid/view/View;)V");
+        flag = true;
         view.getId();
-        JVM INSTR tableswitch 2131362034 2131362056: default 112
-    //                   2131362034 150
-    //                   2131362035 120
-    //                   2131362036 112
-    //                   2131362037 178
-    //                   2131362038 250
-    //                   2131362039 311
-    //                   2131362040 371
-    //                   2131362041 466
-    //                   2131362042 501
-    //                   2131362043 536
-    //                   2131362044 574
-    //                   2131362045 612
-    //                   2131362046 650
-    //                   2131362047 688
-    //                   2131362048 729
-    //                   2131362049 770
-    //                   2131362050 811
-    //                   2131362051 431
-    //                   2131362052 852
-    //                   2131362053 893
-    //                   2131362054 934
-    //                   2131362055 982
-    //                   2131362056 1023;
+        JVM INSTR tableswitch 2131362034 2131362056: default 120
+    //                   2131362034 158
+    //                   2131362035 128
+    //                   2131362036 120
+    //                   2131362037 188
+    //                   2131362038 260
+    //                   2131362039 321
+    //                   2131362040 381
+    //                   2131362041 476
+    //                   2131362042 511
+    //                   2131362043 546
+    //                   2131362044 584
+    //                   2131362045 622
+    //                   2131362046 660
+    //                   2131362047 698
+    //                   2131362048 739
+    //                   2131362049 780
+    //                   2131362050 821
+    //                   2131362051 441
+    //                   2131362052 862
+    //                   2131362053 903
+    //                   2131362054 944
+    //                   2131362055 992
+    //                   2131362056 1033;
            goto _L1 _L2 _L3 _L1 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L23
 _L1:
         MtvUtilDebug.Error("MtvUiFragmentConfigration", "Selected default checkbox");
@@ -299,6 +306,7 @@ _L24:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->onCreate(Landroid/os/Bundle;)V");
         MtvUtilDebug.High("MtvUiFragmentConfigration", "onCreate");
         setHasOptionsMenu(true);
         super.onCreate(bundle);
@@ -307,6 +315,7 @@ _L24:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         MtvUtilDebug.High("MtvUiFragmentConfigration", "onCreateView");
         View view = layoutinflater.inflate(0x7f030029, viewgroup, false);
         initializeUI(view);
@@ -315,21 +324,24 @@ _L24:
 
     public void onDestroyView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->onDestroyView()V");
         MtvUtilDebug.High("MtvUiFragmentConfigration", "onDestroyView");
         super.onDestroyView();
     }
 
     public void onDetach()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->onDetach()V");
         MtvUtilDebug.High("MtvUiFragmentConfigration", "onDetach");
         super.onDetach();
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         menuitem.getItemId();
-        JVM INSTR tableswitch 1 1: default 24
-    //                   1 30;
+        JVM INSTR tableswitch 1 1: default 32
+    //                   1 38;
            goto _L1 _L2
 _L1:
         return super.onOptionsItemSelected(menuitem);
@@ -345,6 +357,7 @@ _L3:
 
     public void onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiFragmentConfigration;->onPrepareOptionsMenu(Landroid/view/Menu;)V");
         menu.add(0, 1, 0, "Save");
         super.onPrepareOptionsMenu(menu);
     }

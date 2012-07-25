@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.broadcast.helper.MtvUtilDebug;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import com.samsung.sec.mtv.provider.MtvReservation;
 import com.samsung.sec.mtv.provider.MtvReservationManager;
 import java.text.SimpleDateFormat;
@@ -23,10 +24,13 @@ public class MtvUtilSetReservationAlarm
 
     public MtvUtilSetReservationAlarm()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilSetReservationAlarm;-><init>()V");
+        super();
     }
 
     private static int calculateSetReserveTime(long l, long l1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilSetReservationAlarm;->calculateSetReserveTime(JJ)I");
         SimpleDateFormat simpledateformat = new SimpleDateFormat("d");
         SimpleDateFormat simpledateformat1 = new SimpleDateFormat("H");
         SimpleDateFormat simpledateformat2 = new SimpleDateFormat("mm");
@@ -46,6 +50,7 @@ public class MtvUtilSetReservationAlarm
     {
         long l1;
         MtvReservation mtvreservation;
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilSetReservationAlarm;->setReservationAlarm(Landroid/content/Context;JZZ)V");
         l1 = System.currentTimeMillis();
         mtvreservation = MtvReservationManager.find(context, l, new boolean[0]);
         if(mtvreservation != null) goto _L2; else goto _L1
@@ -93,6 +98,7 @@ _L3:
 
     public static void setReservationOnBoot(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilSetReservationAlarm;->setReservationOnBoot(Landroid/content/Context;)V");
         MtvPreferences mtvpreferences = new MtvPreferences(context);
         if(mtvpreferences.getReservationAlertID() != -1)
             mtvpreferences.setReservationAlertID(-1);
@@ -119,4 +125,8 @@ _L3:
 
     private static String TAG = "MtvUtilSetReservationAlarm";
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilSetReservationAlarm;-><clinit>()V");
+    }
 }

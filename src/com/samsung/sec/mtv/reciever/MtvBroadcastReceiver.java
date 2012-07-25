@@ -9,6 +9,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.content.*;
 import android.net.Uri;
 import android.os.*;
+import android.util.Log;
 import android.view.KeyEvent;
 import com.samsung.sec.mtv.provider.MtvReservation;
 import com.samsung.sec.mtv.provider.MtvReservationManager;
@@ -22,6 +23,8 @@ public class MtvBroadcastReceiver extends BroadcastReceiver
 
     public MtvBroadcastReceiver()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;-><init>()V");
+        super();
     }
 
     public void onReceive(Context context, Intent intent)
@@ -31,6 +34,7 @@ _L1:
         if(keyevent == null || keyevent.getAction() != 0);
           goto _L1
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V");
             mContext = context;
             String s = intent.getAction();
             Bundle bundle = intent.getExtras();
@@ -63,7 +67,7 @@ _L1:
             if("android.intent.action.MEDIA_BUTTON".equals(intent.getAction()))
             {
                 keyevent = (KeyEvent)intent.getParcelableExtra("android.intent.extra.KEY_EVENT");
-                break MISSING_BLOCK_LABEL_98;
+                break MISSING_BLOCK_LABEL_109;
             }
             if(s.equals("android.provider.Telephony.SECRET_CODE"))
             {
@@ -87,12 +91,12 @@ _L1:
                 if(flag)
                 {
                     if(mtvreservation.mTimeStart - 20000L >= System.currentTimeMillis() - 5000L && mtvreservation.mPgmStatus == 0)
-                        break MISSING_BLOCK_LABEL_351;
+                        break MISSING_BLOCK_LABEL_365;
                     MtvUtilDebug.Low("MtvBroadcastReciever", "onReceive() : ACTION_MTV_RESERVATION_REMINDER-reservation start times already expired /most probably user changed system time");
                 } else
                 {
                     if(mtvreservation.mTimeStart >= System.currentTimeMillis() - 5000L && mtvreservation.mPgmStatus == 0)
-                        break MISSING_BLOCK_LABEL_351;
+                        break MISSING_BLOCK_LABEL_365;
                     MtvUtilDebug.Low("MtvBroadcastReciever", "onReceive() : ACTION_MTV_RESERVATION_START-reservation start times already expired /most probably user changed system time");
                     if(mtvreservation.mPgmStatus == 0 || mtvreservation.mPgmStatus == 6)
                         MtvReservationManager.UpdateStatus(context, mtvreservation, 2);
@@ -117,7 +121,7 @@ _L1:
         j = 0;
 _L4:
         if(j >= list.size())
-            break MISSING_BLOCK_LABEL_1160;
+            break MISSING_BLOCK_LABEL_1178;
         k = ((android.app.ActivityManager.RecentTaskInfo)list.get(j)).baseIntent.toString().indexOf("cmp=");
         if(!((android.app.ActivityManager.RecentTaskInfo)list.get(j)).baseIntent.toString().substring(k, k + 24).equals("cmp=com.samsung.sec.mtv/") || ((android.app.ActivityManager.RecentTaskInfo)list.get(j)).id == -1) goto _L3; else goto _L2
 _L2:
@@ -218,7 +222,34 @@ _L3:
     private final Runnable mRunnableReleaseLock = new _cls1();
 
 
+/*
+    static Runnable access$000(MtvBroadcastReceiver mtvbroadcastreceiver)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;->access$000(Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;)Ljava/lang/Runnable;");
+        return mtvbroadcastreceiver.mRunnableReleaseLock;
+    }
 
+*/
+
+
+/*
+    static Handler access$100(MtvBroadcastReceiver mtvbroadcastreceiver)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;->access$100(Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;)Landroid/os/Handler;");
+        return mtvbroadcastreceiver.mHandler;
+    }
+
+*/
+
+
+/*
+    static android.os.PowerManager.WakeLock access$200(MtvBroadcastReceiver mtvbroadcastreceiver)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;->access$200(Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;)Landroid/os/PowerManager$WakeLock;");
+        return mtvbroadcastreceiver.mCpuWakeLock;
+    }
+
+*/
 
     private class _cls1
         implements Runnable
@@ -226,16 +257,18 @@ _L3:
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver$1;->run()V");
             MtvUtilDebug.High("MtvBroadcastReciever", "Wakelock release");
-            mHandler.removeCallbacks(mRunnableReleaseLock);
-            if(mCpuWakeLock.isHeld())
-                mCpuWakeLock.release();
+            Log.d(MtvBroadcastReceiver.this).removeCallbacks(Log.d(MtvBroadcastReceiver.this));
+            if(Log.d(MtvBroadcastReceiver.this).isHeld())
+                Log.d(MtvBroadcastReceiver.this).release();
         }
 
         final MtvBroadcastReceiver this$0;
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver$1;-><init>(Lcom/samsung/sec/mtv/reciever/MtvBroadcastReceiver;)V");
             this$0 = MtvBroadcastReceiver.this;
             super();
         }

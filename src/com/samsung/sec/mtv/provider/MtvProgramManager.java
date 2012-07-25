@@ -9,6 +9,7 @@ import android.content.*;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.util.Log;
 import java.util.HashMap;
 
 // Referenced classes of package com.samsung.sec.mtv.provider:
@@ -20,15 +21,19 @@ public class MtvProgramManager
 
     private MtvProgramManager()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;-><init>()V");
+        super();
     }
 
     private static MtvProgram builder(Cursor cursor)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->builder(Landroid/database/Cursor;)Lcom/samsung/sec/mtv/provider/MtvProgram;");
         return new MtvProgram(cursor.getInt(1), cursor.getInt(2), cursor.getInt(3), cursor.getLong(4), cursor.getLong(5), cursor.getString(6), cursor.getString(7), cursor.getInt(0));
     }
 
     public static void delete(Context context, Uri uri)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->delete(Landroid/content/Context;Landroid/net/Uri;)V");
         if(uri == null)
             uri = CONTENT_URI;
         context.getContentResolver().delete(uri, null, null);
@@ -36,12 +41,14 @@ public class MtvProgramManager
 
     public static void deletePChannelPrograms(Context context, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->deletePChannelPrograms(Landroid/content/Context;I)V");
         String s = (new StringBuilder()).append("epg_pch=").append(i).toString();
         context.getContentResolver().delete(CONTENT_URI, s, null);
     }
 
     public static MtvProgram findByPChannel(Context context, long l, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->findByPChannel(Landroid/content/Context;JI)Lcom/samsung/sec/mtv/provider/MtvProgram;");
         Uri uri = CONTENT_URI;
         String as[] = PROJECTION;
         String s = (new StringBuilder()).append("epg_stime=").append(l).toString();
@@ -62,6 +69,7 @@ public class MtvProgramManager
 
     public static MtvProgram[] findProgramsByPChannel(Context context, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->findProgramsByPChannel(Landroid/content/Context;I)[Lcom/samsung/sec/mtv/provider/MtvProgram;");
         Uri uri = CONTENT_URI;
         String as[] = PROJECTION;
         String s = (new StringBuilder()).append("epg_pch=").append(i).toString();
@@ -88,7 +96,9 @@ public class MtvProgramManager
 
     protected static ContentValues getContentValues(MtvProgram mtvprogram)
     {
-        ContentValues contentvalues = new ContentValues();
+        ContentValues contentvalues;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->getContentValues(Lcom/samsung/sec/mtv/provider/MtvProgram;)Landroid/content/ContentValues;");
+        contentvalues = new ContentValues();
         if(mtvprogram != null) goto _L2; else goto _L1
 _L1:
         MtvUtilDebug.Low("MtvProgramManager", "getContentValues : MtvArea is NULL");
@@ -115,6 +125,7 @@ _L3:
 
     public static MtvProgram getCurrentProgramByPhCh(Context context, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->getCurrentProgramByPhCh(Landroid/content/Context;IJ)Lcom/samsung/sec/mtv/provider/MtvProgram;");
         String s = (new StringBuilder()).append("epg_pch=").append(i).toString();
         String s1 = (new StringBuilder()).append(s).append(" AND epg_stime<").append(l).toString();
         MtvProgram mtvprogram = null;
@@ -133,6 +144,7 @@ _L3:
 
     public static Uri getUri(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->getUri(I)Landroid/net/Uri;");
         Uri uri;
         if(i != -1)
             uri = ContentUris.withAppendedId(CONTENT_URI, i);
@@ -143,6 +155,7 @@ _L3:
 
     public static void updateOrInsert(Context context, MtvProgram mtvprogram)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;->updateOrInsert(Landroid/content/Context;Lcom/samsung/sec/mtv/provider/MtvProgram;)V");
         Uri uri = getUri(mtvprogram.mUriId);
         if(uri == null)
         {
@@ -170,6 +183,7 @@ _L3:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgramManager;-><clinit>()V");
         String as[] = new String[8];
         as[0] = "_id";
         as[1] = "epg_pch";

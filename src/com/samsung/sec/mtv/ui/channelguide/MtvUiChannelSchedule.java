@@ -13,6 +13,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.*;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.context.*;
@@ -35,6 +36,7 @@ public class MtvUiChannelSchedule extends Activity
 
         private boolean isDatechanged(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;->isDatechanged(I)Z");
             boolean flag;
             if(i == 0)
             {
@@ -53,6 +55,7 @@ public class MtvUiChannelSchedule extends Activity
 
         public int getCount()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;->getCount()I");
             int i;
             if(mtvPrograms != null)
                 i = mtvPrograms.length;
@@ -63,21 +66,25 @@ public class MtvUiChannelSchedule extends Activity
 
         public MtvProgram getItem(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;->getItem(I)Lcom/samsung/sec/mtv/provider/MtvProgram;");
             return mtvPrograms[i];
         }
 
         public volatile Object getItem(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;->getItem(I)Ljava/lang/Object;");
             return getItem(i);
         }
 
         public long getItemId(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;->getItemId(I)J");
             return (long)i;
         }
 
         public View getView(int i, View view, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             MtvProgram mtvprogram = mtvPrograms[i];
             View view1 = mInflater.inflate(0x7f030011, viewgroup, false);
             if(mtvprogram != null)
@@ -101,33 +108,33 @@ public class MtvUiChannelSchedule extends Activity
                 if(mtvreservation != null && mtvreservation.mPgmName.equals(mtvprogram.mPgmName))
                 {
                     if(mtvreservation != null && mtvreservation.mPgmType == 0)
-                        imageview.setImageDrawable(mIcon[2]);
+                        imageview.setImageDrawable(Log.d(MtvUiChannelSchedule.this)[2]);
                     else
                     if(mtvreservation != null && mtvreservation.mPgmType == 1)
-                        imageview.setImageDrawable(mIcon[1]);
+                        imageview.setImageDrawable(Log.d(MtvUiChannelSchedule.this)[1]);
                     imageview.setAlpha(255);
                 } else
                 {
-                    imageview.setImageDrawable(mIcon[0]);
+                    imageview.setImageDrawable(Log.d(MtvUiChannelSchedule.this)[0]);
                     imageview.setAlpha(0);
                 }
                 ((TextView)view1.findViewById(0x7f0a0054)).setText(s1);
                 ((TextView)view1.findViewById(0x7f0a0055)).setText(mtvprogram.mPgmName);
-                if(mPreferences == null)
-                    mPreferences = new MtvPreferences(getApplicationContext());
-                j = mPreferences.getLatestVChannel();
+                if(Log.d(MtvUiChannelSchedule.this) == null)
+                    Log.d(MtvUiChannelSchedule.this, new MtvPreferences(getApplicationContext()));
+                j = Log.d(MtvUiChannelSchedule.this).getLatestVChannel();
                 mtvprogram1 = null;
-                mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
+                Log.d(MtvUiChannelSchedule.this, MtvAppPlaybackContextManager.getInstance().getCurrentContext());
                 if(j < 0)
                 {
                     MtvUtilDebug.Mid("MtvUiChannelSchedule", "....using PCH");
-                    if(mMtvAppPlaybackContext != null)
-                        mtvprogram1 = MtvProgramManager.getCurrentProgramByPhCh(context, mPreferences.getLatestPChannelFromVChannel(), mMtvAppPlaybackContext.getAttribute().getTot());
+                    if(Log.d(MtvUiChannelSchedule.this) != null)
+                        mtvprogram1 = MtvProgramManager.getCurrentProgramByPhCh(context, Log.d(MtvUiChannelSchedule.this).getLatestPChannelFromVChannel(), Log.d(MtvUiChannelSchedule.this).getAttribute().getTot());
                 } else
                 {
                     MtvChannel mtvchannel = MtvChannelManager.findByVChannel(context, j);
-                    if(mtvchannel != null && mMtvAppPlaybackContext != null)
-                        mtvprogram1 = MtvProgramManager.getCurrentProgramByPhCh(context, mtvchannel.mPhysicalNum, mMtvAppPlaybackContext.getAttribute().getTot());
+                    if(mtvchannel != null && Log.d(MtvUiChannelSchedule.this) != null)
+                        mtvprogram1 = MtvProgramManager.getCurrentProgramByPhCh(context, mtvchannel.mPhysicalNum, Log.d(MtvUiChannelSchedule.this).getAttribute().getTot());
                 }
                 if(mtvprogram1 != null && mtvprogram.mTimeStart == mtvprogram1.mTimeStart && mtvprogram.mTimeEnd == mtvprogram1.mTimeEnd)
                 {
@@ -143,7 +150,8 @@ public class MtvUiChannelSchedule extends Activity
 
         public void setSelectItemTextColor(int i)
         {
-            mProgramAdapter.notifyDataSetChanged();
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;->setSelectItemTextColor(I)V");
+            Log.d(MtvUiChannelSchedule.this).notifyDataSetChanged();
         }
 
         private Context context;
@@ -153,6 +161,7 @@ public class MtvUiChannelSchedule extends Activity
 
         public ProgramAdapter(Context context1, MtvProgram amtvprogram[])
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Landroid/content/Context;[Lcom/samsung/sec/mtv/provider/MtvProgram;)V");
             this$0 = MtvUiChannelSchedule.this;
             super();
             mtvPrograms = amtvprogram;
@@ -164,15 +173,18 @@ public class MtvUiChannelSchedule extends Activity
 
     public MtvUiChannelSchedule()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;-><init>()V");
+        super();
         mProgramAdapter = null;
         mMtvAppPlaybackContext = null;
         mChannelScheduleUiMsgHandler = new Handler() {
 
             public void handleMessage(Message message)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$1;->handleMessage(Landroid/os/Message;)V");
                 message.what;
-                JVM INSTR tableswitch 320 320: default 24
-            //                           320 25;
+                JVM INSTR tableswitch 320 320: default 32
+            //                           320 33;
                    goto _L1 _L2
 _L1:
                 return;
@@ -185,10 +197,11 @@ _L2:
                     {
                         MtvOneSegProgram amtvonesegprogram[];
                         int i;
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$1$1;->run()V");
                         amtvonesegprogram = getProgram();
-                        if(mPreferences == null)
-                            mPreferences = new MtvPreferences(getApplicationContext());
-                        i = mPreferences.getLatestVChannel();
+                        if(Log.d(_fld0) == null)
+                            Log.d(_fld0, new MtvPreferences(getApplicationContext()));
+                        i = Log.d(_fld0).getLatestVChannel();
                         MtvUtilDebug.Low("MtvUiChannelSchedule", (new StringBuilder()).append("oneSegProgramList").append(amtvonesegprogram).toString());
                         if(amtvonesegprogram == null || amtvonesegprogram.length <= 0) goto _L2; else goto _L1
 _L1:
@@ -198,7 +211,7 @@ _L1:
 _L6:
                         if(j < amtvonesegprogram.length && amtvonesegprogram[j] != null) goto _L4; else goto _L3
 _L3:
-                        setListViewItemByPCh(mPreferences.getLatestPChannel());
+                        Log.d(_fld0, Log.d(_fld0).getLatestPChannel());
 _L2:
                         return;
 _L4:
@@ -214,6 +227,7 @@ _L5:
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$1$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$1;)V");
                             this$1 = _cls1.this;
                             super();
                         }
@@ -228,6 +242,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)V");
                 this$0 = MtvUiChannelSchedule.this;
                 super();
             }
@@ -237,20 +252,23 @@ _L3:
 
             public void onServiceConnected(ComponentName componentname, IBinder ibinder)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$2;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V");
                 MtvUtilDebug.Low("MtvUiChannelSchedule", "onServiceConnected...");
-                mService = (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService();
-                mService.registerListener(listener);
+                Log.d(MtvUiChannelSchedule.this, (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService());
+                Log.d(MtvUiChannelSchedule.this).registerListener(Log.d(MtvUiChannelSchedule.this));
             }
 
             public void onServiceDisconnected(ComponentName componentname)
             {
-                mService.unregisterListener(listener);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$2;->onServiceDisconnected(Landroid/content/ComponentName;)V");
+                Log.d(MtvUiChannelSchedule.this).unregisterListener(Log.d(MtvUiChannelSchedule.this));
             }
 
             final MtvUiChannelSchedule this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$2;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)V");
                 this$0 = MtvUiChannelSchedule.this;
                 super();
             }
@@ -259,16 +277,19 @@ _L3:
 
             public void onMtvAppAndroidServiceNotify(int i, Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$3;->onMtvAppAndroidServiceNotify(ILjava/lang/Object;)V");
             }
 
             public void onMtvAppFinishNotify(Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$3;->onMtvAppFinishNotify(Ljava/lang/Object;)V");
                 class _cls1
                     implements Runnable
                 {
 
                     public void run()
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$3$1;->run()V");
                         finish();
                     }
 
@@ -276,6 +297,7 @@ _L3:
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$3$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$3;)V");
                             this$1 = _cls3.this;
                             super();
                         }
@@ -288,6 +310,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$3;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)V");
                 this$0 = MtvUiChannelSchedule.this;
                 super();
             }
@@ -296,6 +319,7 @@ _L3:
 
             public void onItemClick(AdapterView adapterview, View view, int i, long l)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$5;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
                 MtvUtilDebug.Low("MtvUiChannelSchedule", "mScheduleListListener");
                 if(getFragmentManager().findFragmentByTag("ProgInfoFrag") == null)
                 {
@@ -312,7 +336,7 @@ _L3:
                     bundle.putString("programDesc", mtvprogram.mPgmDetail);
                     bundle.putInt("reservationType", checkForReservationType(mtvprogram));
                     MtvUiFragHandler.addUnManagedFrag("ProgInfoFrag", bundle, 0x7f0a0000, MtvUiChannelSchedule.this);
-                    mProgramAdapter.setSelectItemTextColor(i);
+                    Log.d(MtvUiChannelSchedule.this).setSelectItemTextColor(i);
                 }
             }
 
@@ -320,6 +344,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$5;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)V");
                 this$0 = MtvUiChannelSchedule.this;
                 super();
             }
@@ -328,16 +353,18 @@ _L3:
 
             public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$6;->onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z");
                 ((ListView)findViewById(0x7f0a0005)).setOnItemClickListener(null);
                 MtvUtilDebug.Low("MtvUiChannelSchedule", "mScheduleListLongListener");
                 MtvProgram mtvprogram = (MtvProgram)view.getTag();
-                boolean flag = processItemClick(mtvprogram, view);
+                boolean flag = Log.d(MtvUiChannelSchedule.this, mtvprogram, view);
                 class _cls1
                     implements Runnable
                 {
 
                     public void run()
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$6$1;->run()V");
                         ((ListView)findViewById(0x7f0a0005)).setOnItemClickListener(mScheduleListListener);
                     }
 
@@ -345,12 +372,13 @@ _L3:
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$6$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$6;)V");
                             this$1 = _cls6.this;
                             super();
                         }
                 }
 
-                mChannelScheduleUiMsgHandler.postDelayed(new _cls1(), 1000L);
+                Log.d(MtvUiChannelSchedule.this).postDelayed(new _cls1(), 1000L);
                 return flag;
             }
 
@@ -358,6 +386,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$6;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)V");
                 this$0 = MtvUiChannelSchedule.this;
                 super();
             }
@@ -366,15 +395,17 @@ _L3:
 
             public void onItemClick(AdapterView adapterview, View view, int i, long l)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$7;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
                 MtvUtilDebug.Low("MtvUiChannelSchedule", "mScheduleListClickListener");
                 MtvProgram mtvprogram = (MtvProgram)view.getTag();
-                processItemClick(mtvprogram, view);
+                Log.d(MtvUiChannelSchedule.this, mtvprogram, view);
             }
 
             final MtvUiChannelSchedule this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$7;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)V");
                 this$0 = MtvUiChannelSchedule.this;
                 super();
             }
@@ -383,6 +414,7 @@ _L3:
 
     private CharSequence getSpinnerTitle(MtvChannel mtvchannel)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->getSpinnerTitle(Lcom/samsung/sec/mtv/provider/MtvChannel;)Ljava/lang/CharSequence;");
         return (new StringBuilder()).append("CH ").append(mtvchannel.mPhysicalNum).append(" ").append(mtvchannel.mChannelName).toString();
     }
 
@@ -390,6 +422,7 @@ _L3:
     {
         boolean flag;
         MtvReservation amtvreservation[];
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->isReservationAlreadyTime(Lcom/samsung/sec/mtv/provider/MtvProgram;)Z");
         flag = false;
         amtvreservation = (MtvReservation[])MtvReservationManager.getAllReserves(this);
         if(amtvreservation != null) goto _L2; else goto _L1
@@ -422,6 +455,7 @@ _L3:
 
     private void mStartNewChannel(MtvChannel mtvchannel)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->mStartNewChannel(Lcom/samsung/sec/mtv/provider/MtvChannel;)V");
         MtvAppPlaybackContext mtvappplaybackcontext = MtvAppPlaybackContextManager.getInstance().getLiveTV();
         IMtvAppPlayerOneSeg imtvappplayeroneseg = MtvAppPlayerOneSeg.getInstance();
         if(mtvappplaybackcontext != null && imtvappplayeroneseg != null)
@@ -439,6 +473,7 @@ _L3:
 
     private boolean processItemClick(MtvProgram mtvprogram, View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->processItemClick(Lcom/samsung/sec/mtv/provider/MtvProgram;Landroid/view/View;)Z");
         MtvUtilDebug.Low("MtvUiChannelSchedule", (new StringBuilder()).append("pgm :").append(mtvprogram).toString());
         if(!isReservationAlreadyTime(mtvprogram))
         {
@@ -471,6 +506,7 @@ _L3:
 
     private void setListViewItemByPCh(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->setListViewItemByPCh(I)V");
         MtvUtilDebug.Low("MtvUiChannelSchedule", (new StringBuilder()).append("nPCh ").append(i).toString());
         MtvProgram amtvprogram[] = MtvProgramManager.findProgramsByPChannel(getApplicationContext(), i);
         if(amtvprogram != null)
@@ -495,11 +531,13 @@ _L3:
 
     private void setSpinnerButtonText(CharSequence charsequence, MtvChannel mtvchannel)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->setSpinnerButtonText(Ljava/lang/CharSequence;Lcom/samsung/sec/mtv/provider/MtvChannel;)V");
         mSpinnerButton.setText(charsequence);
     }
 
     private void showChannelList()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->showChannelList()V");
         final MtvChannel channels[] = MtvChannelManager.getAllAvailableChannels(this);
         int i = 0;
         CharSequence acharsequence[] = new CharSequence[channels.length];
@@ -516,15 +554,16 @@ _L3:
 
             public void onClick(DialogInterface dialoginterface, int k)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$4;->onClick(Landroid/content/DialogInterface;I)V");
                 MtvUtilDebug.Mid("MtvUiChannelSchedule", (new StringBuilder()).append("showChannelList which").append(k).toString());
                 MtvChannel mtvchannel = channels[k];
                 MtvUtilDebug.Mid("MtvUiChannelSchedule", (new StringBuilder()).append("channel ").append(mtvchannel.mPhysicalNum).toString());
                 MtvProgramManager.delete(MtvUiChannelSchedule.this, null);
-                mPreferences.setLatestPChannel(mtvchannel.mPhysicalNum);
-                mPreferences.setLatestVChannel(mtvchannel.mVirtualNum);
-                mStartNewChannel(mtvchannel);
-                setSpinnerButtonText(getSpinnerTitle(mtvchannel), mtvchannel);
-                setListViewItemByPCh(mtvchannel.mPhysicalNum);
+                Log.d(MtvUiChannelSchedule.this).setLatestPChannel(mtvchannel.mPhysicalNum);
+                Log.d(MtvUiChannelSchedule.this).setLatestVChannel(mtvchannel.mVirtualNum);
+                Log.d(MtvUiChannelSchedule.this, mtvchannel);
+                Log.d(MtvUiChannelSchedule.this, Log.d(MtvUiChannelSchedule.this, mtvchannel), mtvchannel);
+                Log.d(MtvUiChannelSchedule.this, mtvchannel.mPhysicalNum);
                 dialoginterface.dismiss();
             }
 
@@ -533,6 +572,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$4;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;[Lcom/samsung/sec/mtv/provider/MtvChannel;)V");
                 this$0 = MtvUiChannelSchedule.this;
                 channels = amtvchannel;
                 super();
@@ -543,12 +583,14 @@ _L3:
 
     public void CancelReservationDialog(final long mStartTime)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->CancelReservationDialog(J)V");
         (new android.app.AlertDialog.Builder(this)).setTitle(0x7f0702be).setMessage(0x7f0702b4).setPositiveButton(0x7f070034, new android.content.DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialoginterface, int i)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$9;->onClick(Landroid/content/DialogInterface;I)V");
                 MtvReservationManager.delete(getApplicationContext(), mStartTime, null);
-                mProgramAdapter.notifyDataSetChanged();
+                Log.d(MtvUiChannelSchedule.this).notifyDataSetChanged();
             }
 
             final MtvUiChannelSchedule this$0;
@@ -556,6 +598,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$9;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;J)V");
                 this$0 = MtvUiChannelSchedule.this;
                 mStartTime = l;
                 super();
@@ -566,6 +609,7 @@ _L3:
 
     public void ReserveProgramStarted(String s, MtvProgram mtvprogram)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->ReserveProgramStarted(Ljava/lang/String;Lcom/samsung/sec/mtv/provider/MtvProgram;)V");
         if(!isReservationAlreadyTime(mtvprogram))
         {
             showAlreadyReserveDlg();
@@ -581,6 +625,7 @@ _L3:
     {
         byte byte0;
         MtvReservation mtvreservation;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->checkForReservationType(Lcom/samsung/sec/mtv/provider/MtvProgram;)I");
         byte0 = 0;
         mtvreservation = MtvReservationManager.find(getApplicationContext(), mtvprogram.mTimeStart, new boolean[0]);
         if(mtvreservation == null || !mtvreservation.mPgmName.equals(mtvprogram.mPgmName)) goto _L2; else goto _L1
@@ -602,6 +647,7 @@ _L5:
 
     public MtvOneSegProgram[] getProgram()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->getProgram()[Landroid/broadcast/helper/types/MtvOneSegProgram;");
         MtvOneSegProgram amtvonesegprogram[];
         if(mMtvAppPlaybackContext != null)
             amtvonesegprogram = mMtvAppPlaybackContext.getAttribute().getProgram();
@@ -612,15 +658,17 @@ _L5:
 
     public void onBackPressed()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onBackPressed()V");
         if(!MtvUiFragHandler.removeUnManagedFrag("ProgInfoFrag", this))
             finish();
     }
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onClick(Landroid/view/View;)V");
         view.getId();
-        JVM INSTR tableswitch 2131361794 2131361794: default 24
-    //                   2131361794 25;
+        JVM INSTR tableswitch 2131361794 2131361794: default 32
+    //                   2131361794 33;
            goto _L1 _L2
 _L1:
         return;
@@ -632,6 +680,7 @@ _L3:
 
     protected void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
         if(mMtvAppPlaybackContext != null)
@@ -689,6 +738,7 @@ _L3:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onDestroy()V");
         super.onDestroy();
         if(mService != null)
         {
@@ -701,9 +751,10 @@ _L3:
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         menuitem.getItemId();
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 26;
+        JVM INSTR tableswitch 0 0: default 32
+    //                   0 34;
            goto _L1 _L2
 _L1:
         return true;
@@ -716,6 +767,7 @@ _L3:
 
     public void onPlayerNotification(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onPlayerNotification(III)V");
         switch(i)
         {
         case 20494: 
@@ -759,6 +811,7 @@ _L3:
 
     public boolean onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onPrepareOptionsMenu(Landroid/view/Menu;)Z");
         boolean flag = false;
         super.onPrepareOptionsMenu(menu);
         menu.clear();
@@ -772,9 +825,10 @@ _L3:
 
     public void onProgramAttributeUpdated(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onProgramAttributeUpdated(I)V");
         i;
-        JVM INSTR tableswitch 2 2: default 20
-    //                   2 21;
+        JVM INSTR tableswitch 2 2: default 28
+    //                   2 29;
            goto _L1 _L2
 _L1:
         return;
@@ -787,6 +841,7 @@ _L3:
 
     protected void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onResume()V");
         super.onResume();
         MtvUtilAppService.setMtvVisibiltySettings(getApplicationContext());
         sendBroadcast(new Intent("intent.stop.app-in-app"));
@@ -806,18 +861,21 @@ _L3:
 
     public void onStateChanged(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->onStateChanged(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;)V");
     }
 
     public void reserveContextMenuDialog(String s, int i, final MtvProgram program)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->reserveContextMenuDialog(Ljava/lang/String;ILcom/samsung/sec/mtv/provider/MtvProgram;)V");
         (new android.app.AlertDialog.Builder(this)).setTitle(s).setItems(i, new android.content.DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialoginterface, int j)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$8;->onClick(Landroid/content/DialogInterface;I)V");
                 j;
-                JVM INSTR tableswitch 0 1: default 24
-            //                           0 25
-            //                           1 172;
+                JVM INSTR tableswitch 0 1: default 32
+            //                           0 33
+            //                           1 180;
                    goto _L1 _L2 _L3
 _L1:
                 return;
@@ -838,7 +896,7 @@ _L2:
                     MtvReservationManager.updateOrInsert(getApplicationContext(), mtvreservation1);
                 }
                 MtvUtilSetReservationAlarm.setReservationAlarm(getApplicationContext(), ((MtvProgram) (mtvreservation1)).mTimeStart, true, false);
-                mProgramAdapter.notifyDataSetChanged();
+                Log.d(MtvUiChannelSchedule.this).notifyDataSetChanged();
                 continue; /* Loop/switch isn't completed */
 _L3:
                 class _cls1
@@ -847,15 +905,17 @@ _L3:
 
                     public void onClick(DialogInterface dialoginterface1, int k)
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$8$1;->onClick(Landroid/content/DialogInterface;I)V");
                         MtvReservationManager.delete(getApplicationContext(), program.mTimeStart, null);
                         MtvUtilSetReservationAlarm.setReservationAlarm(getApplicationContext(), program.mTimeStart, false, true);
-                        mProgramAdapter.notifyDataSetChanged();
+                        Log.d(_fld0).notifyDataSetChanged();
                     }
 
                     final _cls8 this$1;
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$8$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$8;)V");
                             this$1 = _cls8.this;
                             super();
                         }
@@ -866,12 +926,12 @@ _L3:
                     MtvReservation mtvreservation = new MtvReservation(program, 1, 0);
                     MtvReservationManager.updateOrInsert(getApplicationContext(), mtvreservation);
                     MtvUtilSetReservationAlarm.setReservationAlarm(getApplicationContext(), ((MtvProgram) (mtvreservation)).mTimeStart, true, false);
-                    mProgramAdapter.notifyDataSetChanged();
+                    Log.d(MtvUiChannelSchedule.this).notifyDataSetChanged();
                 } else
                 {
                     (new android.app.AlertDialog.Builder(MtvUiChannelSchedule.this)).setTitle(0x7f0702be).setMessage(0x7f0702b4).setPositiveButton(0x7f070034, new _cls1()).setNegativeButton(0x7f070035, null).show().getWindow().addFlags(1024);
                 }
-                mProgramAdapter.notifyDataSetChanged();
+                Log.d(MtvUiChannelSchedule.this).notifyDataSetChanged();
                 if(true) goto _L1; else goto _L4
 _L4:
             }
@@ -881,6 +941,7 @@ _L4:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$8;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Lcom/samsung/sec/mtv/provider/MtvProgram;)V");
                 this$0 = MtvUiChannelSchedule.this;
                 program = mtvprogram;
                 super();
@@ -891,6 +952,7 @@ _L4:
 
     public void showAlreadyReserveDlg()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->showAlreadyReserveDlg()V");
         (new android.app.AlertDialog.Builder(this)).setTitle(0x7f0702ab).setMessage(0x7f0702b2).setPositiveButton(0x7f070034, null).show().getWindow().addFlags(1024);
     }
 
@@ -911,10 +973,20 @@ _L4:
     private AlertDialog showChannelListAlertDialog;
 
 
+/*
+    static MtvPreferences access$000(MtvUiChannelSchedule mtvuichannelschedule)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$000(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+        return mtvuichannelschedule.mPreferences;
+    }
+
+*/
+
 
 /*
     static MtvPreferences access$002(MtvUiChannelSchedule mtvuichannelschedule, MtvPreferences mtvpreferences)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$002(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Lcom/samsung/sec/mtv/utility/MtvPreferences;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
         mtvuichannelschedule.mPreferences = mtvpreferences;
         return mtvpreferences;
     }
@@ -922,13 +994,51 @@ _L4:
 */
 
 
+/*
+    static void access$100(MtvUiChannelSchedule mtvuichannelschedule, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$100(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;I)V");
+        mtvuichannelschedule.setListViewItemByPCh(i);
+        return;
+    }
+
+*/
 
 
+/*
+    static boolean access$1000(MtvUiChannelSchedule mtvuichannelschedule, MtvProgram mtvprogram, View view)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$1000(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Lcom/samsung/sec/mtv/provider/MtvProgram;Landroid/view/View;)Z");
+        return mtvuichannelschedule.processItemClick(mtvprogram, view);
+    }
+
+*/
+
+
+/*
+    static Handler access$1100(MtvUiChannelSchedule mtvuichannelschedule)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$1100(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)Landroid/os/Handler;");
+        return mtvuichannelschedule.mChannelScheduleUiMsgHandler;
+    }
+
+*/
+
+
+/*
+    static MtvAppAndroidService access$200(MtvUiChannelSchedule mtvuichannelschedule)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$200(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
+        return mtvuichannelschedule.mService;
+    }
+
+*/
 
 
 /*
     static MtvAppAndroidService access$202(MtvUiChannelSchedule mtvuichannelschedule, MtvAppAndroidService mtvappandroidservice)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$202(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
         mtvuichannelschedule.mService = mtvappandroidservice;
         return mtvappandroidservice;
     }
@@ -936,16 +1046,82 @@ _L4:
 */
 
 
+/*
+    static onMtvAppAndroidServiceListener access$300(MtvUiChannelSchedule mtvuichannelschedule)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$300(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;");
+        return mtvuichannelschedule.listener;
+    }
+
+*/
 
 
+/*
+    static void access$400(MtvUiChannelSchedule mtvuichannelschedule, MtvChannel mtvchannel)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$400(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Lcom/samsung/sec/mtv/provider/MtvChannel;)V");
+        mtvuichannelschedule.mStartNewChannel(mtvchannel);
+        return;
+    }
+
+*/
 
 
+/*
+    static CharSequence access$500(MtvUiChannelSchedule mtvuichannelschedule, MtvChannel mtvchannel)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$500(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Lcom/samsung/sec/mtv/provider/MtvChannel;)Ljava/lang/CharSequence;");
+        return mtvuichannelschedule.getSpinnerTitle(mtvchannel);
+    }
 
+*/
+
+
+/*
+    static void access$600(MtvUiChannelSchedule mtvuichannelschedule, CharSequence charsequence, MtvChannel mtvchannel)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$600(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Ljava/lang/CharSequence;Lcom/samsung/sec/mtv/provider/MtvChannel;)V");
+        mtvuichannelschedule.setSpinnerButtonText(charsequence, mtvchannel);
+        return;
+    }
+
+*/
+
+
+/*
+    static ProgramAdapter access$700(MtvUiChannelSchedule mtvuichannelschedule)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$700(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule$ProgramAdapter;");
+        return mtvuichannelschedule.mProgramAdapter;
+    }
+
+*/
+
+
+/*
+    static Drawable[] access$800(MtvUiChannelSchedule mtvuichannelschedule)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$800(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)[Landroid/graphics/drawable/Drawable;");
+        return mtvuichannelschedule.mIcon;
+    }
+
+*/
+
+
+/*
+    static MtvAppPlaybackContext access$900(MtvUiChannelSchedule mtvuichannelschedule)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$900(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
+        return mtvuichannelschedule.mMtvAppPlaybackContext;
+    }
+
+*/
 
 
 /*
     static MtvAppPlaybackContext access$902(MtvUiChannelSchedule mtvuichannelschedule, MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;->access$902(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelSchedule;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
         mtvuichannelschedule.mMtvAppPlaybackContext = mtvappplaybackcontext;
         return mtvappplaybackcontext;
     }

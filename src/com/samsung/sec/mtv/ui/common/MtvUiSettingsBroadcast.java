@@ -10,6 +10,7 @@ import android.content.*;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.context.*;
@@ -28,6 +29,7 @@ public class MtvUiSettingsBroadcast extends Activity
 
         public int getCount()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$BroadCastSettingsAdapter;->getCount()I");
             int i;
             if(listItems != null)
                 i = listItems.length;
@@ -38,6 +40,7 @@ public class MtvUiSettingsBroadcast extends Activity
 
         public Object getItem(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$BroadCastSettingsAdapter;->getItem(I)Ljava/lang/Object;");
             String s;
             if(listItems != null)
                 s = listItems[i];
@@ -48,6 +51,7 @@ public class MtvUiSettingsBroadcast extends Activity
 
         public long getItemId(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$BroadCastSettingsAdapter;->getItemId(I)J");
             long l;
             if(listItems != null)
                 l = listItems[i].hashCode();
@@ -58,6 +62,7 @@ public class MtvUiSettingsBroadcast extends Activity
 
         public View getView(int i, View view, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$BroadCastSettingsAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             LayoutInflater layoutinflater = getLayoutInflater();
             View view1;
             if(view == null)
@@ -72,7 +77,7 @@ public class MtvUiSettingsBroadcast extends Activity
                 checkbox.setOnClickListener(this);
                 TextView textview;
                 boolean flag;
-                if(mPreference.getBroadcastDataManufactureMode() == 0)
+                if(Log.d(MtvUiSettingsBroadcast.this).getBroadcastDataManufactureMode() == 0)
                     flag = true;
                 else
                     flag = false;
@@ -84,8 +89,8 @@ public class MtvUiSettingsBroadcast extends Activity
             view1.setOnClickListener(this);
             if(i == 0 || i == 1)
             {
-                mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
-                if(mMtvAppPlaybackContext != null && (mMtvAppPlaybackContext.getState().getOp() == 20487 || mMtvAppPlaybackContext.getType() == com.samsung.sec.mtv.app.context.MtvAppPlaybackContext.Type.LOCALTV))
+                Log.d(MtvUiSettingsBroadcast.this, MtvAppPlaybackContextManager.getInstance().getCurrentContext());
+                if(Log.d(MtvUiSettingsBroadcast.this) != null && (Log.d(MtvUiSettingsBroadcast.this).getState().getOp() == 20487 || Log.d(MtvUiSettingsBroadcast.this).getType() == com.samsung.sec.mtv.app.context.MtvAppPlaybackContext.Type.LOCALTV))
                 {
                     textview.setTextColor(0xff888888);
                     view1.setEnabled(false);
@@ -96,14 +101,15 @@ public class MtvUiSettingsBroadcast extends Activity
 
         public void onClick(View view)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$BroadCastSettingsAdapter;->onClick(Landroid/view/View;)V");
             ((Integer)view.getTag()).intValue();
-            JVM INSTR tableswitch 0 5: default 48
-        //                       0 49
-        //                       1 72
-        //                       2 95
-        //                       3 118
-        //                       4 141
-        //                       5 256;
+            JVM INSTR tableswitch 0 5: default 56
+        //                       0 57
+        //                       1 80
+        //                       2 103
+        //                       3 126
+        //                       4 149
+        //                       5 264;
                goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
 _L1:
             return;
@@ -130,12 +136,12 @@ _L6:
                     flag = false;
                 checkbox.setChecked(flag);
             }
-            if(mPreference == null)
-                mPreference = new MtvPreferences(getApplicationContext());
-            if(mPreference.getBroadcastDataManufactureMode() == 0)
-                mPreference.setBroadcastDataManufactureMode(1);
+            if(Log.d(MtvUiSettingsBroadcast.this) == null)
+                Log.d(MtvUiSettingsBroadcast.this, new MtvPreferences(getApplicationContext()));
+            if(Log.d(MtvUiSettingsBroadcast.this).getBroadcastDataManufactureMode() == 0)
+                Log.d(MtvUiSettingsBroadcast.this).setBroadcastDataManufactureMode(1);
             else
-                mPreference.setBroadcastDataManufactureMode(0);
+                Log.d(MtvUiSettingsBroadcast.this).setBroadcastDataManufactureMode(0);
             continue; /* Loop/switch isn't completed */
 _L7:
             Intent intent = new Intent(MtvUiSettingsBroadcast.this, com/samsung/sec/mtv/ui/common/MtvUiStationData);
@@ -149,11 +155,17 @@ _L8:
 
         private BroadCastSettingsAdapter()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$BroadCastSettingsAdapter;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;)V");
             this$0 = MtvUiSettingsBroadcast.this;
             super();
             listItems = getResources().getStringArray(0x7f050002);
         }
 
+        BroadCastSettingsAdapter(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$BroadCastSettingsAdapter;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$1;)V");
+            this();
+        }
     }
 
     public static class OptionsDialogFragment extends DialogFragment
@@ -161,13 +173,15 @@ _L8:
 
         private Dialog createDialogByType()
         {
-            int i = 0;
+            int i;
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;->createDialogByType()Landroid/app/Dialog;");
+            i = 0;
             dialogType;
-            JVM INSTR tableswitch 0 3: default 36
-        //                       0 58
-        //                       1 111
-        //                       2 165
-        //                       3 239;
+            JVM INSTR tableswitch 0 3: default 44
+        //                       0 66
+        //                       1 119
+        //                       2 173
+        //                       3 247;
                goto _L1 _L2 _L3 _L4 _L5
 _L1:
             Object obj = null;
@@ -182,10 +196,11 @@ _L2:
 
                 public void onClick(DialogInterface dialoginterface, int j1)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment$1;->onClick(Landroid/content/DialogInterface;I)V");
                     if(j1 == 0)
-                        mPreference.setBroadcastSetRecordingMode(0);
+                        Log.d(OptionsDialogFragment.this).setBroadcastSetRecordingMode(0);
                     else
-                        mPreference.setBroadcastSetRecordingMode(1);
+                        Log.d(OptionsDialogFragment.this).setBroadcastSetRecordingMode(1);
                     dialoginterface.dismiss();
                 }
 
@@ -193,6 +208,7 @@ _L2:
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;)V");
                     this$0 = OptionsDialogFragment.this;
                     super();
                 }
@@ -209,8 +225,9 @@ _L3:
 
                 public void onClick(DialogInterface dialoginterface, int j1)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment$2;->onClick(Landroid/content/DialogInterface;I)V");
                     if(j1 == 0)
-                        mPreference.setBroadcastImageLocationStorage(1);
+                        Log.d(OptionsDialogFragment.this).setBroadcastImageLocationStorage(1);
                     else
                     if(!MtvUtilMemoryStatus.isExternalMemoryAvailable())
                         (new MtvUiSettingsFrag.MemCardErrFragment(0x7f0700ca)).show(getFragmentManager(), "MemCardErrFragment");
@@ -218,7 +235,7 @@ _L3:
                     if(MtvUtilMemoryStatus.getAvailableExternalMemorySize() < 0x204000L)
                         (new MtvUiSettingsFrag.MemCardErrFragment(0x7f0700cb)).show(getFragmentManager(), "MemCardErrFragment");
                     else
-                        mPreference.setBroadcastImageLocationStorage(0);
+                        Log.d(OptionsDialogFragment.this).setBroadcastImageLocationStorage(0);
                     dialoginterface.dismiss();
                 }
 
@@ -226,6 +243,7 @@ _L3:
 
                 _cls2()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;)V");
                     this$0 = OptionsDialogFragment.this;
                     super();
                 }
@@ -243,23 +261,24 @@ _L4:
 
                 public void onClick(DialogInterface dialoginterface, int j1)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment$3;->onClick(Landroid/content/DialogInterface;I)V");
                     j1;
-                    JVM INSTR tableswitch 0 2: default 28
-                //                               0 35
-                //                               1 49
-                //                               2 63;
+                    JVM INSTR tableswitch 0 2: default 36
+                //                               0 43
+                //                               1 57
+                //                               2 71;
                        goto _L1 _L2 _L3 _L4
 _L1:
                     dialoginterface.dismiss();
                     return;
 _L2:
-                    mPreference.setBroadcastDataNotifyMode(0);
+                    Log.d(OptionsDialogFragment.this).setBroadcastDataNotifyMode(0);
                     continue; /* Loop/switch isn't completed */
 _L3:
-                    mPreference.setBroadcastDataNotifyMode(1);
+                    Log.d(OptionsDialogFragment.this).setBroadcastDataNotifyMode(1);
                     continue; /* Loop/switch isn't completed */
 _L4:
-                    mPreference.setBroadcastDataNotifyMode(2);
+                    Log.d(OptionsDialogFragment.this).setBroadcastDataNotifyMode(2);
                     if(true) goto _L1; else goto _L5
 _L5:
                 }
@@ -268,6 +287,7 @@ _L5:
 
                 _cls3()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment$3;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;)V");
                     this$0 = OptionsDialogFragment.this;
                     super();
                 }
@@ -297,23 +317,24 @@ _L8:
 
                 public void onClick(DialogInterface dialoginterface, int j1)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment$4;->onClick(Landroid/content/DialogInterface;I)V");
                     j1;
-                    JVM INSTR tableswitch 0 2: default 28
-                //                               0 35
-                //                               1 49
-                //                               2 63;
+                    JVM INSTR tableswitch 0 2: default 36
+                //                               0 43
+                //                               1 57
+                //                               2 71;
                        goto _L1 _L2 _L3 _L4
 _L1:
                     dialoginterface.dismiss();
                     return;
 _L2:
-                    mPreference.setBroadcastDataLocationMode(0);
+                    Log.d(OptionsDialogFragment.this).setBroadcastDataLocationMode(0);
                     continue; /* Loop/switch isn't completed */
 _L3:
-                    mPreference.setBroadcastDataLocationMode(1);
+                    Log.d(OptionsDialogFragment.this).setBroadcastDataLocationMode(1);
                     continue; /* Loop/switch isn't completed */
 _L4:
-                    mPreference.setBroadcastDataLocationMode(2);
+                    Log.d(OptionsDialogFragment.this).setBroadcastDataLocationMode(2);
                     if(true) goto _L1; else goto _L5
 _L5:
                 }
@@ -322,6 +343,7 @@ _L5:
 
                 _cls4()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment$4;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;)V");
                     this$0 = OptionsDialogFragment.this;
                     super();
                 }
@@ -341,6 +363,7 @@ _L9:
 
         public void onCreate(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;->onCreate(Landroid/os/Bundle;)V");
             super.onCreate(bundle);
             mPreference = new MtvPreferences(getActivity().getApplicationContext());
             if(bundle != null)
@@ -349,11 +372,13 @@ _L9:
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             return createDialogByType();
         }
 
         public void onSaveInstanceState(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V");
             bundle.putInt("dialogType", dialogType);
             super.onSaveInstanceState(bundle);
         }
@@ -362,12 +387,25 @@ _L9:
         private MtvPreferences mPreference;
 
 
+/*
+        static MtvPreferences access$300(OptionsDialogFragment optionsdialogfragment)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;->access$300(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+            return optionsdialogfragment.mPreference;
+        }
+
+*/
+
         public OptionsDialogFragment()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;-><init>()V");
+            super();
         }
 
         public OptionsDialogFragment(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$OptionsDialogFragment;-><init>(I)V");
+            super();
             dialogType = i;
         }
     }
@@ -375,26 +413,31 @@ _L9:
 
     public MtvUiSettingsBroadcast()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;-><init>()V");
+        super();
         mMtvAppPlaybackContext = null;
         mService = null;
         mConnection = new ServiceConnection() {
 
             public void onServiceConnected(ComponentName componentname, IBinder ibinder)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$1;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V");
                 MtvUtilDebug.Low("MtvUiSettingsBroadcast", "onServiceConnected...");
-                mService = (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService();
-                mService.registerListener(listener);
+                Log.d(MtvUiSettingsBroadcast.this, (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService());
+                Log.d(MtvUiSettingsBroadcast.this).registerListener(Log.d(MtvUiSettingsBroadcast.this));
             }
 
             public void onServiceDisconnected(ComponentName componentname)
             {
-                mService.unregisterListener(listener);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$1;->onServiceDisconnected(Landroid/content/ComponentName;)V");
+                Log.d(MtvUiSettingsBroadcast.this).unregisterListener(Log.d(MtvUiSettingsBroadcast.this));
             }
 
             final MtvUiSettingsBroadcast this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;)V");
                 this$0 = MtvUiSettingsBroadcast.this;
                 super();
             }
@@ -403,16 +446,19 @@ _L9:
 
             public void onMtvAppAndroidServiceNotify(int i, Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$2;->onMtvAppAndroidServiceNotify(ILjava/lang/Object;)V");
             }
 
             public void onMtvAppFinishNotify(Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$2;->onMtvAppFinishNotify(Ljava/lang/Object;)V");
                 class _cls1
                     implements Runnable
                 {
 
                     public void run()
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$2$1;->run()V");
                         finish();
                     }
 
@@ -420,6 +466,7 @@ _L9:
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$2$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$2;)V");
                             this$1 = _cls2.this;
                             super();
                         }
@@ -432,6 +479,7 @@ _L9:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;)V");
                 this$0 = MtvUiSettingsBroadcast.this;
                 super();
             }
@@ -440,6 +488,7 @@ _L9:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setTitle(0x7f0700a3);
         setContentView(0x7f03000a);
@@ -451,11 +500,13 @@ _L9:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->onDestroy()V");
         super.onDestroy();
     }
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->onResume()V");
         super.onResume();
         sendBroadcast(new Intent("intent.stop.app-in-app"));
         if(MtvUtilAppService.isAppExiting())
@@ -473,11 +524,13 @@ _L9:
 
     public void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->onSaveInstanceState(Landroid/os/Bundle;)V");
         super.onSaveInstanceState(bundle);
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->onStop()V");
         MtvUtilAppService.resetMtvVisibiltySettings(getApplicationContext());
         super.onStop();
     }
@@ -490,10 +543,20 @@ _L9:
     private MtvAppAndroidService mService;
 
 
+/*
+    static MtvPreferences access$100(MtvUiSettingsBroadcast mtvuisettingsbroadcast)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+        return mtvuisettingsbroadcast.mPreference;
+    }
+
+*/
+
 
 /*
     static MtvPreferences access$102(MtvUiSettingsBroadcast mtvuisettingsbroadcast, MtvPreferences mtvpreferences)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->access$102(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;Lcom/samsung/sec/mtv/utility/MtvPreferences;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
         mtvuisettingsbroadcast.mPreference = mtvpreferences;
         return mtvpreferences;
     }
@@ -501,10 +564,20 @@ _L9:
 */
 
 
+/*
+    static MtvAppPlaybackContext access$200(MtvUiSettingsBroadcast mtvuisettingsbroadcast)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->access$200(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
+        return mtvuisettingsbroadcast.mMtvAppPlaybackContext;
+    }
+
+*/
+
 
 /*
     static MtvAppPlaybackContext access$202(MtvUiSettingsBroadcast mtvuisettingsbroadcast, MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->access$202(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
         mtvuisettingsbroadcast.mMtvAppPlaybackContext = mtvappplaybackcontext;
         return mtvappplaybackcontext;
     }
@@ -512,14 +585,33 @@ _L9:
 */
 
 
+/*
+    static MtvAppAndroidService access$400(MtvUiSettingsBroadcast mtvuisettingsbroadcast)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->access$400(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
+        return mtvuisettingsbroadcast.mService;
+    }
+
+*/
+
 
 /*
     static MtvAppAndroidService access$402(MtvUiSettingsBroadcast mtvuisettingsbroadcast, MtvAppAndroidService mtvappandroidservice)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->access$402(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
         mtvuisettingsbroadcast.mService = mtvappandroidservice;
         return mtvappandroidservice;
     }
 
 */
 
+
+/*
+    static onMtvAppAndroidServiceListener access$500(MtvUiSettingsBroadcast mtvuisettingsbroadcast)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;->access$500(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsBroadcast;)Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;");
+        return mtvuisettingsbroadcast.listener;
+    }
+
+*/
 }

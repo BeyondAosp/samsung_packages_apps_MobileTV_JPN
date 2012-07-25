@@ -9,6 +9,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.*;
@@ -22,6 +23,8 @@ public class MtvUiChangeArea extends ListActivity
 
     public MtvUiChangeArea()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;-><init>()V");
+        super();
         mSlotId = 0;
         mCurrentPhase = 0;
         mArrayId = null;
@@ -33,11 +36,12 @@ public class MtvUiChangeArea extends ListActivity
 
     private void initialize()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->initialize()V");
         mCurrentPhase;
-        JVM INSTR tableswitch 0 2: default 32
-    //                   0 123
-    //                   1 133
-    //                   2 150;
+        JVM INSTR tableswitch 0 2: default 40
+    //                   0 131
+    //                   1 141
+    //                   2 158;
            goto _L1 _L2 _L3 _L4
 _L1:
         mArrayName = new String[mArrayId.length];
@@ -69,6 +73,7 @@ _L5:
 
     protected void onActivityResult(int i, int j, Intent intent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->onActivityResult(IILandroid/content/Intent;)V");
         if(j == -1)
         {
             setResult(-1, intent);
@@ -79,12 +84,14 @@ _L5:
 
     public void onBackPressed()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->onBackPressed()V");
         setResult(0);
         super.onBackPressed();
     }
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         getWindow().addFlags(128);
         bindService(new Intent(getApplicationContext(), com/samsung/sec/mtv/app/service/MtvAppAndroidService), mConnection, 1);
@@ -99,6 +106,7 @@ _L5:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->onDestroy()V");
         if(mService != null)
         {
             mService.unregisterListener(listener);
@@ -110,6 +118,7 @@ _L5:
 
     public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
         MtvUtilDebug.Low("MtvUiChangeArea", (new StringBuilder()).append("onItemClick arg0=").append(adapterview).append(" view=").append(view).append(" position=").append(i).append(" id=").append(l).toString());
         mSelected[mCurrentPhase] = i;
         if(mCurrentPhase != 2)
@@ -133,6 +142,7 @@ _L5:
 
     protected void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->onResume()V");
         super.onResume();
         if(!MtvUtilAppService.isAppExiting()) goto _L2; else goto _L1
 _L1:
@@ -141,13 +151,13 @@ _L8:
         return;
 _L2:
         mCurrentPhase;
-        JVM INSTR tableswitch 0 2: default 44
-    //                   0 91
-    //                   1 108
-    //                   2 125;
+        JVM INSTR tableswitch 0 2: default 56
+    //                   0 106
+    //                   1 123
+    //                   2 140;
            goto _L3 _L4 _L5 _L6
 _L6:
-        break MISSING_BLOCK_LABEL_125;
+        break MISSING_BLOCK_LABEL_140;
 _L3:
         break; /* Loop/switch isn't completed */
 _L4:
@@ -171,6 +181,7 @@ _L5:
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->onStop()V");
         MtvUtilAppService.resetMtvVisibiltySettings(getApplicationContext());
         super.onStop();
     }
@@ -188,10 +199,20 @@ _L5:
     private int mSlotId;
 
 
+/*
+    static MtvAppAndroidService access$000(MtvUiChangeArea mtvuichangearea)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->access$000(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
+        return mtvuichangearea.mService;
+    }
+
+*/
+
 
 /*
     static MtvAppAndroidService access$002(MtvUiChangeArea mtvuichangearea, MtvAppAndroidService mtvappandroidservice)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->access$002(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
         mtvuichangearea.mService = mtvappandroidservice;
         return mtvappandroidservice;
     }
@@ -199,26 +220,38 @@ _L5:
 */
 
 
+/*
+    static onMtvAppAndroidServiceListener access$100(MtvUiChangeArea mtvuichangearea)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;->access$100(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;)Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;");
+        return mtvuichangearea.listener;
+    }
+
+*/
+
     private class _cls1
         implements ServiceConnection
     {
 
         public void onServiceConnected(ComponentName componentname, IBinder ibinder)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$1;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V");
             MtvUtilDebug.Low("MtvUiChangeArea", "onServiceConnected...");
-            mService = (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService();
-            mService.registerListener(listener);
+            Log.d(MtvUiChangeArea.this, (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService());
+            Log.d(MtvUiChangeArea.this).registerListener(Log.d(MtvUiChangeArea.this));
         }
 
         public void onServiceDisconnected(ComponentName componentname)
         {
-            mService.unregisterListener(listener);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$1;->onServiceDisconnected(Landroid/content/ComponentName;)V");
+            Log.d(MtvUiChangeArea.this).unregisterListener(Log.d(MtvUiChangeArea.this));
         }
 
         final MtvUiChangeArea this$0;
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;)V");
             this$0 = MtvUiChangeArea.this;
             super();
         }
@@ -231,16 +264,19 @@ _L5:
 
         public void onMtvAppAndroidServiceNotify(int i, Object obj)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$2;->onMtvAppAndroidServiceNotify(ILjava/lang/Object;)V");
         }
 
         public void onMtvAppFinishNotify(Object obj)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$2;->onMtvAppFinishNotify(Ljava/lang/Object;)V");
             class _cls1
                 implements Runnable
             {
 
                 public void run()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$2$1;->run()V");
                     finish();
                 }
 
@@ -248,6 +284,7 @@ _L5:
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$2$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$2;)V");
                     this$1 = _cls2.this;
                     super();
                 }
@@ -260,6 +297,7 @@ _L5:
 
         _cls2()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea$2;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChangeArea;)V");
             this$0 = MtvUiChangeArea.this;
             super();
         }

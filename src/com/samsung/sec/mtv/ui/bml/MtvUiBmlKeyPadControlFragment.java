@@ -9,6 +9,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.bml.MtvAppBml;
@@ -25,6 +26,8 @@ public class MtvUiBmlKeyPadControlFragment extends MtvUiFrag
 
     public MtvUiBmlKeyPadControlFragment()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;-><init>()V");
+        super();
         mBtnCntrKeyPad = null;
         mBtnCntrlUp = null;
         mBtnCntrlDown = null;
@@ -38,24 +41,28 @@ public class MtvUiBmlKeyPadControlFragment extends MtvUiFrag
 
     public static void hide()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->hide()V");
         if(mFragHandler != null)
             mFragHandler.removeFrag(9);
     }
 
     public static void setAppcomponents(MtvAppBml mtvappbml, MtvUiFragHandler mtvuifraghandler)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->setAppcomponents(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
         mBmlApp = mtvappbml;
         mFragHandler = mtvuifraghandler;
     }
 
     public static void show()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->show()V");
         if(mFragHandler != null)
             mFragHandler.addFrag(9, -1L, false, new int[0]);
     }
 
     public void cancelBMLLongClick()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->cancelBMLLongClick()V");
         if(mHandler != null)
         {
             mHandler.removeCallbacks(mRunnableBMLCtrlUp);
@@ -66,6 +73,7 @@ public class MtvUiBmlKeyPadControlFragment extends MtvUiFrag
 
     public void init()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->init()V");
         RelativeLayout relativelayout = (RelativeLayout)mCntrlFragView.findViewById(0x7f0a007b);
         if(relativelayout != null)
         {
@@ -97,6 +105,7 @@ public class MtvUiBmlKeyPadControlFragment extends MtvUiFrag
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -111,9 +120,10 @@ public class MtvUiBmlKeyPadControlFragment extends MtvUiFrag
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onClick(Landroid/view/View;)V");
         view.getId();
-        JVM INSTR tableswitch 2131361920 2131361920: default 24
-    //                   2131361920 25;
+        JVM INSTR tableswitch 2131361920 2131361920: default 32
+    //                   2131361920 33;
            goto _L1 _L2
 _L1:
         return;
@@ -128,6 +138,7 @@ _L3:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setRetainInstance(true);
         setHasOptionsMenu(true);
@@ -135,11 +146,13 @@ _L3:
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V");
         super.onCreateOptionsMenu(menu, menuinflater);
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mCntrlFragView = layoutinflater.inflate(0x7f030019, viewgroup, false);
         init();
         return mCntrlFragView;
@@ -147,11 +160,13 @@ _L3:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onDestroy()V");
         super.onDestroy();
     }
 
     public boolean onLongClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onLongClick(Landroid/view/View;)Z");
         MtvUtilDebug.Low("MtvUiBmlKeyPadControlFragment", "onLongClick. ");
         if(0x7f0a007c != view.getId()) goto _L2; else goto _L1
 _L1:
@@ -172,6 +187,7 @@ _L3:
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         MtvUtilDebug.Low("MtvUiBmlKeyPadControlFragment", (new StringBuilder()).append("onSelected item=").append(menuitem).toString());
         char c;
         if(menuitem.getItemId() == 13)
@@ -200,6 +216,7 @@ _L1:
 
     public void onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V");
         MtvUtilDebug.Low("MtvUiBmlKeyPadControlFragment", "onCreateOptionsMenu");
         if(MtvUtilAppService.getCurrentOrientation(getActivity().getApplicationContext()) == 0)
         {
@@ -218,6 +235,7 @@ _L1:
 
     public void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onSaveInstanceState(Landroid/os/Bundle;)V");
         super.onSaveInstanceState(bundle);
     }
 
@@ -225,6 +243,7 @@ _L1:
     {
         boolean flag;
         int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z");
         flag = true;
         i = view.getId();
         if(mFragHandler.isPhoneLocked() != flag) goto _L2; else goto _L1
@@ -236,14 +255,14 @@ _L2:
         if((motionevent.getAction() == 3 || motionevent.getAction() == flag) && (0x7f0a007c == i || 0x7f0a007d == i))
             cancelBMLLongClick();
         i;
-        JVM INSTR tableswitch 2131361916 2131361919: default 96
-    //                   2131361916 101
-    //                   2131361917 129
-    //                   2131361918 184
-    //                   2131361919 157;
+        JVM INSTR tableswitch 2131361916 2131361919: default 108
+    //                   2131361916 114
+    //                   2131361917 142
+    //                   2131361918 197
+    //                   2131361919 170;
            goto _L3 _L4 _L5 _L6 _L7
 _L6:
-        break MISSING_BLOCK_LABEL_184;
+        break MISSING_BLOCK_LABEL_197;
 _L3:
         break; /* Loop/switch isn't completed */
 _L4:
@@ -281,10 +300,50 @@ _L7:
     private Runnable mRunnableBMLCtrlDown;
     private Runnable mRunnableBMLCtrlUp;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;-><clinit>()V");
+    }
 
 
+/*
+    static MtvAppBml access$000()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->access$000()Lcom/samsung/sec/mtv/app/bml/MtvAppBml;");
+        return mBmlApp;
+    }
+
+*/
 
 
+/*
+    static Handler access$100()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->access$100()Landroid/os/Handler;");
+        return mHandler;
+    }
+
+*/
+
+
+/*
+    static Runnable access$200(MtvUiBmlKeyPadControlFragment mtvuibmlkeypadcontrolfragment)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->access$200(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;)Ljava/lang/Runnable;");
+        return mtvuibmlkeypadcontrolfragment.mRunnableBMLCtrlUp;
+    }
+
+*/
+
+
+/*
+    static Runnable access$300(MtvUiBmlKeyPadControlFragment mtvuibmlkeypadcontrolfragment)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;->access$300(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;)Ljava/lang/Runnable;");
+        return mtvuibmlkeypadcontrolfragment.mRunnableBMLCtrlDown;
+    }
+
+*/
 
     private class _cls1
         implements Runnable
@@ -292,16 +351,18 @@ _L7:
 
         public void run()
         {
-            if(MtvUiBmlKeyPadControlFragment.mBmlApp != null)
-                MtvUiBmlKeyPadControlFragment.mBmlApp.onKeyEvent(new KeyEvent(0, 19));
-            if(MtvUiBmlKeyPadControlFragment.mHandler != null)
-                MtvUiBmlKeyPadControlFragment.mHandler.postDelayed(mRunnableBMLCtrlUp, 200L);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment$1;->run()V");
+            if(Log.d() != null)
+                Log.d().onKeyEvent(new KeyEvent(0, 19));
+            if(Log.d() != null)
+                Log.d().postDelayed(Log.d(MtvUiBmlKeyPadControlFragment.this), 200L);
         }
 
         final MtvUiBmlKeyPadControlFragment this$0;
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment$1;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;)V");
             this$0 = MtvUiBmlKeyPadControlFragment.this;
             super();
         }
@@ -314,16 +375,18 @@ _L7:
 
         public void run()
         {
-            if(MtvUiBmlKeyPadControlFragment.mBmlApp != null)
-                MtvUiBmlKeyPadControlFragment.mBmlApp.onKeyEvent(new KeyEvent(0, 20));
-            if(MtvUiBmlKeyPadControlFragment.mHandler != null)
-                MtvUiBmlKeyPadControlFragment.mHandler.postDelayed(mRunnableBMLCtrlDown, 200L);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment$2;->run()V");
+            if(Log.d() != null)
+                Log.d().onKeyEvent(new KeyEvent(0, 20));
+            if(Log.d() != null)
+                Log.d().postDelayed(Log.d(MtvUiBmlKeyPadControlFragment.this), 200L);
         }
 
         final MtvUiBmlKeyPadControlFragment this$0;
 
         _cls2()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment$2;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlKeyPadControlFragment;)V");
             this$0 = MtvUiBmlKeyPadControlFragment.this;
             super();
         }

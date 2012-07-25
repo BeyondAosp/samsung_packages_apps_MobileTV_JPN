@@ -9,6 +9,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.*;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -21,10 +22,13 @@ public class MtvUiChannelNumFrag extends MtvUiFrag
 
     public MtvUiChannelNumFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;-><init>()V");
+        super();
     }
 
     private void initializeUI()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->initializeUI()V");
         for(int i = 0; i < RSRC_BUTTON_KEY.length; i++)
             mKeyMap.put(Integer.valueOf(RSRC_BUTTON_KEY[i]), Integer.valueOf(i));
 
@@ -41,6 +45,7 @@ public class MtvUiChannelNumFrag extends MtvUiFrag
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -55,21 +60,22 @@ public class MtvUiChannelNumFrag extends MtvUiFrag
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onClick(Landroid/view/View;)V");
         MtvUtilDebug.Low("MtvUiChannelNumFrag", (new StringBuilder()).append("OnClick id=").append(view.getId()).toString());
         view.getId();
-        JVM INSTR tableswitch 2131361889 2131361900: default 92
-    //                   2131361889 93
-    //                   2131361890 93
-    //                   2131361891 93
-    //                   2131361892 93
-    //                   2131361893 93
-    //                   2131361894 93
-    //                   2131361895 93
-    //                   2131361896 93
-    //                   2131361897 93
-    //                   2131361898 214
-    //                   2131361899 93
-    //                   2131361900 261;
+        JVM INSTR tableswitch 2131361889 2131361900: default 100
+    //                   2131361889 101
+    //                   2131361890 101
+    //                   2131361891 101
+    //                   2131361892 101
+    //                   2131361893 101
+    //                   2131361894 101
+    //                   2131361895 101
+    //                   2131361896 101
+    //                   2131361897 101
+    //                   2131361898 224
+    //                   2131361899 101
+    //                   2131361900 271;
            goto _L1 _L2 _L2 _L2 _L2 _L2 _L2 _L2 _L2 _L2 _L3 _L2 _L4
 _L1:
         return;
@@ -103,12 +109,14 @@ _L5:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setRetainInstance(true);
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mLayoutView = layoutinflater.inflate(0x7f030014, null);
         initializeUI();
         return mLayoutView;
@@ -116,26 +124,31 @@ _L5:
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onPause()V");
         super.onPause();
     }
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onResume()V");
         super.onResume();
     }
 
     public void onStart()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onStart()V");
         super.onStart();
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onStop()V");
         super.onStop();
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;->onUpdate(ILjava/lang/Object;)V");
         MtvUtilDebug.Low("MtvUiChannelNumFrag", (new StringBuilder()).append("onUpdate: what[").append(i).append("]").toString());
         super.onUpdate(i, obj);
     }
@@ -149,6 +162,7 @@ _L5:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiChannelNumFrag;-><clinit>()V");
         int ai[] = new int[10];
         ai[0] = 0x7f0a006b;
         ai[1] = 0x7f0a0061;

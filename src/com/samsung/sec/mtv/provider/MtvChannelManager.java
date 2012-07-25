@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.util.Log;
 import com.samsung.sec.mtv.utility.MtvAreaStationInfo;
 import com.samsung.sec.mtv.utility.MtvPreferences;
 import java.util.HashMap;
@@ -24,15 +25,19 @@ public class MtvChannelManager
 
     private MtvChannelManager()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;-><init>()V");
+        super();
     }
 
     public static MtvChannel builder(Cursor cursor)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->builder(Landroid/database/Cursor;)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         return new MtvChannel(cursor.getInt(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(0), cursor.getInt(7), cursor.getInt(8));
     }
 
     public static void deleteDB(Context context, Uri uri)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->deleteDB(Landroid/content/Context;Landroid/net/Uri;)V");
         if(uri == null)
             uri = CONTENT_URI;
         String s = (new StringBuilder()).append("ch_slot=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
@@ -41,6 +46,7 @@ public class MtvChannelManager
 
     public static MtvChannel findByNamePCh(Context context, String s, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->findByNamePCh(Landroid/content/Context;Ljava/lang/String;I)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         Uri uri = CONTENT_URI;
         String as[] = PROJECTION;
         String s1 = (new StringBuilder()).append("ch_name=? and ch_pch=").append(i).append(" and ").append("ch_slot").append("=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
@@ -63,6 +69,7 @@ public class MtvChannelManager
 
     public static MtvChannel findByPChannel(Context context, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->findByPChannel(Landroid/content/Context;I)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         Uri uri = CONTENT_URI;
         String as[] = PROJECTION;
         String s = (new StringBuilder()).append("ch_pch=").append(i).append(" and ").append("ch_slot").append("=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
@@ -82,6 +89,7 @@ public class MtvChannelManager
 
     public static MtvChannel findByServiceId(Context context, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->findByServiceId(Landroid/content/Context;I)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         Uri uri = CONTENT_URI;
         String as[] = PROJECTION;
         String s = (new StringBuilder()).append("ch_svcid1<=").append(i).append(" and ").append("ch_svcid2").append(">=").append(i).append(" and ").append("ch_slot").append("=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
@@ -105,6 +113,7 @@ public class MtvChannelManager
         String as[];
         String s;
         MtvChannel mtvchannel;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->findByVChannel(Landroid/content/Context;I)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         uri = CONTENT_URI;
         as = PROJECTION;
         s = (new StringBuilder()).append("ch_vch=").append(i).append(" and ").append("ch_slot").append("=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
@@ -132,6 +141,7 @@ _L1:
 
     public static MtvChannel[] getAllAvailableChannels(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getAllAvailableChannels(Landroid/content/Context;)[Lcom/samsung/sec/mtv/provider/MtvChannel;");
         String s = (new StringBuilder()).append("ch_slot=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
         String s1 = (new StringBuilder()).append(s).append(" and ch_pch<>-1").toString();
         Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, s1, null, null);
@@ -151,6 +161,7 @@ _L1:
 
     protected static ContentValues getContentValues(MtvChannel mtvchannel)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getContentValues(Lcom/samsung/sec/mtv/provider/MtvChannel;)Landroid/content/ContentValues;");
         ContentValues contentvalues = new ContentValues();
         if(mtvchannel.mVirtualNum != -1)
             contentvalues.put("ch_vch", Integer.valueOf(mtvchannel.mVirtualNum));
@@ -173,11 +184,13 @@ _L1:
 
     public static int getCount(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getCount(Landroid/content/Context;)I");
         return getCount(context, null, null);
     }
 
     private static int getCount(Context context, String s, String as[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getCount(Landroid/content/Context;Ljava/lang/String;[Ljava/lang/String;)I");
         Uri uri = Uri.withAppendedPath(CONTENT_URI, "count");
         int i = 0;
         String s1;
@@ -204,6 +217,7 @@ _L1:
 
     public static MtvChannel getFirst(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getFirst(Landroid/content/Context;)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         String s = (new StringBuilder()).append("ch_slot=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
         String s1 = (new StringBuilder()).append(s).append(" and ch_pch<>-1").toString();
         Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, s1, null, "ch_vch ASC");
@@ -222,6 +236,7 @@ _L1:
 
     public static MtvChannel getFirstOnAir(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getFirstOnAir(Landroid/content/Context;)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         String s = (new StringBuilder()).append("ch_slot=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
         String s1 = (new StringBuilder()).append(s).append(" and ch_pch<>-1").toString();
         String s2 = (new StringBuilder()).append(s1).append(" and ch_avlb=1").toString();
@@ -243,6 +258,7 @@ _L1:
 
     public static MtvChannel getLast(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getLast(Landroid/content/Context;)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         String s = (new StringBuilder()).append("ch_slot=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
         String s1 = (new StringBuilder()).append(s).append(" and ch_pch<>-1").toString();
         Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, s1, null, "ch_vch ASC");
@@ -263,6 +279,7 @@ _L1:
     {
         Cursor cursor;
         MtvChannel mtvchannel;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getNext(Landroid/content/Context;I)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         String s = (new StringBuilder()).append("ch_vch>").append(i).append(" and ").append("ch_slot").append("=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
         String s1 = (new StringBuilder()).append(s).append(" and ch_pch<>-1").toString();
         cursor = context.getContentResolver().query(CONTENT_URI, null, s1, null, null);
@@ -288,6 +305,7 @@ _L5:
     {
         Cursor cursor;
         MtvChannel mtvchannel;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getPrevious(Landroid/content/Context;I)Lcom/samsung/sec/mtv/provider/MtvChannel;");
         String s = (new StringBuilder()).append("ch_vch<").append(i).append(" and ").append("ch_slot").append("=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
         String s1 = (new StringBuilder()).append(s).append(" and ch_pch<>-1").toString();
         cursor = context.getContentResolver().query(CONTENT_URI, null, s1, null, null);
@@ -311,6 +329,7 @@ _L5:
 
     public static Uri getUri(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->getUri(I)Landroid/net/Uri;");
         Uri uri;
         if(i != -1)
             uri = ContentUris.withAppendedId(CONTENT_URI, i);
@@ -321,6 +340,7 @@ _L5:
 
     public static void setDefaultAreaNChannel(Context context, int i, int j, String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->setDefaultAreaNChannel(Landroid/content/Context;IILjava/lang/String;)V");
         if(i == -1)
             i = (new MtvPreferences(context)).getCurrentSlot();
         else
@@ -352,6 +372,7 @@ _L5:
 
     public static void update2Default(Context context, Uri uri)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->update2Default(Landroid/content/Context;Landroid/net/Uri;)V");
         if(uri != null)
         {
             String s = (new StringBuilder()).append("ch_slot=").append((new MtvPreferences(context)).getCurrentSlot()).toString();
@@ -368,6 +389,7 @@ _L5:
     {
         MtvChannel mtvchannel1;
         MtvChannel mtvchannel2;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;->updateOrInsert(Landroid/content/Context;Lcom/samsung/sec/mtv/provider/MtvChannel;)V");
         mtvchannel1 = new MtvChannel(mtvchannel.mVirtualNum, mtvchannel.mPhysicalNum, mtvchannel.mFavorite, mtvchannel.mAvailable, mtvchannel.mChannelName, (new MtvPreferences(context)).getCurrentSlot(), mtvchannel.mUriId);
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvChannelManager", (new StringBuilder()).append("Update or insert CHANNEL ").append(mtvchannel1.toString()).toString());
@@ -403,6 +425,7 @@ _L3:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvChannelManager;-><clinit>()V");
         String as[] = new String[9];
         as[0] = "_id";
         as[1] = "ch_vch";

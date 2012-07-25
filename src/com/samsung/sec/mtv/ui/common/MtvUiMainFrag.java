@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.broadcast.helper.MtvUtilDebug;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.utility.*;
@@ -22,6 +23,8 @@ public class MtvUiMainFrag extends MtvUiFrag
 
     public MtvUiMainFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;-><init>()V");
+        super();
         mMtvAudMgr = null;
         mChUpButton = null;
         mChDownButton = null;
@@ -38,6 +41,7 @@ public class MtvUiMainFrag extends MtvUiFrag
 
     private void initializeUI()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->initializeUI()V");
         int i = MtvUtilAppService.getCurrentOrientation(getActivity().getApplicationContext());
         mControlLayout = (RelativeLayout)mLayoutView.findViewById(0x7f0a0073);
         mControlLayout.setBackgroundColor(0x7f060008);
@@ -73,6 +77,7 @@ public class MtvUiMainFrag extends MtvUiFrag
 
     private void setChannelDetails(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->setChannelDetails(Ljava/lang/String;)V");
         int i = mPreferences.getLatestChannelNumberForDisplay();
         String s1;
         if(i < 0)
@@ -95,6 +100,7 @@ public class MtvUiMainFrag extends MtvUiFrag
 
     private void setMainFragChannelDetails(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->setMainFragChannelDetails(Ljava/lang/String;)V");
         if(s != null)
         {
             mChannelName = s;
@@ -112,6 +118,7 @@ public class MtvUiMainFrag extends MtvUiFrag
 
     private void toggleVolumeButton()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->toggleVolumeButton()V");
         int i = mMtvAudMgr.getVolumeLevel();
         if(i == 0)
         {
@@ -136,6 +143,7 @@ public class MtvUiMainFrag extends MtvUiFrag
 
     private void updateComponentsOnLock(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->updateComponentsOnLock(Z)V");
         mChUpButton.setEnabled(flag);
         mChDownButton.setEnabled(flag);
         mChGuideButton.setEnabled(flag);
@@ -146,6 +154,7 @@ public class MtvUiMainFrag extends MtvUiFrag
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -160,11 +169,12 @@ public class MtvUiMainFrag extends MtvUiFrag
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onClick(Landroid/view/View;)V");
         view.getId();
-        JVM INSTR tableswitch 2131361908 2131361910: default 32
-    //                   2131361908 49
-    //                   2131361909 65
-    //                   2131361910 33;
+        JVM INSTR tableswitch 2131361908 2131361910: default 40
+    //                   2131361908 57
+    //                   2131361909 73
+    //                   2131361910 41;
            goto _L1 _L2 _L3 _L4
 _L1:
         return;
@@ -182,12 +192,14 @@ _L5:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setRetainInstance(true);
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         MtvUtilDebug.Low("MtvUiMainFrag", "onCreateView");
         mContext = getActivity().getApplicationContext();
         mLayoutView = layoutinflater.inflate(0x7f030016, null);
@@ -200,36 +212,41 @@ _L5:
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onPause()V");
         super.onPause();
     }
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onResume()V");
         toggleVolumeButton();
         super.onResume();
     }
 
     public void onStart()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onStart()V");
         super.onStart();
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onStop()V");
         super.onStop();
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->onUpdate(ILjava/lang/Object;)V");
         MtvUtilDebug.Low("MtvUiMainFrag", (new StringBuilder()).append("onUpdate: what[").append(i).append("]").toString());
         i;
-        JVM INSTR lookupswitch 6: default 92
-    //                   101: 120
-    //                   106: 113
-    //                   107: 113
-    //                   108: 113
-    //                   112: 99
-    //                   243: 92;
+        JVM INSTR lookupswitch 6: default 100
+    //                   101: 128
+    //                   106: 121
+    //                   107: 121
+    //                   108: 121
+    //                   112: 107
+    //                   243: 100;
            goto _L1 _L2 _L3 _L3 _L3 _L4 _L1
 _L1:
         super.onUpdate(i, obj);
@@ -279,7 +296,35 @@ _L5:
     android.view.View.OnLongClickListener volumeOnLongClickListener;
 
 
+/*
+    static void access$000(MtvUiMainFrag mtvuimainfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->access$000(Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;)V");
+        mtvuimainfrag.toggleVolumeButton();
+        return;
+    }
 
+*/
+
+
+/*
+    static MtvUiFrag.IMtvFragEventListener access$100(MtvUiMainFrag mtvuimainfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;)Lcom/samsung/sec/mtv/ui/common/MtvUiFrag$IMtvFragEventListener;");
+        return mtvuimainfrag.mListener;
+    }
+
+*/
+
+
+/*
+    static MtvUtilAudioManager access$200(MtvUiMainFrag mtvuimainfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;->access$200(Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;)Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;");
+        return mtvuimainfrag.mMtvAudMgr;
+    }
+
+*/
 
     private class _cls2
         implements android.view.View.OnClickListener
@@ -287,15 +332,17 @@ _L5:
 
         public void onClick(View view)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag$2;->onClick(Landroid/view/View;)V");
             MtvUtilDebug.Low("MtvUiMainFrag", "Mute Volume onClick:...");
-            toggleVolumeButton();
-            mListener.onFragEvent(220, null);
+            Log.d(MtvUiMainFrag.this);
+            Log.d(MtvUiMainFrag.this).onFragEvent(220, null);
         }
 
         final MtvUiMainFrag this$0;
 
         _cls2()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;)V");
             this$0 = MtvUiMainFrag.this;
             super();
         }
@@ -308,9 +355,10 @@ _L5:
 
         public boolean onLongClick(View view)
         {
-            mMtvAudMgr.volumeMute();
-            toggleVolumeButton();
-            mListener.onFragEvent(226, null);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag$3;->onLongClick(Landroid/view/View;)Z");
+            Log.d(MtvUiMainFrag.this).volumeMute();
+            Log.d(MtvUiMainFrag.this);
+            Log.d(MtvUiMainFrag.this).onFragEvent(226, null);
             return true;
         }
 
@@ -318,6 +366,7 @@ _L5:
 
         _cls3()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag$3;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;)V");
             this$0 = MtvUiMainFrag.this;
             super();
         }
@@ -330,6 +379,7 @@ _L5:
 
         public boolean onTouch(View view, MotionEvent motionevent)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag$1;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z");
             return true;
         }
 
@@ -337,6 +387,7 @@ _L5:
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiMainFrag;)V");
             this$0 = MtvUiMainFrag.this;
             super();
         }

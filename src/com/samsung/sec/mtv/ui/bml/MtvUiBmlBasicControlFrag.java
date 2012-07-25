@@ -9,6 +9,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.bml.MtvAppBml;
@@ -25,6 +26,8 @@ public class MtvUiBmlBasicControlFrag extends MtvUiFrag
 
     public MtvUiBmlBasicControlFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;-><init>()V");
+        super();
         mHandler = new Handler();
         mBtnCntrlUp = null;
         mBtnCntrlDown = null;
@@ -38,24 +41,28 @@ public class MtvUiBmlBasicControlFrag extends MtvUiFrag
 
     public static void hide()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->hide()V");
         if(mFragHandler != null)
             mFragHandler.removeFrag(8);
     }
 
     public static void setAppcomponents(MtvAppBml mtvappbml, MtvUiFragHandler mtvuifraghandler)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->setAppcomponents(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
         mBmlApp = mtvappbml;
         mFragHandler = mtvuifraghandler;
     }
 
     public static void show()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->show()V");
         if(mFragHandler != null)
             mFragHandler.addFrag(8, -1L, false, new int[0]);
     }
 
     public void cancelBMLLongClick()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->cancelBMLLongClick()V");
         if(mHandler != null)
         {
             mHandler.removeCallbacks(mRunnableBMLCtrlUp);
@@ -66,6 +73,7 @@ public class MtvUiBmlBasicControlFrag extends MtvUiFrag
 
     public void init()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->init()V");
         RelativeLayout relativelayout = (RelativeLayout)mCntrlFragView.findViewById(0x7f0a007b);
         if(relativelayout != null)
         {
@@ -94,6 +102,7 @@ public class MtvUiBmlBasicControlFrag extends MtvUiFrag
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -108,10 +117,12 @@ public class MtvUiBmlBasicControlFrag extends MtvUiFrag
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onClick(Landroid/view/View;)V");
     }
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setRetainInstance(true);
         setHasOptionsMenu(true);
@@ -119,11 +130,13 @@ public class MtvUiBmlBasicControlFrag extends MtvUiFrag
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V");
         super.onCreateOptionsMenu(menu, menuinflater);
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mCntrlFragView = layoutinflater.inflate(0x7f030017, viewgroup, false);
         init();
         return mCntrlFragView;
@@ -131,6 +144,7 @@ public class MtvUiBmlBasicControlFrag extends MtvUiFrag
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onDestroy()V");
         if(mHandler != null)
             mHandler = null;
         if(mBtnCntrlUp != null)
@@ -148,6 +162,7 @@ public class MtvUiBmlBasicControlFrag extends MtvUiFrag
 
     public boolean onLongClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onLongClick(Landroid/view/View;)Z");
         if(0x7f0a007c != view.getId()) goto _L2; else goto _L1
 _L1:
         mHandler.post(mRunnableBMLCtrlUp);
@@ -167,6 +182,7 @@ _L3:
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         MtvUtilDebug.Low("MtvUiBmlBasicControlFrag", (new StringBuilder()).append("onSelected item=").append(menuitem).toString());
         char c;
         if(menuitem.getItemId() == 13)
@@ -195,6 +211,7 @@ _L1:
 
     public void onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onPrepareOptionsMenu(Landroid/view/Menu;)V");
         MtvUtilDebug.Low("MtvUiBmlBasicControlFrag", "onCreateOptionsMenu");
         if(MtvUtilAppService.getCurrentOrientation(getActivity().getApplicationContext()) == 0)
         {
@@ -215,6 +232,7 @@ _L1:
     {
         boolean flag;
         int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z");
         flag = true;
         i = view.getId();
         if(mFragHandler.isPhoneLocked() != flag) goto _L2; else goto _L1
@@ -226,14 +244,14 @@ _L2:
         if((motionevent.getAction() == 3 || motionevent.getAction() == flag) && (0x7f0a007c == i || 0x7f0a007d == i))
             cancelBMLLongClick();
         i;
-        JVM INSTR tableswitch 2131361916 2131361919: default 96
-    //                   2131361916 101
-    //                   2131361917 129
-    //                   2131361918 184
-    //                   2131361919 157;
+        JVM INSTR tableswitch 2131361916 2131361919: default 108
+    //                   2131361916 114
+    //                   2131361917 142
+    //                   2131361918 197
+    //                   2131361919 170;
            goto _L3 _L4 _L5 _L6 _L7
 _L6:
-        break MISSING_BLOCK_LABEL_184;
+        break MISSING_BLOCK_LABEL_197;
 _L3:
         break; /* Loop/switch isn't completed */
 _L4:
@@ -260,6 +278,7 @@ _L7:
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->onUpdate(ILjava/lang/Object;)V");
         super.onUpdate(i, obj);
     }
 
@@ -275,10 +294,50 @@ _L7:
     private Runnable mRunnableBMLCtrlDown;
     private Runnable mRunnableBMLCtrlUp;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;-><clinit>()V");
+    }
 
 
+/*
+    static MtvAppBml access$000()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->access$000()Lcom/samsung/sec/mtv/app/bml/MtvAppBml;");
+        return mBmlApp;
+    }
+
+*/
 
 
+/*
+    static Handler access$100(MtvUiBmlBasicControlFrag mtvuibmlbasiccontrolfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->access$100(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;)Landroid/os/Handler;");
+        return mtvuibmlbasiccontrolfrag.mHandler;
+    }
+
+*/
+
+
+/*
+    static Runnable access$200(MtvUiBmlBasicControlFrag mtvuibmlbasiccontrolfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->access$200(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;)Ljava/lang/Runnable;");
+        return mtvuibmlbasiccontrolfrag.mRunnableBMLCtrlUp;
+    }
+
+*/
+
+
+/*
+    static Runnable access$300(MtvUiBmlBasicControlFrag mtvuibmlbasiccontrolfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;->access$300(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;)Ljava/lang/Runnable;");
+        return mtvuibmlbasiccontrolfrag.mRunnableBMLCtrlDown;
+    }
+
+*/
 
     private class _cls1
         implements Runnable
@@ -286,16 +345,18 @@ _L7:
 
         public void run()
         {
-            if(MtvUiBmlBasicControlFrag.mBmlApp != null)
-                MtvUiBmlBasicControlFrag.mBmlApp.onKeyEvent(new KeyEvent(0, 19));
-            if(mHandler != null)
-                mHandler.postDelayed(mRunnableBMLCtrlUp, 200L);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag$1;->run()V");
+            if(Log.d() != null)
+                Log.d().onKeyEvent(new KeyEvent(0, 19));
+            if(Log.d(MtvUiBmlBasicControlFrag.this) != null)
+                Log.d(MtvUiBmlBasicControlFrag.this).postDelayed(Log.d(MtvUiBmlBasicControlFrag.this), 200L);
         }
 
         final MtvUiBmlBasicControlFrag this$0;
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;)V");
             this$0 = MtvUiBmlBasicControlFrag.this;
             super();
         }
@@ -308,16 +369,18 @@ _L7:
 
         public void run()
         {
-            if(MtvUiBmlBasicControlFrag.mBmlApp != null)
-                MtvUiBmlBasicControlFrag.mBmlApp.onKeyEvent(new KeyEvent(0, 20));
-            if(mHandler != null)
-                mHandler.postDelayed(mRunnableBMLCtrlDown, 200L);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag$2;->run()V");
+            if(Log.d() != null)
+                Log.d().onKeyEvent(new KeyEvent(0, 20));
+            if(Log.d(MtvUiBmlBasicControlFrag.this) != null)
+                Log.d(MtvUiBmlBasicControlFrag.this).postDelayed(Log.d(MtvUiBmlBasicControlFrag.this), 200L);
         }
 
         final MtvUiBmlBasicControlFrag this$0;
 
         _cls2()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag$2;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlBasicControlFrag;)V");
             this$0 = MtvUiBmlBasicControlFrag.this;
             super();
         }

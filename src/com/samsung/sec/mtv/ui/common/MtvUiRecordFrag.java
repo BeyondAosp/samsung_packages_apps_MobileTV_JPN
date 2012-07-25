@@ -9,6 +9,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.utility.*;
@@ -22,6 +23,8 @@ public class MtvUiRecordFrag extends MtvUiFrag
 
     public MtvUiRecordFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;-><init>()V");
+        super();
         mVolumeButton = null;
         mVolumeMuteButton = null;
         mVolumeText = null;
@@ -38,6 +41,7 @@ public class MtvUiRecordFrag extends MtvUiFrag
 
     public MtvUiRecordFrag(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;-><init>(Z)V");
         this();
         if(flag)
             mRecTime = 0;
@@ -45,6 +49,7 @@ public class MtvUiRecordFrag extends MtvUiFrag
 
     private void initializeUI()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->initializeUI()V");
         mRecMainLayout = (RelativeLayout)mLayoutView.findViewById(0x7f0a00b3);
         mRecDuration = (TextView)mLayoutView.findViewById(0x7f0a00b2);
         mVolumeButton = (ImageButton)mLayoutView.findViewById(0x7f0a00b6);
@@ -96,6 +101,7 @@ public class MtvUiRecordFrag extends MtvUiFrag
 
     private void toggleVolumeButton()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->toggleVolumeButton()V");
         if(mMtvAudMgr.getVolumeLevel() == 0)
         {
             if(mVolumeMuteButton != null)
@@ -121,6 +127,7 @@ public class MtvUiRecordFrag extends MtvUiFrag
 
     private void updateRecordComponents(boolean flag, boolean flag1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->updateRecordComponents(ZZ)V");
         MtvUtilDebug.Low("MtvUiRecordFrag", (new StringBuilder()).append("updateRecordComponents: ").append(flag).toString());
         int i;
         int j;
@@ -155,6 +162,7 @@ public class MtvUiRecordFrag extends MtvUiFrag
 
     private void updateRecordComponentsVisibility()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->updateRecordComponentsVisibility()V");
         mRecMainLayout.setVisibility(mRecMainLayoutVisibility);
         mRecDuration.setVisibility(mRecDurationVisibility);
         if(mRecMainLayoutVisibility == 0)
@@ -163,6 +171,7 @@ public class MtvUiRecordFrag extends MtvUiFrag
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -177,14 +186,15 @@ public class MtvUiRecordFrag extends MtvUiFrag
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onClick(Landroid/view/View;)V");
         MtvUtilDebug.Low("MtvUiRecordFrag", "recScreen  onClick");
         view.getId();
-        JVM INSTR lookupswitch 5: default 60
-    //                   2131361913: 61
-    //                   2131361972: 77
-    //                   2131361973: 170
-    //                   2131361974: 61
-    //                   2131361975: 61;
+        JVM INSTR lookupswitch 5: default 72
+    //                   2131361913: 73
+    //                   2131361972: 89
+    //                   2131361973: 183
+    //                   2131361974: 73
+    //                   2131361975: 73;
            goto _L1 _L2 _L3 _L4 _L2 _L2
 _L1:
         return;
@@ -214,6 +224,7 @@ _L5:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         mContext = getActivity().getApplicationContext();
         mPreferences = new MtvPreferences(mContext);
@@ -222,6 +233,7 @@ _L5:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         MtvUtilDebug.Low("MtvUiRecordFrag", "onCreateView...");
         mLayoutView = layoutinflater.inflate(0x7f030022, null);
         initializeUI();
@@ -234,6 +246,7 @@ _L5:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onDestroy()V");
         mPreferences = null;
         mRecordHandler.removeCallbacks(mRunnableUpdateRecTime);
         super.onDestroy();
@@ -241,11 +254,12 @@ _L5:
 
     public boolean onLongClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onLongClick(Landroid/view/View;)Z");
         view.getId();
-        JVM INSTR lookupswitch 3: default 40
-    //                   2131361913: 44
-    //                   2131361974: 44
-    //                   2131361975: 44;
+        JVM INSTR lookupswitch 3: default 48
+    //                   2131361913: 52
+    //                   2131361974: 52
+    //                   2131361975: 52;
            goto _L1 _L2 _L2 _L2
 _L1:
         boolean flag = false;
@@ -262,16 +276,19 @@ _L3:
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onPause()V");
         super.onPause();
     }
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onResume()V");
         super.onResume();
     }
 
     public void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onSaveInstanceState(Landroid/os/Bundle;)V");
         super.onSaveInstanceState(bundle);
         if(!getActivity().isFinishing())
         {
@@ -282,27 +299,30 @@ _L3:
 
     public void onStart()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onStart()V");
         super.onStart();
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onStop()V");
         super.onStop();
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->onUpdate(ILjava/lang/Object;)V");
         MtvUtilDebug.Low("MtvUiRecordFrag", (new StringBuilder()).append("onUpdate: what[").append(i).append("]").toString());
         i;
-        JVM INSTR lookupswitch 8: default 108
-    //                   106: 115
-    //                   107: 115
-    //                   108: 115
-    //                   111: 122
-    //                   112: 137
-    //                   116: 207
-    //                   243: 152
-    //                   327: 230;
+        JVM INSTR lookupswitch 8: default 116
+    //                   106: 123
+    //                   107: 123
+    //                   108: 123
+    //                   111: 130
+    //                   112: 145
+    //                   116: 218
+    //                   243: 160
+    //                   327: 241;
            goto _L1 _L2 _L2 _L2 _L3 _L4 _L5 _L6 _L7
 _L1:
         super.onUpdate(i, obj);
@@ -360,12 +380,26 @@ _L8:
     private ImageButton mVolumeMuteButton;
     private TextView mVolumeText;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;-><clinit>()V");
+    }
 
+
+/*
+    static int access$000()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->access$000()I");
+        return mRecTime;
+    }
+
+*/
 
 
 /*
     static int access$008()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->access$008()I");
         int i = mRecTime;
         mRecTime = i + 1;
         return i;
@@ -374,6 +408,24 @@ _L8:
 */
 
 
+/*
+    static TextView access$100(MtvUiRecordFrag mtvuirecordfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;)Landroid/widget/TextView;");
+        return mtvuirecordfrag.mRecDuration;
+    }
+
+*/
+
+
+/*
+    static Handler access$200(MtvUiRecordFrag mtvuirecordfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;->access$200(Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;)Landroid/os/Handler;");
+        return mtvuirecordfrag.mRecordHandler;
+    }
+
+*/
 
     private class _cls1 extends Handler
     {
@@ -382,6 +434,7 @@ _L8:
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;)V");
             this$0 = MtvUiRecordFrag.this;
             super();
         }
@@ -394,31 +447,34 @@ _L8:
 
         public void run()
         {
-            if(MtvUiRecordFrag.mRecTime < 3600)
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag$2;->run()V");
+            if(Log.d() < 3600)
             {
-                TextView textview1 = mRecDuration;
+                TextView textview1 = Log.d(MtvUiRecordFrag.this);
                 Object aobj1[] = new Object[3];
-                aobj1[0] = Integer.valueOf(MtvUiRecordFrag.mRecTime / 3600);
-                aobj1[1] = Integer.valueOf(MtvUiRecordFrag.mRecTime / 60);
-                aobj1[2] = Integer.valueOf(MtvUiRecordFrag.mRecTime % 60);
+                aobj1[0] = Integer.valueOf(Log.d() / 3600);
+                aobj1[1] = Integer.valueOf(Log.d() / 60);
+                aobj1[2] = Integer.valueOf(Log.d() % 60);
                 textview1.setText(String.format("%02d:%02d:%02d", aobj1));
             } else
             {
-                int i = MtvUiRecordFrag.mRecTime / 60;
-                TextView textview = mRecDuration;
+                int i = Log.d() / 60;
+                TextView textview = Log.d(MtvUiRecordFrag.this);
                 Object aobj[] = new Object[3];
-                aobj[0] = Integer.valueOf(MtvUiRecordFrag.mRecTime / 3600);
+                aobj[0] = Integer.valueOf(Log.d() / 3600);
                 aobj[1] = Integer.valueOf(i % 60);
-                aobj[2] = Integer.valueOf(MtvUiRecordFrag.mRecTime % 60);
+                aobj[2] = Integer.valueOf(Log.d() % 60);
                 textview.setText(String.format("%02d:%02d:%02d", aobj));
             }
-            int i = 
-// JavaClassFileOutputException: get_constant: invalid tag
+            Log.d();
+            Log.d(MtvUiRecordFrag.this).postDelayed(this, 1000L);
+        }
 
         final MtvUiRecordFrag this$0;
 
         _cls2()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRecordFrag;)V");
             this$0 = MtvUiRecordFrag.this;
             super();
         }

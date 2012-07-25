@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.broadcast.helper.MtvUtilDebug;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import com.samsung.sec.mtv.app.bml.MtvAppBml;
 import com.samsung.sec.mtv.ui.common.MtvUiFrag;
@@ -24,30 +25,36 @@ public class MtvUiBmlNumKeyPadFragment extends MtvUiFrag
 
     public MtvUiBmlNumKeyPadFragment()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;-><init>()V");
+        super();
         mCntrlFragView = null;
         mListener = null;
     }
 
     public static void hide()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->hide()V");
         if(mFragHandler != null)
             mFragHandler.removeFrag(7);
     }
 
     public static void setAppcomponents(MtvAppBml mtvappbml, MtvUiFragHandler mtvuifraghandler)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->setAppcomponents(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
         mBmlApp = mtvappbml;
         mFragHandler = mtvuifraghandler;
     }
 
     public static void show()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->show()V");
         if(mFragHandler != null)
             mFragHandler.addFrag(7, -1L, false, new int[0]);
     }
 
     public void init()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->init()V");
         MtvUtilDebug.Low("MtvUiBmlNumKeyPadFragment", "init: ");
         for(int i = 0; i < RSRC_NUMERIC_BUTTON_KEY.length; i++)
             mKeyMap.put(Integer.valueOf(RSRC_NUMERIC_BUTTON_KEY[i]), Integer.valueOf(i));
@@ -62,6 +69,7 @@ public class MtvUiBmlNumKeyPadFragment extends MtvUiFrag
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -76,10 +84,12 @@ public class MtvUiBmlNumKeyPadFragment extends MtvUiFrag
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onClick(Landroid/view/View;)V");
     }
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setRetainInstance(true);
         setHasOptionsMenu(true);
@@ -87,11 +97,13 @@ public class MtvUiBmlNumKeyPadFragment extends MtvUiFrag
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V");
         super.onCreateOptionsMenu(menu, menuinflater);
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mCntrlFragView = layoutinflater.inflate(0x7f03001b, viewgroup, false);
         init();
         return mCntrlFragView;
@@ -99,17 +111,20 @@ public class MtvUiBmlNumKeyPadFragment extends MtvUiFrag
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onDestroy()V");
         super.onDestroy();
     }
 
     public boolean onLongClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onLongClick(Landroid/view/View;)Z");
         return false;
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         MtvUtilDebug.Low("MtvUiBmlNumKeyPadFragment", (new StringBuilder()).append("onSelected item=").append(menuitem).toString());
         char c;
         if(menuitem.getItemId() == 13)
@@ -138,6 +153,7 @@ _L1:
 
     public void onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V");
         MtvUtilDebug.Low("MtvUiBmlNumKeyPadFragment", "onCreateOptionsMenu");
         if(MtvUtilAppService.getCurrentOrientation(getActivity().getApplicationContext()) == 0)
         {
@@ -156,25 +172,27 @@ _L1:
 
     public void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onSaveInstanceState(Landroid/os/Bundle;)V");
         super.onSaveInstanceState(bundle);
     }
 
     public boolean onTouch(View view, MotionEvent motionevent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z");
         view.getId();
-        JVM INSTR tableswitch 2131361921 2131361932: default 68
-    //                   2131361921 98
-    //                   2131361922 126
-    //                   2131361923 154
-    //                   2131361924 182
-    //                   2131361925 210
-    //                   2131361926 238
-    //                   2131361927 266
-    //                   2131361928 294
-    //                   2131361929 322
-    //                   2131361930 350
-    //                   2131361931 70
-    //                   2131361932 378;
+        JVM INSTR tableswitch 2131361921 2131361932: default 76
+    //                   2131361921 106
+    //                   2131361922 134
+    //                   2131361923 162
+    //                   2131361924 190
+    //                   2131361925 218
+    //                   2131361926 246
+    //                   2131361927 274
+    //                   2131361928 302
+    //                   2131361929 330
+    //                   2131361930 358
+    //                   2131361931 78
+    //                   2131361932 386;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13
 _L1:
         return false;
@@ -238,6 +256,7 @@ _L14:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlNumKeyPadFragment;-><clinit>()V");
         int ai[] = new int[12];
         ai[0] = 0x7f0a008b;
         ai[1] = 0x7f0a0081;

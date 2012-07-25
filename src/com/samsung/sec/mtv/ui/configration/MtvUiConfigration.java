@@ -6,6 +6,7 @@ package com.samsung.sec.mtv.ui.configration;
 
 import android.app.*;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 
@@ -17,10 +18,13 @@ public class MtvUiConfigration extends Activity
 
     public MtvUiConfigration()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiConfigration;-><init>()V");
+        super();
     }
 
     protected void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiConfigration;->onCreate(Landroid/os/Bundle;)V");
         setContentView(getLayoutInflater().inflate(0x7f030002, null));
         super.onCreate(bundle);
         FragmentTransaction fragmenttransaction = getFragmentManager().beginTransaction();
@@ -30,6 +34,7 @@ public class MtvUiConfigration extends Activity
 
     public boolean onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/configration/MtvUiConfigration;->onPrepareOptionsMenu(Landroid/view/Menu;)Z");
         menu.clear();
         return super.onPrepareOptionsMenu(menu);
     }

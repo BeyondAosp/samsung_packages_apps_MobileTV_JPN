@@ -12,11 +12,14 @@ public class MtvMiniModeTvOut
 
     public MtvMiniModeTvOut()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeTvOut;-><init>()V");
+        super();
     }
 
     public static void resumeTvOut()
     {
         ITvoutService itvoutservice;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeTvOut;->resumeTvOut()V");
         Log.d("MtvUtilTvOut", "resumeTvOut() - Tv OUT Resume!!! ");
         itvoutservice = android.os.ITvoutService.Stub.asInterface(ServiceManager.getService("tvoutservice"));
         if(itvoutservice != null) goto _L2; else goto _L1
@@ -46,6 +49,7 @@ _L3:
     public static void suspendTvOut()
     {
         ITvoutService itvoutservice;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeTvOut;->suspendTvOut()V");
         Log.d("MtvUtilTvOut", "suspendTvOut() - Tv OUT Suspend!!! ");
         itvoutservice = android.os.ITvoutService.Stub.asInterface(ServiceManager.getService("tvoutservice"));
         if(itvoutservice != null) goto _L2; else goto _L1
@@ -57,9 +61,9 @@ _L2:
         int i = 1;
 _L4:
         if(i > 5)
-            break MISSING_BLOCK_LABEL_55;
+            break MISSING_BLOCK_LABEL_63;
         if(!itvoutservice.TvoutGetStatus())
-            break MISSING_BLOCK_LABEL_193;
+            break MISSING_BLOCK_LABEL_203;
         Log.e("MtvUtilTvOut", "EnableHDMISubtitleOnTV() - break!!");
         Log.i("MtvUtilTvOut", (new StringBuilder()).append("TvoutGetStatus = ").append(itvoutservice.TvoutGetStatus()).toString());
         Log.i("MtvUtilTvOut", (new StringBuilder()).append("TvoutGetSuspendStatus = ").append(itvoutservice.TvoutGetSuspendStatus()).toString());

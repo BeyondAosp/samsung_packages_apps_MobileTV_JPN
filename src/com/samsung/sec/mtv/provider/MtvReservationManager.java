@@ -9,6 +9,7 @@ import android.content.*;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.util.Log;
 import com.samsung.sec.mtv.utility.MtvPreferences;
 import com.samsung.sec.mtv.utility.MtvUtilSetReservationAlarm;
 import java.util.HashMap;
@@ -22,10 +23,13 @@ public class MtvReservationManager
 
     private MtvReservationManager()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;-><init>()V");
+        super();
     }
 
     public static void UpdateStatus(Context context, MtvReservation mtvreservation, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->UpdateStatus(Landroid/content/Context;Lcom/samsung/sec/mtv/provider/MtvReservation;I)V");
         if(mtvreservation != null && i >= 0 && i <= 9) goto _L2; else goto _L1
 _L1:
         MtvUtilDebug.High("MtvReservationManager", "invalid newStatuspassed or Reservation null value passed !");
@@ -65,23 +69,27 @@ _L3:
 
     public static MtvReservation builder(Cursor cursor)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->builder(Landroid/database/Cursor;)Lcom/samsung/sec/mtv/provider/MtvReservation;");
         return new MtvReservation(cursor.getInt(1), cursor.getInt(2), cursor.getInt(3), cursor.getLong(4), cursor.getLong(5), cursor.getString(6), cursor.getString(7), cursor.getInt(8), cursor.getInt(9), cursor.getInt(0));
     }
 
     public static void delete(Context context, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->delete(Landroid/content/Context;J)V");
         Uri uri = ContentUris.withAppendedId(CONTENT_URI, l);
         context.getContentResolver().delete(uri, null, null);
     }
 
     public static void delete(Context context, long l, Uri uri)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->delete(Landroid/content/Context;JLandroid/net/Uri;)V");
         String s = (new StringBuilder()).append("epg_stime=").append(l).toString();
         context.getContentResolver().delete(CONTENT_URI, s, null);
     }
 
     public static MtvReservation find(Context context, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->find(Landroid/content/Context;I)Lcom/samsung/sec/mtv/provider/MtvReservation;");
         MtvReservation mtvreservation = null;
         if(i >= 0)
         {
@@ -106,6 +114,7 @@ _L3:
 
     public static transient MtvReservation find(Context context, long l, boolean aflag[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->find(Landroid/content/Context;J[Z)Lcom/samsung/sec/mtv/provider/MtvReservation;");
         Uri uri = CONTENT_URI;
         String as[] = PROJECTION;
         String s;
@@ -131,6 +140,7 @@ _L3:
 
     public static MtvReservation[] getAllReserves(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->getAllReserves(Landroid/content/Context;)[Lcom/samsung/sec/mtv/provider/MtvReservation;");
         Cursor cursor = context.getContentResolver().query(CONTENT_URI, null, null, null, null);
         MtvReservation amtvreservation[] = null;
         if(cursor != null)
@@ -150,7 +160,9 @@ _L3:
 
     protected static ContentValues getContentValues(MtvReservation mtvreservation)
     {
-        ContentValues contentvalues = new ContentValues();
+        ContentValues contentvalues;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->getContentValues(Lcom/samsung/sec/mtv/provider/MtvReservation;)Landroid/content/ContentValues;");
+        contentvalues = new ContentValues();
         if(mtvreservation != null) goto _L2; else goto _L1
 _L1:
         MtvUtilDebug.Low("MtvReservationManager", "getContentValues : MtvArea is NULL");
@@ -181,6 +193,7 @@ _L3:
 
     public static Uri getUri(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->getUri(I)Landroid/net/Uri;");
         Uri uri;
         if(i != -1)
             uri = ContentUris.withAppendedId(CONTENT_URI, i);
@@ -192,6 +205,7 @@ _L3:
     public static boolean isImmediateReservation(Context context, long l)
     {
         Cursor cursor;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->isImmediateReservation(Landroid/content/Context;J)Z");
         String s = (new StringBuilder()).append("epg_stime>=").append(l).toString();
         String s1 = (new StringBuilder()).append(s).append(" AND epg_stime<").append(10000L + l).toString();
         cursor = context.getContentResolver().query(CONTENT_URI, null, s1, null, null);
@@ -223,6 +237,7 @@ _L5:
 
     public static void update(Context context, MtvReservation mtvreservation, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->update(Landroid/content/Context;Lcom/samsung/sec/mtv/provider/MtvReservation;I)V");
         Uri uri = null;
         MtvReservation mtvreservation1 = find(context, i);
         if(mtvreservation1 != null)
@@ -235,6 +250,7 @@ _L5:
 
     public static void updateOrInsert(Context context, MtvReservation mtvreservation)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;->updateOrInsert(Landroid/content/Context;Lcom/samsung/sec/mtv/provider/MtvReservation;)V");
         Uri uri = getUri(mtvreservation.mUriId);
         if(uri == null)
         {
@@ -262,6 +278,7 @@ _L5:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvReservationManager;-><clinit>()V");
         String as[] = new String[10];
         as[0] = "_id";
         as[1] = "epg_pch";

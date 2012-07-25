@@ -21,11 +21,14 @@ public class MtvBMLManager
 
     public MtvBMLManager()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;-><init>()V");
+        super();
     }
 
     public static void deleteCProBMInfo(int i)
         throws SQLiteException
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->deleteCProBMInfo(I)V");
         MtvUtilDebug.Low("MtvBMLManager", (new StringBuilder()).append("deleteCProBMInfo() : called. listIndex = ").append(i).toString());
         mDb = SQLiteDatabase.openDatabase("/data/one-seg/bml.db", null, 0);
         mDb.execSQL((new StringBuilder()).append("DELETE FROM dtvcprobminfo WHERE  ID== ").append(i).toString());
@@ -60,6 +63,7 @@ _L1:
     public static void deleteCProBMInfoAll()
         throws SQLiteException
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->deleteCProBMInfoAll()V");
         MtvUtilDebug.Low("MtvBMLManager", "deleteCProBMInfoAll() : called.");
         mDb = SQLiteDatabase.openDatabase("/data/one-seg/bml.db", null, 0);
         mDb.execSQL("DELETE FROM dtvcprobminfo");
@@ -94,6 +98,7 @@ _L1:
     public static void deleteStationData_DeleteAllAffiliation()
         throws SQLiteException
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->deleteStationData_DeleteAllAffiliation()V");
         MtvUtilDebug.Low("MtvBMLManager", "deleteStationData_DeleteAllAffiliation() : called.");
         mDb = SQLiteDatabase.openDatabase("/data/one-seg/bml.db", null, 0);
         mDb.execSQL("DELETE FROM dtvaffiliationblock");
@@ -129,6 +134,7 @@ _L1:
         throws SQLiteException
     {
         int k;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->deleteStationData_DeleteNetwork(II)V");
         k = -1;
         MtvUtilDebug.Low("MtvBMLManager", "deleteStationData_DeleteNetwork() : called.");
         mDb = SQLiteDatabase.openDatabase("/data/one-seg/bml.db", null, 0);
@@ -167,7 +173,7 @@ _L2:
         if(cursor1.moveToFirst())
         {
             if(cursor1.getCount() <= 0)
-                break MISSING_BLOCK_LABEL_470;
+                break MISSING_BLOCK_LABEL_478;
             SQLiteDatabase sqlitedatabase3 = mDb;
             String as3[] = new String[2];
             as3[0] = (new StringBuilder()).append(i).append("").toString();
@@ -214,6 +220,7 @@ _L5:
     public static int deleteStationData_GetNetworkItemCount(int i)
     {
         int j;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->deleteStationData_GetNetworkItemCount(I)I");
         j = 0;
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Mid("MtvBMLManager", (new StringBuilder()).append("deleteStationData_GetNetworkItemCount() : \taffiliation_ID = ").append(i).toString());
@@ -266,6 +273,7 @@ _L4:
     {
         int k;
         String s;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->deleteStationData_GetNetworkName(II)Ljava/lang/String;");
         k = 0;
         s = null;
         mDb = SQLiteDatabase.openDatabase("/data/one-seg/bml.db", null, 1);
@@ -324,6 +332,7 @@ _L1:
         throws SQLiteException, IOException
     {
         MtvCProBMInfo mtvcprobminfo;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->getAvailableCProBMInfo(I)Lcom/samsung/sec/mtv/provider/MtvCProBMInfo;");
         mtvcprobminfo = null;
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Mid("MtvBMLManager", (new StringBuilder()).append("getAvailableCProBMInfo() : called. id = ").append(i).toString());
@@ -426,6 +435,7 @@ _L7:
     {
 label0:
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->getAvailableCProBMInfoAll()[Lcom/samsung/sec/mtv/provider/MtvCProBMInfo;");
             int i = 0;
             MtvUtilDebug.Low("MtvBMLManager", "getAvailableCProBMInfoAll() : called.");
             if(vCProBMInfo.size() != 0)
@@ -516,6 +526,7 @@ label0:
 
     private static Date getValidDateCProBMInfo(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;->getValidDateCProBMInfo(I)Ljava/util/Date;");
         Date date = new Date();
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Mid("MtvBMLManager", (new StringBuilder()).append("getValidDateCProBMInfo() : index ").append(i).toString());
@@ -546,4 +557,8 @@ label0:
     private static SQLiteDatabase mDb;
     private static Vector vCProBMInfo = new Vector();
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvBMLManager;-><clinit>()V");
+    }
 }

@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import com.samsung.sec.mtv.app.context.*;
 import java.util.List;
 
@@ -25,11 +26,12 @@ public class MtvUtilAudioManager
 
         public void onCallStateChanged(int i, String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$CallStateListener;->onCallStateChanged(ILjava/lang/String;)V");
             MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("onCallStateChanged(state=").append(i).append(") is called").toString());
             i;
-            JVM INSTR tableswitch 1 2: default 52
-        //                       1 59
-        //                       2 59;
+            JVM INSTR tableswitch 1 2: default 60
+        //                       1 67
+        //                       2 67;
                goto _L1 _L2 _L2
 _L1:
             super.onCallStateChanged(i, s);
@@ -44,15 +46,23 @@ _L3:
 
         private CallStateListener()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$CallStateListener;-><init>(Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;)V");
             this$0 = MtvUtilAudioManager.this;
             super();
         }
 
+        CallStateListener(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$CallStateListener;-><init>(Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$1;)V");
+            this();
+        }
     }
 
 
     private MtvUtilAudioManager()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;-><init>()V");
+        super();
         mAudioManager = null;
         mContext = null;
         mBtA2DP = null;
@@ -66,6 +76,8 @@ _L3:
 
     private MtvUtilAudioManager(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;-><init>(Landroid/content/Context;)V");
+        super();
         mAudioManager = null;
         mContext = null;
         mBtA2DP = null;
@@ -86,6 +98,7 @@ _L3:
 
     public static MtvUtilAudioManager getInstance(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->getInstance(Landroid/content/Context;)Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;");
         if(mMtvUtilAudioManager == null)
             mMtvUtilAudioManager = new MtvUtilAudioManager(context);
         return mMtvUtilAudioManager;
@@ -93,6 +106,7 @@ _L3:
 
     public boolean checkIsCalling()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->checkIsCalling()Z");
         boolean flag = true;
         int i = ((TelephonyManager)mContext.getSystemService("phone")).getCallState();
         MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("checkIsCalling() - tm.getCallState(): ").append(i).toString());
@@ -105,6 +119,7 @@ _L3:
 
     public int getVolumeLevel()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->getVolumeLevel()I");
         int i = mAudioManager.getStreamVolume(3);
         MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("getVolumeLevel() : volume= ").append(i).toString());
         return i;
@@ -112,6 +127,7 @@ _L3:
 
     public boolean isBTConnected()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->isBTConnected()Z");
         boolean flag;
         if(mBtA2DP.getConnectedDevices().size() != 0 && mAudioManager.isBluetoothA2dpOn())
             flag = true;
@@ -122,6 +138,7 @@ _L3:
 
     public boolean isHeadsetConnected()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->isHeadsetConnected()Z");
         boolean flag;
         if(mAudioManager.isWiredHeadsetOn())
         {
@@ -137,11 +154,13 @@ _L3:
 
     public void removeCallStateListener()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->removeCallStateListener()V");
         ((TelephonyManager)mContext.getSystemService("phone")).listen(mCallStateListener, 0);
     }
 
     public int setAudioEffect(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->setAudioEffect(I)I");
         int j = 1;
         boolean flag = isHeadsetConnected();
         MtvUtilDebug.Low("MtvUtilAudioManager", "inside setAudioEffect...");
@@ -166,6 +185,7 @@ _L3:
 
     public int setAudioEnable(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->setAudioEnable(Z)I");
         int i = 1;
         if(checkIsCalling() == i && flag == i)
         {
@@ -190,6 +210,7 @@ _L3:
 
     public int setAudioMode(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->setAudioMode(I)I");
         MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("inside setAudioMode... playerAudioMode = ").append(i).toString());
         MtvAppPlaybackContext mtvappplaybackcontext = mMtvAppPlaybackContextManager.getCurrentContext();
         if(mtvappplaybackcontext != null)
@@ -207,6 +228,7 @@ _L3:
 
     public void setAudioMute(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->setAudioMute(Z)V");
         MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("inside setAudioMute : mute: ").append(flag).toString());
         if(!checkIsCalling() || flag) goto _L2; else goto _L1
 _L1:
@@ -235,13 +257,15 @@ _L3:
 
     public void setAvStreaming(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->setAvStreaming(Z)V");
         mBtAdapter = BluetoothAdapter.getDefaultAdapter();
         MtvUtilDebug.Low("MtvUtilAudioManager", "transferToBT(): setAvStreaming True ");
-        mBtAdapter.setAvStreaming(flag);
+        BluetoothAdapter _tmp = mBtAdapter;
     }
 
     public void setVolumeLevel(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->setVolumeLevel(I)V");
         if(i <= 0)
             mIsMuted = true;
         else
@@ -253,6 +277,7 @@ _L3:
 
     public void stopOtherSound()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->stopOtherSound()V");
         if(!checkIsCalling())
         {
             if(mAudioManager != null)
@@ -268,9 +293,10 @@ _L3:
 
     public void transferToBT()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->transferToBT()V");
         mBtAdapter = BluetoothAdapter.getDefaultAdapter();
         MtvUtilDebug.Low("MtvUtilAudioManager", "transferToBT(): setAvStreaming True ");
-        mBtAdapter.setAvStreaming(true);
+        BluetoothAdapter _tmp = mBtAdapter;
         if(mBtA2DP.getConnectedDevices().size() != 0)
         {
             mAudioManager.setBluetoothA2dpForceOn(true);
@@ -287,12 +313,14 @@ _L3:
 
     public void transferToPhone()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->transferToPhone()V");
         MtvUtilDebug.Low("MtvUtilAudioManager", "transferToPhone()");
         mAudioManager.setBluetoothA2dpForceOn(false);
     }
 
     public boolean updateCurrentAudioEffectAndMode()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->updateCurrentAudioEffectAndMode()Z");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("updateCurrentAudioEffectAndMode... preferenceValues :AudioEffect=").append(mMtvPreferences.getAudioEffect()).append(" AudioLanguage=").append(mMtvPreferences.getAudioLanguage()).toString());
         if(mMtvPreferences.isAudio51Enabled())
@@ -305,6 +333,7 @@ _L3:
 
     public void volumeDown()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->volumeDown()V");
         MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("volumeDown() start: isMuted =").append(mIsMuted).append("  lastRetainedVolume =").append(mLastRetainedVolumeLevel).append(getVolumeLevel()).toString());
         if(mIsMuted)
         {
@@ -319,6 +348,7 @@ _L3:
 
     public void volumeMute()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->volumeMute()V");
         if(mIsMuted)
         {
             MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("volumeMute() : unmuted ,mLastRetainedVolumeLevel= ").append(mLastRetainedVolumeLevel).toString());
@@ -336,6 +366,7 @@ _L3:
 
     public void volumeUp()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->volumeUp()V");
         MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("volumeUp() start: isMuted =").append(mIsMuted).append("  lastRetainedVolume =").append(mLastRetainedVolumeLevel).append(getVolumeLevel()).toString());
         if(mIsMuted)
         {
@@ -353,32 +384,33 @@ _L3:
 
         public void onAudioFocusChange(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$2;->onAudioFocusChange(I)V");
             i;
-            JVM INSTR tableswitch -2 1: default 32
-        //                       -2 88
-        //                       -1 88
-        //                       0 32
-        //                       1 33;
+            JVM INSTR tableswitch -2 1: default 40
+        //                       -2 92
+        //                       -1 92
+        //                       0 40
+        //                       1 41;
                goto _L1 _L2 _L2 _L1 _L3
 _L1:
             return;
 _L3:
             MtvUtilDebug.Low("MtvUtilAudioManager", "OnAudioFocusChangeListener() : AUDIOFOCUS_GAIN");
             setAudioMute(false);
-            if(mBtA2DP.getConnectedDevices().size() != 0)
+            if(Log.d(MtvUtilAudioManager.this).getConnectedDevices().size() != 0)
             {
                 MtvUtilDebug.Low("MtvUtilAudioManager", "OnAudioFocusChangeListener: AUDIOFOCUS_GAIN :setAvStreaming() ");
-                mBtAdapter.setAvStreaming(true);
+                Log.d(MtvUtilAudioManager.this);
             }
             continue; /* Loop/switch isn't completed */
 _L2:
             setAudioMute(true);
             MtvUtilDebug.Low("MtvUtilAudioManager", (new StringBuilder()).append("OnAudioFocusChangeListener() : AUDIOFOCUS_LOSS_ ").append(i).toString());
-            if(mBtA2DP.getConnectedDevices().size() != 0)
+            if(Log.d(MtvUtilAudioManager.this).getConnectedDevices().size() != 0)
             {
-                mBtAdapter = BluetoothAdapter.getDefaultAdapter();
+                Log.d(MtvUtilAudioManager.this, BluetoothAdapter.getDefaultAdapter());
                 MtvUtilDebug.Low("MtvUtilAudioManager", "OnAudioFocusChangeListener: AUDIOFOCUS_GAIN :setAvStreaming() ");
-                mBtAdapter.setAvStreaming(false);
+                Log.d(MtvUtilAudioManager.this);
             }
             if(true) goto _L1; else goto _L4
 _L4:
@@ -388,6 +420,7 @@ _L4:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$2;-><init>(Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;)V");
                 this$0 = MtvUtilAudioManager.this;
                 super();
             }
@@ -405,29 +438,46 @@ _L4:
 
         public void onServiceConnected(int i, BluetoothProfile bluetoothprofile)
         {
-            mBtA2DP = (BluetoothA2dp)bluetoothprofile;
+            Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$1;->onServiceConnected(ILandroid/bluetooth/BluetoothProfile;)V");
+            Log.d(MtvUtilAudioManager.this, (BluetoothA2dp)bluetoothprofile);
         }
 
         public void onServiceDisconnected(int i)
         {
-            mBtA2DP = null;
+            Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$1;->onServiceDisconnected(I)V");
+            Log.d(MtvUtilAudioManager.this, null);
         }
 
         final MtvUtilAudioManager this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager$1;-><init>(Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;)V");
                 this$0 = MtvUtilAudioManager.this;
                 super();
             }
     };
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;-><clinit>()V");
+    }
 
+
+/*
+    static BluetoothA2dp access$100(MtvUtilAudioManager mtvutilaudiomanager)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->access$100(Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;)Landroid/bluetooth/BluetoothA2dp;");
+        return mtvutilaudiomanager.mBtA2DP;
+    }
+
+*/
 
 
 /*
     static BluetoothA2dp access$102(MtvUtilAudioManager mtvutilaudiomanager, BluetoothA2dp bluetootha2dp)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->access$102(Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;");
         mtvutilaudiomanager.mBtA2DP = bluetootha2dp;
         return bluetootha2dp;
     }
@@ -435,10 +485,20 @@ _L4:
 */
 
 
+/*
+    static BluetoothAdapter access$200(MtvUtilAudioManager mtvutilaudiomanager)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->access$200(Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;)Landroid/bluetooth/BluetoothAdapter;");
+        return mtvutilaudiomanager.mBtAdapter;
+    }
+
+*/
+
 
 /*
     static BluetoothAdapter access$202(MtvUtilAudioManager mtvutilaudiomanager, BluetoothAdapter bluetoothadapter)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;->access$202(Lcom/samsung/sec/mtv/utility/MtvUtilAudioManager;Landroid/bluetooth/BluetoothAdapter;)Landroid/bluetooth/BluetoothAdapter;");
         mtvutilaudiomanager.mBtAdapter = bluetoothadapter;
         return bluetoothadapter;
     }

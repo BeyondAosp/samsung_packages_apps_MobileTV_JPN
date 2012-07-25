@@ -5,6 +5,7 @@
 package com.samsung.sec.mtv.app.context;
 
 import android.broadcast.helper.MtvUtilDebug;
+import android.util.Log;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -22,6 +23,8 @@ public final class MtvAppPlaybackState
 
         Notification(int i, int j, int k)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$Notification;-><init>(III)V");
+            super();
             command = i;
             status = j;
             extra = k;
@@ -33,11 +36,13 @@ public final class MtvAppPlaybackState
 
         public static State valueOf(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;->valueOf(Ljava/lang/String;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;");
             return (State)Enum.valueOf(com/samsung/sec/mtv/app/context/MtvAppPlaybackState$State, s);
         }
 
         public static State[] values()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;->values()[Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;");
             return (State[])$VALUES.clone();
         }
 
@@ -50,6 +55,7 @@ public final class MtvAppPlaybackState
 
         static 
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;-><clinit>()V");
             NONE = new State("NONE", 0);
             INITIALIZED = new State("INITIALIZED", 1);
             OPENED = new State("OPENED", 2);
@@ -66,6 +72,7 @@ public final class MtvAppPlaybackState
 
         private State(String s, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;-><init>(Ljava/lang/String;I)V");
             super(s, i);
         }
     }
@@ -73,6 +80,8 @@ public final class MtvAppPlaybackState
 
     MtvAppPlaybackState()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;-><init>()V");
+        super();
         this;
         JVM INSTR monitorenter ;
         msgQ = new LinkedList();
@@ -82,6 +91,7 @@ public final class MtvAppPlaybackState
 
     private void init()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->init()V");
         state = State.NONE;
         op = 0;
         cb = null;
@@ -91,6 +101,7 @@ public final class MtvAppPlaybackState
 
     public int getOp()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->getOp()I");
         this;
         JVM INSTR monitorenter ;
         int i = op;
@@ -104,6 +115,7 @@ public final class MtvAppPlaybackState
 
     public State getState()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->getState()Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;");
         this;
         JVM INSTR monitorenter ;
         State state1 = state;
@@ -117,6 +129,7 @@ public final class MtvAppPlaybackState
 
     public void registerListener(IMtvAppPlaybackStateListener imtvappplaybackstatelistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->registerListener(Lcom/samsung/sec/mtv/app/context/IMtvAppPlaybackStateListener;)V");
         this;
         JVM INSTR monitorenter ;
         cb = imtvappplaybackstatelistener;
@@ -130,6 +143,7 @@ public final class MtvAppPlaybackState
 
     public void reset()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->reset()V");
         this;
         JVM INSTR monitorenter ;
         init();
@@ -143,6 +157,7 @@ public final class MtvAppPlaybackState
 
     public void setOp(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->setOp(I)V");
         this;
         JVM INSTR monitorenter ;
         op = i;
@@ -156,6 +171,7 @@ public final class MtvAppPlaybackState
 
     public void setState(State state1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->setState(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;)V");
         this;
         JVM INSTR monitorenter ;
         State state2;
@@ -177,6 +193,7 @@ public final class MtvAppPlaybackState
 
     public void triggerNotification(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->triggerNotification(III)V");
         this;
         JVM INSTR monitorenter ;
         IMtvAppPlaybackStateListener imtvappplaybackstatelistener = cb;
@@ -194,6 +211,7 @@ public final class MtvAppPlaybackState
 
     public void triggerNotification(int i, int j, int k, boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState;->triggerNotification(IIIZ)V");
         if(flag) goto _L2; else goto _L1
 _L1:
         triggerNotification(i, j, k);
@@ -221,7 +239,7 @@ _L10:
         if(imtvappplaybackstatelistener == null) goto _L4; else goto _L3
 _L3:
         if(!flag1)
-            break MISSING_BLOCK_LABEL_242;
+            break MISSING_BLOCK_LABEL_250;
         this;
         JVM INSTR monitorenter ;
         notification = (Notification)msgQ.peek();

@@ -12,6 +12,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.*;
 import com.access.bml.BMLNativeView;
 import com.samsung.sec.mtv.app.bml.IMtvAppBmlSurfaceListener;
@@ -34,6 +35,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
         public boolean onSingleTapConfirmed(MotionEvent motionevent)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView$GestrueDetectorBML;->onSingleTapConfirmed(Landroid/view/MotionEvent;)Z");
             MtvUtilDebug.Low("MtvUiBmlSurfaceView", " BML onSingleTapConfirmed call...");
             return super.onSingleTapConfirmed(motionevent);
         }
@@ -42,6 +44,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
         GestrueDetectorBML()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView$GestrueDetectorBML;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;)V");
             this$0 = MtvUiBmlSurfaceView.this;
             super();
         }
@@ -50,6 +53,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public MtvUiBmlSurfaceView(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;-><init>(Landroid/content/Context;)V");
         super(context);
         mBmlApp = null;
         mMtvAppPlaybackContext = null;
@@ -65,6 +69,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public MtvUiBmlSurfaceView(Context context, AttributeSet attributeset)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V");
         super(context, attributeset);
         mBmlApp = null;
         mMtvAppPlaybackContext = null;
@@ -80,6 +85,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public MtvUiBmlSurfaceView(Context context, AttributeSet attributeset, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V");
         super(context, attributeset, i);
         mBmlApp = null;
         mMtvAppPlaybackContext = null;
@@ -95,10 +101,12 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     private void destroyBmlContrlFragment()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->destroyBmlContrlFragment()V");
     }
 
     private boolean getPhoneLockedState()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->getPhoneLockedState()Z");
         boolean flag;
         if(mFragHandler != null)
             flag = mFragHandler.isPhoneLocked();
@@ -109,6 +117,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     private void initializeBMLDimension(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->initializeBMLDimension(Landroid/content/Context;)V");
         browser_width = (int)MtvUtilConfigSetting.convertDpToPixel(360F, context);
         browser_height = (int)MtvUtilConfigSetting.convertDpToPixel(640F, context);
         bmlbar_height = (int)MtvUtilConfigSetting.convertDpToPixel(72F, context);
@@ -121,6 +130,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     private void setBMLLandscapeMode()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->setBMLLandscapeMode()V");
         MtvUtilDebug.Low("MtvUiBmlSurfaceView", "setBMLLandscapeMode: entered ");
         if(mbmlDialog != null)
             mbmlDialog.destroyBMLDialog();
@@ -134,6 +144,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public boolean IsBMLCaptionView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->IsBMLCaptionView()Z");
         boolean flag;
         if(mMtvPreferences != null && mMtvPreferences.isCaptionEnabled() && IsBMLTvView())
         {
@@ -149,6 +160,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public boolean IsBMLFullView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->IsBMLFullView()Z");
         boolean flag = true;
         if(get_scr_height() != browser_full_height + bmlbar_height)
             if(get_scr_height() == browser_full_height)
@@ -165,6 +177,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public boolean IsBMLTvView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->IsBMLTvView()Z");
         boolean flag;
         if(getWidth() == browser_width && getHeight() == browser_normal_height || getWidth() == browser_width && getHeight() == browser_normal_height + bmlbar_height)
         {
@@ -180,11 +193,13 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public void bmlControlTypeChanged()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->bmlControlTypeChanged()V");
         startBmlContrlFragment();
     }
 
     public void onCreate(MtvAppPlaybackContext mtvappplaybackcontext, MtvUiFragHandler mtvuifraghandler)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->onCreate(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
         if(mtvappplaybackcontext != null)
             mMtvAppPlaybackContext = mtvappplaybackcontext;
         else
@@ -201,6 +216,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->onDestroy()V");
         MtvUtilDebug.Low("MtvUiBmlSurfaceView", "onDestroy:Entered");
         mGestureDetector = null;
         if(mSurfaceHolder != null)
@@ -233,6 +249,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public boolean onKeyUp(int i, KeyEvent keyevent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->onKeyUp(ILandroid/view/KeyEvent;)Z");
         if(mbmlDialog != null)
         {
             mbmlDialog.destroyBMLDialog();
@@ -244,10 +261,12 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->onPause()V");
     }
 
     public void onResume(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->onResume(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)V");
         MtvUtilDebug.Mid("MtvUiBmlSurfaceView", "onResume:Entered");
         if(mtvappplaybackcontext != null)
             mMtvAppPlaybackContext = mtvappplaybackcontext;
@@ -283,6 +302,7 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public void onStart(MtvUiFragHandler mtvuifraghandler)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->onStart(Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;)V");
         MtvUtilDebug.Low("MtvUiBmlSurfaceView", "onStart: entered ");
         mFragHandler = mtvuifraghandler;
         mSurfaceHolder = getHolder();
@@ -295,12 +315,14 @@ public class MtvUiBmlSurfaceView extends BMLNativeView
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->onStop()V");
         if(mBmlApp != null)
             mBmlApp.registerBmlSurfaceListener(null);
     }
 
     public boolean onTouchEvent(MotionEvent motionevent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->onTouchEvent(Landroid/view/MotionEvent;)Z");
         if(motionevent == null)
         {
             MtvUtilDebug.Error("MtvUiBmlSurfaceView", "onTouchEvent: MotionEvent NULL !! ");
@@ -320,10 +342,10 @@ _L1:
         if(IsBMLCaptionView() && !IsBMLFullView())
             motionevent.offsetLocation(0.0F, -caption_height);
         motionevent.getAction();
-        JVM INSTR tableswitch 0 2: default 104
-    //                   0 107
-    //                   1 161
-    //                   2 156;
+        JVM INSTR tableswitch 0 2: default 116
+    //                   0 119
+    //                   1 173
+    //                   2 168;
            goto _L1 _L2 _L3 _L4
 _L2:
         int i = 0;
@@ -343,6 +365,7 @@ _L3:
 
     public void openBMLHomePage()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->openBMLHomePage()V");
         if(mBmlApp != null)
         {
             MtvUtilDebug.Low("MtvUiBmlSurfaceView", "setBMLHomePage: Setting BML home page");
@@ -352,12 +375,14 @@ _L3:
 
     public void setBMLCaptionView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->setBMLCaptionView()V");
         MtvUtilDebug.Low("MtvUiBmlSurfaceView", "setBMLCaptionView: isPhoneLocked TRUE ");
         mBmlApp.setBMLViewSize(browser_width, browser_normal_height - caption_height, 0, caption_height);
     }
 
     public void setBMLFullView(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->setBMLFullView(Z)V");
         if(!flag) goto _L2; else goto _L1
 _L1:
         MtvUtilDebug.Low("MtvUiBmlSurfaceView", "setBMLFullView: isPhoneLocked TRUE ");
@@ -386,6 +411,7 @@ _L3:
 
     public void setBMLTvView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->setBMLTvView()V");
         if(mBmlApp != null)
         {
             MtvUtilDebug.Low("MtvUiBmlSurfaceView", "setBMLTvView: isPhoneLocked TRUE ");
@@ -395,11 +421,13 @@ _L3:
 
     public void setPhoneLockedState(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->setPhoneLockedState(Z)V");
         updateBMLSurfaceView();
     }
 
     public void startBmlContrlFragment()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->startBmlContrlFragment()V");
         mbmlCntrlType = mBmlApp.getBmlControlType();
         if(getContext().getResources().getConfiguration().orientation != 2) goto _L2; else goto _L1
 _L1:
@@ -420,6 +448,7 @@ _L3:
 
             static 
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView$2;-><clinit>()V");
                 $SwitchMap$com$samsung$sec$mtv$app$bml$MtvAppBmlConstants$BmlControlType = new int[com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlControlType.values().length];
                 NoSuchFieldError nosuchfielderror1;
                 try
@@ -460,6 +489,7 @@ _L5:
 
     public void startTvLinkTab()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->startTvLinkTab()V");
         MtvAppPlaybackContext mtvappplaybackcontext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
         if(mtvappplaybackcontext != null && mtvappplaybackcontext.getState().getOp() != 20487)
         {
@@ -476,6 +506,7 @@ _L5:
 
     public void stopBmlContrlFragment()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->stopBmlContrlFragment()V");
         MtvUiBmlBasicControlFrag.hide();
         MtvUiBmlKeyPadControlFragment.hide();
         MtvUiBmlNumKeyPadFragment.hide();
@@ -485,6 +516,7 @@ _L5:
 
     public void updateBMLSurfaceView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->updateBMLSurfaceView()V");
         if(getContext().getResources().getConfiguration().orientation != 2) goto _L2; else goto _L1
 _L1:
         MtvUtilDebug.Low("MtvUiBmlSurfaceView", "startBmlOsd: landscape mode return ");
@@ -536,21 +568,24 @@ _L6:
 
         public void surfaceChanged(SurfaceHolder surfaceholder, int i, int j, int k)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView$1;->surfaceChanged(Landroid/view/SurfaceHolder;III)V");
             if(!MtvUtilDebug.isReleaseMode())
                 MtvUtilDebug.Low("MtvUiBmlSurfaceView", (new StringBuilder()).append("surfaceChanged format=").append(i).append(", width=").append(j).append(", height=").append(k).toString());
             if(!checkCanvasValid())
                 MtvUtilDebug.Error("MtvUiBmlSurfaceView", "surfaceChanged:Canvas inValid ");
-            if(mMtvAppPlaybackContext != null && mMtvAppPlaybackContext.getState().getState() != com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE && mBmlApp != null)
-                mBmlApp.refreshBMLScreen();
+            if(Log.d(MtvUiBmlSurfaceView.this) != null && Log.d(MtvUiBmlSurfaceView.this).getState().getState() != com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.NONE && Log.d(MtvUiBmlSurfaceView.this) != null)
+                Log.d(MtvUiBmlSurfaceView.this).refreshBMLScreen();
         }
 
         public void surfaceCreated(SurfaceHolder surfaceholder)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView$1;->surfaceCreated(Landroid/view/SurfaceHolder;)V");
             MtvUtilDebug.Low("MtvUiBmlSurfaceView", "surfaceCreated");
         }
 
         public void surfaceDestroyed(SurfaceHolder surfaceholder)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView$1;->surfaceDestroyed(Landroid/view/SurfaceHolder;)V");
             MtvUtilDebug.Low("MtvUiBmlSurfaceView", "surfaceDestroyed");
         }
 
@@ -558,6 +593,7 @@ _L6:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView$1;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;)V");
                 this$0 = MtvUiBmlSurfaceView.this;
                 super();
             }
@@ -566,4 +602,22 @@ _L6:
     private MtvUiBmlDialogFrag mbmlDialog;
 
 
+/*
+    static MtvAppPlaybackContext access$000(MtvUiBmlSurfaceView mtvuibmlsurfaceview)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->access$000(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
+        return mtvuibmlsurfaceview.mMtvAppPlaybackContext;
+    }
+
+*/
+
+
+/*
+    static MtvAppBml access$100(MtvUiBmlSurfaceView mtvuibmlsurfaceview)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;->access$100(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlSurfaceView;)Lcom/samsung/sec/mtv/app/bml/MtvAppBml;");
+        return mtvuibmlsurfaceview.mBmlApp;
+    }
+
+*/
 }

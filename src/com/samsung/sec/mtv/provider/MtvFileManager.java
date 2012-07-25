@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
+import android.util.Log;
 import com.samsung.sec.mtv.app.context.MtvAppPlaybackContextManager;
 import com.samsung.sec.mtv.app.player.IMtvAppPlayerOneSeg;
 import com.samsung.sec.mtv.utility.MtvFileDBException;
@@ -30,6 +31,7 @@ public class MtvFileManager
 
         public int compare(MtvFile mtvfile, MtvFile mtvfile1)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager$MtvFileComparator;->compare(Lcom/samsung/sec/mtv/provider/MtvFile;Lcom/samsung/sec/mtv/provider/MtvFile;)I");
             int i;
             if(mtvfile == null || mtvfile1 == null)
             {
@@ -44,13 +46,21 @@ public class MtvFileManager
 
         public volatile int compare(Object obj, Object obj1)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager$MtvFileComparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I");
             return compare((MtvFile)obj, (MtvFile)obj1);
         }
 
         private MtvFileComparator()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager$MtvFileComparator;-><init>()V");
+            super();
         }
 
+        MtvFileComparator(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager$MtvFileComparator;-><init>(Lcom/samsung/sec/mtv/provider/MtvFileManager$1;)V");
+            this();
+        }
     }
 
     private static class MtvFileManagerTvFileBuilder
@@ -58,6 +68,7 @@ public class MtvFileManager
 
         public void close()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager$MtvFileManagerTvFileBuilder;->close()V");
             if(mCursor != null)
             {
                 mCursor.close();
@@ -67,6 +78,7 @@ public class MtvFileManager
 
         public int getItemSize()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager$MtvFileManagerTvFileBuilder;->getItemSize()I");
             int i = 0;
             if(mCursor != null)
                 i = mCursor.getCount();
@@ -75,7 +87,9 @@ public class MtvFileManager
 
         public MtvFile getNextTvFile()
         {
-            MtvFile mtvfile = null;
+            MtvFile mtvfile;
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager$MtvFileManagerTvFileBuilder;->getNextTvFile()Lcom/samsung/sec/mtv/provider/MtvFile;");
+            mtvfile = null;
             if(mCursor == null) goto _L2; else goto _L1
 _L1:
             boolean flag;
@@ -121,7 +135,7 @@ _L8:
                 mtvfile.creationTime = new Date(mCursor.getLong(indexCreationTime));
                 mtvfile.fileFormat = mCursor.getInt(indexFileFormat);
                 mtvfile.fileSize = mCursor.getInt(indexFileSize);
-                mtvfile.index = MtvFileManager.convertToImageDbIndex(mtvfile.index);
+                mtvfile.index = Log.d(mtvfile.index);
             }
             continue; /* Loop/switch isn't completed */
 _L4:
@@ -152,6 +166,8 @@ _L9:
         public MtvFileManagerTvFileBuilder(SQLiteDatabase sqlitedatabase, int i)
         {
             String s;
+            Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager$MtvFileManagerTvFileBuilder;-><init>(Landroid/database/sqlite/SQLiteDatabase;I)V");
+            super();
             mCursor = null;
             mDbType = 1;
             bMoveToFirstDone = false;
@@ -212,16 +228,20 @@ _L5:
 
     public MtvFileManager()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;-><init>()V");
+        super();
     }
 
     private static int convertFromImageDbIndex(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->convertFromImageDbIndex(I)I");
         MtvUtilDebug.Low("MtvFileManager", (new StringBuilder()).append("[ImageDB]  input index: ").append(i).append(" hex: ").append(Integer.toHexString(i)).append(" converted to : hex: ").append(Integer.toHexString(i & 0xbfffffff)).append(" int: ").append(i & 0xbfffffff).toString());
         return i & 0xbfffffff;
     }
 
     private static int convertToImageDbIndex(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->convertToImageDbIndex(I)I");
         MtvUtilDebug.Low("MtvFileManager", (new StringBuilder()).append("[ImageDB]  input index: ").append(i).append(" hex: ").append(Integer.toHexString(i)).append(" converted to :").append(Integer.toHexString(i | 0x40000000)).toString());
         return i | 0x40000000;
     }
@@ -229,6 +249,7 @@ _L5:
     public static void deleteTvFile(int i, String s, IMtvAppPlayerOneSeg imtvappplayeroneseg)
         throws MtvFileDBException
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->deleteTvFile(ILjava/lang/String;Lcom/samsung/sec/mtv/app/player/IMtvAppPlayerOneSeg;)V");
         boolean flag = true;
         MtvUtilDebug.Low("MtvFileManager", (new StringBuilder()).append("Entered deleteTvFile(), iFileIndex ").append(i).toString());
         if(imtvappplayeroneseg == null)
@@ -262,6 +283,7 @@ _L5:
     {
         SQLiteDatabase sqlitedatabase;
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->deleteTvImage(ILjava/lang/String;Lcom/samsung/sec/mtv/app/player/IMtvAppPlayerOneSeg;)V");
         sqlitedatabase = null;
         flag = false;
         if(imtvappplayeroneseg == null)
@@ -285,7 +307,7 @@ _L2:
         sqlitedatabase.execSQL((new StringBuilder()).append("DELETE FROM tvimage_dbtable WHERE ROWID == ").append(j).toString());
         File file = new File(s);
         if(!file.exists() || !file.canWrite())
-            break MISSING_BLOCK_LABEL_179;
+            break MISSING_BLOCK_LABEL_190;
         flag1 = file.delete();
         flag = flag1;
         sqlitedatabase.close();
@@ -312,6 +334,7 @@ _L5:
     {
         String s;
         String s1;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->generateFileName(ILjava/util/Date;)Ljava/lang/String;");
         s = null;
         s1 = null;
         if(i != 0 && i != 1) goto _L2; else goto _L1
@@ -340,6 +363,7 @@ _L3:
     {
         int i;
         MtvFile amtvfile[];
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->getAvailableTVRecFiles()[Lcom/samsung/sec/mtv/provider/MtvFile;");
         i = 0;
         amtvfile = null;
         if(!mIsImageDBEnabled) goto _L2; else goto _L1
@@ -350,7 +374,7 @@ _L7:
 _L2:
         MtvUtilDebug.Low("MtvFileManager", " Entered getAvailableTVRecFiles() ");
         if(vAvailableTvFiles == null)
-            break MISSING_BLOCK_LABEL_1055;
+            break MISSING_BLOCK_LABEL_1079;
         if(vAvailableTvFiles.size() != 0)
             vAvailableTvFiles.clear();
         MtvUtilDebug.Low("MtvFileManager", "nativeUpdateTvFile() Success");
@@ -480,7 +504,7 @@ _L14:
         if(j6 < vAvailableTvFiles.size())
         {
             if(((MtvFile)vAvailableTvFiles.get(j6)).getCreationTime().getTime() <= date.getTime())
-                break MISSING_BLOCK_LABEL_1038;
+                break MISSING_BLOCK_LABEL_1062;
             vAvailableTvFiles.add(j6, mtvfile);
             i6 = j6 + 1;
             flag = true;
@@ -508,6 +532,7 @@ _L4:
     {
         MtvFile amtvfile[];
         int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->getAvailableTVRecFilesEx()[Lcom/samsung/sec/mtv/provider/MtvFile;");
         amtvfile = null;
         i = 0;
         if(mIsImageDBEnabled) goto _L2; else goto _L1
@@ -535,10 +560,10 @@ _L2:
         sqlitedatabase = sqlitedatabase5;
 _L4:
         if(sqlitedatabase == null)
-            break MISSING_BLOCK_LABEL_180;
+            break MISSING_BLOCK_LABEL_194;
         mtvfilemanagertvfilebuilder = new MtvFileManagerTvFileBuilder(sqlitedatabase, 1);
         if(mtvfilemanagertvfilebuilder == null)
-            break MISSING_BLOCK_LABEL_176;
+            break MISSING_BLOCK_LABEL_189;
         MtvUtilDebug.Low("MtvFileManager", (new StringBuilder()).append("getAvailableTVRecFilesEx() opened db: /data/one-seg/tvfiles_database.db ItemSize is: ").append(mtvfilemanagertvfilebuilder.getItemSize()).toString());
         if(mtvfilemanagertvfilebuilder.getItemSize() > 0)
             do
@@ -562,10 +587,10 @@ _L3:
 _L6:
         MtvFileManagerTvFileBuilder mtvfilemanagertvfilebuilder1;
         if(sqlitedatabase1 == null)
-            break MISSING_BLOCK_LABEL_303;
+            break MISSING_BLOCK_LABEL_317;
         mtvfilemanagertvfilebuilder1 = new MtvFileManagerTvFileBuilder(sqlitedatabase1, 2);
         if(mtvfilemanagertvfilebuilder1 == null)
-            break MISSING_BLOCK_LABEL_298;
+            break MISSING_BLOCK_LABEL_312;
         MtvUtilDebug.Low("MtvFileManager", (new StringBuilder()).append("getAvailableTVRecFilesEx() opened db: /mnt/extSdCard/external_tvfiles.db ItemSize is: ").append(mtvfilemanagertvfilebuilder1.getItemSize()).toString());
         if(mtvfilemanagertvfilebuilder1.getItemSize() > 0)
             do
@@ -589,10 +614,10 @@ _L5:
 _L8:
         MtvFileManagerTvFileBuilder mtvfilemanagertvfilebuilder2;
         if(sqlitedatabase2 == null)
-            break MISSING_BLOCK_LABEL_425;
+            break MISSING_BLOCK_LABEL_439;
         mtvfilemanagertvfilebuilder2 = new MtvFileManagerTvFileBuilder(sqlitedatabase2, 3);
         if(mtvfilemanagertvfilebuilder2 == null)
-            break MISSING_BLOCK_LABEL_420;
+            break MISSING_BLOCK_LABEL_434;
         MtvUtilDebug.Low("MtvFileManager", (new StringBuilder()).append("getAvailableTVRecFilesEx() opened db: /sdcard/Android/data/one-seg/tvimages_database.db ItemSize is: ").append(mtvfilemanagertvfilebuilder2.getItemSize()).toString());
         if(mtvfilemanagertvfilebuilder2.getItemSize() > 0)
             do
@@ -637,6 +662,7 @@ _L12:
 
     private static String getCaptureFilePath(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->getCaptureFilePath(I)Ljava/lang/String;");
         String s;
         if(i == 1)
             s = "/sdcard/image/MyTvFiles/";
@@ -647,6 +673,7 @@ _L12:
 
     private static String getRecThumbPath(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->getRecThumbPath(I)Ljava/lang/String;");
         String s;
         if(i == 1)
             s = "/sdcard/video/MyTvFiles/thumbnails/";
@@ -658,8 +685,9 @@ _L12:
     private static void insertOneSegTvFile(MtvFile mtvfile)
         throws MtvFileDBException, SQLiteException
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->insertOneSegTvFile(Lcom/samsung/sec/mtv/provider/MtvFile;)V");
         if(!mIsImageDBEnabled)
-            break MISSING_BLOCK_LABEL_30;
+            break MISSING_BLOCK_LABEL_39;
         MtvUtilDebug.Low("MtvFileManager", "separate DB for captured images is enabled.../sdcard/Android/data/one-seg/tvimages_database.db");
         insertOneSegTvImage(mtvfile);
 _L1:
@@ -742,6 +770,7 @@ _L1:
     public static void insertOneSegTvImage(MtvFile mtvfile)
         throws MtvFileDBException, SQLiteException
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->insertOneSegTvImage(Lcom/samsung/sec/mtv/provider/MtvFile;)V");
         if(mIsImageDBEnabled) goto _L2; else goto _L1
 _L1:
         MtvUtilDebug.High("MtvFileManager", "separate DB for captured images is NOT enabled... use insertOneSegTvFile directly!");
@@ -802,6 +831,7 @@ _L3:
 
     private static boolean isImageDbIndex(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->isImageDbIndex(I)Z");
         boolean flag;
         if((i & 0x40000000) == 0x40000000)
             flag = true;
@@ -817,6 +847,7 @@ _L3:
         String s1;
         FileOutputStream fileoutputstream;
         FileOutputStream fileoutputstream1;
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->saveFile(ILandroid/graphics/Bitmap;Lcom/samsung/sec/mtv/provider/MtvFile;)V");
         s = null;
         file = null;
         int j;
@@ -832,10 +863,10 @@ _L3:
         else
             j = mtvfile.fileFormat;
         j;
-        JVM INSTR tableswitch 0 2: default 40
-    //                   0 40
-    //                   1 536
-    //                   2 581;
+        JVM INSTR tableswitch 0 2: default 52
+    //                   0 52
+    //                   1 551
+    //                   2 597;
            goto _L1 _L1 _L2 _L3
 _L1:
         s1 = (new StringBuilder()).append(file).append(s).toString();
@@ -883,7 +914,7 @@ _L8:
             MtvUtilDebug.Low("TAG", (new StringBuilder()).append("saveFile:  encrypted length").append(bytebuffer.array().length).toString());
         MtvUtilDebug.Low("TAG", "saveFile:  Encrypt Success ");
         if(mtvfile == null || mtvfile.fileFormat != 2)
-            break MISSING_BLOCK_LABEL_490;
+            break MISSING_BLOCK_LABEL_505;
         MtvUtilDebug.Low("MtvFileManager", "saveFile: file.mFormat == FILE_FORMAT_JPEG ");
         mtvfile.filePath = s1;
         FileNotFoundException filenotfoundexception;
@@ -997,7 +1028,17 @@ _L5:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;-><clinit>()V");
         vAvailableTvFiles = new Vector();
     }
 
+
+/*
+    static int access$100(int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvFileManager;->access$100(I)I");
+        return convertToImageDbIndex(i);
+    }
+
+*/
 }

@@ -10,6 +10,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.content.*;
 import android.os.*;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.*;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -35,11 +36,12 @@ public class MtvMiniModeService extends MiniModeService
 
         public boolean onTouch(View view, MotionEvent motionevent)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService$OnExitTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z");
             super.onTouch(view, motionevent);
             motionevent.getAction();
-            JVM INSTR tableswitch 0 1: default 32
-        //                       0 34
-        //                       1 44;
+            JVM INSTR tableswitch 0 1: default 40
+        //                       0 42
+        //                       1 52;
                goto _L1 _L2 _L3
 _L1:
             return true;
@@ -48,8 +50,8 @@ _L2:
             continue; /* Loop/switch isn't completed */
 _L3:
             MtvUtilDebug.Low("MtvMiniModeService", "EXIT BUTTON : ACTION_DOWN");
-            if(mExitLayout != null)
-                mExitLayout.setVisibility(8);
+            if(Log.d(MtvMiniModeService.this) != null)
+                Log.d(MtvMiniModeService.this).setVisibility(8);
             closeOneseg();
             stopSelf();
             if(true) goto _L1; else goto _L4
@@ -60,6 +62,7 @@ _L4:
 
         OnExitTouchListener()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService$OnExitTouchListener;-><init>(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;)V");
             this$0 = MtvMiniModeService.this;
             super(MtvMiniModeService.this);
         }
@@ -71,14 +74,15 @@ _L4:
         public boolean onTouch(View view, MotionEvent motionevent)
         {
             int i;
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService$miniModeSurfaceOnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z");
             super.onTouch(view, motionevent);
             i = motionevent.getAction();
             motionevent.getEventTime() - motionevent.getDownTime();
             i;
-            JVM INSTR tableswitch 0 2: default 52
-        //                       0 54
-        //                       1 208
-        //                       2 105;
+            JVM INSTR tableswitch 0 2: default 60
+        //                       0 62
+        //                       1 216
+        //                       2 113;
                goto _L1 _L2 _L3 _L4
 _L1:
             return true;
@@ -87,7 +91,7 @@ _L2:
             mDownTime = (int)motionevent.getEventTime();
             mXdown = motionevent.getRawX();
             mYdown = motionevent.getRawY();
-            mHandler.sendEmptyMessageDelayed(11, 500L);
+            Log.d(MtvMiniModeService.this).sendEmptyMessageDelayed(11, 500L);
             continue; /* Loop/switch isn't completed */
 _L4:
             MtvUtilDebug.Low("MtvMiniModeService", "ACTION_MOVE");
@@ -97,7 +101,7 @@ _L4:
                 if(f2 < (float)ViewConfiguration.getTouchSlop() && f3 < (float)ViewConfiguration.getTouchSlop())
                     MtvUtilDebug.Low("MtvMiniModeService", "showExitDialog");
                 else
-                    mHandler.removeMessages(11);
+                    Log.d(MtvMiniModeService.this).removeMessages(11);
             continue; /* Loop/switch isn't completed */
 _L3:
             MtvUtilDebug.Low("MtvMiniModeService", "ACTION_UP");
@@ -109,15 +113,15 @@ _L3:
             if(f < (float)ViewConfiguration.getTouchSlop() && f1 < (float)ViewConfiguration.getTouchSlop() && (long)j <= 500L)
             {
                 MtvUtilDebug.Low("MtvMiniModeService", "ACTION_UP TouchListener : Short click!!");
-                if(mMtvAppPlaybackContext.getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING)
+                if(Log.d(MtvMiniModeService.this).getState().getState() == com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State.PLAYING)
                 {
-                    mHandler.removeMessages(11);
-                    if(mExitLayout != null)
-                        mExitLayout.setVisibility(8);
+                    Log.d(MtvMiniModeService.this).removeMessages(11);
+                    if(Log.d(MtvMiniModeService.this) != null)
+                        Log.d(MtvMiniModeService.this).setVisibility(8);
                     siwitchToNormalMode();
                 } else
-                if(checkIsCalling(mContext))
-                    Toast.makeText(mContext, 0x7f07009e, 0).show();
+                if(Log.d(MtvMiniModeService.this, Log.d(MtvMiniModeService.this)))
+                    Toast.makeText(Log.d(MtvMiniModeService.this), 0x7f07009e, 0).show();
                 else
                     playMiniMode();
             }
@@ -134,6 +138,7 @@ _L5:
 
         miniModeSurfaceOnTouchListener()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService$miniModeSurfaceOnTouchListener;-><init>(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;)V");
             this$0 = MtvMiniModeService.this;
             super(MtvMiniModeService.this);
             mDownTime = 0;
@@ -147,6 +152,8 @@ _L5:
 
     public MtvMiniModeService()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;-><init>()V");
+        super();
         miniMainView = null;
         mContext = null;
         mMtvAppPlaybackContext = null;
@@ -159,6 +166,7 @@ _L5:
 
             public void onReceive(Context context, Intent intent)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService$1;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V");
                 if(!"android.intent.action.SCREEN_ON".equals(intent.getAction())) goto _L2; else goto _L1
 _L1:
                 MtvUtilDebug.Low("MtvMiniModeService", "ACTION_SCREEN_ON");
@@ -174,7 +182,7 @@ _L2:
                     else
                     if(intent.getAction().equals("android.intent.action.BATTERY_LOW"))
                     {
-                        Toast.makeText(mContext, 0x7f0700a1, 0).show();
+                        Toast.makeText(Log.d(MtvMiniModeService.this), 0x7f0700a1, 0).show();
                         closeOneseg();
                     } else
                     if("intent.stop.app-in-app".equals(intent.getAction()))
@@ -199,6 +207,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService$1;-><init>(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;)V");
                 this$0 = MtvMiniModeService.this;
                 super();
             }
@@ -207,20 +216,21 @@ _L3:
 
             public void handleMessage(Message message)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService$2;->handleMessage(Landroid/os/Message;)V");
                 message.what;
-                JVM INSTR tableswitch 11 12: default 28
-            //                           11 29
-            //                           12 63;
+                JVM INSTR tableswitch 11 12: default 36
+            //                           11 37
+            //                           12 71;
                    goto _L1 _L2 _L3
 _L1:
                 return;
 _L2:
                 removeMessages(11);
-                mExitLayout.setVisibility(0);
+                Log.d(MtvMiniModeService.this).setVisibility(0);
                 sendMessageDelayed(obtainMessage(12), 10000L);
                 continue; /* Loop/switch isn't completed */
 _L3:
-                mExitLayout.setVisibility(8);
+                Log.d(MtvMiniModeService.this).setVisibility(8);
                 if(true) goto _L1; else goto _L4
 _L4:
             }
@@ -229,6 +239,7 @@ _L4:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService$2;-><init>(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;)V");
                 this$0 = MtvMiniModeService.this;
                 super();
             }
@@ -237,7 +248,9 @@ _L4:
 
     private boolean checkIsCalling(Context context)
     {
-        boolean flag = true;
+        boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->checkIsCalling(Landroid/content/Context;)Z");
+        flag = true;
         IVoIPInterface ivoipinterface = android.os.IVoIPInterface.Stub.asInterface(ServiceManager.checkService("voip"));
         if(!ivoipinterface.isVoIPDialing() && !ivoipinterface.isVoIPActivated()) goto _L2; else goto _L1
 _L1:
@@ -260,6 +273,7 @@ _L3:
 
     private void registerIntents()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->registerIntents()V");
         MtvUtilDebug.Low("MtvMiniModeService", "registerIntents: entered ");
         IntentFilter intentfilter = new IntentFilter();
         intentfilter.addAction("android.intent.action.SCREEN_ON");
@@ -275,6 +289,7 @@ _L3:
 
     private void setScreenRatio()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->setScreenRatio()V");
         MtvUtilDebug.Low("MtvMiniModeService", "setScreenRatio landscape");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Low("MtvMiniModeService", (new StringBuilder()).append("setScreenRatio LCD_HEIGHT:").append(293).append("LCD_WIDTH:").append(520).toString());
@@ -314,12 +329,14 @@ _L3:
 
     private void unRegisterIntents()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->unRegisterIntents()V");
         MtvUtilDebug.Low("MtvMiniModeService", "unregister()");
         unregisterReceiver(mReceiver);
     }
 
     public void closeOneseg()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->closeOneseg()V");
         mMtvAudMgr.removeCallStateListener();
         MtvUtilAppService.forceresetMtvVisibiltySettings();
         stopService(new Intent(getApplicationContext(), com/samsung/sec/mtv/app/service/MtvAppAndroidService));
@@ -328,10 +345,11 @@ _L3:
 
     protected boolean onClose(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->onClose(I)Z");
         i;
-        JVM INSTR lookupswitch 2: default 28
-    //                   1: 32
-    //                   6: 32;
+        JVM INSTR lookupswitch 2: default 36
+    //                   1: 40
+    //                   6: 40;
            goto _L1 _L2 _L2
 _L1:
         boolean flag = false;
@@ -345,6 +363,7 @@ _L3:
 
     public void onCreate()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->onCreate()V");
         MtvUtilDebug.Low("MtvMiniModeService", "onCreate: entered ");
         super.onCreate();
         mContext = getApplicationContext();
@@ -365,6 +384,7 @@ _L3:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->onDestroy()V");
         MtvUtilDebug.Low("MtvMiniModeService", "onDestroy: entered ");
         SecHardwareInterface.setmDNIeUIMode(0);
         try
@@ -383,11 +403,12 @@ _L3:
 
     public void onPlayerNotification(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->onPlayerNotification(III)V");
         i;
-        JVM INSTR lookupswitch 3: default 36
-    //                   20483: 51
-    //                   20484: 37
-    //                   20495: 86;
+        JVM INSTR lookupswitch 3: default 44
+    //                   20483: 59
+    //                   20484: 45
+    //                   20495: 94;
            goto _L1 _L2 _L3 _L4
 _L1:
         break; /* Loop/switch isn't completed */
@@ -420,6 +441,7 @@ _L5:
 
     public int onStartCommand(Intent intent, int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->onStartCommand(Landroid/content/Intent;II)I");
         MtvUtilDebug.Low("MtvMiniModeService", "onStartCommand: entered ");
         classname = intent.getStringExtra("class");
         SecHardwareInterface.setmDNIeUIMode(1);
@@ -429,10 +451,12 @@ _L5:
 
     public void onStateChanged(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->onStateChanged(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;)V");
     }
 
     public void playMiniMode()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->playMiniMode()V");
         mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
         if(mMtvAppPlaybackContext != null)
         {
@@ -459,6 +483,7 @@ _L5:
 
     public void siwitchToNormalMode()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->siwitchToNormalMode()V");
         Intent intent = new Intent(mContext, com/samsung/sec/mtv/ui/liveplayer/MtvUiLivePlayer);
         MtvUtilDebug.Low("MtvMiniModeService", "Start Activity");
         intent.setFlags(0x14000000);
@@ -478,9 +503,58 @@ _L5:
     private View miniMainView;
     ITvoutService tvoutService;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;-><clinit>()V");
+    }
 
 
+/*
+    static Context access$000(MtvMiniModeService mtvminimodeservice)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->access$000(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;)Landroid/content/Context;");
+        return mtvminimodeservice.mContext;
+    }
+
+*/
 
 
+/*
+    static RelativeLayout access$100(MtvMiniModeService mtvminimodeservice)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->access$100(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;)Landroid/widget/RelativeLayout;");
+        return mtvminimodeservice.mExitLayout;
+    }
 
+*/
+
+
+/*
+    static Handler access$200(MtvMiniModeService mtvminimodeservice)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->access$200(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;)Landroid/os/Handler;");
+        return mtvminimodeservice.mHandler;
+    }
+
+*/
+
+
+/*
+    static MtvAppPlaybackContext access$300(MtvMiniModeService mtvminimodeservice)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->access$300(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
+        return mtvminimodeservice.mMtvAppPlaybackContext;
+    }
+
+*/
+
+
+/*
+    static boolean access$400(MtvMiniModeService mtvminimodeservice, Context context)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;->access$400(Lcom/samsung/sec/mtv/ui/miniTV/MtvMiniModeService;Landroid/content/Context;)Z");
+        return mtvminimodeservice.checkIsCalling(context);
+    }
+
+*/
 }

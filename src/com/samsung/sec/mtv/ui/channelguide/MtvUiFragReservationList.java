@@ -12,6 +12,7 @@ import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.context.*;
@@ -32,17 +33,18 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         public void bindView(View view, Context context, Cursor cursor)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationAdapter;->bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V");
             MtvReservation mtvreservation = MtvReservationManager.builder(cursor);
             view.setTag(mtvreservation);
             String s;
             String s1;
-            if(DateFormat.is24HourFormat(mActivity.getApplicationContext()))
+            if(DateFormat.is24HourFormat(Log.d(MtvUiFragReservationList.this).getApplicationContext()))
                 s = (new SimpleDateFormat("M/d (EEE) H:mm")).format(new Date(mtvreservation.mTimeStart));
             else
                 s = (new SimpleDateFormat("M/d (EEE) h:mm a")).format(new Date(mtvreservation.mTimeStart));
             if(mtvreservation.mTimeEnd > 0L)
             {
-                if(DateFormat.is24HourFormat(mActivity.getApplicationContext()))
+                if(DateFormat.is24HourFormat(Log.d(MtvUiFragReservationList.this).getApplicationContext()))
                     s1 = (new StringBuilder()).append(s).append(" - ").append((new SimpleDateFormat("H:mm")).format(new Date(mtvreservation.mTimeEnd))).toString();
                 else
                     s1 = (new StringBuilder()).append(s).append(" - ").append((new SimpleDateFormat("h:mm a")).format(new Date(mtvreservation.mTimeEnd))).toString();
@@ -58,15 +60,17 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         public View newView(Context context, Cursor cursor, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationAdapter;->newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;");
             return mInflater.inflate(0x7f03002d, viewgroup, false);
         }
 
         public int selectStatusIconIndex(MtvReservation mtvreservation)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationAdapter;->selectStatusIconIndex(Lcom/samsung/sec/mtv/provider/MtvReservation;)I");
             int i;
             if(mtvreservation.mPgmStatus == 0 && mtvreservation.mTimeStart < System.currentTimeMillis() - 5000L)
             {
-                MtvUtilDebug.Mid(MtvUiFragReservationList.TAG, "selectStatusIconIndex() : ooops!!! hit an expired reservation,setting it failed");
+                MtvUtilDebug.Mid(Log.d(), "selectStatusIconIndex() : ooops!!! hit an expired reservation,setting it failed");
                 i = 1;
                 MtvReservationManager.UpdateStatus(getActivity(), mtvreservation, 2);
             } else
@@ -83,6 +87,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         public ReservationAdapter(Context context, Cursor cursor)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationAdapter;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;Landroid/content/Context;Landroid/database/Cursor;)V");
             this$0 = MtvUiFragReservationList.this;
             super(context, cursor);
             int ai[] = new int[2];
@@ -102,6 +107,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private Dialog initDetails(final MtvReservation mtvreserve)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->initDetails(Lcom/samsung/sec/mtv/provider/MtvReservation;)Landroid/app/Dialog;");
             makeReservationInfo();
             Activity activity = getActivity();
             ArrayList arraylist = mInfoList;
@@ -121,14 +127,16 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
                 public void onClick(DialogInterface dialoginterface, int i)
                 {
-                    if(mDialog != null)
-                        mDialog.dismiss();
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail$1;->onClick(Landroid/content/DialogInterface;I)V");
+                    if(Log.d(ReservationDetail.this) != null)
+                        Log.d(ReservationDetail.this).dismiss();
                 }
 
                 final ReservationDetail this$0;
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail$1;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;)V");
                     this$0 = ReservationDetail.this;
                     super();
                 }
@@ -141,9 +149,10 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
                 public void onClick(DialogInterface dialoginterface, int i)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail$2;->onClick(Landroid/content/DialogInterface;I)V");
                     MtvReservationManager.delete(getActivity(), ((MtvProgram) (mtvreserve)).mUriId);
-                    if(mDialog != null)
-                        mDialog.dismiss();
+                    if(Log.d(ReservationDetail.this) != null)
+                        Log.d(ReservationDetail.this).dismiss();
                 }
 
                 final ReservationDetail this$0;
@@ -151,6 +160,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
                 _cls2()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail$2;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;Lcom/samsung/sec/mtv/provider/MtvReservation;)V");
                     this$0 = ReservationDetail.this;
                     mtvreserve = mtvreservation;
                     super();
@@ -170,6 +180,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private void makeEndTime()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makeEndTime()V");
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f0702c6));
             String s = (new SimpleDateFormat("M/d (EEE) H:mm")).format(new Date(mtvreserve.mTimeEnd));
@@ -179,6 +190,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private void makeReservationInfo()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makeReservationInfo()V");
             makeresult();
             makereason();
             makeprogtype();
@@ -191,6 +203,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private void makeStartTime()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makeStartTime()V");
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f0702c5));
             String s = (new SimpleDateFormat("M/d (EEE) H:mm")).format(new Date(mtvreserve.mTimeStart));
@@ -200,6 +213,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private void makeTVstation()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makeTVstation()V");
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f0702c4));
             MtvChannel mtvchannel = MtvChannelManager.findByPChannel(getActivity(), mtvreserve.mPch);
@@ -214,6 +228,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private void makechannel()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makechannel()V");
             String s = (new StringBuilder()).append(getString(0x7f0702ac)).append(mtvreserve.mPch).toString();
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f0702a8));
@@ -223,6 +238,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private void makeprogname()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makeprogname()V");
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f0702c2));
             map.put("MENU_VALUE", mtvreserve.mPgmName);
@@ -231,6 +247,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private void makeprogtype()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makeprogtype()V");
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f0702c3));
             if(mtvreserve.mPgmType == 0)
@@ -242,6 +259,7 @@ public class MtvUiFragReservationList extends MtvUiFrag
 
         private void makereason()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makereason()V");
             if(mtvreserve.mPgmStatus != 1) goto _L2; else goto _L1
 _L1:
             return;
@@ -278,6 +296,7 @@ _L5:
 
         private void makeresult()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->makeresult()V");
             map = new HashMap();
             map.put("MENU_TITLE", getString(0x7f0702c0));
             if(mtvreserve.mPgmStatus == 1)
@@ -302,6 +321,7 @@ _L5:
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             if(bundle != null)
                 mtvreserve = (MtvReservation)bundle.getSerializable("MtvReserve");
             MtvUtilDebug.Low("ReservationDetail", (new StringBuilder()).append("onCreateDialog  mTimeStart:\n").append(mTimeStart).append(" mContext ").append(mContext).toString());
@@ -310,6 +330,7 @@ _L5:
 
         public void onSaveInstanceState(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->onSaveInstanceState(Landroid/os/Bundle;)V");
             bundle.putSerializable("MtvReserve", mtvreserve);
         }
 
@@ -323,8 +344,19 @@ _L5:
         private MtvReservation mtvreserve;
 
 
+/*
+        static AlertDialog access$200(ReservationDetail reservationdetail)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;->access$200(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;)Landroid/app/AlertDialog;");
+            return reservationdetail.mDialog;
+        }
+
+*/
+
         public ReservationDetail()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;-><init>()V");
+            super();
             mInfoList = new ArrayList();
             map = null;
             mDialog = null;
@@ -335,18 +367,20 @@ _L5:
 
                 public boolean onKey(DialogInterface dialoginterface, int i, KeyEvent keyevent)
                 {
-                    boolean flag = true;
+                    boolean flag;
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail$3;->onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z");
+                    flag = true;
                     i;
-                    JVM INSTR tableswitch 4 4: default 24
-                //                               4 30;
+                    JVM INSTR tableswitch 4 4: default 32
+                //                               4 38;
                        goto _L1 _L2
 _L1:
                     flag = false;
 _L4:
                     return flag;
 _L2:
-                    if(keyevent.getAction() == flag && mDialog != null)
-                        mDialog.dismiss();
+                    if(keyevent.getAction() == flag && Log.d(ReservationDetail.this) != null)
+                        Log.d(ReservationDetail.this).dismiss();
                     if(true) goto _L4; else goto _L3
 _L3:
                 }
@@ -355,6 +389,7 @@ _L3:
 
                 _cls3()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail$3;-><init>(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;)V");
                     this$0 = ReservationDetail.this;
                     super();
                 }
@@ -365,6 +400,8 @@ _L3:
 
         public ReservationDetail(MtvReservation mtvreservation)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList$ReservationDetail;-><init>(Lcom/samsung/sec/mtv/provider/MtvReservation;)V");
+            super();
             mInfoList = new ArrayList();
             map = null;
             mDialog = null;
@@ -377,10 +414,13 @@ _L3:
 
     public MtvUiFragReservationList()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;-><init>()V");
+        super();
     }
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onCreate(Landroid/os/Bundle;)V");
         MtvUtilDebug.Low(TAG, "onCreate called...");
         mActivity = getActivity();
         super.onCreate(bundle);
@@ -389,11 +429,13 @@ _L3:
 
     public Loader onCreateLoader(int i, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onCreateLoader(ILandroid/os/Bundle;)Landroid/content/Loader;");
         return new CursorLoader(getActivity(), MtvReservationManager.CONTENT_URI, null, null, null, null);
     }
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V");
         MtvUtilDebug.Low(TAG, "onCreateOptionsMenu called...");
         menu.clear();
         menu.add(0, 1, 0, 0x7f070289).setIcon(0x7f0200ff);
@@ -404,6 +446,7 @@ _L3:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         MtvUtilDebug.Low(TAG, "onCreateView called :");
         mLayoutView = layoutinflater.inflate(0x7f03001d, viewgroup, false);
         mListView = (ListView)mLayoutView.findViewById(0x7f0a0098);
@@ -413,6 +456,7 @@ _L3:
 
     public void onDestroyView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onDestroyView()V");
         MtvUtilDebug.Low(TAG, "onDestroyView called :");
         super.onDestroyView();
         getLoaderManager().destroyLoader(2);
@@ -420,6 +464,7 @@ _L3:
 
     public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
         Object obj = view.getTag();
         if(!(obj instanceof MtvReservation) || MtvChannelManager.getCount(mActivity) < 1)
         {
@@ -441,6 +486,7 @@ _L3:
 
     public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z");
         Object obj = view.getTag();
         if(!(obj instanceof MtvReservation))
         {
@@ -473,6 +519,7 @@ _L3:
 
     public void onLoadFinished(Loader loader, Cursor cursor)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onLoadFinished(Landroid/content/Loader;Landroid/database/Cursor;)V");
         mListAdapter = new ReservationAdapter(mActivity, cursor);
         mListView.setAdapter(mListAdapter);
         mListView.setOnItemClickListener(this);
@@ -483,23 +530,26 @@ _L3:
 
     public volatile void onLoadFinished(Loader loader, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onLoadFinished(Landroid/content/Loader;Ljava/lang/Object;)V");
         onLoadFinished(loader, (Cursor)obj);
     }
 
     public void onLoaderReset(Loader loader)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onLoaderReset(Landroid/content/Loader;)V");
         if(mListView != null)
             mListView.setAdapter(null);
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onOptionsItemSelected(Landroid/view/MenuItem;)Z");
         menuitem.getItemId();
-        JVM INSTR tableswitch 1 4: default 36
-    //                   1 38
-    //                   2 59
-    //                   3 79
-    //                   4 92;
+        JVM INSTR tableswitch 1 4: default 44
+    //                   1 46
+    //                   2 67
+    //                   3 87
+    //                   4 100;
            goto _L1 _L2 _L3 _L4 _L5
 _L1:
         return true;
@@ -522,6 +572,7 @@ _L6:
 
     public void onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onPrepareOptionsMenu(Landroid/view/Menu;)V");
         MtvUtilDebug.Low(TAG, "onPrepareOptionsMenu");
         menu.clear();
         boolean flag = false;
@@ -541,10 +592,11 @@ _L6:
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->onUpdate(ILjava/lang/Object;)V");
         i;
-        JVM INSTR tableswitch 1 2: default 24
-    //                   1 31
-    //                   2 94;
+        JVM INSTR tableswitch 1 2: default 32
+    //                   1 39
+    //                   2 106;
            goto _L1 _L2 _L3
 _L1:
         super.onUpdate(i, obj);
@@ -572,6 +624,28 @@ _L4:
     private ListAdapter mListAdapter;
     private ListView mListView;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;-><clinit>()V");
+    }
 
 
+/*
+    static Activity access$000(MtvUiFragReservationList mtvuifragreservationlist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->access$000(Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;)Landroid/app/Activity;");
+        return mtvuifragreservationlist.mActivity;
+    }
+
+*/
+
+
+/*
+    static String access$100()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/channelguide/MtvUiFragReservationList;->access$100()Ljava/lang/String;");
+        return TAG;
+    }
+
+*/
 }

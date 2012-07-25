@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.broadcast.helper.MtvUtilDebug;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.ui.common.MtvUiFrag;
@@ -22,6 +23,8 @@ public class MtvUiFilePlayerVidFrag extends MtvUiFrag
 
     public MtvUiFilePlayerVidFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;-><init>()V");
+        super();
         mProgressBarArea = null;
         mPlayerSeekBar = null;
         mVolumeButton = null;
@@ -42,6 +45,7 @@ public class MtvUiFilePlayerVidFrag extends MtvUiFrag
 
     public MtvUiFilePlayerVidFrag(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;-><init>(I)V");
         boolean flag = true;
         this();
         if(i != flag)
@@ -51,6 +55,7 @@ public class MtvUiFilePlayerVidFrag extends MtvUiFrag
 
     private int getDurationInSeconds(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->getDurationInSeconds(I)I");
         int j;
         if(i < 1000)
             j = 1;
@@ -61,6 +66,7 @@ public class MtvUiFilePlayerVidFrag extends MtvUiFrag
 
     private void initializeUI()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->initializeUI()V");
         int i = mFilePlayer.getFileTotalTime();
         int j = mFilePlayer.getCurrentFileTime();
         int k = getDurationInSeconds(i);
@@ -103,6 +109,7 @@ public class MtvUiFilePlayerVidFrag extends MtvUiFrag
 
     private void setInitialMainControl()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->setInitialMainControl()V");
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state = mFilePlayer.getPlaybackState();
         mPrevButton.setEnabled(false);
         mNextButton.setEnabled(false);
@@ -127,6 +134,7 @@ public class MtvUiFilePlayerVidFrag extends MtvUiFrag
 
     private void setMainControlByPlayback(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->setMainControlByPlayback(Z)V");
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state = mFilePlayer.getPlaybackState();
         int i = mFilePlayer.getPlayerCommand();
         boolean flag1 = true;
@@ -206,6 +214,7 @@ public class MtvUiFilePlayerVidFrag extends MtvUiFrag
 
     private void setTextFileEndtime(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->setTextFileEndtime(I)V");
         if(i != -1)
         {
             if(i < 3600)
@@ -232,6 +241,7 @@ public class MtvUiFilePlayerVidFrag extends MtvUiFrag
 
     private void setTextFilePlayingtime(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->setTextFilePlayingtime(I)V");
         if(mPlayingTimeTextView == null) goto _L2; else goto _L1
 _L1:
         if(i >= 3600 || i > mTotalDurationInSecond) goto _L4; else goto _L3
@@ -263,6 +273,7 @@ _L5:
 
     private void toggleVolumeButton()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->toggleVolumeButton()V");
         if(mMtvAudMgr != null) goto _L2; else goto _L1
 _L1:
         return;
@@ -293,6 +304,7 @@ _L4:
 
     private void updateFragmentsBasedOnLockState(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->updateFragmentsBasedOnLockState(Z)V");
         int i;
         if(flag)
             i = 0;
@@ -313,6 +325,7 @@ _L4:
 
     private void updateTrickSeekBar(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->updateTrickSeekBar(I)V");
         if(mProgressBarArea != null)
             if(i == TRICKMODESPEED_NONE)
             {
@@ -327,6 +340,7 @@ _L4:
 
     private void updateTrickSpeed(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->updateTrickSpeed(I)V");
         if(mTrickModeText != null)
             if(i == TRICKMODESPEED_2x)
             {
@@ -345,6 +359,7 @@ _L4:
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -362,6 +377,7 @@ _L4:
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state;
         int i;
         int j;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onClick(Landroid/view/View;)V");
         state = mFilePlayer.getPlaybackState();
         i = mFilePlayer.getPlayerCommand();
         j = mFilePlayer.getTrickMode();
@@ -404,12 +420,14 @@ _L3:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         mFilePlayer = (MtvUiFilePlayer)getActivity();
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mContext = getActivity().getApplicationContext();
         mLayoutView = layoutinflater.inflate(0x7f030027, null);
         mMtvAudMgr = MtvUtilAudioManager.getInstance(mContext);
@@ -431,6 +449,7 @@ _L3:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onDestroy()V");
         super.onDestroy();
     }
 
@@ -438,19 +457,20 @@ _L3:
     {
         com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state;
         int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onLongClick(Landroid/view/View;)Z");
         state = mFilePlayer.getPlaybackState();
         i = mFilePlayer.getPlayerCommand();
         view.getId();
-        JVM INSTR lookupswitch 6: default 80
-    //                   2131361911: 86
-    //                   2131361912: 86
-    //                   2131361913: 86
-    //                   2131362022: 116
-    //                   2131362023: 234
-    //                   2131362024: 116;
+        JVM INSTR lookupswitch 6: default 88
+    //                   2131361911: 94
+    //                   2131361912: 94
+    //                   2131361913: 94
+    //                   2131362022: 124
+    //                   2131362023: 243
+    //                   2131362024: 124;
            goto _L1 _L2 _L2 _L2 _L3 _L4 _L3
 _L4:
-        break MISSING_BLOCK_LABEL_234;
+        break MISSING_BLOCK_LABEL_243;
 _L1:
         boolean flag = false;
 _L5:
@@ -480,11 +500,13 @@ _L6:
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onPause()V");
         super.onPause();
     }
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onResume()V");
         super.onResume();
         initializeUI();
         updateTrickSpeed(mFilePlayer.getTrickModeClick());
@@ -498,44 +520,47 @@ _L6:
 
     public void onStart()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onStart()V");
         super.onStart();
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onStop()V");
         super.onStop();
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->onUpdate(ILjava/lang/Object;)V");
         MtvUtilDebug.Low("MtvUiFilePlayerVidFrag", (new StringBuilder()).append("onUpdate: what[").append(i).append("]").toString());
         if(i == 112 || !isLocked) goto _L2; else goto _L1
 _L1:
         return;
 _L2:
         i;
-        JVM INSTR lookupswitch 18: default 200
-    //                   106: 263
-    //                   107: 263
-    //                   108: 263
-    //                   112: 209
-    //                   113: 270
-    //                   114: 395
-    //                   117: 419
-    //                   118: 474
-    //                   119: 584
-    //                   120: 603
-    //                   121: 621
-    //                   122: 540
-    //                   123: 635
-    //                   124: 649
-    //                   125: 660
-    //                   505: 360
-    //                   506: 284
-    //                   507: 402;
+        JVM INSTR lookupswitch 18: default 208
+    //                   106: 271
+    //                   107: 271
+    //                   108: 271
+    //                   112: 217
+    //                   113: 278
+    //                   114: 403
+    //                   117: 427
+    //                   118: 482
+    //                   119: 594
+    //                   120: 613
+    //                   121: 631
+    //                   122: 548
+    //                   123: 645
+    //                   124: 659
+    //                   125: 670
+    //                   505: 368
+    //                   506: 292
+    //                   507: 410;
            goto _L3 _L4 _L4 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19
 _L16:
-        break MISSING_BLOCK_LABEL_660;
+        break MISSING_BLOCK_LABEL_670;
 _L3:
         break; /* Loop/switch isn't completed */
 _L5:
@@ -667,6 +692,7 @@ _L15:
 /*
     static boolean access$002(MtvUiFilePlayerVidFrag mtvuifileplayervidfrag, boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->access$002(Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;Z)Z");
         mtvuifileplayervidfrag.mbIsTouching = flag;
         return flag;
     }
@@ -674,33 +700,46 @@ _L15:
 */
 
 
+/*
+    static com.samsung.sec.mtv.ui.common.MtvUiFrag.IMtvFragEventListener access$100(MtvUiFilePlayerVidFrag mtvuifileplayervidfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;->access$100(Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;)Lcom/samsung/sec/mtv/ui/common/MtvUiFrag$IMtvFragEventListener;");
+        return mtvuifileplayervidfrag.mListener;
+    }
+
+*/
+
     private class _cls1
         implements android.widget.SeekBar.OnSeekBarChangeListener
     {
 
         public void onProgressChanged(SeekBar seekbar, int i, boolean flag)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag$1;->onProgressChanged(Landroid/widget/SeekBar;IZ)V");
         }
 
         public void onStartTrackingTouch(SeekBar seekbar)
         {
-            mbIsTouching = true;
-            mListener.onFragEvent(286, Integer.valueOf(-1));
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag$1;->onStartTrackingTouch(Landroid/widget/SeekBar;)V");
+            Log.d(MtvUiFilePlayerVidFrag.this, 1);
+            Log.d(MtvUiFilePlayerVidFrag.this).onFragEvent(286, Integer.valueOf(-1));
         }
 
         public void onStopTrackingTouch(SeekBar seekbar)
         {
-            mbIsTouching = false;
-            mListener.onFragEvent(285, Integer.valueOf(seekbar.getProgress()));
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag$1;->onStopTrackingTouch(Landroid/widget/SeekBar;)V");
+            Log.d(MtvUiFilePlayerVidFrag.this, 0);
+            Log.d(MtvUiFilePlayerVidFrag.this).onFragEvent(285, Integer.valueOf(seekbar.getProgress()));
             onUpdate(505, Integer.valueOf(seekbar.getProgress()));
             if(MtvUtilAppService.getCurrentOrientation(getActivity().getApplicationContext()) == 1)
-                mListener.onFragEvent(286, Integer.valueOf(5000));
+                Log.d(MtvUiFilePlayerVidFrag.this).onFragEvent(286, Integer.valueOf(5000));
         }
 
         final MtvUiFilePlayerVidFrag this$0;
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/fileplayer/MtvUiFilePlayerVidFrag;)V");
             this$0 = MtvUiFilePlayerVidFrag.this;
             super();
         }

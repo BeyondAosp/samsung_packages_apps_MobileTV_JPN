@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.broadcast.helper.MtvUtilDebug;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,17 +26,21 @@ public class MtvUiProgInfoFrag extends MtvUiFrag
 
     private MtvUiProgInfoFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiProgInfoFrag;-><init>()V");
+        super();
         RESERVATION_NONE = 0;
     }
 
     public MtvUiProgInfoFrag(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiProgInfoFrag;-><init>(Landroid/os/Bundle;)V");
         this();
         mProgInfo = bundle;
     }
 
     private void initializeUI()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiProgInfoFrag;->initializeUI()V");
         MtvUtilDebug.Low("MtvUiProgInfoFrag", "initializeUI");
         mPCh = mProgInfo.getInt("pgmPch");
         startTime = mProgInfo.getLong("startTime");
@@ -96,12 +101,13 @@ public class MtvUiProgInfoFrag extends MtvUiFrag
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiProgInfoFrag;->onClick(Landroid/view/View;)V");
         view.getId();
-        JVM INSTR tableswitch 2131361963 2131361966: default 36
-    //                   2131361963 50
-    //                   2131361964 37
-    //                   2131361965 36
-    //                   2131361966 37;
+        JVM INSTR tableswitch 2131361963 2131361966: default 44
+    //                   2131361963 58
+    //                   2131361964 45
+    //                   2131361965 44
+    //                   2131361966 45;
            goto _L1 _L2 _L3 _L1 _L3
 _L1:
         return;
@@ -129,6 +135,7 @@ _L4:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiProgInfoFrag;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setRetainInstance(true);
         setHasOptionsMenu(false);
@@ -136,6 +143,7 @@ _L4:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiProgInfoFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mLayoutView = layoutinflater.inflate(0x7f030021, null);
         initializeUI();
         return mLayoutView;

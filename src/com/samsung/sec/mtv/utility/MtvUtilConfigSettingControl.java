@@ -5,6 +5,7 @@
 package com.samsung.sec.mtv.utility;
 
 import android.broadcast.helper.MtvUtilDebug;
+import android.util.Log;
 import java.io.*;
 
 // Referenced classes of package com.samsung.sec.mtv.utility:
@@ -15,10 +16,13 @@ public class MtvUtilConfigSettingControl
 
     public MtvUtilConfigSettingControl()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilConfigSettingControl;-><init>()V");
+        super();
     }
 
     private int changeBooleanToInt(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilConfigSettingControl;->changeBooleanToInt(Z)I");
         int i = 1;
         if(flag != i)
             i = 0;
@@ -27,6 +31,7 @@ public class MtvUtilConfigSettingControl
 
     private int getSettingValue(String s, String s1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilConfigSettingControl;->getSettingValue(Ljava/lang/String;Ljava/lang/String;)I");
         int i = s.indexOf(s1);
         int j;
         if(i >= 0)
@@ -52,6 +57,7 @@ public class MtvUtilConfigSettingControl
     {
         MtvUtilConfigSetting mtvutilconfigsetting;
         File file;
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilConfigSettingControl;->getConfigFromFile()Lcom/samsung/sec/mtv/utility/MtvUtilConfigSetting;");
         mtvutilconfigsetting = new MtvUtilConfigSetting();
         file = new File("/data/one-seg/", "OneSeg_Config.cfg");
         if(file.exists() && file.length() > 0L) goto _L2; else goto _L1
@@ -104,6 +110,7 @@ _L7:
 
     public boolean setConfigToFile(MtvUtilConfigSetting mtvutilconfigsetting)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilConfigSettingControl;->setConfigToFile(Lcom/samsung/sec/mtv/utility/MtvUtilConfigSetting;)Z");
         StringBuffer stringbuffer = new StringBuffer(400);
         stringbuffer.append((new StringBuilder()).append("CONFIG_TSFILESIMUL=").append(changeBooleanToInt(mtvutilconfigsetting.iTsFileSimul)).append("\n").toString());
         stringbuffer.append((new StringBuilder()).append("CONFIG_TSCAPTURE=").append(changeBooleanToInt(mtvutilconfigsetting.iTsCapture)).append("\n").toString());

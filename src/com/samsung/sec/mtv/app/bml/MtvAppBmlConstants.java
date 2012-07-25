@@ -4,6 +4,7 @@
 
 package com.samsung.sec.mtv.app.bml;
 
+import android.util.Log;
 
 public class MtvAppBmlConstants
 {
@@ -12,11 +13,13 @@ public class MtvAppBmlConstants
 
         public static AppBmlDialogMessages valueOf(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlDialogMessages;->valueOf(Ljava/lang/String;)Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlDialogMessages;");
             return (AppBmlDialogMessages)Enum.valueOf(com/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlDialogMessages, s);
         }
 
         public static AppBmlDialogMessages[] values()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlDialogMessages;->values()[Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlDialogMessages;");
             return (AppBmlDialogMessages[])$VALUES.clone();
         }
 
@@ -91,6 +94,7 @@ public class MtvAppBmlConstants
 
         static 
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlDialogMessages;-><clinit>()V");
             MTV_APP_BML_QUERY_SETLOCATION_HTTP = new AppBmlDialogMessages("MTV_APP_BML_QUERY_SETLOCATION_HTTP", 0);
             MTV_APP_BML_QUERY_SETLOCATION_SSL_BEGIN = new AppBmlDialogMessages("MTV_APP_BML_QUERY_SETLOCATION_SSL_BEGIN", 1);
             MTV_APP_BML_QUERY_SETLOCATION_SSL_END = new AppBmlDialogMessages("MTV_APP_BML_QUERY_SETLOCATION_SSL_END", 2);
@@ -231,6 +235,7 @@ public class MtvAppBmlConstants
 
         private AppBmlDialogMessages(String s, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlDialogMessages;-><init>(Ljava/lang/String;I)V");
             super(s, i);
         }
     }
@@ -246,6 +251,8 @@ public class MtvAppBmlConstants
 
         public AppBmlIMEInputParams()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlIMEInputParams;-><init>()V");
+            super();
             text = null;
             isPassword = false;
             isMultiLine = false;
@@ -259,11 +266,13 @@ public class MtvAppBmlConstants
 
         public static AppBmlUIEvents valueOf(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;->valueOf(Ljava/lang/String;)Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;");
             return (AppBmlUIEvents)Enum.valueOf(com/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents, s);
         }
 
         public static AppBmlUIEvents[] values()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;->values()[Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;");
             return (AppBmlUIEvents[])$VALUES.clone();
         }
 
@@ -282,6 +291,7 @@ public class MtvAppBmlConstants
 
         static 
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;-><clinit>()V");
             MTV_APP_BML_UI_EVT_NONE = new AppBmlUIEvents("MTV_APP_BML_UI_EVT_NONE", 0);
             MTV_APP_BML_UI_EVT_SET_ANIMATION_TEXT = new AppBmlUIEvents("MTV_APP_BML_UI_EVT_SET_ANIMATION_TEXT", 1);
             MTV_APP_BML_UI_EVT_START_ANIMATION = new AppBmlUIEvents("MTV_APP_BML_UI_EVT_START_ANIMATION", 2);
@@ -310,6 +320,7 @@ public class MtvAppBmlConstants
 
         private AppBmlUIEvents(String s, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;-><init>(Ljava/lang/String;I)V");
             super(s, i);
         }
     }
@@ -319,11 +330,13 @@ public class MtvAppBmlConstants
 
         public static BmlAppAnimMessages valueOf(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlAppAnimMessages;->valueOf(Ljava/lang/String;)Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlAppAnimMessages;");
             return (BmlAppAnimMessages)Enum.valueOf(com/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlAppAnimMessages, s);
         }
 
         public static BmlAppAnimMessages[] values()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlAppAnimMessages;->values()[Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlAppAnimMessages;");
             return (BmlAppAnimMessages[])$VALUES.clone();
         }
 
@@ -334,6 +347,7 @@ public class MtvAppBmlConstants
 
         static 
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlAppAnimMessages;-><clinit>()V");
             MTV_APP_BML_RECEIVING = new BmlAppAnimMessages("MTV_APP_BML_RECEIVING", 0);
             MTV_APP_BML_RETREIVING = new BmlAppAnimMessages("MTV_APP_BML_RETREIVING", 1);
             MTV_APP_BML_ANIM_MSG_NONE = new BmlAppAnimMessages("MTV_APP_BML_ANIM_MSG_NONE", 2);
@@ -346,6 +360,7 @@ public class MtvAppBmlConstants
 
         private BmlAppAnimMessages(String s, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlAppAnimMessages;-><init>(Ljava/lang/String;I)V");
             super(s, i);
         }
     }
@@ -355,11 +370,13 @@ public class MtvAppBmlConstants
 
         public static BmlControlType valueOf(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlControlType;->valueOf(Ljava/lang/String;)Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlControlType;");
             return (BmlControlType)Enum.valueOf(com/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlControlType, s);
         }
 
         public static BmlControlType[] values()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlControlType;->values()[Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlControlType;");
             return (BmlControlType[])$VALUES.clone();
         }
 
@@ -370,6 +387,7 @@ public class MtvAppBmlConstants
 
         static 
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlControlType;-><clinit>()V");
             MTV_APP_BML_CONTROL_BASIC = new BmlControlType("MTV_APP_BML_CONTROL_BASIC", 0);
             MTV_APP_BML_CONTROL_KEYPAD = new BmlControlType("MTV_APP_BML_CONTROL_KEYPAD", 1);
             MTV_APP_BML_CONTROL_NUMERIC = new BmlControlType("MTV_APP_BML_CONTROL_NUMERIC", 2);
@@ -382,6 +400,7 @@ public class MtvAppBmlConstants
 
         private BmlControlType(String s, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlControlType;-><init>(Ljava/lang/String;I)V");
             super(s, i);
         }
     }
@@ -391,11 +410,13 @@ public class MtvAppBmlConstants
 
         public static BmlDialogReply valueOf(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlDialogReply;->valueOf(Ljava/lang/String;)Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlDialogReply;");
             return (BmlDialogReply)Enum.valueOf(com/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlDialogReply, s);
         }
 
         public static BmlDialogReply[] values()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlDialogReply;->values()[Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlDialogReply;");
             return (BmlDialogReply[])$VALUES.clone();
         }
 
@@ -406,6 +427,7 @@ public class MtvAppBmlConstants
 
         static 
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlDialogReply;-><clinit>()V");
             MTV_APP_BML_DIALOG_REPLAY_YES = new BmlDialogReply("MTV_APP_BML_DIALOG_REPLAY_YES", 0);
             MTV_APP_BML_DIALOG_REPLAY_NO = new BmlDialogReply("MTV_APP_BML_DIALOG_REPLAY_NO", 1);
             MTV_APP_BML_DIALOG_REPLAY_CANCEL = new BmlDialogReply("MTV_APP_BML_DIALOG_REPLAY_CANCEL", 2);
@@ -418,6 +440,7 @@ public class MtvAppBmlConstants
 
         private BmlDialogReply(String s, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlDialogReply;-><init>(Ljava/lang/String;I)V");
             super(s, i);
         }
     }
@@ -425,5 +448,7 @@ public class MtvAppBmlConstants
 
     public MtvAppBmlConstants()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants;-><init>()V");
+        super();
     }
 }

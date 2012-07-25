@@ -8,6 +8,7 @@ import android.app.*;
 import android.broadcast.helper.MtvUtilDebug;
 import android.content.*;
 import android.os.*;
+import android.util.Log;
 import android.view.Window;
 import com.samsung.sec.mtv.app.context.*;
 import com.samsung.sec.mtv.provider.MtvReservation;
@@ -25,13 +26,15 @@ public class MtvUiPopUpActivity extends Activity
 
         private void cheakAndReEnableScreenLock()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;->cheakAndReEnableScreenLock()V");
             if(mKeyguardManager.inKeyguardRestrictedInputMode())
                 mKeyguardLock.reenableKeyguard();
         }
 
         private void checkAndDisableScreenLock()
         {
-            mKeyguardManager = (KeyguardManager)mContext.getSystemService("keyguard");
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;->checkAndDisableScreenLock()V");
+            mKeyguardManager = (KeyguardManager)Log.d(MtvUiPopUpActivity.this).getSystemService("keyguard");
             mKeyguardLock = mKeyguardManager.newKeyguardLock("keyguard");
             if(mKeyguardManager.inKeyguardRestrictedInputMode())
             {
@@ -41,6 +44,7 @@ public class MtvUiPopUpActivity extends Activity
 
                     public void onKeyguardExitResult(boolean flag)
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl$1;->onKeyguardExitResult(Z)V");
                         if(flag)
                             MtvUtilDebug.High("MtvUiPopUpActivity", "onKeyguardExitResult: success");
                         else
@@ -51,6 +55,7 @@ public class MtvUiPopUpActivity extends Activity
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;)V");
                     this$1 = MtvReservationAlertControl.this;
                     super();
                 }
@@ -67,10 +72,40 @@ public class MtvUiPopUpActivity extends Activity
         final MtvUiPopUpActivity this$0;
 
 
+/*
+        static Runnable access$1200(MtvReservationAlertControl mtvreservationalertcontrol)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;->access$1200(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;)Ljava/lang/Runnable;");
+            return mtvreservationalertcontrol.runnableReenterKeyguard;
+        }
 
+*/
+
+
+/*
+        static void access$1400(MtvReservationAlertControl mtvreservationalertcontrol)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;->access$1400(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;)V");
+            mtvreservationalertcontrol.cheakAndReEnableScreenLock();
+            return;
+        }
+
+*/
+
+
+/*
+        static void access$700(MtvReservationAlertControl mtvreservationalertcontrol)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;->access$700(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;)V");
+            mtvreservationalertcontrol.checkAndDisableScreenLock();
+            return;
+        }
+
+*/
 
         private MtvReservationAlertControl()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
             this$0 = MtvUiPopUpActivity.this;
             super();
             class _cls2
@@ -79,13 +114,15 @@ public class MtvUiPopUpActivity extends Activity
 
                 public void run()
                 {
-                    cheakAndReEnableScreenLock();
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl$2;->run()V");
+                    Log.d(MtvReservationAlertControl.this);
                 }
 
                 final MtvReservationAlertControl this$1;
 
                 _cls2()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;)V");
                     this$1 = MtvReservationAlertControl.this;
                     super();
                 }
@@ -94,11 +131,18 @@ public class MtvUiPopUpActivity extends Activity
             runnableReenterKeyguard = new _cls2();
         }
 
+        MtvReservationAlertControl(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$MtvReservationAlertControl;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$1;)V");
+            this();
+        }
     }
 
 
     public MtvUiPopUpActivity()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;-><init>()V");
+        super();
         mDialog = null;
         mDialogBuilder = null;
         type = -1;
@@ -112,10 +156,11 @@ public class MtvUiPopUpActivity extends Activity
             {
                 int i;
                 String s;
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$2;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V");
                 i = 1;
                 s = intent.getAction();
                 MtvUtilDebug.Low("MtvUiPopUpActivity", (new StringBuilder()).append("mIntentReceiver onReceive: action=").append(s).toString());
-                break MISSING_BLOCK_LABEL_33;
+                break MISSING_BLOCK_LABEL_42;
                 while(true) 
                 {
                     do
@@ -123,10 +168,10 @@ public class MtvUiPopUpActivity extends Activity
                     while(s == null || !s.equals("android.intent.action.BATTERY_CHANGED"));
                     if(intent.getIntExtra("status", i) != 2)
                         i = 0;
-                    if(i != 0 && type == 0)
+                    if(i != 0 && Log.d(MtvUiPopUpActivity.this) == 0)
                     {
-                        MtvUiPopUpActivity.mPopupUiMsgHandler.removeCallbacks(RunnablePopupExpire);
-                        MtvUiPopUpActivity.isBatteryLowPopupAvailable = false;
+                        Log.d().removeCallbacks(Log.d(MtvUiPopUpActivity.this));
+                        Log.d(0);
                         finish();
                     }
                 }
@@ -136,6 +181,7 @@ public class MtvUiPopUpActivity extends Activity
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
                 this$0 = MtvUiPopUpActivity.this;
                 super();
             }
@@ -144,31 +190,32 @@ public class MtvUiPopUpActivity extends Activity
 
             public void run()
             {
-                MtvUiPopUpActivity.mPopupUiMsgHandler.removeCallbacks(RunnablePopupExpire);
-                type;
-                JVM INSTR tableswitch 0 3: default 52
-            //                           0 53
-            //                           1 70
-            //                           2 87
-            //                           3 104;
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$9;->run()V");
+                Log.d().removeCallbacks(Log.d(MtvUiPopUpActivity.this));
+                Log.d(MtvUiPopUpActivity.this);
+                JVM INSTR tableswitch 0 3: default 60
+            //                           0 61
+            //                           1 78
+            //                           2 95
+            //                           3 112;
                    goto _L1 _L2 _L3 _L4 _L5
 _L1:
                 return;
 _L2:
                 MtvUtilDebug.Low("MtvUiPopUpActivity", "RunnablePopupExpire POPUP_TYPE_LOW_BATTERY ");
-                handleLowBatteryOK();
+                Log.d(MtvUiPopUpActivity.this);
                 continue; /* Loop/switch isn't completed */
 _L3:
                 MtvUtilDebug.Low("MtvUiPopUpActivity", "RunnablePopupExpire POPUP_TYPE_SLEEP_TIMER_EXIT ");
-                handleSleepTimerOK();
+                Log.d(MtvUiPopUpActivity.this);
                 continue; /* Loop/switch isn't completed */
 _L4:
                 MtvUtilDebug.Low("MtvUiPopUpActivity", "RunnablePopupExpire POPUP_TYPE_RESERVATION_ALERT ");
-                handleReservationOK();
+                Log.d(MtvUiPopUpActivity.this);
                 continue; /* Loop/switch isn't completed */
 _L5:
                 MtvUtilDebug.Low("MtvUiPopUpActivity", "RunnablePopupExpire POPUP_TYPE_LAUNCH_ANTENNA_ALERT ");
-                handleLaunchAntennaOK();
+                Log.d(MtvUiPopUpActivity.this);
                 if(true) goto _L1; else goto _L6
 _L6:
             }
@@ -177,6 +224,7 @@ _L6:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$9;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
                 this$0 = MtvUiPopUpActivity.this;
                 super();
             }
@@ -185,12 +233,13 @@ _L6:
 
     private void createPopup(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->createPopup(I)V");
         i;
-        JVM INSTR tableswitch 0 3: default 32
-    //                   0 40
-    //                   1 116
-    //                   2 221
-    //                   3 437;
+        JVM INSTR tableswitch 0 3: default 40
+    //                   0 48
+    //                   1 124
+    //                   2 229
+    //                   3 448;
            goto _L1 _L2 _L3 _L4 _L5
 _L1:
         MtvUtilDebug.Low("MtvUiPopUpActivity", "INVALID POPUP TYPE");
@@ -204,15 +253,17 @@ _L2:
 
                 public void onClick(DialogInterface dialoginterface, int j)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$3;->onClick(Landroid/content/DialogInterface;I)V");
                     MtvUtilDebug.Low("MtvUiPopUpActivity", "POPUP_TYPE_LOW_BATTERY onClick OK ");
-                    MtvUiPopUpActivity.mPopupUiMsgHandler.removeCallbacks(RunnablePopupExpire);
-                    handleLowBatteryOK();
+                    Log.d().removeCallbacks(Log.d(MtvUiPopUpActivity.this));
+                    Log.d(MtvUiPopUpActivity.this);
                 }
 
                 final MtvUiPopUpActivity this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$3;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
                 this$0 = MtvUiPopUpActivity.this;
                 super();
             }
@@ -233,15 +284,17 @@ _L3:
 
             public void onClick(DialogInterface dialoginterface, int j)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$5;->onClick(Landroid/content/DialogInterface;I)V");
                 MtvUtilDebug.Low("MtvUiPopUpActivity", "POPUP_TYPE_SLEEP_TIMER_EXIT onClick OK ");
-                MtvUiPopUpActivity.mPopupUiMsgHandler.removeCallbacks(RunnablePopupExpire);
-                handleSleepTimerOK();
+                Log.d().removeCallbacks(Log.d(MtvUiPopUpActivity.this));
+                Log.d(MtvUiPopUpActivity.this);
             }
 
             final MtvUiPopUpActivity this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$5;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
                 this$0 = MtvUiPopUpActivity.this;
                 super();
             }
@@ -249,15 +302,17 @@ _L3:
 
             public void onClick(DialogInterface dialoginterface, int j)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$4;->onClick(Landroid/content/DialogInterface;I)V");
                 MtvUiSleepTimerDialogFrag.setAlarm(getApplicationContext(), (new MtvPreferences(getApplicationContext())).getAutoPowerOffTime(), true);
                 finish();
-                MtvUiPopUpActivity.mPopupUiMsgHandler.removeCallbacks(RunnablePopupExpire);
+                Log.d().removeCallbacks(Log.d(MtvUiPopUpActivity.this));
             }
 
             final MtvUiPopUpActivity this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$4;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
                 this$0 = MtvUiPopUpActivity.this;
                 super();
             }
@@ -269,7 +324,7 @@ _L4:
         mPreferences = new MtvPreferences(getApplicationContext());
         if(mMtvReservationAlertControl == null)
             mMtvReservationAlertControl = new MtvReservationAlertControl();
-        mMtvReservationAlertControl.checkAndDisableScreenLock();
+        Log.d(mMtvReservationAlertControl);
         mDialogBuilder = new android.app.AlertDialog.Builder(this);
         mDialogBuilder.setTitle(0x7f0702b5);
         mDialogBuilder.setMessage(0x7f0702b6);
@@ -277,14 +332,16 @@ _L4:
 
             public void onClick(DialogInterface dialoginterface, int j)
             {
-                MtvUiPopUpActivity.mPopupUiMsgHandler.removeCallbacks(RunnablePopupExpire);
-                handleReservationOK();
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$6;->onClick(Landroid/content/DialogInterface;I)V");
+                Log.d().removeCallbacks(Log.d(MtvUiPopUpActivity.this));
+                Log.d(MtvUiPopUpActivity.this);
             }
 
             final MtvUiPopUpActivity this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$6;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
                 this$0 = MtvUiPopUpActivity.this;
                 super();
             }
@@ -293,19 +350,20 @@ _L4:
 
             public void onClick(DialogInterface dialoginterface, int j)
             {
-                MtvUiPopUpActivity.mPopupUiMsgHandler.removeCallbacks(RunnablePopupExpire);
-                MtvReservation mtvreservation = MtvReservationManager.find(MtvUiPopUpActivity.this, mReservationId);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$7;->onClick(Landroid/content/DialogInterface;I)V");
+                Log.d().removeCallbacks(Log.d(MtvUiPopUpActivity.this));
+                MtvReservation mtvreservation = MtvReservationManager.find(MtvUiPopUpActivity.this, Log.d(MtvUiPopUpActivity.this));
                 if(mtvreservation != null && mtvreservation.mPgmStatus == 0)
                     MtvReservationManager.UpdateStatus(MtvUiPopUpActivity.this, mtvreservation, 7);
-                if(mPreferences.getReserveAlertFrom() == 0)
+                if(Log.d(MtvUiPopUpActivity.this).getReserveAlertFrom() == 0)
                 {
                     Intent intent1 = new Intent();
                     intent1.setAction("com.samsung.sec.mtv.ACTION_MTV_RESERVATION_CANCEL_EXIT");
                     sendBroadcast(intent1);
                 }
-                mPreferences.setReservationAlertID(-1);
-                mPreferences.setReservAlertFrom(-1);
-                mReservationId = -1;
+                Log.d(MtvUiPopUpActivity.this).setReservationAlertID(-1);
+                Log.d(MtvUiPopUpActivity.this).setReservAlertFrom(-1);
+                Log.d(MtvUiPopUpActivity.this, -1);
                 finish();
             }
 
@@ -313,6 +371,7 @@ _L4:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$7;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
                 this$0 = MtvUiPopUpActivity.this;
                 super();
             }
@@ -337,15 +396,17 @@ _L5:
 
             public void onClick(DialogInterface dialoginterface, int j)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$8;->onClick(Landroid/content/DialogInterface;I)V");
                 MtvUtilDebug.Low("MtvUiPopUpActivity", "POPUP_TYPE_LAUNCH_ANTENNA_ALERT onClick OK ");
-                MtvUiPopUpActivity.mPopupUiMsgHandler.removeCallbacks(RunnablePopupExpire);
-                handleLaunchAntennaOK();
+                Log.d().removeCallbacks(Log.d(MtvUiPopUpActivity.this));
+                Log.d(MtvUiPopUpActivity.this);
             }
 
             final MtvUiPopUpActivity this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$8;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
                 this$0 = MtvUiPopUpActivity.this;
                 super();
             }
@@ -357,6 +418,7 @@ _L6:
 
     private void handleLaunchAntennaOK()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->handleLaunchAntennaOK()V");
         MtvUtilDebug.High("MtvUiPopUpActivity", "handleLaunchAntennaOK...");
         if(mPreferences == null)
             mPreferences = new MtvPreferences(getApplicationContext());
@@ -366,6 +428,7 @@ _L6:
 
     private void handleLowBatteryOK()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->handleLowBatteryOK()V");
         isBatteryLowPopupAvailable = false;
         MtvUtilAppService.setAppExiting(true);
         finish();
@@ -373,6 +436,7 @@ _L6:
 
     private void handleReservationOK()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->handleReservationOK()V");
         MtvUtilDebug.High("MtvUiPopUpActivity", "handleReservationOK...");
         if(mPreferences == null)
             mPreferences = new MtvPreferences(getApplicationContext());
@@ -383,13 +447,14 @@ _L6:
         intent.setFlags(0x4000000);
         intent.setComponent(new ComponentName("com.samsung.sec.mtv", "com.samsung.sec.mtv.ui.liveplayer.MtvUiLivePlayer"));
         if(mMtvReservationAlertControl != null)
-            mPopupUiMsgHandler.postDelayed(mMtvReservationAlertControl.runnableReenterKeyguard, 2000L);
+            mPopupUiMsgHandler.postDelayed(Log.d(mMtvReservationAlertControl), 2000L);
         startActivity(intent);
         finish();
     }
 
     private void handleSleepTimerOK()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->handleSleepTimerOK()V");
         MtvUtilDebug.High("MtvUiPopUpActivity", "handleSleepTimerOK");
         MtvUtilAppService.setAppExiting(true);
         finish();
@@ -397,11 +462,13 @@ _L6:
 
     public static boolean isBatteryLowPopupAvailable()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->isBatteryLowPopupAvailable()Z");
         return isBatteryLowPopupAvailable;
     }
 
     protected void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         MtvUtilDebug.Low("MtvUiPopUpActivity", "OnCreate");
         requestWindowFeature(1);
@@ -418,6 +485,7 @@ _L6:
 
     protected void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->onDestroy()V");
         MtvUtilDebug.Low("MtvUiPopUpActivity", "OnDestroy");
         isBatteryLowPopupAvailable = false;
         mContext = null;
@@ -432,6 +500,7 @@ _L6:
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->onPause()V");
         MtvUtilDebug.Low("MtvUiPopUpActivity", "OnPause");
         if(mPreferences == null)
             mPreferences = new MtvPreferences(getApplicationContext());
@@ -454,6 +523,7 @@ _L6:
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->onResume()V");
         MtvUtilDebug.Low("MtvUiPopUpActivity", "OnResume");
         super.onResume();
         sendBroadcast(new Intent("intent.stop.app-in-app"));
@@ -478,6 +548,7 @@ _L3:
 
     protected void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V");
         super.onSaveInstanceState(bundle);
         bundle.putBoolean("Alert_title", AnatenaAlertfrom);
     }
@@ -488,9 +559,15 @@ _L3:
 
         public void handleMessage(Message message)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$1;->handleMessage(Landroid/os/Message;)V");
             int _tmp = message.what;
         }
 
+            
+            {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity$1;-><init>()V");
+                super();
+            }
     };
     private boolean AfetrreservationOk;
     private boolean AnatenaAlertfrom;
@@ -506,20 +583,77 @@ _L3:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;-><clinit>()V");
         INTENT_FILTER = new IntentFilter();
         INTENT_FILTER.addAction("android.intent.action.BATTERY_CHANGED");
     }
 
 
+/*
+    static int access$000(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$000(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)I");
+        return mtvuipopupactivity.type;
+    }
+
+*/
 
 
+/*
+    static Runnable access$100(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)Ljava/lang/Runnable;");
+        return mtvuipopupactivity.RunnablePopupExpire;
+    }
+
+*/
 
 
+/*
+    static MtvPreferences access$1000(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$1000(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+        return mtvuipopupactivity.mPreferences;
+    }
+
+*/
+
+
+/*
+    static void access$1100(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$1100(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
+        mtvuipopupactivity.handleLaunchAntennaOK();
+        return;
+    }
+
+*/
+
+
+/*
+    static Context access$1300(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$1300(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)Landroid/content/Context;");
+        return mtvuipopupactivity.mContext;
+    }
+
+*/
+
+
+/*
+    static Handler access$200()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$200()Landroid/os/Handler;");
+        return mPopupUiMsgHandler;
+    }
+
+*/
 
 
 /*
     static boolean access$302(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$302(Z)Z");
         isBatteryLowPopupAvailable = flag;
         return flag;
     }
@@ -527,13 +661,53 @@ _L3:
 */
 
 
+/*
+    static void access$400(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$400(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
+        mtvuipopupactivity.handleLowBatteryOK();
+        return;
+    }
+
+*/
 
 
+/*
+    static void access$500(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$500(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
+        mtvuipopupactivity.handleSleepTimerOK();
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$800(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$800(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)V");
+        mtvuipopupactivity.handleReservationOK();
+        return;
+    }
+
+*/
+
+
+/*
+    static int access$900(MtvUiPopUpActivity mtvuipopupactivity)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$900(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;)I");
+        return mtvuipopupactivity.mReservationId;
+    }
+
+*/
 
 
 /*
     static int access$902(MtvUiPopUpActivity mtvuipopupactivity, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;->access$902(Lcom/samsung/sec/mtv/ui/common/MtvUiPopUpActivity;I)I");
         mtvuipopupactivity.mReservationId = i;
         return i;
     }

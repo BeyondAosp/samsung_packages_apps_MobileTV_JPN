@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.provider.MtvFile;
@@ -31,10 +32,13 @@ public class MtvUiCaptureFrag extends MtvUiFrag
 
     public MtvUiCaptureFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;-><init>()V");
+        super();
     }
 
     private void captureAutoSave()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->captureAutoSave()V");
         if(MtvUtilMemoryStatus.isExternalMemoryAvailable() || MtvUtilMemoryStatus.isInternalMemoryAvailable()) goto _L2; else goto _L1
 _L1:
         saved_file_toast = Toast.makeText(mContext, 0x7f0700cf, 0);
@@ -60,6 +64,7 @@ _L3:
 
     private void initializeUI()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->initializeUI()V");
         MtvUtilDebug.Low("MtvUiCaptureFrag", "initializeUI");
         mPreferences = new MtvPreferences(getActivity().getApplicationContext());
         mCaptureImgView = (ImageView)mLayoutView.findViewById(0x7f0a005c);
@@ -71,6 +76,7 @@ _L3:
 
     private boolean saveFile(Bitmap bitmap)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->saveFile(Landroid/graphics/Bitmap;)Z");
         boolean flag = false;
         MtvUiLivePlayer mtvuiliveplayer = (MtvUiLivePlayer)getActivity();
         MtvUtilDebug.Low("MtvUiCaptureFrag", "saveFile");
@@ -101,6 +107,7 @@ _L3:
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -115,12 +122,14 @@ _L3:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setRetainInstance(true);
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mContext = getActivity().getApplicationContext();
         mLayoutView = layoutinflater.inflate(0x7f030013, null);
         initializeUI();
@@ -129,30 +138,35 @@ _L3:
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->onPause()V");
         super.onPause();
     }
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->onResume()V");
         super.onResume();
     }
 
     public void onStart()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->onStart()V");
         super.onStart();
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->onStop()V");
         super.onStop();
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;->onUpdate(ILjava/lang/Object;)V");
         MtvUtilDebug.Low("MtvUiCaptureFrag", (new StringBuilder()).append("onUpdate: what[").append(i).append("]").toString());
         i;
-        JVM INSTR tableswitch 110 110: default 52
-    //                   110 53;
+        JVM INSTR tableswitch 110 110: default 60
+    //                   110 61;
            goto _L1 _L2
 _L1:
         return;
@@ -189,4 +203,8 @@ _L4:
     private MtvPreferences mPreferences;
     BitmapDrawable mReceivedImage;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiCaptureFrag;-><clinit>()V");
+    }
 }

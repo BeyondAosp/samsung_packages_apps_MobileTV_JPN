@@ -10,6 +10,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.context.*;
@@ -25,6 +26,8 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     public MtvUiStatusBarFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;-><init>()V");
+        super();
         mViewStatusBar = null;
         mMainBarLayout = null;
         mImageViewSignalLevel = null;
@@ -43,6 +46,8 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     public MtvUiStatusBarFrag(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;-><init>(I)V");
+        super();
         mViewStatusBar = null;
         mMainBarLayout = null;
         mImageViewSignalLevel = null;
@@ -62,6 +67,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private int getSignalQuality()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->getSignalQuality()I");
         MtvAppPlaybackContext mtvappplaybackcontext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
         int i;
         if(mtvappplaybackcontext != null)
@@ -73,6 +79,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private final CharSequence getSmallTime()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->getSmallTime()Ljava/lang/CharSequence;");
         SimpleDateFormat simpledateformat;
         if(DateFormat.is24HourFormat(getActivity().getApplicationContext()))
             simpledateformat = new SimpleDateFormat("H:mm");
@@ -83,6 +90,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void initializeUI(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->initializeUI(Landroid/view/View;)V");
         mMainBarLayout = (RelativeLayout)view.findViewById(0x7f0a00d7);
         mMainBarLayout.setBackgroundColor(0x7f060008);
         mImageViewSignalLevel = (ImageView)view.findViewById(0x7f0a00d9);
@@ -107,6 +115,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void setProgramChannelDetails(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->setProgramChannelDetails(Ljava/lang/String;)V");
         String s1 = null;
         String s2 = null;
         if(s != null)
@@ -128,6 +137,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void setStatusBarChannelDetails(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->setStatusBarChannelDetails(Ljava/lang/String;)V");
         if(s != null)
             mChannelName = s;
         else
@@ -138,6 +148,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void setStatusBarProgramDetails(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->setStatusBarProgramDetails(Ljava/lang/String;)V");
         if(s != null)
             mProgramName = s;
         else
@@ -148,6 +159,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void update5_1Channel()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->update5_1Channel()V");
         if(mImageView5_1Channel != null)
         {
             ImageView imageview = mImageView5_1Channel;
@@ -162,6 +174,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void updateBattery()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->updateBattery()V");
         if(mImageViewBattery != null)
         {
             mImageViewBattery.setVisibility(0);
@@ -171,6 +184,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void updateClock()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->updateClock()V");
         mCalendar.setTimeInMillis(System.currentTimeMillis());
         if(mTextViewClock != null)
             mTextViewClock.setText(getSmallTime());
@@ -178,6 +192,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void updateSignalLevel(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->updateSignalLevel(I)V");
         if(i < 0)
             i = 0;
         if(mImageViewSignalLevel != null)
@@ -192,6 +207,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     private void updateSleepTimer()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->updateSleepTimer()V");
         int i = 0;
         boolean flag;
         if(mMtvPreferences.getAutoPowerOffTime() > 0)
@@ -209,12 +225,14 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->onAttach(Landroid/app/Activity;)V");
         MtvUtilDebug.Low("TAG", "onAttach");
         super.onAttach(activity);
     }
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->onCreate(Landroid/os/Bundle;)V");
         MtvUtilDebug.Low("MtvUiStatusBarFrag", "onCreate");
         super.onCreate(bundle);
         setRetainInstance(true);
@@ -223,6 +241,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         MtvUtilDebug.Low("MtvUiStatusBarFrag", "onCreateView");
         mMtvPreferences = new MtvPreferences(getActivity());
         mViewStatusBar = layoutinflater.inflate(0x7f030025, viewgroup, false);
@@ -233,6 +252,7 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     public void onDestroyView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->onDestroyView()V");
         MtvUtilDebug.Low("MtvUiStatusBarFrag", "onDestroyView");
         mMtvPreferences = null;
         super.onDestroyView();
@@ -240,22 +260,24 @@ public class MtvUiStatusBarFrag extends MtvUiFrag
 
     public void onDetach()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->onDetach()V");
         MtvUtilDebug.Low("MtvUiStatusBarFrag", "onDetach");
         super.onDetach();
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;->onUpdate(ILjava/lang/Object;)V");
         MtvUtilDebug.Low("MtvUiStatusBarFrag", (new StringBuilder()).append("onUpdate : what = ").append(i).toString());
         i;
-        JVM INSTR lookupswitch 7: default 92
-    //                   100: 93
-    //                   101: 141
-    //                   102: 202
-    //                   103: 234
-    //                   104: 241
-    //                   105: 248
-    //                   327: 255;
+        JVM INSTR lookupswitch 7: default 104
+    //                   100: 105
+    //                   101: 157
+    //                   102: 218
+    //                   103: 250
+    //                   104: 257
+    //                   105: 264
+    //                   327: 271;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8
 _L1:
         return;
@@ -318,6 +340,7 @@ _L9:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;-><clinit>()V");
         int ai[] = new int[5];
         ai[0] = 0x7f020126;
         ai[1] = 0x7f020127;
@@ -333,6 +356,7 @@ _L9:
 
         public boolean onTouch(View view, MotionEvent motionevent)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag$1;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z");
             return true;
         }
 
@@ -340,6 +364,7 @@ _L9:
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiStatusBarFrag;)V");
             this$0 = MtvUiStatusBarFrag.this;
             super();
         }

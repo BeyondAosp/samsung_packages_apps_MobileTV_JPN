@@ -11,6 +11,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
@@ -25,6 +26,7 @@ class MtvUiBmlAnimation extends Animation
 
     public MtvUiBmlAnimation(Context context, AttributeSet attributeset, MtvAppBml mtvappbml)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/samsung/sec/mtv/app/bml/MtvAppBml;)V");
         super(context, attributeset);
         mMtvPreferences = null;
         mContext = context;
@@ -35,6 +37,7 @@ class MtvUiBmlAnimation extends Animation
 
     public void init()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation;->init()V");
         mbmlanimation = (AnimationDrawable)((Activity)mContext).findViewById(0x7f0a000d).getBackground();
         mbmlAnimTextView = (TextView)((Activity)mContext).findViewById(0x7f0a000e);
         bmlAnimLayout = (RelativeLayout)((Activity)mContext).findViewById(0x7f0a000b);
@@ -42,6 +45,7 @@ class MtvUiBmlAnimation extends Animation
 
     public boolean isRunning()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation;->isRunning()Z");
         boolean flag;
         if(mbmlanimation != null)
         {
@@ -56,6 +60,7 @@ class MtvUiBmlAnimation extends Animation
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation;->onResume()V");
         if(mBmlApp == null) goto _L2; else goto _L1
 _L1:
         mBmlApp.registerBmlAnimationListener(this);
@@ -73,7 +78,9 @@ _L5:
 
     public void setBmlAnimationText(com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlAppAnimMessages bmlappanimmessages)
     {
-        int i = 0x7f07002f;
+        int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation;->setBmlAnimationText(Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlAppAnimMessages;)V");
+        i = 0x7f07002f;
         if(mContext == null) goto _L2; else goto _L1
 _L1:
         static class _cls1
@@ -83,6 +90,7 @@ _L1:
 
             static 
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation$1;-><clinit>()V");
                 $SwitchMap$com$samsung$sec$mtv$app$bml$MtvAppBmlConstants$BmlAppAnimMessages = new int[com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlAppAnimMessages.values().length];
                 NoSuchFieldError nosuchfielderror1;
                 try
@@ -100,9 +108,9 @@ _L1:
         }
 
         _cls1..SwitchMap.com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlAppAnimMessages[bmlappanimmessages.ordinal()];
-        JVM INSTR tableswitch 1 2: default 40
-    //                   1 51
-    //                   2 57;
+        JVM INSTR tableswitch 1 2: default 48
+    //                   1 59
+    //                   2 65;
            goto _L2 _L3 _L4
 _L2:
         animText = mContext.getString(i);
@@ -118,6 +126,7 @@ _L5:
 
     public void startBmlAnimation()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation;->startBmlAnimation()V");
         if(mContext.getResources().getConfiguration().orientation != 2) goto _L2; else goto _L1
 _L1:
         MtvUtilDebug.Low("MtvUiBmlAnimation", "startBmlAnimation: landscape mode return ");
@@ -158,6 +167,7 @@ _L4:
 
     public void stopBmlAnimation()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation;->stopBmlAnimation()V");
         if(mbmlanimation != null)
         {
             MtvUtilDebug.Low("MtvUiBmlAnimation", "stopBmlAnimation: stopping BML animation ");
@@ -177,4 +187,8 @@ _L4:
     private static AnimationDrawable mbmlanimation = null;
     private MtvPreferences mMtvPreferences;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlAnimation;-><clinit>()V");
+    }
 }

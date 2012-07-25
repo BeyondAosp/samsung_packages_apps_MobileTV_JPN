@@ -9,6 +9,7 @@ import android.broadcast.helper.MtvUtilDebug;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.TimePicker;
 import com.samsung.sec.mtv.utility.MtvPreferences;
@@ -19,18 +20,22 @@ public class MtvUiSleepTimerDialogFrag extends DialogFragment
 
     public MtvUiSleepTimerDialogFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;-><init>()V");
+        super();
         mPreferences = null;
         mListener = null;
     }
 
     private AlertDialog createDialogByType(int i)
     {
-        AlertDialog alertdialog = null;
+        AlertDialog alertdialog;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->createDialogByType(I)Landroid/app/AlertDialog;");
+        alertdialog = null;
         i;
-        JVM INSTR tableswitch 0 2: default 28
-    //                   0 30
-    //                   1 321
-    //                   2 486;
+        JVM INSTR tableswitch 0 2: default 36
+    //                   0 38
+    //                   1 329
+    //                   2 494;
            goto _L1 _L2 _L3 _L4
 _L1:
         return alertdialog;
@@ -56,12 +61,12 @@ _L2:
         j1 + 1;
         as[j1] = getString(0x7f070026);
         mPreferences.getAutoPowerOffTime();
-        JVM INSTR lookupswitch 5: default 240
-    //                   0: 291
-    //                   10: 297
-    //                   30: 303
-    //                   60: 309
-    //                   120: 315;
+        JVM INSTR lookupswitch 5: default 248
+    //                   0: 299
+    //                   10: 305
+    //                   30: 311
+    //                   60: 317
+    //                   120: 323;
            goto _L5 _L6 _L7 _L8 _L9 _L10
 _L5:
         byte byte0 = 5;
@@ -110,11 +115,13 @@ _L12:
 
     private int getCustomSleepTime()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->getCustomSleepTime()I");
         return mNewCustomSleepTime;
     }
 
     public static MtvUiSleepTimerDialogFrag newInstance(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->newInstance(Landroid/os/Bundle;)Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;");
         MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag = new MtvUiSleepTimerDialogFrag();
         mtvuisleeptimerdialogfrag.setArguments(bundle);
         return mtvuisleeptimerdialogfrag;
@@ -122,6 +129,7 @@ _L12:
 
     public static void setAlarm(Context context, long l, boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->setAlarm(Landroid/content/Context;JZ)V");
         MtvUtilDebug.Low("MtvUiSleepTimerDialogFrag", (new StringBuilder()).append("setAlarm aftertime_min ").append(l).toString());
         long l1 = l * 60L;
         if(l < 1L)
@@ -143,14 +151,16 @@ _L12:
 
     private void setAutoTimer(Context context, int i)
     {
-        boolean flag = true;
+        boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->setAutoTimer(Landroid/content/Context;I)V");
+        flag = true;
         i;
-        JVM INSTR tableswitch 0 4: default 36
-    //                   0 76
-    //                   1 86
-    //                   2 95
-    //                   3 104
-    //                   4 113;
+        JVM INSTR tableswitch 0 4: default 48
+    //                   0 89
+    //                   1 100
+    //                   2 109
+    //                   3 118
+    //                   4 127;
            goto _L1 _L2 _L3 _L4 _L5 _L6
 _L1:
         mPreferences.setAutoPowerOffTime(mNewCustomSleepTime);
@@ -179,11 +189,13 @@ _L7:
 
     private void setCustomSleepTime(int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->setCustomSleepTime(II)V");
         mNewCustomSleepTime = j + i * 60;
     }
 
     public Dialog onCreateDialog(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
         mPreferences = new MtvPreferences(getActivity().getApplicationContext());
         mListener = (MtvUiFrag.IMtvFragEventListener)getActivity();
         Bundle bundle1 = getArguments();
@@ -206,10 +218,20 @@ _L7:
     private MtvPreferences mPreferences;
 
 
+/*
+    static Context access$000(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$000(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;)Landroid/content/Context;");
+        return mtvuisleeptimerdialogfrag.mContext;
+    }
+
+*/
+
 
 /*
     static Context access$002(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag, Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$002(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;Landroid/content/Context;)Landroid/content/Context;");
         mtvuisleeptimerdialogfrag.mContext = context;
         return context;
     }
@@ -217,12 +239,42 @@ _L7:
 */
 
 
+/*
+    static AlertDialog access$100(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;I)Landroid/app/AlertDialog;");
+        return mtvuisleeptimerdialogfrag.createDialogByType(i);
+    }
 
+*/
+
+
+/*
+    static void access$200(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag, Context context, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$200(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;Landroid/content/Context;I)V");
+        mtvuisleeptimerdialogfrag.setAutoTimer(context, i);
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$300(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag, int i, int j)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$300(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;II)V");
+        mtvuisleeptimerdialogfrag.setCustomSleepTime(i, j);
+        return;
+    }
+
+*/
 
 
 /*
     static int access$402(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$402(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;I)I");
         mtvuisleeptimerdialogfrag.mNewCustomSleepTime = i;
         return i;
     }
@@ -230,12 +282,40 @@ _L7:
 */
 
 
+/*
+    static int access$500(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$500(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;)I");
+        return mtvuisleeptimerdialogfrag.getCustomSleepTime();
+    }
 
+*/
+
+
+/*
+    static MtvPreferences access$600(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$600(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+        return mtvuisleeptimerdialogfrag.mPreferences;
+    }
+
+*/
+
+
+/*
+    static MtvUiFrag.IMtvFragEventListener access$700(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$700(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;)Lcom/samsung/sec/mtv/ui/common/MtvUiFrag$IMtvFragEventListener;");
+        return mtvuisleeptimerdialogfrag.mListener;
+    }
+
+*/
 
 
 /*
     static MtvUiFrag.IMtvFragEventListener access$702(MtvUiSleepTimerDialogFrag mtvuisleeptimerdialogfrag, MtvUiFrag.IMtvFragEventListener imtvfrageventlistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;->access$702(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;Lcom/samsung/sec/mtv/ui/common/MtvUiFrag$IMtvFragEventListener;)Lcom/samsung/sec/mtv/ui/common/MtvUiFrag$IMtvFragEventListener;");
         mtvuisleeptimerdialogfrag.mListener = imtvfrageventlistener;
         return imtvfrageventlistener;
     }
@@ -248,16 +328,17 @@ _L7:
 
         public void onClick(DialogInterface dialoginterface, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$1;->onClick(Landroid/content/DialogInterface;I)V");
             MtvUtilDebug.Low("MtvUiSleepTimerDialogFrag", (new StringBuilder()).append("which button = ").append(String.valueOf(i)).toString());
             if(i == 5)
             {
-                mContext = getActivity().getApplicationContext();
-                AlertDialog alertdialog = createDialogByType(1);
+                Log.d(MtvUiSleepTimerDialogFrag.this, getActivity().getApplicationContext());
+                AlertDialog alertdialog = Log.d(MtvUiSleepTimerDialogFrag.this, 1);
                 alertdialog.show();
                 alertdialog.getWindow().addFlags(1024);
             } else
             {
-                setAutoTimer(getActivity(), i);
+                Log.d(MtvUiSleepTimerDialogFrag.this, getActivity(), i);
             }
             dialoginterface.dismiss();
         }
@@ -266,6 +347,7 @@ _L7:
 
         _cls1()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;)V");
             this$0 = MtvUiSleepTimerDialogFrag.this;
             super();
         }
@@ -278,13 +360,14 @@ _L7:
 
         public void onTimeChanged(TimePicker timepicker, int i, int j)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$2;->onTimeChanged(Landroid/widget/TimePicker;II)V");
             if(i >= 12)
             {
                 i %= 12;
                 timePicker.setCurrentHour(Integer.valueOf(i));
             }
             timePicker.setCurrentHour(Integer.valueOf(i));
-            setCustomSleepTime(i, j);
+            Log.d(MtvUiSleepTimerDialogFrag.this, i, j);
         }
 
         final MtvUiSleepTimerDialogFrag this$0;
@@ -292,6 +375,7 @@ _L7:
 
         _cls2()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;Landroid/widget/TimePicker;)V");
             this$0 = MtvUiSleepTimerDialogFrag.this;
             timePicker = timepicker;
             super();
@@ -305,12 +389,13 @@ _L7:
 
         public void onClick(DialogInterface dialoginterface, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$4;->onClick(Landroid/content/DialogInterface;I)V");
             timePicker.requestFocus();
-            mNewCustomSleepTime = getCustomSleepTime();
-            setAutoTimer(mContext, 5);
-            if(mContext == null)
+            Log.d(MtvUiSleepTimerDialogFrag.this, Log.d(MtvUiSleepTimerDialogFrag.this));
+            Log.d(MtvUiSleepTimerDialogFrag.this, Log.d(MtvUiSleepTimerDialogFrag.this), 5);
+            if(Log.d(MtvUiSleepTimerDialogFrag.this) == null)
                 MtvUtilDebug.Low("MtvUiSleepTimerDialogFrag", "CONTEXT NULL");
-            mContext = null;
+            Log.d(MtvUiSleepTimerDialogFrag.this, null);
         }
 
         final MtvUiSleepTimerDialogFrag this$0;
@@ -318,6 +403,7 @@ _L7:
 
         _cls4()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$4;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;Landroid/widget/TimePicker;)V");
             this$0 = MtvUiSleepTimerDialogFrag.this;
             timePicker = timepicker;
             super();
@@ -331,12 +417,14 @@ _L7:
 
         public void onClick(DialogInterface dialoginterface, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$3;->onClick(Landroid/content/DialogInterface;I)V");
         }
 
         final MtvUiSleepTimerDialogFrag this$0;
 
         _cls3()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$3;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;)V");
             this$0 = MtvUiSleepTimerDialogFrag.this;
             super();
         }
@@ -349,14 +437,16 @@ _L7:
 
         public void onClick(DialogInterface dialoginterface, int i)
         {
-            mListener.onFragEvent(231, null);
-            mListener = null;
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$6;->onClick(Landroid/content/DialogInterface;I)V");
+            Log.d(MtvUiSleepTimerDialogFrag.this).onFragEvent(231, null);
+            Log.d(MtvUiSleepTimerDialogFrag.this, null);
         }
 
         final MtvUiSleepTimerDialogFrag this$0;
 
         _cls6()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$6;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;)V");
             this$0 = MtvUiSleepTimerDialogFrag.this;
             super();
         }
@@ -369,14 +459,16 @@ _L7:
 
         public void onClick(DialogInterface dialoginterface, int i)
         {
-            MtvUiSleepTimerDialogFrag.setAlarm(getActivity(), mPreferences.getAutoPowerOffTime(), true);
-            mListener = null;
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$5;->onClick(Landroid/content/DialogInterface;I)V");
+            MtvUiSleepTimerDialogFrag.setAlarm(getActivity(), Log.d(MtvUiSleepTimerDialogFrag.this).getAutoPowerOffTime(), true);
+            Log.d(MtvUiSleepTimerDialogFrag.this, null);
         }
 
         final MtvUiSleepTimerDialogFrag this$0;
 
         _cls5()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag$5;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSleepTimerDialogFrag;)V");
             this$0 = MtvUiSleepTimerDialogFrag.this;
             super();
         }

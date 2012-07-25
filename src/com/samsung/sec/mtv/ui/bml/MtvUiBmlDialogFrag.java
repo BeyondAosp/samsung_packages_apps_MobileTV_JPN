@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.method.NumberKeyListener;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
@@ -35,10 +36,11 @@ public class MtvUiBmlDialogFrag extends MtvUiFrag
 
         public void onClick(DialogInterface dialoginterface, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$InputDialogListener;->onClick(Landroid/content/DialogInterface;I)V");
             byte abyte1[] = edit.getText().toString().getBytes("UTF-8");
             byte abyte0[] = abyte1;
 _L1:
-            MtvAppBml mtvappbml = MtvUiBmlDialogFrag.mBmlApp;
+            MtvAppBml mtvappbml = Log.d();
             UnsupportedEncodingException unsupportedencodingexception;
             boolean flag;
             if(i == -1)
@@ -47,7 +49,7 @@ _L1:
                 flag = false;
             mtvappbml.appExIMEEndPeer(flag, abyte0);
             mInputManager.toggleSoftInput(2, 0);
-            mBMLdiag = null;
+            Log.d(MtvUiBmlDialogFrag.this, null);
             return;
             unsupportedencodingexception;
             MtvUtilDebug.Low("MtvUiBmlDialog", "InputDialogListener - text input fail!!");
@@ -60,6 +62,7 @@ _L1:
 
         public InputDialogListener(EditText edittext)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$InputDialogListener;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;Landroid/widget/EditText;)V");
             this$0 = MtvUiBmlDialogFrag.this;
             super();
             edit = edittext;
@@ -69,6 +72,8 @@ _L1:
 
     public MtvUiBmlDialogFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;-><init>()V");
+        super();
         cmd = 0;
         mbtnNum = 0;
         mdialogMessege = null;
@@ -82,6 +87,7 @@ _L1:
 
     public static MtvUiBmlDialogFrag getInstance()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->getInstance()Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;");
         if(BmlDialogFrag == null)
             BmlDialogFrag = new MtvUiBmlDialogFrag();
         return BmlDialogFrag;
@@ -91,6 +97,7 @@ _L1:
     {
         View view;
         EditText edittext;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->IMEStartPeer([BZZII)V");
         view = LayoutInflater.from(mContext).inflate(0x7f03000e, null);
         String s = MtvAppBml.byteArrayToString(abyte0);
         edittext = (EditText)view.findViewById(0x7f0a0047);
@@ -105,20 +112,20 @@ _L1:
             edittext.setFilters(ainputfilter);
         }
         i;
-        JVM INSTR tableswitch 0 12: default 184
-    //                   0 184
-    //                   1 184
-    //                   2 184
-    //                   3 184
-    //                   4 184
-    //                   5 304
-    //                   6 328
-    //                   7 350
-    //                   8 372
-    //                   9 383
-    //                   10 407
-    //                   11 429
-    //                   12 440;
+        JVM INSTR tableswitch 0 12: default 192
+    //                   0 192
+    //                   1 192
+    //                   2 192
+    //                   3 192
+    //                   4 192
+    //                   5 312
+    //                   6 336
+    //                   7 358
+    //                   8 380
+    //                   9 391
+    //                   10 415
+    //                   11 437
+    //                   12 448;
            goto _L1 _L1 _L1 _L1 _L1 _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9
 _L1:
         if(!flag1)
@@ -140,6 +147,7 @@ _L2:
 
             protected char[] getAcceptedChars()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$4;->getAcceptedChars()[C");
                 char ac[] = new char[27];
                 ac[0] = 'A';
                 ac[1] = 'B';
@@ -173,6 +181,7 @@ _L2:
 
             public int getInputType()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$4;->getInputType()I");
                 return 4096;
             }
 
@@ -180,6 +189,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$4;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;)V");
                 this$0 = MtvUiBmlDialogFrag.this;
                 super();
             }
@@ -191,6 +201,7 @@ _L3:
 
             protected char[] getAcceptedChars()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$5;->getAcceptedChars()[C");
                 char ac[] = new char[27];
                 ac[0] = 'a';
                 ac[1] = 'b';
@@ -224,6 +235,7 @@ _L3:
 
             public int getInputType()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$5;->getInputType()I");
                 return 1;
             }
 
@@ -231,6 +243,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$5;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;)V");
                 this$0 = MtvUiBmlDialogFrag.this;
                 super();
             }
@@ -242,6 +255,7 @@ _L4:
 
             protected char[] getAcceptedChars()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$6;->getAcceptedChars()[C");
                 char ac[] = new char[10];
                 ac[0] = '0';
                 ac[1] = '1';
@@ -258,6 +272,7 @@ _L4:
 
             public int getInputType()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$6;->getInputType()I");
                 return 3;
             }
 
@@ -265,6 +280,7 @@ _L4:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$6;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;)V");
                 this$0 = MtvUiBmlDialogFrag.this;
                 super();
             }
@@ -279,6 +295,7 @@ _L6:
 
             protected char[] getAcceptedChars()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$7;->getAcceptedChars()[C");
                 char ac[] = new char[37];
                 ac[0] = '0';
                 ac[1] = '1';
@@ -322,6 +339,7 @@ _L6:
 
             public int getInputType()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$7;->getInputType()I");
                 return 28673;
             }
 
@@ -329,6 +347,7 @@ _L6:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$7;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;)V");
                 this$0 = MtvUiBmlDialogFrag.this;
                 super();
             }
@@ -340,6 +359,7 @@ _L7:
 
             protected char[] getAcceptedChars()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$8;->getAcceptedChars()[C");
                 char ac[] = new char[37];
                 ac[0] = '0';
                 ac[1] = '1';
@@ -383,6 +403,7 @@ _L7:
 
             public int getInputType()
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$8;->getInputType()I");
                 return 1;
             }
 
@@ -390,6 +411,7 @@ _L7:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$8;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;)V");
                 this$0 = MtvUiBmlDialogFrag.this;
                 super();
             }
@@ -406,6 +428,7 @@ _L10:
 
     public void destroyBMLDialog()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->destroyBMLDialog()V");
         if(mFragHandler != null && mFragHandler.isFragPresent(16) && isAdded())
             mFragHandler.removeFrag(16);
         if(dialog != null && dialog.isShowing())
@@ -414,30 +437,36 @@ _L10:
 
     public int getBtnNum()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->getBtnNum()I");
         return mbtnNum;
     }
 
     public int getCmd()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->getCmd()I");
         return cmd;
     }
 
     public String getDialogMessege()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->getDialogMessege()Ljava/lang/String;");
         return mdialogMessege;
     }
 
     public void halt()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->halt()V");
     }
 
     public boolean isDialogSet()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->isDialogSet()Z");
         return isBMLDialogParameterSet;
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         if(bundle != null)
         {
             savedDialogState = bundle;
@@ -450,6 +479,7 @@ _L10:
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->onResume()V");
         super.onResume();
         if(mBmlApp != null)
             mBmlApp.registerBmlDialogListener(getInstance());
@@ -457,12 +487,14 @@ _L10:
 
     public void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->onSaveInstanceState(Landroid/os/Bundle;)V");
         super.onSaveInstanceState(bundle);
         bundle.putBoolean("bml_dialog_popup", mDialogShowing);
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->onStop()V");
         super.onStop();
         if(mBmlApp != null)
             mBmlApp.registerBmlDialogListener(getInstance());
@@ -470,6 +502,7 @@ _L10:
 
     public void setAppcomponents(MtvAppBml mtvappbml, MtvUiFragHandler mtvuifraghandler, Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->setAppcomponents(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;Landroid/content/Context;)V");
         mBmlApp = mtvappbml;
         mFragHandler = mtvuifraghandler;
         mContext = context;
@@ -485,22 +518,27 @@ _L10:
 
     public void setBtnNum(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->setBtnNum(I)V");
         mbtnNum = i;
     }
 
     public void setCmd(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->setCmd(I)V");
         cmd = i;
     }
 
     public void setDialogBtnNum(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->setDialogBtnNum(I)V");
         setBtnNum(i);
     }
 
     public void setDialogMessege(com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.AppBmlDialogMessages appbmldialogmessages)
     {
-        int i = -1;
+        int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->setDialogMessege(Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlDialogMessages;)V");
+        i = -1;
         static class _cls9
         {
 
@@ -508,6 +546,7 @@ _L10:
 
             static 
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$9;-><clinit>()V");
                 $SwitchMap$com$samsung$sec$mtv$app$bml$MtvAppBmlConstants$AppBmlDialogMessages = new int[com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.AppBmlDialogMessages.values().length];
                 NoSuchFieldError nosuchfielderror65;
                 try
@@ -845,78 +884,78 @@ _L1:
         }
 
         _cls9..SwitchMap.com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.AppBmlDialogMessages[appbmldialogmessages.ordinal()];
-        JVM INSTR tableswitch 1 66: default 288
-    //                   1 313
-    //                   2 320
-    //                   3 327
-    //                   4 334
-    //                   5 341
-    //                   6 348
-    //                   7 355
-    //                   8 362
-    //                   9 369
-    //                   10 376
-    //                   11 383
-    //                   12 390
-    //                   13 397
-    //                   14 404
-    //                   15 411
-    //                   16 418
-    //                   17 425
-    //                   18 432
-    //                   19 439
-    //                   20 446
-    //                   21 453
-    //                   22 460
-    //                   23 467
-    //                   24 474
-    //                   25 481
-    //                   26 488
-    //                   27 495
-    //                   28 502
-    //                   29 509
-    //                   30 516
-    //                   31 523
-    //                   32 530
-    //                   33 537
-    //                   34 544
-    //                   35 551
-    //                   36 558
-    //                   37 565
-    //                   38 572
-    //                   39 579
-    //                   40 586
-    //                   41 593
-    //                   42 600
-    //                   43 607
-    //                   44 614
-    //                   45 621
-    //                   46 628
-    //                   47 635
-    //                   48 642
-    //                   49 649
-    //                   50 656
-    //                   51 663
-    //                   52 670
-    //                   53 677
-    //                   54 684
-    //                   55 691
-    //                   56 698
-    //                   57 705
-    //                   58 712
-    //                   59 719
-    //                   60 726
-    //                   61 733
-    //                   62 740
-    //                   63 747
-    //                   64 754
-    //                   65 761
-    //                   66 768;
+        JVM INSTR tableswitch 1 66: default 300
+    //                   1 325
+    //                   2 332
+    //                   3 339
+    //                   4 346
+    //                   5 353
+    //                   6 360
+    //                   7 367
+    //                   8 374
+    //                   9 381
+    //                   10 388
+    //                   11 395
+    //                   12 402
+    //                   13 409
+    //                   14 416
+    //                   15 423
+    //                   16 430
+    //                   17 437
+    //                   18 444
+    //                   19 451
+    //                   20 458
+    //                   21 465
+    //                   22 472
+    //                   23 479
+    //                   24 486
+    //                   25 493
+    //                   26 500
+    //                   27 507
+    //                   28 514
+    //                   29 521
+    //                   30 528
+    //                   31 535
+    //                   32 542
+    //                   33 549
+    //                   34 556
+    //                   35 563
+    //                   36 570
+    //                   37 577
+    //                   38 584
+    //                   39 591
+    //                   40 598
+    //                   41 605
+    //                   42 612
+    //                   43 619
+    //                   44 626
+    //                   45 633
+    //                   46 640
+    //                   47 647
+    //                   48 654
+    //                   49 661
+    //                   50 668
+    //                   51 675
+    //                   52 682
+    //                   53 689
+    //                   54 696
+    //                   55 703
+    //                   56 710
+    //                   57 717
+    //                   58 724
+    //                   59 731
+    //                   60 738
+    //                   61 745
+    //                   62 752
+    //                   63 759
+    //                   64 766
+    //                   65 773
+    //                   66 780;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L23 _L24 _L25 _L26 _L27 _L28 _L29 _L30 _L31 _L32 _L33 _L34 _L35 _L36 _L37 _L38 _L39 _L40 _L41 _L42 _L43 _L44 _L45 _L46 _L47 _L48 _L49 _L50 _L51 _L52 _L53 _L54 _L55 _L56 _L57 _L58 _L59 _L60 _L61 _L62 _L63 _L64 _L65 _L66 _L67
 _L1:
         break; /* Loop/switch isn't completed */
 _L67:
-        break MISSING_BLOCK_LABEL_768;
+        break MISSING_BLOCK_LABEL_780;
 _L68:
         if(mContext != null)
         {
@@ -1129,6 +1168,7 @@ _L66:
     public boolean showBMLDialog(final int cmd)
     {
         boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->showBMLDialog(I)Z");
         flag = false;
         MtvUtilDebug.Low("MtvUiBmlDialog", (new StringBuilder()).append("showDialogForBML : Entered cmd").append(cmd).toString());
         setCmd(cmd);
@@ -1164,25 +1204,26 @@ _L2:
 
                     public void onClick(DialogInterface dialoginterface, int i)
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$1;->onClick(Landroid/content/DialogInterface;I)V");
                         if(cmd == 6)
                         {
-                            MtvUiBmlDialogFrag.mBmlApp.setUserName(((EditText)((Activity)mContext).findViewById(0x7f0a0042)).getText().toString().getBytes());
-                            MtvUiBmlDialogFrag.mBmlApp.setPrevUserPassWd(((EditText)((Activity)mContext).findViewById(0x7f0a0044)).getText().toString());
-                            if(((CheckBox)((Activity)mContext).findViewById(0x7f0a0045)).isChecked())
+                            Log.d().setUserName(((EditText)((Activity)Log.d(MtvUiBmlDialogFrag.this)).findViewById(0x7f0a0042)).getText().toString().getBytes());
+                            Log.d().setPrevUserPassWd(((EditText)((Activity)Log.d(MtvUiBmlDialogFrag.this)).findViewById(0x7f0a0044)).getText().toString());
+                            if(((CheckBox)((Activity)Log.d(MtvUiBmlDialogFrag.this)).findViewById(0x7f0a0045)).isChecked())
                             {
-                                MtvUiBmlDialogFrag.mBmlApp.storeUserName(true);
-                                MtvUiBmlDialogFrag.mBmlApp.storeUserPasswd(true);
+                                Log.d().storeUserName(true);
+                                Log.d().storeUserPasswd(true);
                             }
                         }
                         dialoginterface.dismiss();
                         MtvUiBmlDialogFrag.mDialogShowing = false;
-                        isBMLDialogParameterSet = false;
-                        mBMLdiag = null;
+                        Log.d(MtvUiBmlDialogFrag.this, 0);
+                        Log.d(MtvUiBmlDialogFrag.this, null);
                         MtvUtilDebug.Low("MtvUiBmlDialog", "showDialogForBML: Yes is selected");
-                        if(MtvUiBmlDialogFrag.mBmlApp != null)
-                            MtvUiBmlDialogFrag.mBmlApp.sendDialogReply(com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlDialogReply.MTV_APP_BML_DIALOG_REPLAY_YES, cmd);
-                        if(MtvUiBmlDialogFrag.mFragHandler != null && MtvUiBmlDialogFrag.mFragHandler.isFragPresent(16) && isAdded())
-                            MtvUiBmlDialogFrag.mFragHandler.removeFrag(16);
+                        if(Log.d() != null)
+                            Log.d().sendDialogReply(com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlDialogReply.MTV_APP_BML_DIALOG_REPLAY_YES, cmd);
+                        if(Log.d() != null && Log.d().isFragPresent(16) && isAdded())
+                            Log.d().removeFrag(16);
                     }
 
                     final MtvUiBmlDialogFrag this$0;
@@ -1190,6 +1231,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;I)V");
                 this$0 = MtvUiBmlDialogFrag.this;
                 cmd = i;
                 super();
@@ -1200,16 +1242,17 @@ _L2:
 
                         public void onClick(DialogInterface dialoginterface, int i)
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$2;->onClick(Landroid/content/DialogInterface;I)V");
                             dialoginterface.dismiss();
                             MtvUiBmlDialogFrag.mDialogShowing = false;
-                            isBMLDialogParameterSet = false;
-                            if(MtvUiBmlDialogFrag.mFragHandler != null && MtvUiBmlDialogFrag.mFragHandler.isFragPresent(16) && isAdded())
-                                MtvUiBmlDialogFrag.mFragHandler.removeFrag(16);
-                            mBMLdiag = null;
+                            Log.d(MtvUiBmlDialogFrag.this, 0);
+                            if(Log.d() != null && Log.d().isFragPresent(16) && isAdded())
+                                Log.d().removeFrag(16);
+                            Log.d(MtvUiBmlDialogFrag.this, null);
                             MtvUtilDebug.Low("MtvUiBmlDialog", "showDialogForBML: Cancel is selected");
-                            MtvUiBmlDialogFrag.mBmlApp.sendDialogReply(com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlDialogReply.MTV_APP_BML_DIALOG_REPLAY_NO, cmd);
-                            if(mContext instanceof MtvUiTvLinks)
-                                ((Activity)mContext).finish();
+                            Log.d().sendDialogReply(com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlDialogReply.MTV_APP_BML_DIALOG_REPLAY_NO, cmd);
+                            if(Log.d(MtvUiBmlDialogFrag.this) instanceof MtvUiTvLinks)
+                                ((Activity)Log.d(MtvUiBmlDialogFrag.this)).finish();
                         }
 
                         final MtvUiBmlDialogFrag this$0;
@@ -1217,6 +1260,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$2;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;I)V");
                 this$0 = MtvUiBmlDialogFrag.this;
                 cmd = i;
                 super();
@@ -1226,14 +1270,15 @@ _L2:
 
                     public void onCancel(DialogInterface dialoginterface)
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$3;->onCancel(Landroid/content/DialogInterface;)V");
                         dialoginterface.dismiss();
                         MtvUiBmlDialogFrag.mDialogShowing = false;
-                        isBMLDialogParameterSet = false;
-                        mBMLdiag = null;
+                        Log.d(MtvUiBmlDialogFrag.this, 0);
+                        Log.d(MtvUiBmlDialogFrag.this, null);
                         MtvUtilDebug.Low("MtvUiBmlDialog", "showDialogForBML: Back is selected");
-                        if(MtvUiBmlDialogFrag.mFragHandler != null && MtvUiBmlDialogFrag.mFragHandler.isFragPresent(16) && isAdded())
-                            MtvUiBmlDialogFrag.mFragHandler.removeFrag(16);
-                        MtvUiBmlDialogFrag.mBmlApp.sendDialogReply(com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlDialogReply.MTV_APP_BML_DIALOG_REPLAY_NO, cmd);
+                        if(Log.d() != null && Log.d().isFragPresent(16) && isAdded())
+                            Log.d().removeFrag(16);
+                        Log.d().sendDialogReply(com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.BmlDialogReply.MTV_APP_BML_DIALOG_REPLAY_NO, cmd);
                     }
 
                     final MtvUiBmlDialogFrag this$0;
@@ -1241,6 +1286,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag$3;-><init>(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;I)V");
                 this$0 = MtvUiBmlDialogFrag.this;
                 cmd = i;
                 super();
@@ -1271,13 +1317,36 @@ _L3:
     private int mbtnNum;
     private String mdialogMessege;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;-><clinit>()V");
+    }
 
 
+/*
+    static Context access$000(MtvUiBmlDialogFrag mtvuibmldialogfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->access$000(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;)Landroid/content/Context;");
+        return mtvuibmldialogfrag.mContext;
+    }
+
+*/
+
+
+/*
+    static MtvAppBml access$100()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->access$100()Lcom/samsung/sec/mtv/app/bml/MtvAppBml;");
+        return mBmlApp;
+    }
+
+*/
 
 
 /*
     static boolean access$202(MtvUiBmlDialogFrag mtvuibmldialogfrag, boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->access$202(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;Z)Z");
         mtvuibmldialogfrag.isBMLDialogParameterSet = flag;
         return flag;
     }
@@ -1288,10 +1357,20 @@ _L3:
 /*
     static AlertDialog access$302(MtvUiBmlDialogFrag mtvuibmldialogfrag, AlertDialog alertdialog)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->access$302(Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;");
         mtvuibmldialogfrag.mBMLdiag = alertdialog;
         return alertdialog;
     }
 
 */
 
+
+/*
+    static MtvUiFragHandler access$400()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/bml/MtvUiBmlDialogFrag;->access$400()Lcom/samsung/sec/mtv/ui/common/MtvUiFragHandler;");
+        return mFragHandler;
+    }
+
+*/
 }

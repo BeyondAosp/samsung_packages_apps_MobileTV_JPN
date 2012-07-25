@@ -6,16 +6,20 @@ package com.samsung.sec.mtv.utility;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 
 public class MtvAreaStationInfo
 {
 
     public MtvAreaStationInfo()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvAreaStationInfo;-><init>()V");
+        super();
     }
 
     public static String getStringByResourceName(Context context, String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvAreaStationInfo;->getStringByResourceName(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;");
         String s1 = null;
         int i = context.getResources().getIdentifier((new StringBuilder()).append("com.samsung.sec.mtv:string/").append(s).toString(), null, null);
         if(i != 0)
@@ -31,6 +35,7 @@ public class MtvAreaStationInfo
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvAreaStationInfo;-><clinit>()V");
         String as[] = new String[8];
         as[0] = "DTV_AREA_1";
         as[1] = "DTV_AREA_2";

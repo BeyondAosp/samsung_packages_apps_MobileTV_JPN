@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.context.*;
@@ -29,6 +30,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
         public void onCreate(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$MemCardErrFragment;->onCreate(Landroid/os/Bundle;)V");
             super.onCreate(bundle);
             if(bundle != null)
                 messageStringId = bundle.getInt("messageStringId", -1);
@@ -36,6 +38,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$MemCardErrFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             String s = "";
             if(messageStringId != -1)
                 s = getString(messageStringId);
@@ -45,12 +48,14 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
                 public void onClick(DialogInterface dialoginterface, int i)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$MemCardErrFragment$1;->onClick(Landroid/content/DialogInterface;I)V");
                 }
 
                 final MemCardErrFragment this$0;
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$MemCardErrFragment$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$MemCardErrFragment;)V");
                     this$0 = MemCardErrFragment.this;
                     super();
                 }
@@ -61,6 +66,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
         public void onSaveInstanceState(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$MemCardErrFragment;->onSaveInstanceState(Landroid/os/Bundle;)V");
             bundle.putInt("messageStringId", messageStringId);
             super.onSaveInstanceState(bundle);
         }
@@ -69,11 +75,15 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
         public MemCardErrFragment()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$MemCardErrFragment;-><init>()V");
+            super();
             messageStringId = -1;
         }
 
         public MemCardErrFragment(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$MemCardErrFragment;-><init>(I)V");
+            super();
             messageStringId = -1;
             messageStringId = i;
         }
@@ -84,12 +94,14 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
         public void onCreate(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$SaveToDialogFragment;->onCreate(Landroid/os/Bundle;)V");
             super.onCreate(bundle);
             mPreference = new MtvPreferences(getActivity());
         }
 
         public Dialog onCreateDialog(Bundle bundle)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$SaveToDialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;");
             int i = 0;
             String as[] = new String[2];
             as[i] = getActivity().getString(0x7f0700b4);
@@ -100,8 +112,9 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
                 public void onClick(DialogInterface dialoginterface, int j)
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$SaveToDialogFragment$1;->onClick(Landroid/content/DialogInterface;I)V");
                     if(j == 0)
-                        mPreference.setSaveToStorage(1);
+                        Log.d(SaveToDialogFragment.this).setSaveToStorage(1);
                     else
                     if(!MtvUtilMemoryStatus.isExternalMemoryAvailable())
                         (new MemCardErrFragment(0x7f0700ca)).show(getFragmentManager(), "MemCardErrFragment");
@@ -109,7 +122,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
                     if(MtvUtilMemoryStatus.getAvailableExternalMemorySize() < 0x204000L)
                         (new MemCardErrFragment(0x7f0700cb)).show(getFragmentManager(), "MemCardErrFragment");
                     else
-                        mPreference.setSaveToStorage(0);
+                        Log.d(SaveToDialogFragment.this).setSaveToStorage(0);
                     dialoginterface.dismiss();
                 }
 
@@ -117,6 +130,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
                 _cls1()
                 {
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$SaveToDialogFragment$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$SaveToDialogFragment;)V");
                     this$0 = SaveToDialogFragment.this;
                     super();
                 }
@@ -133,8 +147,19 @@ public class MtvUiSettingsFrag extends MtvUiFrag
         private MtvPreferences mPreference;
 
 
+/*
+        static MtvPreferences access$200(SaveToDialogFragment savetodialogfragment)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$SaveToDialogFragment;->access$200(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$SaveToDialogFragment;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+            return savetodialogfragment.mPreference;
+        }
+
+*/
+
         public SaveToDialogFragment()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$SaveToDialogFragment;-><init>()V");
+            super();
             mPreference = null;
         }
     }
@@ -142,6 +167,8 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     public MtvUiSettingsFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;-><init>()V");
+        super();
         mView = null;
         mMtvAudioManager = null;
         settingsType = -1;
@@ -149,6 +176,8 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     public MtvUiSettingsFrag(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;-><init>(I)V");
+        super();
         mView = null;
         mMtvAudioManager = null;
         settingsType = -1;
@@ -156,6 +185,8 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     public MtvUiSettingsFrag(int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;-><init>(II)V");
+        super();
         mView = null;
         mMtvAudioManager = null;
         settingsType = -1;
@@ -164,6 +195,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private void changeBrightnessLevel()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->changeBrightnessLevel()V");
         android.view.WindowManager.LayoutParams layoutparams = getActivity().getWindow().getAttributes();
         layoutparams.screenBrightness = mPreferences.getBrightnessValue();
         getActivity().getWindow().setAttributes(layoutparams);
@@ -171,16 +203,19 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     public static boolean changeColorTone(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->changeColorTone(I)Z");
         return true;
     }
 
     public static boolean changeOutdoorVisibility(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->changeOutdoorVisibility(Z)Z");
         return true;
     }
 
     private void initializeAudioUI()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->initializeAudioUI()V");
         ((Button)mView.findViewById(0x7f0a00ba)).setOnClickListener(this);
         ((Button)mView.findViewById(0x7f0a00bb)).setOnClickListener(this);
         ((Button)mView.findViewById(0x7f0a00bc)).setOnClickListener(this);
@@ -203,6 +238,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private void initializeDisplayUI()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->initializeDisplayUI()V");
         mSeekBar = (SeekBar)mView.findViewById(0x7f0a00c8);
         mSeekBar.setMax(5);
         mSeekBar.setOnSeekBarChangeListener(brightnessSeekBarChangeListener);
@@ -232,6 +268,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private void setBrightnessLevel(int i, boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->setBrightnessLevel(IZ)V");
         mSeekBar.setProgress(i);
         if(flag)
             mPreferences.setBrightnessLevel(i);
@@ -239,6 +276,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private void toggleCaption()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->toggleCaption()V");
         boolean flag;
         if(mPreferences.isCaptionEnabled())
             flag = false;
@@ -252,6 +290,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private void toggleFrameInterpolation()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->toggleFrameInterpolation()V");
         int i = 1;
         int j;
         CheckBox checkbox;
@@ -270,6 +309,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private void toggleOutdoorVisibility()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->toggleOutdoorVisibility()V");
         boolean flag;
         CheckBox checkbox;
         if(mPreferences.isOutdoorVisibility())
@@ -287,6 +327,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private transient void toggle_5_1Channel(int ai[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->toggle_5_1Channel([I)V");
         boolean flag;
         CheckBox checkbox;
         if(mPreferences.isAudio51Enabled())
@@ -319,6 +360,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private transient void updateAudioEffects(int ai[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->updateAudioEffects([I)V");
         int ai1[] = new int[5];
         ai1[0] = 0x7f0a00ba;
         ai1[1] = 0x7f0a00bb;
@@ -347,6 +389,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private transient void updateAudioLanguage(int ai[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->updateAudioLanguage([I)V");
         int ai1[] = new int[3];
         ai1[0] = 0x7f0a00c2;
         ai1[1] = 0x7f0a00c0;
@@ -373,6 +416,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     private transient void updateColorTone(int ai[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->updateColorTone([I)V");
         int ai1[] = new int[4];
         ai1[0] = 0;
         ai1[1] = 0x7f0a00cd;
@@ -402,6 +446,7 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     public void onAttach(Activity activity)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onAttach(Landroid/app/Activity;)V");
         super.onAttach(activity);
         try
         {
@@ -416,37 +461,39 @@ public class MtvUiSettingsFrag extends MtvUiFrag
 
     public void onClick(View view)
     {
-        int i = view.getId();
+        int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onClick(Landroid/view/View;)V");
+        i = view.getId();
         i;
-        JVM INSTR tableswitch 2131361978 2131362005: default 132
-    //                   2131361978 201
-    //                   2131361979 220
-    //                   2131361980 239
-    //                   2131361981 258
-    //                   2131361982 277
-    //                   2131361983 132
-    //                   2131361984 296
-    //                   2131361985 315
-    //                   2131361986 334
-    //                   2131361987 132
-    //                   2131361988 350
-    //                   2131361989 350
-    //                   2131361990 132
-    //                   2131361991 132
-    //                   2131361992 132
-    //                   2131361993 132
-    //                   2131361994 133
-    //                   2131361995 133
-    //                   2131361996 132
-    //                   2131361997 140
-    //                   2131361998 140
-    //                   2131361999 140
-    //                   2131362000 132
-    //                   2131362001 187
-    //                   2131362002 187
-    //                   2131362003 132
-    //                   2131362004 194
-    //                   2131362005 194;
+        JVM INSTR tableswitch 2131361978 2131362005: default 140
+    //                   2131361978 209
+    //                   2131361979 228
+    //                   2131361980 247
+    //                   2131361981 266
+    //                   2131361982 285
+    //                   2131361983 140
+    //                   2131361984 304
+    //                   2131361985 323
+    //                   2131361986 342
+    //                   2131361987 140
+    //                   2131361988 361
+    //                   2131361989 361
+    //                   2131361990 140
+    //                   2131361991 140
+    //                   2131361992 140
+    //                   2131361993 140
+    //                   2131361994 141
+    //                   2131361995 141
+    //                   2131361996 140
+    //                   2131361997 148
+    //                   2131361998 148
+    //                   2131361999 148
+    //                   2131362000 140
+    //                   2131362001 195
+    //                   2131362002 195
+    //                   2131362003 140
+    //                   2131362004 202
+    //                   2131362005 202;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L1 _L7 _L8 _L9 _L1 _L10 _L10 _L1 _L1 _L1 _L1 _L11 _L11 _L1 _L12 _L12 _L12 _L1 _L13 _L13 _L1 _L14 _L14
 _L1:
         return;
@@ -521,6 +568,7 @@ _L15:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         setRetainInstance(true);
         setHasOptionsMenu(true);
@@ -528,6 +576,7 @@ _L15:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;");
         mContext = getActivity().getApplicationContext();
         mPreferences = new MtvPreferences(getActivity().getApplicationContext());
         mMtvAudioManager = MtvUtilAudioManager.getInstance(mContext);
@@ -551,16 +600,19 @@ _L3:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onDestroy()V");
         super.onDestroy();
     }
 
     public void onPause()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onPause()V");
         super.onPause();
     }
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onResume()V");
         if(settingsType != 19) goto _L2; else goto _L1
 _L1:
         initializeDisplayUI();
@@ -576,26 +628,30 @@ _L3:
 
     public void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onSaveInstanceState(Landroid/os/Bundle;)V");
         super.onSaveInstanceState(bundle);
         bundle.putInt("settingsType", settingsType);
     }
 
     public void onStart()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onStart()V");
         super.onStart();
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onStop()V");
         super.onStop();
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->onUpdate(ILjava/lang/Object;)V");
         MtvUtilDebug.Low("MtvUiSettingsFrag", (new StringBuilder()).append("onUpdate: what[").append(i).append("]").toString());
         i;
-        JVM INSTR tableswitch 109 109: default 52
-    //                   109 53;
+        JVM INSTR tableswitch 109 109: default 60
+    //                   109 61;
            goto _L1 _L2
 _L1:
         return;
@@ -614,23 +670,27 @@ _L3:
 
         public void onProgressChanged(SeekBar seekbar, int i, boolean flag)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$1;->onProgressChanged(Landroid/widget/SeekBar;IZ)V");
             MtvUtilDebug.Low("MtvUiSettingsFrag", (new StringBuilder()).append("onProgressChanged = ").append(i).toString());
-            mPreferences.setBrightnessLevel(i);
-            changeBrightnessLevel();
+            Log.d(MtvUiSettingsFrag.this).setBrightnessLevel(i);
+            Log.d(MtvUiSettingsFrag.this);
         }
 
         public void onStartTrackingTouch(SeekBar seekbar)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$1;->onStartTrackingTouch(Landroid/widget/SeekBar;)V");
         }
 
         public void onStopTrackingTouch(SeekBar seekbar)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$1;->onStopTrackingTouch(Landroid/widget/SeekBar;)V");
         }
 
         final MtvUiSettingsFrag this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;)V");
                 this$0 = MtvUiSettingsFrag.this;
                 super();
             }
@@ -644,4 +704,23 @@ _L3:
     private int settingsType;
 
 
+/*
+    static MtvPreferences access$000(MtvUiSettingsFrag mtvuisettingsfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->access$000(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+        return mtvuisettingsfrag.mPreferences;
+    }
+
+*/
+
+
+/*
+    static void access$100(MtvUiSettingsFrag mtvuisettingsfrag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiSettingsFrag;)V");
+        mtvuisettingsfrag.changeBrightnessLevel();
+        return;
+    }
+
+*/
 }

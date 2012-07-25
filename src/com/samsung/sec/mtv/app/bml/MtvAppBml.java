@@ -16,6 +16,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import com.access.bml.BMLNativeView;
 import com.samsung.sec.mtv.app.context.MtvAppPlaybackContext;
@@ -34,6 +35,8 @@ public class MtvAppBml
 
     private MtvAppBml(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;-><init>(Landroid/content/Context;)V");
+        super();
         mMtvAppPlaybackContext = null;
         mBmlViewControl = null;
         mPreferences = null;
@@ -47,6 +50,7 @@ public class MtvAppBml
 
             public void handleMessage(Message message)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml$1;->handleMessage(Landroid/os/Message;)V");
                 MtvUtilDebug.Mid("MtvAppBml", (new StringBuilder()).append("handleMessage : ").append(message.what).toString());
                 static class _cls2
                 {
@@ -56,6 +60,7 @@ public class MtvAppBml
 
                     static 
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml$2;-><clinit>()V");
                         $SwitchMap$android$broadcast$oneseg$MtvOneSegBmlParams$DialogMessages = new int[android.broadcast.oneseg.MtvOneSegBmlParams.DialogMessages.values().length];
                         NoSuchFieldError nosuchfielderror75;
                         try
@@ -444,89 +449,89 @@ _L1:
                 }
 
                 _cls2..SwitchMap.com.samsung.sec.mtv.app.bml.MtvAppBmlConstants.AppBmlUIEvents[uiEvents[message.what].ordinal()];
-                JVM INSTR tableswitch 1 10: default 96
-            //                           1 97
-            //                           2 140
-            //                           3 176
-            //                           4 212
-            //                           5 252
-            //                           6 288
-            //                           7 329
-            //                           8 382
-            //                           9 452
-            //                           10 488;
+                JVM INSTR tableswitch 1 10: default 104
+            //                           1 105
+            //                           2 148
+            //                           3 184
+            //                           4 220
+            //                           5 260
+            //                           6 296
+            //                           7 337
+            //                           8 390
+            //                           9 460
+            //                           10 496;
                    goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11
 _L1:
                 return;
 _L2:
-                if(mBmlAnimationListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SET_ANIMATION_TEXT;
-                    mBmlAnimationListener.setBmlAnimationText((MtvAppBmlConstants.BmlAppAnimMessages)message.obj);
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SET_ANIMATION_TEXT);
+                    Log.d(MtvAppBml.this).setBmlAnimationText((MtvAppBmlConstants.BmlAppAnimMessages)message.obj);
                 }
                 continue; /* Loop/switch isn't completed */
 _L3:
-                if(mBmlAnimationListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_START_ANIMATION;
-                    mBmlAnimationListener.startBmlAnimation();
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_START_ANIMATION);
+                    Log.d(MtvAppBml.this).startBmlAnimation();
                 }
                 continue; /* Loop/switch isn't completed */
 _L4:
-                if(mBmlAnimationListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_STOP_ANIMATION;
-                    mBmlAnimationListener.stopBmlAnimation();
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_STOP_ANIMATION);
+                    Log.d(MtvAppBml.this).stopBmlAnimation();
                 }
                 continue; /* Loop/switch isn't completed */
 _L5:
-                if(mBmlDialogListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SET_DIALOG_BTN_NUM;
-                    mBmlDialogListener.setDialogBtnNum(message.arg1);
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SET_DIALOG_BTN_NUM);
+                    Log.d(MtvAppBml.this).setDialogBtnNum(message.arg1);
                 }
                 continue; /* Loop/switch isn't completed */
 _L6:
-                if(mBmlDialogListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_DESTROY_DIALOGUE;
-                    mBmlDialogListener.destroyBMLDialog();
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_DESTROY_DIALOGUE);
+                    Log.d(MtvAppBml.this).destroyBMLDialog();
                 }
                 continue; /* Loop/switch isn't completed */
 _L7:
-                if(mBmlDialogListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SHOW_DIALOGUE;
-                    mBmlDialogListener.showBMLDialog(message.arg1);
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SHOW_DIALOGUE);
+                    Log.d(MtvAppBml.this).showBMLDialog(message.arg1);
                 }
                 continue; /* Loop/switch isn't completed */
 _L8:
-                if(mBmlDialogListener != null && message.obj != MtvAppBmlConstants.AppBmlDialogMessages.MTV_APP_BML_SRTING_NONE)
+                if(Log.d(MtvAppBml.this) != null && message.obj != MtvAppBmlConstants.AppBmlDialogMessages.MTV_APP_BML_SRTING_NONE)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SET_DIALOGUE_MSG;
-                    mBmlDialogListener.setDialogMessege((MtvAppBmlConstants.AppBmlDialogMessages)message.obj);
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SET_DIALOGUE_MSG);
+                    Log.d(MtvAppBml.this).setDialogMessege((MtvAppBmlConstants.AppBmlDialogMessages)message.obj);
                 }
                 continue; /* Loop/switch isn't completed */
 _L9:
                 MtvAppBmlConstants.AppBmlIMEInputParams appbmlimeinputparams = (MtvAppBmlConstants.AppBmlIMEInputParams)message.obj;
-                if(mBmlDialogListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_START_IME_INPUT_METHOD;
-                    mBmlDialogListener.IMEStartPeer(appbmlimeinputparams.text, appbmlimeinputparams.isPassword, appbmlimeinputparams.isMultiLine, appbmlimeinputparams.mode, appbmlimeinputparams.maxlength);
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_START_IME_INPUT_METHOD);
+                    Log.d(MtvAppBml.this).IMEStartPeer(appbmlimeinputparams.text, appbmlimeinputparams.isPassword, appbmlimeinputparams.isMultiLine, appbmlimeinputparams.mode, appbmlimeinputparams.maxlength);
                 }
                 continue; /* Loop/switch isn't completed */
 _L10:
-                if(mBmlSurfaceListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_START_TVLINK_TAB;
-                    mBmlSurfaceListener.startTvLinkTab();
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_START_TVLINK_TAB);
+                    Log.d(MtvAppBml.this).startTvLinkTab();
                 }
                 continue; /* Loop/switch isn't completed */
 _L11:
-                if(mBmlSurfaceListener != null)
+                if(Log.d(MtvAppBml.this) != null)
                 {
-                    mCuurUIEvt = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_KEYPAD_CHANGED;
-                    mBmlSurfaceListener.bmlControlTypeChanged();
+                    Log.d(MtvAppBml.this, MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_KEYPAD_CHANGED);
+                    Log.d(MtvAppBml.this).bmlControlTypeChanged();
                 }
                 if(true) goto _L1; else goto _L12
 _L12:
@@ -537,6 +542,7 @@ _L12:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml$1;-><init>(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;)V");
                 this$0 = MtvAppBml.this;
                 super();
                 uiEvents = MtvAppBmlConstants.AppBmlUIEvents.values();
@@ -547,6 +553,7 @@ _L12:
 
     public static String byteArrayToString(byte abyte0[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->byteArrayToString([B)Ljava/lang/String;");
         String s;
         try
         {
@@ -562,6 +569,7 @@ _L12:
 
     public static MtvAppBml getInstance(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->getInstance(Landroid/content/Context;)Lcom/samsung/sec/mtv/app/bml/MtvAppBml;");
         if(mMtvAppBml == null)
             mMtvAppBml = new MtvAppBml(context);
         mContext = context;
@@ -570,28 +578,31 @@ _L12:
 
     public void appExIMEEndPeer(boolean flag, byte abyte0[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->appExIMEEndPeer(Z[B)V");
         if(mBmlViewControl != null)
             mBmlViewControl.appExIMEEndPeer(flag, abyte0);
     }
 
     public void cb_appIMEStartPeer(byte abyte0[], boolean flag, boolean flag1, int i, int j)
     {
-        int k = 0;
+        int k;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_appIMEStartPeer([BZZII)V");
+        k = 0;
         i;
-        JVM INSTR tableswitch 0 12: default 72
-    //                   0 148
-    //                   1 72
-    //                   2 72
-    //                   3 72
-    //                   4 72
-    //                   5 154
-    //                   6 160
-    //                   7 167
-    //                   8 174
-    //                   9 181
-    //                   10 188
-    //                   11 195
-    //                   12 202;
+        JVM INSTR tableswitch 0 12: default 80
+    //                   0 156
+    //                   1 80
+    //                   2 80
+    //                   3 80
+    //                   4 80
+    //                   5 162
+    //                   6 168
+    //                   7 175
+    //                   8 182
+    //                   9 189
+    //                   10 196
+    //                   11 203
+    //                   12 210;
            goto _L1 _L2 _L1 _L1 _L1 _L1 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10
 _L1:
         MtvAppBmlConstants.AppBmlIMEInputParams appbmlimeinputparams = new MtvAppBmlConstants.AppBmlIMEInputParams();
@@ -636,6 +647,7 @@ _L11:
 
     public void cb_bmlControlTypeChanged()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_bmlControlTypeChanged()V");
         MtvAppBmlConstants.AppBmlUIEvents appbmluievents = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_KEYPAD_CHANGED;
         if(mBmlUIMsgHandler != null)
             mBmlUIMsgHandler.sendMessage(mBmlUIMsgHandler.obtainMessage(appbmluievents.ordinal()));
@@ -643,12 +655,14 @@ _L11:
 
     public void cb_bmlHaltExecuted()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_bmlHaltExecuted()V");
         if(mBmlDialogListener != null)
             mBmlDialogListener.halt();
     }
 
     public void cb_destroyBMLDialog()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_destroyBMLDialog()V");
         MtvAppBmlConstants.AppBmlUIEvents appbmluievents = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_DESTROY_DIALOGUE;
         if(mBmlUIMsgHandler != null)
             mBmlUIMsgHandler.sendMessage(mBmlUIMsgHandler.obtainMessage(appbmluievents.ordinal()));
@@ -656,6 +670,7 @@ _L11:
 
     public void cb_mailToPeer(byte abyte0[], byte abyte1[], byte abyte2[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_mailToPeer([B[B[B)V");
         String s = byteArrayToString(abyte0);
         String s1 = byteArrayToString(abyte1);
         String s2 = byteArrayToString(abyte2);
@@ -671,6 +686,7 @@ _L11:
 
     public void cb_phoneToPeer(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_phoneToPeer(Ljava/lang/String;)V");
         MtvUtilDebug.Mid("MtvAppBml", "BML_CB_XDPA_PhoneToPeer:");
         Intent intent = new Intent("android.intent.action.CALL", Uri.parse((new StringBuilder()).append("tel:").append(s).toString()));
         mContext.startActivity(intent);
@@ -678,15 +694,17 @@ _L11:
 
     public boolean cb_processCommand(int i, int j, String s)
     {
-        boolean flag = false;
+        boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_processCommand(IILjava/lang/String;)Z");
+        flag = false;
         if(mBmlViewControl != null) goto _L2; else goto _L1
 _L1:
         return flag;
 _L2:
         i;
-        JVM INSTR lookupswitch 2: default 40
-    //                   0: 46
-    //                   152: 77;
+        JVM INSTR lookupswitch 2: default 48
+    //                   0: 54
+    //                   152: 85;
            goto _L3 _L4 _L5
 _L3:
         flag = true;
@@ -737,13 +755,16 @@ _L7:
 
     public void cb_setBMLFullView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_setBMLFullView()V");
         if(mBmlSurfaceListener != null)
             mBmlSurfaceListener.setBMLFullView(true);
     }
 
     public void cb_setBmlAnimationText(android.broadcast.oneseg.MtvOneSegBmlParams.AnimMessages animmessages)
     {
-        MtvAppBmlConstants.BmlAppAnimMessages bmlappanimmessages = MtvAppBmlConstants.BmlAppAnimMessages.MTV_APP_BML_ANIM_MSG_NONE;
+        MtvAppBmlConstants.BmlAppAnimMessages bmlappanimmessages;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_setBmlAnimationText(Landroid/broadcast/oneseg/MtvOneSegBmlParams$AnimMessages;)V");
+        bmlappanimmessages = MtvAppBmlConstants.BmlAppAnimMessages.MTV_APP_BML_ANIM_MSG_NONE;
         if(animmessages != android.broadcast.oneseg.MtvOneSegBmlParams.AnimMessages.BML_RECEIVING) goto _L2; else goto _L1
 _L1:
         bmlappanimmessages = MtvAppBmlConstants.BmlAppAnimMessages.MTV_APP_BML_RECEIVING;
@@ -761,6 +782,7 @@ _L3:
 
     public void cb_setDialogBtnNum(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_setDialogBtnNum(I)V");
         MtvAppBmlConstants.AppBmlUIEvents appbmluievents = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_SET_DIALOG_BTN_NUM;
         if(mBmlUIMsgHandler != null)
             mBmlUIMsgHandler.sendMessage(mBmlUIMsgHandler.obtainMessage(appbmluievents.ordinal(), i, 0));
@@ -768,80 +790,82 @@ _L3:
 
     public void cb_setDialogMessege(android.broadcast.oneseg.MtvOneSegBmlParams.DialogMessages dialogmessages)
     {
-        MtvAppBmlConstants.AppBmlDialogMessages appbmldialogmessages = MtvAppBmlConstants.AppBmlDialogMessages.MTV_APP_BML_SRTING_NONE;
+        MtvAppBmlConstants.AppBmlDialogMessages appbmldialogmessages;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_setDialogMessege(Landroid/broadcast/oneseg/MtvOneSegBmlParams$DialogMessages;)V");
+        appbmldialogmessages = MtvAppBmlConstants.AppBmlDialogMessages.MTV_APP_BML_SRTING_NONE;
         _cls2..SwitchMap.android.broadcast.oneseg.MtvOneSegBmlParams.DialogMessages[dialogmessages.ordinal()];
-        JVM INSTR tableswitch 1 66: default 292
-    //                   1 335
-    //                   2 342
-    //                   3 349
-    //                   4 356
-    //                   5 363
-    //                   6 370
-    //                   7 377
-    //                   8 384
-    //                   9 391
-    //                   10 398
-    //                   11 405
-    //                   12 412
-    //                   13 419
-    //                   14 426
-    //                   15 433
-    //                   16 440
-    //                   17 447
-    //                   18 454
-    //                   19 461
-    //                   20 468
-    //                   21 475
-    //                   22 482
-    //                   23 489
-    //                   24 496
-    //                   25 503
-    //                   26 510
-    //                   27 517
-    //                   28 524
-    //                   29 531
-    //                   30 538
-    //                   31 545
-    //                   32 552
-    //                   33 559
-    //                   34 566
-    //                   35 573
-    //                   36 580
-    //                   37 587
-    //                   38 594
-    //                   39 601
-    //                   40 608
-    //                   41 615
-    //                   42 622
-    //                   43 629
-    //                   44 636
-    //                   45 643
-    //                   46 650
-    //                   47 657
-    //                   48 664
-    //                   49 671
-    //                   50 678
-    //                   51 685
-    //                   52 692
-    //                   53 699
-    //                   54 706
-    //                   55 713
-    //                   56 720
-    //                   57 727
-    //                   58 734
-    //                   59 741
-    //                   60 748
-    //                   61 755
-    //                   62 762
-    //                   63 769
-    //                   64 776
-    //                   65 783
-    //                   66 790;
+        JVM INSTR tableswitch 1 66: default 300
+    //                   1 345
+    //                   2 352
+    //                   3 359
+    //                   4 366
+    //                   5 373
+    //                   6 380
+    //                   7 387
+    //                   8 394
+    //                   9 401
+    //                   10 408
+    //                   11 415
+    //                   12 422
+    //                   13 429
+    //                   14 436
+    //                   15 443
+    //                   16 450
+    //                   17 457
+    //                   18 464
+    //                   19 471
+    //                   20 478
+    //                   21 485
+    //                   22 492
+    //                   23 499
+    //                   24 506
+    //                   25 513
+    //                   26 520
+    //                   27 527
+    //                   28 534
+    //                   29 541
+    //                   30 548
+    //                   31 555
+    //                   32 562
+    //                   33 569
+    //                   34 576
+    //                   35 583
+    //                   36 590
+    //                   37 597
+    //                   38 604
+    //                   39 611
+    //                   40 618
+    //                   41 625
+    //                   42 632
+    //                   43 639
+    //                   44 646
+    //                   45 653
+    //                   46 660
+    //                   47 667
+    //                   48 674
+    //                   49 681
+    //                   50 688
+    //                   51 695
+    //                   52 702
+    //                   53 709
+    //                   54 716
+    //                   55 723
+    //                   56 730
+    //                   57 737
+    //                   58 744
+    //                   59 751
+    //                   60 758
+    //                   61 765
+    //                   62 772
+    //                   63 779
+    //                   64 786
+    //                   65 793
+    //                   66 800;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L23 _L24 _L25 _L26 _L27 _L28 _L29 _L30 _L31 _L32 _L33 _L34 _L35 _L36 _L37 _L38 _L39 _L40 _L41 _L42 _L43 _L44 _L45 _L46 _L47 _L48 _L49 _L50 _L51 _L52 _L53 _L54 _L55 _L56 _L57 _L58 _L59 _L60 _L61 _L62 _L63 _L64 _L65 _L66 _L67
 _L1:
         break; /* Loop/switch isn't completed */
 _L67:
-        break MISSING_BLOCK_LABEL_790;
+        break MISSING_BLOCK_LABEL_800;
 _L68:
         MtvAppBmlConstants.AppBmlUIEvents appbmluievents;
         if(mContext != null)
@@ -1053,7 +1077,9 @@ _L66:
 
     public boolean cb_showBMLDialog(int i)
     {
-        boolean flag = false;
+        boolean flag;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_showBMLDialog(I)Z");
+        flag = false;
         if(mBmlViewControl.isDailogNeed() && mContext != null && mContext.getResources().getConfiguration().orientation != 2 && isBMLDialogMsgSet) goto _L2; else goto _L1
 _L1:
         return flag;
@@ -1071,6 +1097,7 @@ _L3:
 
     public void cb_startBmlAnimation()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_startBmlAnimation()V");
         MtvAppBmlConstants.AppBmlUIEvents appbmluievents = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_START_ANIMATION;
         if(mBmlUIMsgHandler != null)
             mBmlUIMsgHandler.sendMessage(mBmlUIMsgHandler.obtainMessage(appbmluievents.ordinal()));
@@ -1081,11 +1108,12 @@ _L3:
         char c;
         String s;
         int k;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_startResidentAppPeer([BI[B[Ljava/lang/String;)I");
         c = '\uFC16';
         s = byteArrayToString(abyte0);
         int j = as.length;
         if(!s.equals("ComBrowser"))
-            break MISSING_BLOCK_LABEL_175;
+            break MISSING_BLOCK_LABEL_184;
         if(j < 3)
         {
             MtvUtilDebug.Mid("MtvAppBml", "XDPA>StartResidentAppPeer: Few ex_info !:");
@@ -1138,6 +1166,7 @@ _L2:
 
     public void cb_stopBmlAnimation()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_stopBmlAnimation()V");
         MtvAppBmlConstants.AppBmlUIEvents appbmluievents = MtvAppBmlConstants.AppBmlUIEvents.MTV_APP_BML_UI_EVT_STOP_ANIMATION;
         if(mBmlUIMsgHandler != null)
             mBmlUIMsgHandler.sendMessage(mBmlUIMsgHandler.obtainMessage(appbmluievents.ordinal()));
@@ -1147,6 +1176,7 @@ _L2:
     {
         Bitmap bitmap;
         String s;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_storeImage([BZ[B)I");
         MtvUtilDebug.Mid("MtvAppBml", "BML_CB_Control_SaveImageToMemoryCardPeer:");
         bitmap = BitmapFactory.decodeByteArray(abyte1, 0, abyte1.length);
         if(bitmap == null)
@@ -1246,12 +1276,14 @@ _L11:
 
     public void cb_updateBMLSurfaceView()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_updateBMLSurfaceView()V");
         if(mBmlSurfaceListener != null)
             mBmlSurfaceListener.updateBMLSurfaceView();
     }
 
     public int cb_writeAddressBookInfoPeer(byte abyte0[], byte abyte1[], String s, String s1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_writeAddressBookInfoPeer([B[BLjava/lang/String;Ljava/lang/String;)I");
         String s2 = byteArrayToString(abyte0);
         byteArrayToString(abyte1);
         Intent intent = new Intent("android.intent.action.INSERT", android.provider.ContactsContract.Contacts.CONTENT_URI);
@@ -1265,6 +1297,7 @@ _L11:
     public int cb_writeSchInfoPeer(short word0, int i, int j, int k, int l, int i1, int j1, 
             short word1, byte abyte0[], byte abyte1[], boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->cb_writeSchInfoPeer(SIIIIIIS[B[BZ)I");
         if(!MtvUtilDebug.isReleaseMode())
             MtvUtilDebug.Mid("MtvAppBml", (new StringBuilder()).append("writeSchInfoPeer: Y").append(word0).append("M").append(i).append("D").append(j).append("W").append(k).append("H").append(l).append("Mn").append(i1).append("Sc").append(j1).append("Msc").append(word1).toString());
         long l1 = (new GregorianCalendar(word0, i, j, l, i1, j1)).getTimeInMillis();
@@ -1285,6 +1318,7 @@ _L11:
 
     public void deInit()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->deInit()V");
         if(mBmlViewControl != null)
         {
             mBmlViewControl.dettachViewListener(this);
@@ -1301,6 +1335,7 @@ _L11:
 
     public MtvAppBmlConstants.BmlControlType getBmlControlType()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->getBmlControlType()Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlControlType;");
         if(mBmlViewControl != null) goto _L2; else goto _L1
 _L1:
         MtvAppBmlConstants.BmlControlType bmlcontroltype = MtvAppBmlConstants.BmlControlType.MTV_APP_BML_CONTROL_BASIC;
@@ -1358,21 +1393,25 @@ _L6:
 
     public MtvAppBmlConstants.AppBmlUIEvents getCurrentUIEvt()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->getCurrentUIEvt()Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;");
         return mCuurUIEvt;
     }
 
     public byte[] getPrevUserName()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->getPrevUserName()[B");
         return mBmlViewControl.getfAuth_UserName();
     }
 
     public String getPrevUserPassWd()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->getPrevUserPassWd()Ljava/lang/String;");
         return mBmlViewControl.getfAuth_Password();
     }
 
     public void init(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->init(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)V");
         mMtvAppPlaybackContext = mtvappplaybackcontext;
         if(mPreferences == null)
             mPreferences = new MtvPreferences(mContext);
@@ -1382,6 +1421,7 @@ _L6:
 
     public boolean isPrevUserNameNedded()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->isPrevUserNameNedded()Z");
         boolean flag;
         if(mBmlViewControl != null)
             flag = mBmlViewControl.getfAuth_KeepUserName();
@@ -1392,6 +1432,7 @@ _L6:
 
     public boolean isPrevUserPasswdNedded()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->isPrevUserPasswdNedded()Z");
         boolean flag;
         if(mBmlViewControl != null)
             flag = mBmlViewControl.getfAuth_KeepPassword();
@@ -1402,6 +1443,7 @@ _L6:
 
     public void onKeyEvent(KeyEvent keyevent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->onKeyEvent(Landroid/view/KeyEvent;)V");
         if(keyevent != null && mBmlViewControl != null) goto _L2; else goto _L1
 _L1:
         MtvUtilDebug.Error("MtvAppBml", "onKeyEvent: keyEvent NULL ");
@@ -1416,6 +1458,7 @@ _L3:
 
     public void onResume(MtvAppPlaybackContext mtvappplaybackcontext)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->onResume(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;)V");
         mMtvAppPlaybackContext = mtvappplaybackcontext;
         MtvUtilDebug.Low("MtvAppBml", "onResume: entered ");
         if(mPreferences == null)
@@ -1428,6 +1471,7 @@ _L3:
 
     public void openBMLHomePage()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->openBMLHomePage()V");
         if(mBmlViewControl != null)
         {
             MtvUtilDebug.Low("MtvAppBml", "setBMLHomePage: Setting BML home page");
@@ -1437,12 +1481,13 @@ _L3:
 
     public void processMouseEvent(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->processMouseEvent(III)V");
         android.broadcast.oneseg.MtvOneSegBmlParams.action.ACTION_DOWN;
         k;
-        JVM INSTR tableswitch 0 2: default 32
-    //                   0 58
-    //                   1 66
-    //                   2 74;
+        JVM INSTR tableswitch 0 2: default 40
+    //                   0 66
+    //                   1 74
+    //                   2 82;
            goto _L1 _L2 _L3 _L4
 _L1:
         android.broadcast.oneseg.MtvOneSegBmlParams.action action = android.broadcast.oneseg.MtvOneSegBmlParams.action.ACTION_DOWN;
@@ -1464,33 +1509,39 @@ _L5:
 
     public void refreshBMLScreen()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->refreshBMLScreen()V");
         MtvUtilDebug.Low("MtvAppBml", "refreshBMLScreen:  refersh BML surface ");
         setBMLViewSize(-1, -1, 0, 0);
     }
 
     public void registerBmlAnimationListener(IMtvAppBmlAnimationListener imtvappbmlanimationlistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->registerBmlAnimationListener(Lcom/samsung/sec/mtv/app/bml/IMtvAppBmlAnimationListener;)V");
         mBmlAnimationListener = imtvappbmlanimationlistener;
     }
 
     public void registerBmlDialogListener(IMtvAppBmlDialogListener imtvappbmldialoglistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->registerBmlDialogListener(Lcom/samsung/sec/mtv/app/bml/IMtvAppBmlDialogListener;)V");
         mBmlDialogListener = imtvappbmldialoglistener;
     }
 
     public void registerBmlSurface(Context context, BMLNativeView bmlnativeview)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->registerBmlSurface(Landroid/content/Context;Lcom/access/bml/BMLNativeView;)V");
         if(mBmlViewControl != null)
             mBmlViewControl.registerSurface(context, bmlnativeview);
     }
 
     public void registerBmlSurfaceListener(IMtvAppBmlSurfaceListener imtvappbmlsurfacelistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->registerBmlSurfaceListener(Lcom/samsung/sec/mtv/app/bml/IMtvAppBmlSurfaceListener;)V");
         mBmlSurfaceListener = imtvappbmlsurfacelistener;
     }
 
     public void sendDialogReply(MtvAppBmlConstants.BmlDialogReply bmldialogreply, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->sendDialogReply(Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$BmlDialogReply;I)V");
         if(bmldialogreply != MtvAppBmlConstants.BmlDialogReply.MTV_APP_BML_DIALOG_REPLAY_YES) goto _L2; else goto _L1
 _L1:
         mBmlViewControl.replyToCommand(android.broadcast.oneseg.MtvOneSegBmlParams.onesegBmlDialogReply.MTV_ONESEG_BML_DIALOG_REPLAY_YES, i);
@@ -1508,6 +1559,7 @@ _L3:
 
     public boolean setBMLViewSize(int i, int j, int k, int l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->setBMLViewSize(IIII)Z");
         boolean flag;
         if(mBmlViewControl != null && !mBmlViewControl.setDisplaySize(i, j, k, l))
         {
@@ -1522,21 +1574,25 @@ _L3:
 
     public void setPrevUserPassWd(String s)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->setPrevUserPassWd(Ljava/lang/String;)V");
         mBmlViewControl.setfPassword_Reply(s);
     }
 
     public void setUserName(byte abyte0[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->setUserName([B)V");
         mBmlViewControl.setfUserName_Reply(abyte0);
     }
 
     public void storeUserName(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->storeUserName(Z)V");
         mBmlViewControl.setfKeepUserName_Reply(flag);
     }
 
     public void storeUserPasswd(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->storeUserPasswd(Z)V");
         mBmlViewControl.setfKeepPassword_Reply(flag);
     }
 
@@ -1553,12 +1609,26 @@ _L3:
     private MtvPreferences mPreferences;
     private MtvAppBmlConstants.BmlControlType mbmlCntrlType;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;-><clinit>()V");
+    }
 
+
+/*
+    static IMtvAppBmlAnimationListener access$000(MtvAppBml mtvappbml)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->access$000(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;)Lcom/samsung/sec/mtv/app/bml/IMtvAppBmlAnimationListener;");
+        return mtvappbml.mBmlAnimationListener;
+    }
+
+*/
 
 
 /*
     static MtvAppBmlConstants.AppBmlUIEvents access$102(MtvAppBml mtvappbml, MtvAppBmlConstants.AppBmlUIEvents appbmluievents)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->access$102(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;)Lcom/samsung/sec/mtv/app/bml/MtvAppBmlConstants$AppBmlUIEvents;");
         mtvappbml.mCuurUIEvt = appbmluievents;
         return appbmluievents;
     }
@@ -1566,4 +1636,22 @@ _L3:
 */
 
 
+/*
+    static IMtvAppBmlDialogListener access$200(MtvAppBml mtvappbml)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->access$200(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;)Lcom/samsung/sec/mtv/app/bml/IMtvAppBmlDialogListener;");
+        return mtvappbml.mBmlDialogListener;
+    }
+
+*/
+
+
+/*
+    static IMtvAppBmlSurfaceListener access$300(MtvAppBml mtvappbml)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/bml/MtvAppBml;->access$300(Lcom/samsung/sec/mtv/app/bml/MtvAppBml;)Lcom/samsung/sec/mtv/app/bml/IMtvAppBmlSurfaceListener;");
+        return mtvappbml.mBmlSurfaceListener;
+    }
+
+*/
 }

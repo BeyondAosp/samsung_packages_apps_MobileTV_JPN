@@ -6,6 +6,7 @@ package com.samsung.sec.mtv.utility;
 
 import android.broadcast.helper.MtvUtilDebug;
 import android.os.SystemProperties;
+import android.util.Log;
 import java.nio.ByteBuffer;
 import java.security.*;
 import java.security.spec.AlgorithmParameterSpec;
@@ -17,6 +18,8 @@ public class MtvUtilCrypto
 
     public MtvUtilCrypto(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;-><init>(I)V");
+        super();
         mCipher = null;
         mEncKey = null;
         mIV = null;
@@ -49,6 +52,7 @@ public class MtvUtilCrypto
 
     private void extractIV(ByteBuffer bytebuffer)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->extractIV(Ljava/nio/ByteBuffer;)V");
         MtvUtilDebug.Mid("MtvUtilCrypto", "extractIV: Entered ");
         bytebuffer.position(16);
         byte abyte0[] = new byte[16];
@@ -59,6 +63,7 @@ public class MtvUtilCrypto
 
     private void generateEncKey()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->generateEncKey()V");
         MtvUtilDebug.Mid("MtvUtilCrypto", "generateEncKey: Enterd");
         if(mEncKey != null) goto _L2; else goto _L1
 _L1:
@@ -182,12 +187,12 @@ _L1:
         keygenerator = null;
         MtvUtilDebug.Mid("MtvUtilCrypto", "generateEncKey: generating key");
         mEncType;
-        JVM INSTR tableswitch 0 4: default 752
-    //                   0 752
-    //                   1 859
-    //                   2 899
-    //                   3 939
-    //                   4 1019;
+        JVM INSTR tableswitch 0 4: default 780
+    //                   0 780
+    //                   1 887
+    //                   2 927
+    //                   3 967
+    //                   4 1047;
            goto _L3 _L3 _L4 _L5 _L6 _L7
 _L3:
         for(int k = 0; k < 16; k++)
@@ -268,6 +273,7 @@ _L12:
 
     private void generateIB()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->generateIB()V");
         MtvUtilDebug.Mid("MtvUtilCrypto", "generateIB: Enterd");
         mIB = new byte[16];
         generateRandomBytes(mIB);
@@ -279,6 +285,7 @@ _L12:
 
     private void generateIV()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->generateIV()V");
         MtvUtilDebug.Mid("MtvUtilCrypto", "generateIV: Enterd");
         if(mIV == null || mCipherIV == null)
         {
@@ -291,11 +298,13 @@ _L12:
 
     private void generateRandomBytes(byte abyte0[])
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->generateRandomBytes([B)V");
         (new SecureRandom()).nextBytes(abyte0);
     }
 
     private void setMode(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->setMode(I)V");
         MtvUtilDebug.Mid("MtvUtilCrypto", (new StringBuilder()).append("setMode: Entered opmode is ").append(i).toString());
         try
         {
@@ -315,10 +324,11 @@ _L12:
     public int decryptData(ByteBuffer bytebuffer, ByteBuffer bytebuffer1)
     {
         int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->decryptData(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I");
         MtvUtilDebug.Mid("MtvUtilCrypto", "decryptData: Entered");
         i = 0;
         if(bytebuffer == null)
-            break MISSING_BLOCK_LABEL_53;
+            break MISSING_BLOCK_LABEL_64;
         MtvUtilDebug.Mid("MtvUtilCrypto", "decryptData: Decrypting data");
         int j;
         extractIV(bytebuffer);
@@ -346,6 +356,7 @@ _L1:
 
     public int encryptData(ByteBuffer bytebuffer, ByteBuffer bytebuffer1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->encryptData(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I");
         MtvUtilDebug.Mid("MtvUtilCrypto", "encryptData: Entered");
         ByteBuffer bytebuffer2 = ByteBuffer.allocate(mCipherOutSize);
         if(bytebuffer != null)
@@ -377,6 +388,7 @@ _L1:
 
     public final int getOutputSize(int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvUtilCrypto;->getOutputSize(II)I");
         MtvUtilDebug.Mid("MtvUtilCrypto", "getOutputSize: Entered");
         generateIV();
         int k;

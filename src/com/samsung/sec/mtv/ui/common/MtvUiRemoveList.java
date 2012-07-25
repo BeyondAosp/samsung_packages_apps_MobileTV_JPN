@@ -14,6 +14,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.*;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.player.MtvAppPlayerOneSeg;
@@ -39,9 +40,10 @@ public class MtvUiRemoveList extends Activity
 
         public int getCount()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$MtvFileAdapter;->getCount()I");
             int i;
-            if(mMtvFiles != null && mMtvFiles.length > 0)
-                i = mMtvFiles.length;
+            if(Log.d(MtvUiRemoveList.this) != null && Log.d(MtvUiRemoveList.this).length > 0)
+                i = Log.d(MtvUiRemoveList.this).length;
             else
                 i = 0;
             return i;
@@ -49,22 +51,23 @@ public class MtvUiRemoveList extends Activity
 
         public View getView(int i, View view, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$MtvFileAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             View view1 = view;
             if(view1 == null)
                 view1 = ((LayoutInflater)getContext().getSystemService("layout_inflater")).inflate(0x7f030030, null);
-            mPreImageView = (ImageView)view1.findViewById(0x7f0a0119);
-            mPlayImageView = (ImageView)view1.findViewById(0x7f0a011a);
-            MtvFile mtvfile = mMtvFiles[i];
+            Log.d(MtvUiRemoveList.this, (ImageView)view1.findViewById(0x7f0a0119));
+            Log.d(MtvUiRemoveList.this, (ImageView)view1.findViewById(0x7f0a011a));
+            MtvFile mtvfile = Log.d(MtvUiRemoveList.this)[i];
             if(mtvfile != null)
             {
-                mSelectAllText.setVisibility(0);
-                mAllCheck.setVisibility(0);
+                Log.d(MtvUiRemoveList.this).setVisibility(0);
+                Log.d(MtvUiRemoveList.this).setVisibility(0);
                 TextView textview = (TextView)view1.findViewById(0x7f0a011e);
                 TextView textview1 = (TextView)view1.findViewById(0x7f0a0120);
                 TextView textview2 = (TextView)view1.findViewById(0x7f0a0121);
                 CheckBox checkbox = (CheckBox)view1.findViewById(0x7f0a0122);
                 checkbox.setVisibility(0);
-                checkbox.setChecked(mItemsCheckedState[i]);
+                checkbox.setChecked(Log.d(MtvUiRemoveList.this)[i]);
                 checkbox.setFocusable(false);
                 checkbox.setClickable(false);
                 String s;
@@ -87,42 +90,45 @@ public class MtvUiRemoveList extends Activity
                     textview1.setText((new StringBuilder()).append(s1).append(" ").append(mtvfile.getChannelName()).toString());
                 }
                 view1.setTag(mtvfile);
-                setFileInfo(mtvfile);
+                Log.d(MtvUiRemoveList.this, mtvfile);
             } else
             {
-                mSelectAllText.setVisibility(4);
-                mAllCheck.setVisibility(4);
+                Log.d(MtvUiRemoveList.this).setVisibility(4);
+                Log.d(MtvUiRemoveList.this).setVisibility(4);
             }
             return view1;
         }
 
         public void setChecked(int i, boolean flag)
         {
-            setItemCheckedState(i, flag);
-            mListView.setItemChecked(i, flag);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$MtvFileAdapter;->setChecked(IZ)V");
+            Log.d(MtvUiRemoveList.this, i, flag);
+            Log.d(MtvUiRemoveList.this).setItemChecked(i, flag);
             notifyDataSetChanged();
-            checkItemCount(mMtvFiles.length);
+            checkItemCount(Log.d(MtvUiRemoveList.this).length);
         }
 
         public void toggle(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$MtvFileAdapter;->toggle(I)V");
             boolean flag;
-            if(getItemCheckedState(i))
+            if(Log.d(MtvUiRemoveList.this, i))
                 flag = false;
             else
                 flag = true;
-            setItemCheckedState(i, flag);
-            mListView.setItemChecked(i, flag);
+            Log.d(MtvUiRemoveList.this, i, flag);
+            Log.d(MtvUiRemoveList.this).setItemChecked(i, flag);
             notifyDataSetChanged();
-            checkItemCount(mMtvFiles.length);
+            checkItemCount(Log.d(MtvUiRemoveList.this).length);
         }
 
         final MtvUiRemoveList this$0;
 
         public MtvFileAdapter(Context context, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$MtvFileAdapter;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Landroid/content/Context;I)V");
             this$0 = MtvUiRemoveList.this;
-            ArrayAdapter(context, i);
+            super(context, i);
         }
     }
 
@@ -131,14 +137,15 @@ public class MtvUiRemoveList extends Activity
 
         public View getView(int i, View view, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$ReserveAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             View view1 = view;
             if(view1 == null)
                 view1 = ((LayoutInflater)getContext().getSystemService("layout_inflater")).inflate(0x7f03002d, null);
-            startTime = (Long)mReserveList.get(i);
+            startTime = (Long)Log.d(MtvUiRemoveList.this).get(i);
             if(startTime != null)
             {
-                mSelectAllText.setVisibility(0);
-                mAllCheck.setVisibility(0);
+                Log.d(MtvUiRemoveList.this).setVisibility(0);
+                Log.d(MtvUiRemoveList.this).setVisibility(0);
                 MtvReservation mtvreservation = MtvReservationManager.find(mContext, startTime.longValue(), new boolean[0]);
                 String s = (new SimpleDateFormat("M/d H:mm")).format(new Date(((MtvProgram) (mtvreservation)).mTimeStart));
                 String s1 = (new StringBuilder()).append(s).append(" - ").append((new SimpleDateFormat("H:mm")).format(new Date(((MtvProgram) (mtvreservation)).mTimeEnd))).toString();
@@ -147,19 +154,20 @@ public class MtvUiRemoveList extends Activity
                 ((ImageView)view1.findViewById(0x7f0a0053)).setImageDrawable(mIcon[mtvreservation.mPgmType][selectStatusIconIndex(mtvreservation)]);
                 check = (CheckBox)view1.findViewById(0x7f0a0048).findViewById(0x7f0a0114);
                 check.setVisibility(0);
-                check.setChecked(mItemsCheckedState[i]);
+                check.setChecked(Log.d(MtvUiRemoveList.this)[i]);
                 check.setFocusable(false);
                 check.setClickable(false);
             } else
             {
-                mSelectAllText.setVisibility(4);
-                mAllCheck.setVisibility(4);
+                Log.d(MtvUiRemoveList.this).setVisibility(4);
+                Log.d(MtvUiRemoveList.this).setVisibility(4);
             }
             return view1;
         }
 
         public int selectStatusIconIndex(MtvReservation mtvreservation)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$ReserveAdapter;->selectStatusIconIndex(Lcom/samsung/sec/mtv/provider/MtvReservation;)I");
             int i;
             if(mtvreservation.mPgmStatus == 0 && ((MtvProgram) (mtvreservation)).mTimeStart < System.currentTimeMillis())
                 i = 1;
@@ -173,23 +181,25 @@ public class MtvUiRemoveList extends Activity
 
         public void setChecked(int i, boolean flag)
         {
-            setItemCheckedState(i, flag);
-            mListView.setItemChecked(i, flag);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$ReserveAdapter;->setChecked(IZ)V");
+            Log.d(MtvUiRemoveList.this, i, flag);
+            Log.d(MtvUiRemoveList.this).setItemChecked(i, flag);
             notifyDataSetChanged();
-            checkItemCount(mRemove_Reserve.length);
+            checkItemCount(Log.d(MtvUiRemoveList.this).length);
         }
 
         public void toggle(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$ReserveAdapter;->toggle(I)V");
             boolean flag;
-            if(getItemCheckedState(i))
+            if(Log.d(MtvUiRemoveList.this, i))
                 flag = false;
             else
                 flag = true;
-            setItemCheckedState(i, flag);
-            mListView.setItemChecked(i, flag);
+            Log.d(MtvUiRemoveList.this, i, flag);
+            Log.d(MtvUiRemoveList.this).setItemChecked(i, flag);
             notifyDataSetChanged();
-            checkItemCount(mRemove_Reserve.length);
+            checkItemCount(Log.d(MtvUiRemoveList.this).length);
         }
 
         private CheckBox check;
@@ -200,8 +210,9 @@ public class MtvUiRemoveList extends Activity
 
         public ReserveAdapter(Context context, int i, ArrayList arraylist)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$ReserveAdapter;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Landroid/content/Context;ILjava/util/ArrayList;)V");
             this$0 = MtvUiRemoveList.this;
-            ArrayAdapter(context, i, arraylist);
+            super(context, i, arraylist);
             int ai[] = new int[2];
             ai[0] = 2;
             ai[1] = 2;
@@ -219,6 +230,7 @@ public class MtvUiRemoveList extends Activity
 
         public View getView(int i, View view, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$StationDataAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             View view1 = view;
             if(view1 == null)
                 view1 = ((LayoutInflater)getContext().getSystemService("layout_inflater")).inflate(0x7f03000c, null);
@@ -228,9 +240,9 @@ public class MtvUiRemoveList extends Activity
             mCountText = (TextView)view1.findViewById(0x7f0a003d);
             check = (CheckBox)view1.findViewById(0x7f0a003e);
             check.setVisibility(0);
-            check.setChecked(mItemsCheckedState[i]);
-            mNameText.setSelected(mItemsCheckedState[i]);
-            mCountText.setSelected(mItemsCheckedState[i]);
+            check.setChecked(Log.d(MtvUiRemoveList.this)[i]);
+            mNameText.setSelected(Log.d(MtvUiRemoveList.this)[i]);
+            mCountText.setSelected(Log.d(MtvUiRemoveList.this)[i]);
             check.setFocusable(false);
             check.setClickable(false);
             mNameText.setText(s);
@@ -241,23 +253,25 @@ public class MtvUiRemoveList extends Activity
 
         public void setChecked(int i, boolean flag)
         {
-            setItemCheckedState(i, flag);
-            mListView.setItemChecked(i, flag);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$StationDataAdapter;->setChecked(IZ)V");
+            Log.d(MtvUiRemoveList.this, i, flag);
+            Log.d(MtvUiRemoveList.this).setItemChecked(i, flag);
             notifyDataSetChanged();
-            checkItemCount(mDeleteStationData.length);
+            checkItemCount(Log.d(MtvUiRemoveList.this).length);
         }
 
         public void toggle(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$StationDataAdapter;->toggle(I)V");
             boolean flag;
-            if(getItemCheckedState(i))
+            if(Log.d(MtvUiRemoveList.this, i))
                 flag = false;
             else
                 flag = true;
-            setItemCheckedState(i, flag);
-            mListView.setItemChecked(i, flag);
+            Log.d(MtvUiRemoveList.this, i, flag);
+            Log.d(MtvUiRemoveList.this).setItemChecked(i, flag);
             notifyDataSetChanged();
-            checkItemCount(mDeleteStationData.length);
+            checkItemCount(Log.d(MtvUiRemoveList.this).length);
         }
 
         private CheckBox check;
@@ -269,8 +283,9 @@ public class MtvUiRemoveList extends Activity
 
         public StationDataAdapter(Context context, int i, String as[])
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$StationDataAdapter;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Landroid/content/Context;I[Ljava/lang/String;)V");
             this$0 = MtvUiRemoveList.this;
-            ArrayAdapter(context, i, as);
+            super(context, i, as);
             mTitleName = as;
         }
     }
@@ -284,28 +299,29 @@ public class MtvUiRemoveList extends Activity
             MtvCProBMInfo mtvcprobminfo;
             ImageView imageview;
             TextView textview;
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$TvLinkAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             view1 = view;
             if(view1 == null)
                 view1 = ((LayoutInflater)getContext().getSystemService("layout_inflater")).inflate(0x7f03000f, null);
             mtvcprobminfo = mMtvLinks[i];
             if(mtvcprobminfo == null)
-                break MISSING_BLOCK_LABEL_252;
-            mSelectAllText.setVisibility(0);
-            mAllCheck.setVisibility(0);
+                break MISSING_BLOCK_LABEL_260;
+            Log.d(MtvUiRemoveList.this).setVisibility(0);
+            Log.d(MtvUiRemoveList.this).setVisibility(0);
             imageview = (ImageView)view1.findViewById(0x7f0a004a);
             textview = (TextView)view1.findViewById(0x7f0a004b);
             view1.findViewById(0x7f0a0048).setVisibility(0);
             check = (CheckBox)view1.findViewById(0x7f0a0049);
-            check.setChecked(mItemsCheckedState[i]);
+            check.setChecked(Log.d(MtvUiRemoveList.this)[i]);
             check.setFocusable(false);
             check.setClickable(false);
             mtvcprobminfo.getCproBMType();
-            JVM INSTR tableswitch 0 4: default 184
-        //                       0 222
-        //                       1 232
-        //                       2 184
-        //                       3 242
-        //                       4 242;
+            JVM INSTR tableswitch 0 4: default 192
+        //                       0 230
+        //                       1 240
+        //                       2 192
+        //                       3 250
+        //                       4 250;
                goto _L1 _L2 _L3 _L1 _L4 _L4
 _L1:
             textview.setText((new StringBuilder()).append(" ").append(mtvcprobminfo.getTitle()).toString());
@@ -321,28 +337,30 @@ _L3:
 _L4:
             imageview.setImageResource(0x7f0200c2);
               goto _L1
-            mSelectAllText.setVisibility(4);
-            mAllCheck.setVisibility(4);
+            Log.d(MtvUiRemoveList.this).setVisibility(4);
+            Log.d(MtvUiRemoveList.this).setVisibility(4);
               goto _L5
         }
 
         public void setChecked(int i, boolean flag)
         {
-            setItemCheckedState(i, flag);
-            mListView.setItemChecked(i, flag);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$TvLinkAdapter;->setChecked(IZ)V");
+            Log.d(MtvUiRemoveList.this, i, flag);
+            Log.d(MtvUiRemoveList.this).setItemChecked(i, flag);
             notifyDataSetChanged();
             checkItemCount(mLinks.length);
         }
 
         public void toggle(int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$TvLinkAdapter;->toggle(I)V");
             boolean flag;
-            if(getItemCheckedState(i))
+            if(Log.d(MtvUiRemoveList.this, i))
                 flag = false;
             else
                 flag = true;
-            setItemCheckedState(i, flag);
-            mListView.setItemChecked(i, flag);
+            Log.d(MtvUiRemoveList.this, i, flag);
+            Log.d(MtvUiRemoveList.this).setItemChecked(i, flag);
             notifyDataSetChanged();
             checkItemCount(mLinks.length);
         }
@@ -353,14 +371,16 @@ _L4:
 
         public TvLinkAdapter(Context context, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$TvLinkAdapter;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Landroid/content/Context;I)V");
             this$0 = MtvUiRemoveList.this;
-            ArrayAdapter(context, i);
+            super(context, i);
         }
 
         public TvLinkAdapter(Context context, int i, MtvCProBMInfo amtvcprobminfo[])
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$TvLinkAdapter;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Landroid/content/Context;I[Lcom/samsung/sec/mtv/provider/MtvCProBMInfo;)V");
             this$0 = MtvUiRemoveList.this;
-            ArrayAdapter(context, i, amtvcprobminfo);
+            super(context, i, amtvcprobminfo);
             mMtvLinks = amtvcprobminfo;
         }
     }
@@ -368,6 +388,8 @@ _L4:
 
     public MtvUiRemoveList()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;-><init>()V");
+        super();
         mReserveList = new ArrayList();
         mMtvFiles = null;
         mLinks = null;
@@ -386,21 +408,22 @@ _L4:
 
             public void handleMessage(Message message)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$1;->handleMessage(Landroid/os/Message;)V");
                 MtvUtilDebug.Low("MtvUiRemoveList", (new StringBuilder()).append("mUiHandler.handleMessage what=").append(message.what).toString());
                 message.what;
-                JVM INSTR tableswitch 0 1: default 52
-            //                           0 53
-            //                           1 138;
+                JVM INSTR tableswitch 0 1: default 60
+            //                           0 61
+            //                           1 146;
                    goto _L1 _L2 _L3
 _L1:
                 return;
 _L2:
-                mProgressDialog = new ProgressDialog(MtvUiRemoveList.this);
-                mProgressDialog.setTitle(0x7f07028d);
-                mProgressDialog.setMessage(getString(0x7f07029d));
-                mProgressDialog.setIndeterminate(true);
-                mProgressDialog.setCancelable(false);
-                mProgressDialog.show();
+                Log.d(MtvUiRemoveList.this, new ProgressDialog(MtvUiRemoveList.this));
+                Log.d(MtvUiRemoveList.this).setTitle(0x7f07028d);
+                Log.d(MtvUiRemoveList.this).setMessage(getString(0x7f07029d));
+                Log.d(MtvUiRemoveList.this).setIndeterminate(true);
+                Log.d(MtvUiRemoveList.this).setCancelable(false);
+                Log.d(MtvUiRemoveList.this).show();
                 continue; /* Loop/switch isn't completed */
 _L3:
                 finish();
@@ -412,8 +435,9 @@ _L4:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
                 this$0 = MtvUiRemoveList.this;
-                Handler();
+                super();
             }
         };
         mService = null;
@@ -421,38 +445,44 @@ _L4:
 
             public void onServiceConnected(ComponentName componentname, IBinder ibinder)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$3;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V");
                 MtvUtilDebug.Low("MtvUiRemoveList", "onServiceConnected...");
-                mService = (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService();
-                mService.registerListener(listener);
+                Log.d(MtvUiRemoveList.this, (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService());
+                Log.d(MtvUiRemoveList.this).registerListener(Log.d(MtvUiRemoveList.this));
             }
 
             public void onServiceDisconnected(ComponentName componentname)
             {
-                mService.unregisterListener(listener);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$3;->onServiceDisconnected(Landroid/content/ComponentName;)V");
+                Log.d(MtvUiRemoveList.this).unregisterListener(Log.d(MtvUiRemoveList.this));
             }
 
             final MtvUiRemoveList this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$3;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
                 this$0 = MtvUiRemoveList.this;
-                Object();
+                super();
             }
         };
         listener = new onMtvAppAndroidServiceListener() {
 
             public void onMtvAppAndroidServiceNotify(int i, Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$4;->onMtvAppAndroidServiceNotify(ILjava/lang/Object;)V");
             }
 
             public void onMtvAppFinishNotify(Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$4;->onMtvAppFinishNotify(Ljava/lang/Object;)V");
                 class _cls1
                     implements Runnable
                 {
 
                     public void run()
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$4$1;->run()V");
                         finish();
                     }
 
@@ -460,6 +490,7 @@ _L4:
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$4$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$4;)V");
                             this$1 = _cls4.this;
                             super();
                         }
@@ -472,15 +503,58 @@ _L4:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$4;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
                 this$0 = MtvUiRemoveList.this;
-                Object();
+                super();
             }
         };
-        mIntentReceiver = new BroadcastReceiver() ;
+        mIntentReceiver = new BroadcastReceiver() {
+
+            public void onReceive(Context context, Intent intent)
+            {
+                String s;
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$10;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V");
+                s = intent.getAction();
+                MtvUtilDebug.Low("MtvUiRemoveList", (new StringBuilder()).append("mIntentReceiver onReceive: action=").append(s).toString());
+                break MISSING_BLOCK_LABEL_39;
+                if(s != null && s.equals("com.samsung.sec.mtv.ACTION_MTV_TVFILE_DELETED"))
+                {
+                    Log.d(MtvUiRemoveList.this);
+                    MtvUtilDebug.Low("MtvUiRemoveList", (new StringBuilder()).append("mIntentReceiver:onRecieve for confirmation of TV files delete. Current count: ").append(Log.d(MtvUiRemoveList.this)).toString());
+                    if(Log.d(MtvUiRemoveList.this) <= 0)
+                    {
+                        if(Log.d(MtvUiRemoveList.this) != null)
+                        {
+                            MtvUiRemoveList.sIsDeleting = false;
+                            Log.d(MtvUiRemoveList.this).dismiss();
+                            Log.d(MtvUiRemoveList.this, null);
+                        }
+                        Log.d(MtvUiRemoveList.this, 3, 0);
+                        Log.d(MtvUiRemoveList.this, 4, 0);
+                        finish();
+                    } else
+                    {
+                        Log.d(MtvUiRemoveList.this);
+                        MtvUtilDebug.Mid("MtvUiRemoveList", (new StringBuilder()).append("mIntentReceiver:onRecieve for confirmation of TV files delete. Current count:").append(Log.d(MtvUiRemoveList.this)).toString());
+                    }
+                }
+                return;
+            }
+
+            final MtvUiRemoveList this$0;
+
+            
+            {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$10;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
+                this$0 = MtvUiRemoveList.this;
+                super();
+            }
+        };
     }
 
     private void clearDeleteFileDialog()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->clearDeleteFileDialog()V");
         MtvUtilDebug.Mid("MtvUiRemoveList", "clearDeleteFileDialog  called..");
         mUiHandler.sendEmptyMessage(1);
         requestSystemKeyEvent(3, false);
@@ -489,13 +563,14 @@ _L4:
 
     private void createTabList(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->createTabList(I)V");
         i;
-        JVM INSTR tableswitch 100 104: default 36
-    //                   100 386
-    //                   101 36
-    //                   102 568
-    //                   103 37
-    //                   104 208;
+        JVM INSTR tableswitch 100 104: default 44
+    //                   100 394
+    //                   101 44
+    //                   102 576
+    //                   103 45
+    //                   104 216;
            goto _L1 _L2 _L1 _L3 _L4 _L5
 _L1:
         return;
@@ -513,15 +588,17 @@ _L4:
 
                 public void onItemClick(AdapterView adapterview, View view, int l, long l1)
                 {
-                    mTvFileAdapter.toggle(l);
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$5;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
+                    Log.d(MtvUiRemoveList.this).toggle(l);
                 }
 
                 final MtvUiRemoveList this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$5;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
                 this$0 = MtvUiRemoveList.this;
-                Object();
+                super();
             }
             });
             checkItemCount(mMtvFiles.length);
@@ -549,15 +626,17 @@ _L5:
 
                 public void onItemClick(AdapterView adapterview, View view, int l, long l1)
                 {
-                    mLinkAdapter.toggle(l);
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$6;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
+                    Log.d(MtvUiRemoveList.this).toggle(l);
                 }
 
                 final MtvUiRemoveList this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$6;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
                 this$0 = MtvUiRemoveList.this;
-                Object();
+                super();
             }
             });
         } else
@@ -594,18 +673,20 @@ _L2:
 
             public void onItemClick(AdapterView adapterview, View view, int l, long l1)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$7;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
                 if(((TextView)view.findViewById(0x7f0a003c)).getText().toString().equals(getString(0x7f070029)))
-                    mListView.setItemChecked(l, false);
+                    Log.d(MtvUiRemoveList.this).setItemChecked(l, false);
                 else
-                    mStationDataAdapter.toggle(l);
+                    Log.d(MtvUiRemoveList.this).toggle(l);
             }
 
             final MtvUiRemoveList this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$7;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
                 this$0 = MtvUiRemoveList.this;
-                Object();
+                super();
             }
         });
         mAllCheck.setClickable(false);
@@ -637,15 +718,17 @@ _L3:
 
                 public void onItemClick(AdapterView adapterview, View view, int l, long l1)
                 {
-                    mReserveAdapter.toggle(l);
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$8;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
+                    Log.d(MtvUiRemoveList.this).toggle(l);
                 }
 
                 final MtvUiRemoveList this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$8;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
                 this$0 = MtvUiRemoveList.this;
-                Object();
+                super();
             }
             });
         }
@@ -657,6 +740,7 @@ _L6:
     {
         FileInputStream fileinputstream;
         Bitmap bitmap;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->decodeBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;");
         fileinputstream = null;
         bitmap = null;
         FileInputStream fileinputstream1 = new FileInputStream(s);
@@ -740,6 +824,7 @@ _L2:
 
     private int getCheckedItemCount()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->getCheckedItemCount()I");
         int i = 0;
         if(mItemsCheckedState != null && mItemsCheckedState.length > 0)
         {
@@ -753,6 +838,7 @@ _L2:
 
     private boolean getItemCheckedState(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->getItemCheckedState(I)Z");
         boolean flag;
         if(i <= mItemsCheckedState.length)
             flag = mItemsCheckedState[i];
@@ -763,6 +849,7 @@ _L2:
 
     private String getPreviewThumbnailPath(MtvFile mtvfile)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->getPreviewThumbnailPath(Lcom/samsung/sec/mtv/provider/MtvFile;)Ljava/lang/String;");
         String s = mtvfile.getFilePath();
         String s1;
         String s2;
@@ -793,10 +880,12 @@ _L2:
 
     private void removeChannel()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->removeChannel()V");
     }
 
     private void removeDeleteStationData()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->removeDeleteStationData()V");
         if(mDeleteStationData != null)
         {
             sIsDeleting = true;
@@ -813,11 +902,69 @@ _L2:
 
     private void removeFile()
     {
-        (new Thread(new Runnable() )).start();
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->removeFile()V");
+        (new Thread(new Runnable() {
+
+            public void run()
+            {
+                int i;
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$9;->run()V");
+                MtvUiRemoveList.sIsDeleting = true;
+                i = 0;
+                if(Log.d(MtvUiRemoveList.this) == null) goto _L2; else goto _L1
+_L1:
+                int j;
+                MtvUtilDebug.Mid("MtvUiRemoveList", (new StringBuilder()).append("removeFile:mMtvFiles.length: ").append(Log.d(MtvUiRemoveList.this).length).append("mTVFilesCount :").append(Log.d(MtvUiRemoveList.this)).toString());
+                j = 0;
+_L12:
+                if(j >= Log.d(MtvUiRemoveList.this).length) goto _L4; else goto _L3
+_L3:
+                if(!Log.d(MtvUiRemoveList.this)[j]) goto _L6; else goto _L5
+_L5:
+                MtvUtilDebug.Mid("MtvUiRemoveList", (new StringBuilder()).append("removeFile:mItemsCheckedState item:").append(j).append("mTVFilesCount").append(Log.d(MtvUiRemoveList.this)).toString());
+                MtvFileManager.deleteTvFile(Log.d(MtvUiRemoveList.this)[j].getIndex(), Log.d(MtvUiRemoveList.this)[j].getFilePath(), MtvAppPlayerOneSeg.getInstance());
+                if(j != Log.d(MtvUiRemoveList.this).getLatestFileIndex()) goto _L8; else goto _L7
+_L7:
+                Log.d(MtvUiRemoveList.this).setLatestFileIndex(0);
+_L10:
+                Log.d(MtvUiRemoveList.this)[j] = false;
+                if(1 != Log.d(MtvUiRemoveList.this)[j].getFileFormat() && 1 != Log.d(MtvUiRemoveList.this)[j].getFileFormat())
+                    break; /* Loop/switch isn't completed */
+                MtvUtilDebug.Mid("MtvUiRemoveList", "removeFile:mItemsCheckedState break");
+_L4:
+                if(Log.d(MtvUiRemoveList.this).getLatestFileIndex() >= i)
+                    Log.d(MtvUiRemoveList.this).setLatestFileIndex(Log.d(MtvUiRemoveList.this).getLatestFileIndex() - i);
+                if(Log.d(MtvUiRemoveList.this) <= 0)
+                    Log.d(MtvUiRemoveList.this);
+_L2:
+                return;
+_L8:
+                if(Log.d(MtvUiRemoveList.this).getLatestFileIndex() != 0 && j < Log.d(MtvUiRemoveList.this).getLatestFileIndex())
+                    i++;
+                if(true) goto _L10; else goto _L9
+_L9:
+                MtvUtilDebug.Mid("MtvUiRemoveList", "removeFile:mItemsCheckedState continue");
+                Log.d(MtvUiRemoveList.this);
+_L6:
+                j++;
+                if(true) goto _L12; else goto _L11
+_L11:
+            }
+
+            final MtvUiRemoveList this$0;
+
+            
+            {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$9;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
+                this$0 = MtvUiRemoveList.this;
+                super();
+            }
+        })).start();
     }
 
     private void removeLink()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->removeLink()V");
         if(mLinks != null)
         {
             sIsDeleting = true;
@@ -844,6 +991,7 @@ _L2:
 
     private void removeReserve()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->removeReserve()V");
         for(int i = 0; i < mRemove_Reserve.length; i++)
         {
             Long long1 = mRemove_Reserve[i];
@@ -856,21 +1004,23 @@ _L2:
 
     private boolean requestSystemKeyEvent(int i, boolean flag)
     {
-        IWindowManager iwindowmanager = android.view.IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
-        boolean flag2 = iwindowmanager.requestSystemKeyEvent(i, getComponentName(), flag);
-        boolean flag1 = flag2;
-_L2:
-        return flag1;
-        RemoteException remoteexception;
-        remoteexception;
-        remoteexception.printStackTrace();
-        flag1 = false;
-        if(true) goto _L2; else goto _L1
-_L1:
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->requestSystemKeyEvent(IZ)Z");
+        android.view.IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
+        try
+        {
+            getComponentName();
+            return true;
+        }
+        catch(RemoteException remoteexception)
+        {
+            remoteexception.printStackTrace();
+        }
+        return false;
     }
 
     private void setFileInfo(MtvFile mtvfile)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->setFileInfo(Lcom/samsung/sec/mtv/provider/MtvFile;)V");
         if(mtvfile != null) goto _L2; else goto _L1
 _L1:
         mPreImageView.setTag(null);
@@ -882,10 +1032,10 @@ _L2:
         if(mtvfile.getFilePath() == null) goto _L4; else goto _L3
 _L3:
         mtvfile.getFileFormat();
-        JVM INSTR tableswitch 0 2: default 68
-    //                   0 71
-    //                   1 323
-    //                   2 98;
+        JVM INSTR tableswitch 0 2: default 76
+    //                   0 79
+    //                   1 331
+    //                   2 106;
            goto _L4 _L5 _L6 _L7
 _L5:
         mPreImageView.setImageBitmap(decodeBitmap(getPreviewThumbnailPath(mtvfile)));
@@ -1055,12 +1205,14 @@ _L12:
 
     private void setItemCheckedState(int i, boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->setItemCheckedState(IZ)V");
         if(i <= mItemsCheckedState.length)
             mItemsCheckedState[i] = flag;
     }
 
     private void setSaveButtonEnabled(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->setSaveButtonEnabled(I)V");
         if(i <= 0 && !mAllCheck.isChecked()) goto _L2; else goto _L1
 _L1:
         if(doneLayout != null)
@@ -1076,6 +1228,7 @@ _L3:
 
     private void startDeleteFileDialog()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->startDeleteFileDialog()V");
         mUiHandler.sendEmptyMessage(0);
         mNotiMgr = (NotificationManager)getSystemService("notification");
         if(mNotiMgr != null)
@@ -1086,6 +1239,7 @@ _L3:
 
     public void checkItemCount(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->checkItemCount(I)V");
         int j = 0;
         int k = 0;
         while(k < i) 
@@ -1103,20 +1257,21 @@ _L3:
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->onClick(Landroid/view/View;)V");
         view.getId();
-        JVM INSTR tableswitch 2131361837 2131361837: default 24
-    //                   2131361837 25;
+        JVM INSTR tableswitch 2131361837 2131361837: default 32
+    //                   2131361837 33;
            goto _L1 _L2
 _L1:
         return;
 _L2:
         mRemoveListType;
-        JVM INSTR tableswitch 100 104: default 64
-    //                   100 290
-    //                   101 72
-    //                   102 365
-    //                   103 140
-    //                   104 215;
+        JVM INSTR tableswitch 100 104: default 72
+    //                   100 298
+    //                   101 80
+    //                   102 373
+    //                   103 148
+    //                   104 223;
            goto _L3 _L4 _L5 _L6 _L7 _L8
 _L3:
         break; /* Loop/switch isn't completed */
@@ -1227,7 +1382,8 @@ _L6:
 
     public void onCreate(Bundle bundle)
     {
-        onCreate(bundle);
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->onCreate(Landroid/os/Bundle;)V");
+        super.onCreate(bundle);
         getActionBar();
         setContentView(0x7f030006);
         getWindow().addFlags(128);
@@ -1254,7 +1410,8 @@ _L6:
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        onCreateOptionsMenu(menu);
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->onCreateOptionsMenu(Landroid/view/Menu;)Z");
+        super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(0x7f090000, menu);
         doneLayout = menu.getItem(1);
         cancelLayout = menu.getItem(0);
@@ -1263,28 +1420,29 @@ _L6:
 
             public boolean onMenuItemClick(MenuItem menuitem)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$2;->onMenuItemClick(Landroid/view/MenuItem;)Z");
                 menuitem.getItemId();
-                JVM INSTR tableswitch 2131362098 2131362099: default 28
-            //                           2131362098 233
-            //                           2131362099 30;
+                JVM INSTR tableswitch 2131362098 2131362099: default 36
+            //                           2131362098 241
+            //                           2131362099 38;
                    goto _L1 _L2 _L3
 _L1:
                 return false;
 _L3:
-                mRemoveListType;
-                JVM INSTR tableswitch 100 104: default 72
-            //                           100 223
-            //                           101 106
-            //                           102 116
-            //                           103 178
-            //                           104 213;
+                Log.d(MtvUiRemoveList.this);
+                JVM INSTR tableswitch 100 104: default 80
+            //                           100 231
+            //                           101 114
+            //                           102 124
+            //                           103 186
+            //                           104 221;
                    goto _L4 _L5 _L6 _L7 _L8 _L9
 _L4:
-                if(mRemoveListType != 103 && mRemoveListType != 102)
+                if(Log.d(MtvUiRemoveList.this) != 103 && Log.d(MtvUiRemoveList.this) != 102)
                     finish();
                 continue; /* Loop/switch isn't completed */
 _L6:
-                removeChannel();
+                Log.d(MtvUiRemoveList.this);
                   goto _L4
 _L7:
                 class _cls2
@@ -1293,7 +1451,8 @@ _L7:
 
                     public void onClick(DialogInterface dialoginterface, int i)
                     {
-                        removeReserve();
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$2$2;->onClick(Landroid/content/DialogInterface;I)V");
+                        Log.d(_fld0);
                         dialoginterface.dismiss();
                     }
 
@@ -1301,8 +1460,9 @@ _L7:
 
                         _cls2()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$2$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$2;)V");
                             this$1 = _cls2.this;
-                            Object();
+                            super();
                         }
                 }
 
@@ -1312,6 +1472,7 @@ _L7:
 
                     public void onClick(DialogInterface dialoginterface, int i)
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$2$1;->onClick(Landroid/content/DialogInterface;I)V");
                         dialoginterface.dismiss();
                     }
 
@@ -1319,8 +1480,9 @@ _L7:
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$2$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$2;)V");
                             this$1 = _cls2.this;
-                            Object();
+                            super();
                         }
                 }
 
@@ -1332,10 +1494,10 @@ _L8:
                 MtvUiDialogsFrag.newInstance(bundle).show(getFragmentManager(), "tv_files_delete_ok_cancel");
                   goto _L4
 _L9:
-                removeLink();
+                Log.d(MtvUiRemoveList.this);
                   goto _L4
 _L5:
-                removeDeleteStationData();
+                Log.d(MtvUiRemoveList.this);
                   goto _L4
 _L2:
                 finish();
@@ -1347,8 +1509,9 @@ _L10:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
                 this$0 = MtvUiRemoveList.this;
-                Object();
+                super();
             }
         };
         cancelLayout.setOnMenuItemClickListener(onmenuitemclicklistener);
@@ -1358,6 +1521,7 @@ _L10:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->onDestroy()V");
         MtvUtilDebug.Mid("MtvUiRemoveList", "onDestroy call...");
         sIsDeleting = false;
         if(mService != null)
@@ -1372,9 +1536,10 @@ _L10:
 
     public void onFragEvent(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->onFragEvent(ILjava/lang/Object;)V");
         i;
-        JVM INSTR tableswitch 280 280: default 20
-    //                   280 21;
+        JVM INSTR tableswitch 280 280: default 28
+    //                   280 29;
            goto _L1 _L2
 _L1:
         return;
@@ -1400,6 +1565,7 @@ _L3:
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->onResume()V");
         super.onResume();
         sendBroadcast(new Intent("intent.stop.app-in-app"));
         if(mPreferences == null)
@@ -1464,12 +1630,14 @@ _L3:
 
     public void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->onSaveInstanceState(Landroid/os/Bundle;)V");
         bundle.putBooleanArray("mItemsCheckedState", mItemsCheckedState);
         super.onSaveInstanceState(bundle);
     }
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->onStop()V");
         MtvUtilAppService.resetMtvVisibiltySettings(getApplicationContext());
         super.onStop();
     }
@@ -1510,15 +1678,26 @@ _L3:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;-><clinit>()V");
         INTENT_FILTER = new IntentFilter();
         INTENT_FILTER.addAction("com.samsung.sec.mtv.ACTION_MTV_TVFILE_DELETED");
     }
 
 
+/*
+    static ProgressDialog access$000(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$000(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Landroid/app/ProgressDialog;");
+        return mtvuiremovelist.mProgressDialog;
+    }
+
+*/
+
 
 /*
     static ProgressDialog access$002(MtvUiRemoveList mtvuiremovelist, ProgressDialog progressdialog)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$002(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;");
         mtvuiremovelist.mProgressDialog = progressdialog;
         return progressdialog;
     }
@@ -1526,15 +1705,70 @@ _L3:
 */
 
 
+/*
+    static int access$100(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)I");
+        return mtvuiremovelist.mRemoveListType;
+    }
+
+*/
 
 
+/*
+    static ListView access$1000(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1000(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Landroid/widget/ListView;");
+        return mtvuiremovelist.mListView;
+    }
+
+*/
 
 
+/*
+    static StationDataAdapter access$1100(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1100(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$StationDataAdapter;");
+        return mtvuiremovelist.mStationDataAdapter;
+    }
+
+*/
+
+
+/*
+    static ReserveAdapter access$1200(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1200(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$ReserveAdapter;");
+        return mtvuiremovelist.mReserveAdapter;
+    }
+
+*/
+
+
+/*
+    static MtvFile[] access$1300(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1300(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)[Lcom/samsung/sec/mtv/provider/MtvFile;");
+        return mtvuiremovelist.mMtvFiles;
+    }
+
+*/
+
+
+/*
+    static int access$1400(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1400(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)I");
+        return mtvuiremovelist.mTVFilesCount;
+    }
+
+*/
 
 
 /*
     static int access$1410(MtvUiRemoveList mtvuiremovelist)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1410(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)I");
         int i = mtvuiremovelist.mTVFilesCount;
         mtvuiremovelist.mTVFilesCount = i - 1;
         return i;
@@ -1543,19 +1777,113 @@ _L3:
 */
 
 
+/*
+    static boolean[] access$1500(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1500(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)[Z");
+        return mtvuiremovelist.mItemsCheckedState;
+    }
+
+*/
 
 
+/*
+    static MtvPreferences access$1600(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1600(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Lcom/samsung/sec/mtv/utility/MtvPreferences;");
+        return mtvuiremovelist.mPreferences;
+    }
+
+*/
 
 
+/*
+    static void access$1700(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1700(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
+        mtvuiremovelist.clearDeleteFileDialog();
+        return;
+    }
+
+*/
 
 
+/*
+    static ArrayList access$1800(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1800(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Ljava/util/ArrayList;");
+        return mtvuiremovelist.mReserveList;
+    }
+
+*/
 
 
+/*
+    static TextView access$1900(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$1900(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Landroid/widget/TextView;");
+        return mtvuiremovelist.mSelectAllText;
+    }
+
+*/
+
+
+/*
+    static void access$200(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$200(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
+        mtvuiremovelist.removeChannel();
+        return;
+    }
+
+*/
+
+
+/*
+    static CheckBox access$2000(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2000(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Landroid/widget/CheckBox;");
+        return mtvuiremovelist.mAllCheck;
+    }
+
+*/
+
+
+/*
+    static boolean access$2100(MtvUiRemoveList mtvuiremovelist, int i)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2100(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;I)Z");
+        return mtvuiremovelist.getItemCheckedState(i);
+    }
+
+*/
+
+
+/*
+    static void access$2200(MtvUiRemoveList mtvuiremovelist, int i, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2200(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;IZ)V");
+        mtvuiremovelist.setItemCheckedState(i, flag);
+        return;
+    }
+
+*/
+
+
+/*
+    static Long[] access$2300(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2300(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)[Ljava/lang/Long;");
+        return mtvuiremovelist.mRemove_Reserve;
+    }
+
+*/
 
 
 /*
     static ImageView access$2402(MtvUiRemoveList mtvuiremovelist, ImageView imageview)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2402(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Landroid/widget/ImageView;)Landroid/widget/ImageView;");
         mtvuiremovelist.mPreImageView = imageview;
         return imageview;
     }
@@ -1566,6 +1894,7 @@ _L3:
 /*
     static ImageView access$2502(MtvUiRemoveList mtvuiremovelist, ImageView imageview)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2502(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Landroid/widget/ImageView;)Landroid/widget/ImageView;");
         mtvuiremovelist.mPlayImageView = imageview;
         return imageview;
     }
@@ -1573,17 +1902,95 @@ _L3:
 */
 
 
+/*
+    static void access$2600(MtvUiRemoveList mtvuiremovelist, MtvFile mtvfile)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2600(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Lcom/samsung/sec/mtv/provider/MtvFile;)V");
+        mtvuiremovelist.setFileInfo(mtvfile);
+        return;
+    }
+
+*/
 
 
+/*
+    static String[] access$2700(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2700(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)[Ljava/lang/String;");
+        return mtvuiremovelist.mDeleteStationData;
+    }
+
+*/
 
 
+/*
+    static boolean access$2800(MtvUiRemoveList mtvuiremovelist, int i, boolean flag)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2800(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;IZ)Z");
+        return mtvuiremovelist.requestSystemKeyEvent(i, flag);
+    }
+
+*/
 
 
+/*
+    static void access$2900(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$2900(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
+        mtvuiremovelist.removeFile();
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$300(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$300(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
+        mtvuiremovelist.removeReserve();
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$400(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$400(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
+        mtvuiremovelist.removeLink();
+        return;
+    }
+
+*/
+
+
+/*
+    static void access$500(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$500(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)V");
+        mtvuiremovelist.removeDeleteStationData();
+        return;
+    }
+
+*/
+
+
+/*
+    static MtvAppAndroidService access$600(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$600(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
+        return mtvuiremovelist.mService;
+    }
+
+*/
 
 
 /*
     static MtvAppAndroidService access$602(MtvUiRemoveList mtvuiremovelist, MtvAppAndroidService mtvappandroidservice)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$602(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
         mtvuiremovelist.mService = mtvappandroidservice;
         return mtvappandroidservice;
     }
@@ -1591,5 +1998,32 @@ _L3:
 */
 
 
+/*
+    static onMtvAppAndroidServiceListener access$700(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$700(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;");
+        return mtvuiremovelist.listener;
+    }
 
+*/
+
+
+/*
+    static MtvFileAdapter access$800(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$800(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$MtvFileAdapter;");
+        return mtvuiremovelist.mTvFileAdapter;
+    }
+
+*/
+
+
+/*
+    static TvLinkAdapter access$900(MtvUiRemoveList mtvuiremovelist)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;->access$900(Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList;)Lcom/samsung/sec/mtv/ui/common/MtvUiRemoveList$TvLinkAdapter;");
+        return mtvuiremovelist.mLinkAdapter;
+    }
+
+*/
 }

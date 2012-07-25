@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.service.*;
@@ -28,18 +29,20 @@ public class MtvUiManualReservation extends Activity
 
         public void onTimeChanged(TimePicker timepicker, int i, int j)
         {
-            popupSaveDate.set(11, i);
-            popupSaveDate.set(12, j);
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$MtvTimePickerDialog;->onTimeChanged(Landroid/widget/TimePicker;II)V");
+            Log.d(MtvUiManualReservation.this).set(11, i);
+            Log.d(MtvUiManualReservation.this).set(12, j);
         }
 
         final MtvUiManualReservation this$0;
 
         public MtvTimePickerDialog(Context context, android.app.TimePickerDialog.OnTimeSetListener ontimesetlistener, int i, int j, boolean flag)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$MtvTimePickerDialog;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;Landroid/content/Context;Landroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V");
             this$0 = MtvUiManualReservation.this;
             super(context, ontimesetlistener, i, j, flag);
-            popupSaveDate.set(11, i);
-            popupSaveDate.set(12, j);
+            Log.d(MtvUiManualReservation.this).set(11, i);
+            Log.d(MtvUiManualReservation.this).set(12, j);
         }
     }
 
@@ -48,11 +51,13 @@ public class MtvUiManualReservation extends Activity
 
         public static PopupType valueOf(String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$PopupType;->valueOf(Ljava/lang/String;)Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$PopupType;");
             return (PopupType)Enum.valueOf(com/samsung/sec/mtv/ui/common/MtvUiManualReservation$PopupType, s);
         }
 
         public static PopupType[] values()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$PopupType;->values()[Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$PopupType;");
             return (PopupType[])$VALUES.clone();
         }
 
@@ -67,6 +72,7 @@ public class MtvUiManualReservation extends Activity
 
         static 
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$PopupType;-><clinit>()V");
             NONE = new PopupType("NONE", 0);
             RESRV_TYPE = new PopupType("RESRV_TYPE", 1);
             CHANNEL_NUMBER = new PopupType("CHANNEL_NUMBER", 2);
@@ -87,6 +93,7 @@ public class MtvUiManualReservation extends Activity
 
         private PopupType(String s, int i)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$PopupType;-><init>(Ljava/lang/String;I)V");
             super(s, i);
         }
     }
@@ -94,6 +101,8 @@ public class MtvUiManualReservation extends Activity
 
     public MtvUiManualReservation()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;-><init>()V");
+        super();
         mCurrentPopupType = PopupType.NONE;
         mIsReserveFromEPG = false;
         mPrevReservation = null;
@@ -107,20 +116,23 @@ public class MtvUiManualReservation extends Activity
 
             public void onServiceConnected(ComponentName componentname, IBinder ibinder)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$2;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V");
                 MtvUtilDebug.Low("MtvUiManualReservation", "onServiceConnected...");
-                mService = (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService();
-                mService.registerListener(listener);
+                Log.d(MtvUiManualReservation.this, (MtvAppAndroidService)((MtvAppAndroidServiceBinder)ibinder).getService());
+                Log.d(MtvUiManualReservation.this).registerListener(Log.d(MtvUiManualReservation.this));
             }
 
             public void onServiceDisconnected(ComponentName componentname)
             {
-                mService.unregisterListener(listener);
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$2;->onServiceDisconnected(Landroid/content/ComponentName;)V");
+                Log.d(MtvUiManualReservation.this).unregisterListener(Log.d(MtvUiManualReservation.this));
             }
 
             final MtvUiManualReservation this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$2;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -129,16 +141,19 @@ public class MtvUiManualReservation extends Activity
 
             public void onMtvAppAndroidServiceNotify(int i, Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$3;->onMtvAppAndroidServiceNotify(ILjava/lang/Object;)V");
             }
 
             public void onMtvAppFinishNotify(Object obj)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$3;->onMtvAppFinishNotify(Ljava/lang/Object;)V");
                 class _cls1
                     implements Runnable
                 {
 
                     public void run()
                     {
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$3$1;->run()V");
                         finish();
                     }
 
@@ -146,6 +161,7 @@ public class MtvUiManualReservation extends Activity
 
                         _cls1()
                         {
+                            Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$3$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$3;)V");
                             this$1 = _cls3.this;
                             super();
                         }
@@ -158,6 +174,7 @@ public class MtvUiManualReservation extends Activity
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$3;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -166,6 +183,7 @@ public class MtvUiManualReservation extends Activity
 
             public void onTimeSet(TimePicker timepicker, int i, int j)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$7;->onTimeSet(Landroid/widget/TimePicker;II)V");
                 if((new Date(mStartYear, -1 + mStartMonth, mStartDay)).getTime() != getDefaultDate()) goto _L2; else goto _L1
 _L1:
                 int k;
@@ -187,7 +205,7 @@ _L4:
 _L2:
                 mStartHour = i;
                 mStartMinute = j;
-                mReserveStartTime.setText(formatTime(mStartHour, mStartMinute));
+                Log.d(MtvUiManualReservation.this).setText(Log.d(MtvUiManualReservation.this, mStartHour, mStartMinute));
                 if(true) goto _L6; else goto _L5
 _L5:
             }
@@ -196,6 +214,7 @@ _L5:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$7;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -206,6 +225,7 @@ _L5:
             {
                 Date date;
                 Date date1;
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$8;->onTimeSet(Landroid/widget/TimePicker;II)V");
                 date = new Date(mEndYear, -1 + mEndMonth, mEndDay);
                 date1 = new Date(mStartYear, -1 + mStartMonth, mStartDay);
                 if(date.getTime() != date1.getTime()) goto _L2; else goto _L1
@@ -228,7 +248,7 @@ _L4:
 _L2:
                 mEndHour = i;
                 mEndMinute = j;
-                mReserveEndTime.setText(formatTime(mEndHour, mEndMinute));
+                Log.d(MtvUiManualReservation.this).setText(Log.d(MtvUiManualReservation.this, mEndHour, mEndMinute));
                 if(true) goto _L6; else goto _L5
 _L5:
             }
@@ -237,6 +257,7 @@ _L5:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$8;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -245,7 +266,9 @@ _L5:
 
             public void onDateSet(DatePicker datepicker, int i, int j, int k)
             {
-                Date date = new Date(i, j, k);
+                Date date;
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$9;->onDateSet(Landroid/widget/DatePicker;III)V");
+                date = new Date(i, j, k);
                 if(date.getTime() >= getDefaultDate()) goto _L2; else goto _L1
 _L1:
                 startTimeShouldBeSetAfterCurrentTimeAlert();
@@ -276,7 +299,7 @@ _L2:
                     mStartYear = i;
                     mStartMonth = j + 1;
                     mStartDay = k;
-                    mReserveStartDate.setText(formatDate(mStartYear, -1 + mStartMonth, mStartDay));
+                    Log.d(MtvUiManualReservation.this).setText(Log.d(MtvUiManualReservation.this, mStartYear, -1 + mStartMonth, mStartDay));
                 }
                 if(true) goto _L4; else goto _L3
 _L3:
@@ -286,6 +309,7 @@ _L3:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$9;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -294,16 +318,18 @@ _L3:
 
             public void onDateSet(DatePicker datepicker, int i, int j, int k)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$10;->onDateSet(Landroid/widget/DatePicker;III)V");
                 mEndYear = i;
                 mEndMonth = j + 1;
                 mEndDay = k;
-                mReserveEndDate.setText(formatDate(mEndYear, -1 + mEndMonth, mEndDay));
+                Log.d(MtvUiManualReservation.this).setText(Log.d(MtvUiManualReservation.this, mEndYear, -1 + mEndMonth, mEndDay));
             }
 
             final MtvUiManualReservation this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$10;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -312,13 +338,15 @@ _L3:
 
             public void onDismiss(DialogInterface dialoginterface)
             {
-                mReserveDialog = null;
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$11;->onDismiss(Landroid/content/DialogInterface;)V");
+                Log.d(MtvUiManualReservation.this, null);
             }
 
             final MtvUiManualReservation this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$11;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -329,6 +357,7 @@ _L3:
     private MtvReservation convertEPGInfoToReserve(int i, String s, int j, String s1, String s2)
     {
         Date date1;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->convertEPGInfoToReserve(ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/sec/mtv/provider/MtvReservation;");
         int k = -1;
         long l = 0L;
         long l1 = 0L;
@@ -368,6 +397,7 @@ _L1:
 
     private String formatDate(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->formatDate(III)Ljava/lang/String;");
         SimpleDateFormat simpledateformat = (SimpleDateFormat)DateFormat.getDateFormat(getApplicationContext());
         simpledateformat.applyPattern((new StringBuilder()).append(simpledateformat.toPattern()).append(" (EEE)").toString());
         return simpledateformat.format(new Date(i - 1900, j, k));
@@ -375,6 +405,7 @@ _L1:
 
     private String formatTime(int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->formatTime(II)Ljava/lang/String;");
         SimpleDateFormat simpledateformat = new SimpleDateFormat("mm");
         Date date = new Date();
         date.setMinutes(j);
@@ -407,6 +438,7 @@ _L1:
 
     private void initReservationVariables()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->initReservationVariables()V");
         mReservationType = -1;
         long l = System.currentTimeMillis();
         SimpleDateFormat simpledateformat = new SimpleDateFormat("yyyy");
@@ -449,6 +481,7 @@ _L1:
 
     private void initViewControl()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->initViewControl()V");
         mChannelNum = (Button)findViewById(0x7f0a0012);
         mDummyEditTextBox = (EditText)findViewById(0x7f0a0010);
         mProgramInputName = (EditText)findViewById(0x7f0a0017);
@@ -468,6 +501,7 @@ _L1:
 
     private void reloadReservationVariables(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->reloadReservationVariables(Landroid/os/Bundle;)V");
         mChannelListIndex = bundle.getInt("ChannelListIndex");
         mChannelNum.setText(getDisplayChannelText(mChannelListIndex));
         if(mChannelListIndex > -1)
@@ -501,6 +535,7 @@ _L1:
 
     private void reset()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->reset()V");
         mIsReserveFromEPG = false;
         mReserveDialog = null;
         mPrevReservation = null;
@@ -512,6 +547,7 @@ _L1:
 
     private void saveManualReserve()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->saveManualReserve()V");
         long l = (new Date(-1900 + mStartYear, -1 + mStartMonth, mStartDay, mStartHour, mStartMinute, 0)).getTime();
         long l1 = (new Date(-1900 + mEndYear, -1 + mEndMonth, mEndDay, mEndHour, mEndMinute, 0)).getTime();
         String s = ((EditText)findViewById(0x7f0a0017)).getText().toString();
@@ -538,6 +574,7 @@ _L1:
 
     private void setRemineReservation(MtvReservation mtvreservation)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->setRemineReservation(Lcom/samsung/sec/mtv/provider/MtvReservation;)V");
         boolean flag = false;
         int i = 0;
         do
@@ -657,15 +694,17 @@ label0:
 
     private void showMtvDialog(int i)
     {
-        int j = 0;
+        int j;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->showMtvDialog(I)V");
+        j = 0;
         i;
-        JVM INSTR tableswitch 0 5: default 40
-    //                   0 41
-    //                   1 287
-    //                   2 346
-    //                   3 148
-    //                   4 406
-    //                   5 465;
+        JVM INSTR tableswitch 0 5: default 52
+    //                   0 53
+    //                   1 304
+    //                   2 363
+    //                   3 160
+    //                   4 423
+    //                   5 482;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
 _L1:
         return;
@@ -678,6 +717,7 @@ _L2:
 
             public void onClick(DialogInterface dialoginterface, int k)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$5;->onClick(Landroid/content/DialogInterface;I)V");
                 if(k == 0)
                 {
                     mReservationType = 0;
@@ -694,6 +734,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$5;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -701,6 +742,7 @@ _L2:
 
             public void onClick(DialogInterface dialoginterface, int k)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$4;->onClick(Landroid/content/DialogInterface;I)V");
                 dialoginterface.dismiss();
             }
 
@@ -708,6 +750,7 @@ _L2:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$4;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -730,11 +773,12 @@ _L5:
 
             public void onClick(DialogInterface dialoginterface, int k)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$6;->onClick(Landroid/content/DialogInterface;I)V");
                 String s = (String)channelNameList[k];
-                mChannelNum.setText(s);
-                mChannelListIndex = k;
-                mPch = mChannelsList[mChannelListIndex].mPhysicalNum;
-                mVch = mChannelsList[mChannelListIndex].mVirtualNum;
+                Log.d(MtvUiManualReservation.this).setText(s);
+                Log.d(MtvUiManualReservation.this, k);
+                mPch = Log.d(MtvUiManualReservation.this)[Log.d(MtvUiManualReservation.this)].mPhysicalNum;
+                mVch = Log.d(MtvUiManualReservation.this)[Log.d(MtvUiManualReservation.this)].mVirtualNum;
                 checkInputAllField(true);
                 dialoginterface.dismiss();
             }
@@ -744,6 +788,7 @@ _L5:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$6;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;[Ljava/lang/CharSequence;)V");
                 this$0 = MtvUiManualReservation.this;
                 channelNameList = acharsequence;
                 super();
@@ -782,11 +827,13 @@ _L8:
 
     public void EndTimeShouldBeSetAfterStartTimeAlert()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->EndTimeShouldBeSetAfterStartTimeAlert()V");
         (new android.app.AlertDialog.Builder(this)).setTitle(0x7f0702ab).setMessage(0x7f0702ad).setPositiveButton(0x7f070034, null).show().getWindow().addFlags(1024);
     }
 
     public void checkInputAllField(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->checkInputAllField(Z)V");
         if(reserve_save_menu != null)
             if(flag)
                 reserve_save_menu.setEnabled(true);
@@ -796,6 +843,7 @@ _L8:
 
     public void durationWrongAlert()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->durationWrongAlert()V");
         int i;
         String s;
         Object aobj[];
@@ -813,6 +861,7 @@ _L8:
 
     public long getDefaultDate()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->getDefaultDate()J");
         long l = System.currentTimeMillis();
         SimpleDateFormat simpledateformat = new SimpleDateFormat("yyyy");
         SimpleDateFormat simpledateformat1 = new SimpleDateFormat("M");
@@ -825,6 +874,7 @@ _L8:
 
     public String getDisplayChannelText(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->getDisplayChannelText(I)Ljava/lang/String;");
         String s;
         if(mChannelsList != null && i >= 0 && i < mChannelsList.length)
         {
@@ -842,6 +892,7 @@ _L8:
         MtvReservation amtvreservation[];
         long l;
         long l1;
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->isReservationAlreadyTime()Z");
         amtvreservation = (MtvReservation[])MtvReservationManager.getAllReserves(this);
         Date date = new Date(-1900 + mStartYear, -1 + mStartMonth, mStartDay, mStartHour, mStartMinute, 0);
         Date date1 = new Date(-1900 + mEndYear, -1 + mEndMonth, mEndDay, mEndHour, mEndMinute, 0);
@@ -853,7 +904,7 @@ _L1:
         int j = 0;
 _L9:
         if(j >= amtvreservation.length)
-            break MISSING_BLOCK_LABEL_408;
+            break MISSING_BLOCK_LABEL_419;
         if(amtvreservation[j].mTimeEnd <= System.currentTimeMillis()) goto _L4; else goto _L3
 _L3:
         if(l != amtvreservation[j].mTimeStart || l1 != amtvreservation[j].mTimeEnd) goto _L6; else goto _L5
@@ -908,6 +959,7 @@ _L11:
 
     public int isReservationDurationValid()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->isReservationDurationValid()I");
         GregorianCalendar gregoriancalendar = new GregorianCalendar(mStartYear, -1 + mStartMonth, mStartDay, mStartHour, mStartMinute);
         GregorianCalendar gregoriancalendar1 = new GregorianCalendar(mEndYear, -1 + mEndMonth, mEndDay, mEndHour, mEndMinute);
         int i;
@@ -923,6 +975,7 @@ _L11:
 
     public boolean isStartTimeGreaterThanCurrentTime()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->isStartTimeGreaterThanCurrentTime()Z");
         boolean flag = false;
         int i;
         int j;
@@ -931,7 +984,7 @@ _L11:
             long l = System.currentTimeMillis();
             i = (new Date(l)).getHours();
             j = (new Date(l)).getMinutes();
-            break MISSING_BLOCK_LABEL_65;
+            break MISSING_BLOCK_LABEL_74;
         }
         do
         {
@@ -945,14 +998,15 @@ _L11:
 
     public void onClick(View view)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->onClick(Landroid/view/View;)V");
         view.getId();
-        JVM INSTR tableswitch 2131361809 2131361814: default 44
-    //                   2131361809 85
-    //                   2131361810 45
-    //                   2131361811 53
-    //                   2131361812 61
-    //                   2131361813 69
-    //                   2131361814 77;
+        JVM INSTR tableswitch 2131361809 2131361814: default 52
+    //                   2131361809 93
+    //                   2131361810 53
+    //                   2131361811 61
+    //                   2131361812 69
+    //                   2131361813 77
+    //                   2131361814 85;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
 _L1:
         return;
@@ -979,6 +1033,7 @@ _L8:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         mSavedBundle = bundle;
         setContentView(0x7f030003);
@@ -1024,6 +1079,7 @@ _L8:
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->onCreateOptionsMenu(Landroid/view/Menu;)Z");
         boolean flag = false;
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(0x7f090001, menu);
@@ -1042,10 +1098,11 @@ _L8:
 
             public boolean onMenuItemClick(MenuItem menuitem)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$1;->onMenuItemClick(Landroid/view/MenuItem;)Z");
                 menuitem.getItemId();
-                JVM INSTR tableswitch 2131362100 2131362101: default 28
-            //                           2131362100 122
-            //                           2131362101 30;
+                JVM INSTR tableswitch 2131362100 2131362101: default 36
+            //                           2131362100 130
+            //                           2131362101 38;
                    goto _L1 _L2 _L3
 _L1:
                 return true;
@@ -1056,7 +1113,7 @@ _L3:
                     if(i == 1)
                     {
                         if(isReservationAlreadyTime())
-                            saveManualReserve();
+                            Log.d(MtvUiManualReservation.this);
                         else
                             showAlreadyReserveDlg();
                     } else
@@ -1071,7 +1128,7 @@ _L3:
                 }
                 continue; /* Loop/switch isn't completed */
 _L2:
-                reset();
+                Log.d(MtvUiManualReservation.this);
                 finish();
                 if(true) goto _L1; else goto _L4
 _L4:
@@ -1081,6 +1138,7 @@ _L4:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$1;-><init>(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
                 this$0 = MtvUiManualReservation.this;
                 super();
             }
@@ -1092,6 +1150,7 @@ _L4:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->onDestroy()V");
         if(mReserveDialog != null && mReserveDialog.isShowing())
         {
             mReserveDialog.dismiss();
@@ -1108,12 +1167,14 @@ _L4:
 
     public void onFragEvent(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->onFragEvent(ILjava/lang/Object;)V");
         if(i == 276)
             finish();
     }
 
     public void onResume()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->onResume()V");
         super.onResume();
         MtvUtilAppService.setMtvVisibiltySettings(getApplicationContext());
         sendBroadcast(new Intent("intent.stop.app-in-app"));
@@ -1132,6 +1193,7 @@ _L2:
 
             static 
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation$12;-><clinit>()V");
                 $SwitchMap$com$samsung$sec$mtv$ui$common$MtvUiManualReservation$PopupType = new int[PopupType.values().length];
                 NoSuchFieldError nosuchfielderror6;
                 try
@@ -1243,6 +1305,7 @@ _L5:
 
     protected void onSaveInstanceState(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->onSaveInstanceState(Landroid/os/Bundle;)V");
         super.onSaveInstanceState(bundle);
         MtvUtilDebug.Low("MtvUiManualReservation", "onSaveInstanceState()");
         bundle.putInt("ChannelListIndex", mChannelListIndex);
@@ -1269,12 +1332,14 @@ _L5:
 
     public void onStop()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->onStop()V");
         MtvUtilAppService.resetMtvVisibiltySettings(this);
         super.onStop();
     }
 
     public void setNewReserve()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->setNewReserve()V");
         SimpleDateFormat simpledateformat = new SimpleDateFormat("yyyy/M/d");
         simpledateformat.applyPattern((new StringBuilder()).append(simpledateformat.toPattern()).append(" (EEE)").toString());
         mEndYear = mStartYear;
@@ -1309,16 +1374,19 @@ _L5:
 
     public void setStartTimeWithinOneWeekAlert()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->setStartTimeWithinOneWeekAlert()V");
         (new android.app.AlertDialog.Builder(this)).setTitle(0x7f0702ab).setMessage(0x7f0702b1).setPositiveButton(0x7f070034, null).show().getWindow().addFlags(1024);
     }
 
     public void showAlreadyReserveDlg()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->showAlreadyReserveDlg()V");
         (new android.app.AlertDialog.Builder(this)).setTitle(0x7f0702ab).setMessage(0x7f0702b2).setPositiveButton(0x7f070034, null).show().getWindow().addFlags(1024);
     }
 
     public void startTimeShouldBeSetAfterCurrentTimeAlert()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->startTimeShouldBeSetAfterCurrentTimeAlert()V");
         (new android.app.AlertDialog.Builder(this)).setTitle(0x7f0702ab).setMessage(0x7f0702b0).setPositiveButton(0x7f070034, null).show().getWindow().addFlags(1024);
     }
 
@@ -1365,14 +1433,62 @@ _L5:
     MenuItem reserve_save_menu;
 
 
+/*
+    static void access$000(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$000(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
+        mtvuimanualreservation.saveManualReserve();
+        return;
+    }
+
+*/
 
 
+/*
+    static void access$100(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$100(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)V");
+        mtvuimanualreservation.reset();
+        return;
+    }
 
+*/
+
+
+/*
+    static String access$1000(MtvUiManualReservation mtvuimanualreservation, int i, int j, int k)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$1000(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;III)Ljava/lang/String;");
+        return mtvuimanualreservation.formatDate(i, j, k);
+    }
+
+*/
+
+
+/*
+    static Button access$1100(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$1100(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)Landroid/widget/Button;");
+        return mtvuimanualreservation.mReserveStartDate;
+    }
+
+*/
+
+
+/*
+    static Button access$1200(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$1200(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)Landroid/widget/Button;");
+        return mtvuimanualreservation.mReserveEndDate;
+    }
+
+*/
 
 
 /*
     static AlertDialog access$1302(MtvUiManualReservation mtvuimanualreservation, AlertDialog alertdialog)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$1302(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;");
         mtvuimanualreservation.mReserveDialog = alertdialog;
         return alertdialog;
     }
@@ -1380,11 +1496,30 @@ _L5:
 */
 
 
+/*
+    static Calendar access$1400(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$1400(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)Ljava/util/Calendar;");
+        return mtvuimanualreservation.popupSaveDate;
+    }
+
+*/
+
+
+/*
+    static MtvAppAndroidService access$200(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$200(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
+        return mtvuimanualreservation.mService;
+    }
+
+*/
 
 
 /*
     static MtvAppAndroidService access$202(MtvUiManualReservation mtvuimanualreservation, MtvAppAndroidService mtvappandroidservice)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$202(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;");
         mtvuimanualreservation.mService = mtvappandroidservice;
         return mtvappandroidservice;
     }
@@ -1392,12 +1527,40 @@ _L5:
 */
 
 
+/*
+    static onMtvAppAndroidServiceListener access$300(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$300(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;");
+        return mtvuimanualreservation.listener;
+    }
 
+*/
+
+
+/*
+    static Button access$400(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$400(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)Landroid/widget/Button;");
+        return mtvuimanualreservation.mChannelNum;
+    }
+
+*/
+
+
+/*
+    static int access$500(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$500(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)I");
+        return mtvuimanualreservation.mChannelListIndex;
+    }
+
+*/
 
 
 /*
     static int access$502(MtvUiManualReservation mtvuimanualreservation, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$502(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;I)I");
         mtvuimanualreservation.mChannelListIndex = i;
         return i;
     }
@@ -1405,6 +1568,42 @@ _L5:
 */
 
 
+/*
+    static MtvChannel[] access$600(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$600(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)[Lcom/samsung/sec/mtv/provider/MtvChannel;");
+        return mtvuimanualreservation.mChannelsList;
+    }
+
+*/
 
 
+/*
+    static String access$700(MtvUiManualReservation mtvuimanualreservation, int i, int j)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$700(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;II)Ljava/lang/String;");
+        return mtvuimanualreservation.formatTime(i, j);
+    }
+
+*/
+
+
+/*
+    static Button access$800(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$800(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)Landroid/widget/Button;");
+        return mtvuimanualreservation.mReserveStartTime;
+    }
+
+*/
+
+
+/*
+    static Button access$900(MtvUiManualReservation mtvuimanualreservation)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;->access$900(Lcom/samsung/sec/mtv/ui/common/MtvUiManualReservation;)Landroid/widget/Button;");
+        return mtvuimanualreservation.mReserveEndTime;
+    }
+
+*/
 }

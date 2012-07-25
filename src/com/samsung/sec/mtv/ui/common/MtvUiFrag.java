@@ -5,6 +5,7 @@
 package com.samsung.sec.mtv.ui.common;
 
 import android.app.Fragment;
+import android.util.Log;
 
 public abstract class MtvUiFrag extends Fragment
 {
@@ -17,9 +18,12 @@ public abstract class MtvUiFrag extends Fragment
 
     public MtvUiFrag()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFrag;-><init>()V");
+        super();
     }
 
     public void onUpdate(int i, Object obj)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/common/MtvUiFrag;->onUpdate(ILjava/lang/Object;)V");
     }
 }

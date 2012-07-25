@@ -5,21 +5,26 @@
 package com.samsung.sec.mtv.utility;
 
 import android.broadcast.helper.MtvUtilDebug;
+import android.util.Log;
 
 public class MtvBatteryInfo
 {
 
     public MtvBatteryInfo()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvBatteryInfo;-><init>()V");
+        super();
     }
 
     public static boolean getBatteryChargeStatus()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvBatteryInfo;->getBatteryChargeStatus()Z");
         return mBatteryChargeStatus;
     }
 
     public static int getBatteryDrawableResourceID()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvBatteryInfo;->getBatteryDrawableResourceID()I");
         int ai[];
         int i;
         if(getBatteryChargeStatus())
@@ -61,17 +66,20 @@ public class MtvBatteryInfo
 
     public static void setBatteryChargeStatus(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvBatteryInfo;->setBatteryChargeStatus(Z)V");
         MtvUtilDebug.Low("MtvBatteryInfo", (new StringBuilder()).append("setmBatteryChargeStatus:").append(flag).toString());
         mBatteryChargeStatus = flag;
     }
 
     private static void setBatteryLevel(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvBatteryInfo;->setBatteryLevel(I)V");
         mBatteryLevel = i;
     }
 
     public static void updateBatteryLevel(int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvBatteryInfo;->updateBatteryLevel(II)V");
         MtvUtilDebug.Low("MtvBatteryInfo", (new StringBuilder()).append("updateBatteryLevel: Level:").append(i).append("Scale: ").append(j).toString());
         setBatteryLevel((i * 100) / j);
     }
@@ -84,6 +92,7 @@ public class MtvBatteryInfo
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/utility/MtvBatteryInfo;-><clinit>()V");
         int ai[] = new int[9];
         ai[0] = 0x7f020114;
         ai[1] = 0x7f020116;

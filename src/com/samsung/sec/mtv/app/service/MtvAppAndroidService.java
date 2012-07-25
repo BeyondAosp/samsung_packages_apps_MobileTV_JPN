@@ -9,6 +9,7 @@ import android.app.Service;
 import android.broadcast.helper.MtvUtilDebug;
 import android.content.*;
 import android.os.IBinder;
+import android.util.Log;
 import com.samsung.sec.mtv.utility.MtvUtilAppService;
 import com.samsung.sec.mtv.utility.MtvUtilTvOut;
 import java.util.*;
@@ -23,7 +24,9 @@ public class MtvAppAndroidService extends Service
 
         public void onReceive(Context context, Intent intent)
         {
-            String s = intent.getAction();
+            String s;
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService$MtvBroadcastReceiver;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V");
+            s = intent.getAction();
             if(s != null) goto _L2; else goto _L1
 _L1:
             return;
@@ -43,7 +46,7 @@ _L2:
             if(s.equals("android.intent.action.BATTERY_CHANGED"))
             {
                 MtvUtilDebug.Low("MtvAppAndroidService", "ACTION_BATTERY_CHANGED recevied");
-                mLastBatteryIntent = intent;
+                Log.d(MtvAppAndroidService.this, intent);
                 notifyBaseListener(2, intent);
             } else
             if(s.equals("android.intent.action.HEADSET_PLUG"))
@@ -59,7 +62,7 @@ _L2:
             if(s.equals("android.intent.action.BATTERY_LOW"))
             {
                 MtvUtilDebug.Low("MtvAppAndroidService", "ACTION_BATTERY_LOW received");
-                if(isAppOnForeground(getApplicationContext()))
+                if(Log.d(MtvAppAndroidService.this, getApplicationContext()))
                 {
                     Intent intent2 = new Intent();
                     intent2.setAction("com.samsung.sec.mtv.ACTION_MTV_POP_UP");
@@ -74,7 +77,7 @@ _L2:
             if(s.equals("com.samsung.sec.mtv.ACTION_MTV_SLEEP_TIMER_ALARM"))
             {
                 MtvUtilDebug.Low("MtvAppAndroidService", "ACTION_MTV_SLEEP_TIMER_ALARM received");
-                if(isAppOnForeground(getApplicationContext()))
+                if(Log.d(MtvAppAndroidService.this, getApplicationContext()))
                 {
                     Intent intent1 = new Intent();
                     intent1.setAction("com.samsung.sec.mtv.ACTION_MTV_POP_UP");
@@ -139,10 +142,16 @@ _L3:
 
         private MtvBroadcastReceiver()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService$MtvBroadcastReceiver;-><init>(Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)V");
             this$0 = MtvAppAndroidService.this;
             super();
         }
 
+        MtvBroadcastReceiver(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService$MtvBroadcastReceiver;-><init>(Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService$1;)V");
+            this();
+        }
     }
 
     private class MtvMediaBroadcastReceiver extends BroadcastReceiver
@@ -150,7 +159,9 @@ _L3:
 
         public void onReceive(Context context, Intent intent)
         {
-            String s = intent.getAction();
+            String s;
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService$MtvMediaBroadcastReceiver;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V");
+            s = intent.getAction();
             if(s != null) goto _L2; else goto _L1
 _L1:
             return;
@@ -168,7 +179,7 @@ _L2:
             if(s.equals("android.intent.action.MEDIA_MOUNTED"))
             {
                 MtvUtilDebug.Low("MtvAppAndroidService", "MtvMediaBroadcastReceiver: ACTION_MEDIA_MOUNTED received");
-                mLastBatteryIntent = intent;
+                Log.d(MtvAppAndroidService.this, intent);
                 notifyBaseListener(6, intent);
             }
             if(true) goto _L1; else goto _L3
@@ -179,15 +190,23 @@ _L3:
 
         private MtvMediaBroadcastReceiver()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService$MtvMediaBroadcastReceiver;-><init>(Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;)V");
             this$0 = MtvAppAndroidService.this;
             super();
         }
 
+        MtvMediaBroadcastReceiver(_cls1 _pcls1)
+        {
+            Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService$MtvMediaBroadcastReceiver;-><init>(Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService$1;)V");
+            this();
+        }
     }
 
 
     public MtvAppAndroidService()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;-><init>()V");
+        super();
         mListeners = new ArrayList();
         mLastBatteryIntent = null;
         if(!MtvUtilDebug.isReleaseMode())
@@ -197,6 +216,7 @@ _L3:
 
     private final void attach(onMtvAppAndroidServiceListener onmtvappandroidservicelistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->attach(Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;)V");
         this;
         JVM INSTR monitorenter ;
         mListeners.add(onmtvappandroidservicelistener);
@@ -210,6 +230,7 @@ _L3:
 
     private final void detach(onMtvAppAndroidServiceListener onmtvappandroidservicelistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->detach(Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;)V");
         this;
         JVM INSTR monitorenter ;
         Iterator iterator = mListeners.iterator();
@@ -232,6 +253,7 @@ _L3:
 
     private boolean isAppOnForeground(Context context)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->isAppOnForeground(Landroid/content/Context;)Z");
         String s = ((android.app.ActivityManager.RunningTaskInfo)((ActivityManager)getApplicationContext().getSystemService("activity")).getRunningTasks(1).get(0)).topActivity.getPackageName();
         boolean flag;
         if(getApplicationContext().getPackageName().equals(s))
@@ -245,6 +267,7 @@ _L3:
     {
         onMtvAppAndroidServiceListener aonmtvappandroidservicelistener[];
         int i;
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->finishAllListners(Landroid/content/Intent;)V");
         aonmtvappandroidservicelistener = getArrayFromIterator();
         i = -1 + aonmtvappandroidservicelistener.length;
 _L2:
@@ -268,6 +291,7 @@ _L3:
 
     protected final onMtvAppAndroidServiceListener[] getArrayFromIterator()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->getArrayFromIterator()[Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;");
         this;
         JVM INSTR monitorenter ;
         onMtvAppAndroidServiceListener aonmtvappandroidservicelistener[];
@@ -284,6 +308,7 @@ _L3:
     public void notifyAllListener(int i, Intent intent)
     {
         onMtvAppAndroidServiceListener aonmtvappandroidservicelistener[];
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->notifyAllListener(ILandroid/content/Intent;)V");
         aonmtvappandroidservicelistener = getArrayFromIterator();
         MtvUtilDebug.Low("MtvAppAndroidService", (new StringBuilder()).append("notifyAllListener..:what: ").append(i).toString());
         int j;
@@ -292,7 +317,7 @@ _L3:
         k = 0;
 _L1:
         if(k >= j)
-            break MISSING_BLOCK_LABEL_60;
+            break MISSING_BLOCK_LABEL_71;
         aonmtvappandroidservicelistener[k].onMtvAppAndroidServiceNotify(i, intent);
         k++;
           goto _L1
@@ -310,6 +335,7 @@ _L2:
 
     public void notifyBaseListener(int i, Intent intent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->notifyBaseListener(ILandroid/content/Intent;)V");
         if(mListeners.size() >= 1)
             ((onMtvAppAndroidServiceListener)mListeners.get(0)).onMtvAppAndroidServiceNotify(i, intent);
 _L1:
@@ -322,11 +348,13 @@ _L1:
 
     public IBinder onBind(Intent intent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->onBind(Landroid/content/Intent;)Landroid/os/IBinder;");
         return mBinder;
     }
 
     public void onCreate()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->onCreate()V");
         mBroadcastReceiver = new MtvBroadcastReceiver();
         mMediaBroadcastReceiver = new MtvMediaBroadcastReceiver();
         getApplicationContext().registerReceiver(mBroadcastReceiver, broadcastIntentFilters);
@@ -336,6 +364,7 @@ _L1:
 
     public void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->onDestroy()V");
         getApplicationContext().unregisterReceiver(mBroadcastReceiver);
         getApplicationContext().unregisterReceiver(mMediaBroadcastReceiver);
         mLastBatteryIntent = null;
@@ -346,11 +375,13 @@ _L1:
 
     public int onStartCommand(Intent intent, int i, int j)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->onStartCommand(Landroid/content/Intent;II)I");
         return 1;
     }
 
     public void registerListener(onMtvAppAndroidServiceListener onmtvappandroidservicelistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->registerListener(Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;)V");
         if(mListeners.size() > 0)
         {
             int i = -1 + mListeners.size();
@@ -367,6 +398,7 @@ _L1:
 
     public void unregisterListener(onMtvAppAndroidServiceListener onmtvappandroidservicelistener)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->unregisterListener(Lcom/samsung/sec/mtv/app/service/onMtvAppAndroidServiceListener;)V");
         detach(onmtvappandroidservicelistener);
         MtvUtilDebug.Low("MtvAppAndroidService", (new StringBuilder()).append("unregisterListener mListeners.size()= ").append(mListeners.size()).toString());
     }
@@ -382,6 +414,7 @@ _L1:
 
     static 
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;-><clinit>()V");
         broadcastIntentFilters = new IntentFilter();
         broadcastIntentFilters.addAction("android.intent.action.BATTERY_CHANGED");
         broadcastIntentFilters.addAction("android.intent.action.BATTERY_LOW");
@@ -407,10 +440,20 @@ _L1:
 /*
     static Intent access$202(MtvAppAndroidService mtvappandroidservice, Intent intent)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->access$202(Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;Landroid/content/Intent;)Landroid/content/Intent;");
         mtvappandroidservice.mLastBatteryIntent = intent;
         return intent;
     }
 
 */
 
+
+/*
+    static boolean access$300(MtvAppAndroidService mtvappandroidservice, Context context)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;->access$300(Lcom/samsung/sec/mtv/app/service/MtvAppAndroidService;Landroid/content/Context;)Z");
+        return mtvappandroidservice.isAppOnForeground(context);
+    }
+
+*/
 }

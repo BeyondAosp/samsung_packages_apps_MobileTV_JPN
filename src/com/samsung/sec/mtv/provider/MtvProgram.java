@@ -5,6 +5,7 @@
 package com.samsung.sec.mtv.provider;
 
 import android.broadcast.helper.types.MtvOneSegProgram;
+import android.util.Log;
 import java.util.Date;
 
 public class MtvProgram
@@ -13,6 +14,8 @@ public class MtvProgram
     public MtvProgram(int i, int j, int k, long l, long l1, 
             String s, String s1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgram;-><init>(IIIJJLjava/lang/String;Ljava/lang/String;)V");
+        super();
         mUriId = -1;
         mPch = i;
         mVch = j;
@@ -26,6 +29,8 @@ public class MtvProgram
     public MtvProgram(int i, int j, int k, long l, long l1, 
             String s, String s1, int i1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgram;-><init>(IIIJJLjava/lang/String;Ljava/lang/String;I)V");
+        super();
         mUriId = -1;
         mPch = i;
         mVch = j;
@@ -39,6 +44,8 @@ public class MtvProgram
 
     public MtvProgram(MtvOneSegProgram mtvonesegprogram, int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgram;-><init>(Landroid/broadcast/helper/types/MtvOneSegProgram;I)V");
+        super();
         mUriId = -1;
         mPch = mtvonesegprogram.getServiceID();
         mVch = i;
@@ -51,6 +58,7 @@ public class MtvProgram
 
     public String toString()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/provider/MtvProgram;->toString()Ljava/lang/String;");
         String s = (new StringBuilder()).append("MtvProgram").append("[virtual=").append(mVch).toString();
         String s1 = (new StringBuilder()).append(s).append(", physical=").append(mPch).toString();
         String s2 = (new StringBuilder()).append(s1).append(", pl=").append(mLock).toString();

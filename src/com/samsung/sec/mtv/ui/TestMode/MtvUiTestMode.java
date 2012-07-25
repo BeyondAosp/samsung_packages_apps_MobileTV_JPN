@@ -12,6 +12,7 @@ import android.broadcast.helper.types.MtvOneSegSignal;
 import android.content.Context;
 import android.content.Intent;
 import android.os.*;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.samsung.sec.mtv.app.context.*;
@@ -30,6 +31,7 @@ public class MtvUiTestMode extends Activity
 
         public View getView(int i, View view, ViewGroup viewgroup)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$ChannelAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;");
             View view1 = view;
             if(view1 == null)
                 view1 = mInflater.inflate(mLayoutId, null);
@@ -46,6 +48,7 @@ public class MtvUiTestMode extends Activity
 
         public ChannelAdapter(Context context, int i, List list)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$ChannelAdapter;-><init>(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;Landroid/content/Context;ILjava/util/List;)V");
             this$0 = MtvUiTestMode.this;
             super(context, i, list);
             mContainer = list;
@@ -60,6 +63,7 @@ public class MtvUiTestMode extends Activity
 
         public void run()
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$RunnableUpdateText;->run()V");
             mView.setText(mString);
         }
 
@@ -69,6 +73,7 @@ public class MtvUiTestMode extends Activity
 
         public RunnableUpdateText(TextView textview, String s)
         {
+            Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$RunnableUpdateText;-><init>(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;Landroid/widget/TextView;Ljava/lang/String;)V");
             this$0 = MtvUiTestMode.this;
             super();
             mView = textview;
@@ -79,6 +84,8 @@ public class MtvUiTestMode extends Activity
 
     public MtvUiTestMode()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;-><init>()V");
+        super();
         mVideoSurfaceView = null;
         mChannelInfoTextView = null;
         mSignalInfoTextView = null;
@@ -98,11 +105,12 @@ public class MtvUiTestMode extends Activity
 
             public void handleMessage(Message message)
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$1;->handleMessage(Landroid/os/Message;)V");
                 if(message.what != 0) goto _L2; else goto _L1
 _L1:
-                if(!MtvUiTestMode.mShowSignalState) goto _L4; else goto _L3
+                if(!Log.d()) goto _L4; else goto _L3
 _L3:
-                MtvOneSegSignal mtvonesegsignal = getSignalValue();
+                MtvOneSegSignal mtvonesegsignal = Log.d(MtvUiTestMode.this);
                 MtvUtilDebug.Mid("MtvUiTestMode", (new StringBuilder()).append("handleMessage getSignalValue ").append(mtvonesegsignal).toString());
                 View view = findViewById(0x7f0a0032);
                 if(view != null)
@@ -115,15 +123,15 @@ _L3:
                         else
                             view.setBackgroundColor(0xffff0000);
                         i = mtvonesegsignal.getSignalQuality();
-                        mSignalDetailsTextView.setText(getSignalValue(mtvonesegsignal));
+                        Log.d(MtvUiTestMode.this).setText(Log.d(MtvUiTestMode.this, mtvonesegsignal));
                     } else
                     {
                         view.setBackgroundColor(0xff444444);
                         i = 0;
-                        mSignalDetailsTextView.setText(" ");
+                        Log.d(MtvUiTestMode.this).setText(" ");
                     }
-                    if(mSignalInfoTextView != null)
-                        mSignalInfoTextView.setText((new StringBuilder()).append("Signal[0.. 4]=").append(i).toString());
+                    if(Log.d(MtvUiTestMode.this) != null)
+                        Log.d(MtvUiTestMode.this).setText((new StringBuilder()).append("Signal[0.. 4]=").append(i).toString());
                 } else
                 {
                     MtvUtilDebug.Mid("MtvUiTestMode", "handleMessage : TEST_MODE_MSG_UPDATE_SIGNAL signalLayout invalid ");
@@ -131,8 +139,8 @@ _L3:
 _L2:
                 return;
 _L4:
-                if(mSignalDetailsTextView != null)
-                    mSignalDetailsTextView.setText(" ");
+                if(Log.d(MtvUiTestMode.this) != null)
+                    Log.d(MtvUiTestMode.this).setText(" ");
                 if(true) goto _L2; else goto _L5
 _L5:
             }
@@ -141,6 +149,7 @@ _L5:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$1;-><init>(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)V");
                 this$0 = MtvUiTestMode.this;
                 super();
             }
@@ -149,6 +158,7 @@ _L5:
 
     private void changeLayout(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->changeLayout(Z)V");
         mCurrentLayoutState = flag;
         if(flag)
         {
@@ -182,6 +192,7 @@ _L5:
 
     private MtvOneSegSignal getSignalValue()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->getSignalValue()Landroid/broadcast/helper/types/MtvOneSegSignal;");
         MtvOneSegSignal mtvonesegsignal;
         if(mMtvAppPlaybackContext != null)
             mtvonesegsignal = mMtvAppPlaybackContext.getAttribute().getSignalStatistics();
@@ -192,11 +203,13 @@ _L5:
 
     private String getSignalValue(MtvOneSegSignal mtvonesegsignal)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->getSignalValue(Landroid/broadcast/helper/types/MtvOneSegSignal;)Ljava/lang/String;");
         return "CN[".concat(Long.toString(mtvonesegsignal.getCN())).concat("] RSSI[").concat(Long.toString(mtvonesegsignal.getRSSI())).concat("] BER[").concat(Long.toString(mtvonesegsignal.getBER())).concat("]");
     }
 
     private void invalidate()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->invalidate()V");
         View view = findViewById(0x7f0a0032);
         if(view != null)
             view.setBackgroundColor(0xff444444);
@@ -209,6 +222,7 @@ _L5:
 
     private void releaseMtvPlayer()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->releaseMtvPlayer()V");
         if(mMtvAppPlaybackContext != null)
             mMtvAppPlaybackContext = MtvAppPlaybackContextManager.getInstance().getCurrentContext();
         if(mMtvAppPlaybackContext != null)
@@ -221,6 +235,7 @@ _L5:
 
     private void showConfigrationSettings()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->showConfigrationSettings()V");
         Intent intent = new Intent();
         intent.setClass(this, com/samsung/sec/mtv/ui/configration/MtvUiConfigration);
         MtvUtilDebug.Low("MtvUiTestMode", "Start Activity - MtvUiConfigration");
@@ -229,15 +244,18 @@ _L5:
 
     private void showSignal(boolean flag)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->showSignal(Z)V");
         mHandler.sendEmptyMessage(0);
     }
 
     private void stopOneSegPlayer()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->stopOneSegPlayer()V");
     }
 
     public void onBackPressed()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onBackPressed()V");
         MtvUtilDebug.Low("MtvUiTestMode", "onBackPressed");
         if(bFromFactoryTest)
             if(bFactoryTestSuccess)
@@ -278,6 +296,7 @@ _L5:
 
     public void onCreate(Bundle bundle)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onCreate(Landroid/os/Bundle;)V");
         super.onCreate(bundle);
         changeLayout(mCurrentLayoutState);
         mDebugSetting = MtvUtilDebug.getDebugInstance();
@@ -316,12 +335,14 @@ _L5:
 
     protected void onDestroy()
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onDestroy()V");
         MtvUtilDebug.Low("MtvUiTestMode", "onDestroy");
         super.onDestroy();
     }
 
     public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V");
         mChannelNumber = ((Integer)view.getTag()).intValue();
         MtvUtilDebug.Low("MtvUiTestMode", (new StringBuilder()).append("onItemClick pos=").append(i).append(", channel=").append(mChannelNumber).toString());
         MtvURI mtvuri = new MtvURI(4, mChannelNumber);
@@ -333,14 +354,15 @@ _L5:
 
     public boolean onMenuItemSelected(int i, MenuItem menuitem)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onMenuItemSelected(ILandroid/view/MenuItem;)Z");
         MtvUtilDebug.Mid("MtvUiTestMode", (new StringBuilder()).append("onMenuItemSelected : ").append(menuitem.getItemId()).toString());
         menuitem.getItemId();
-        JVM INSTR tableswitch 0 4: default 72
-    //                   0 79
-    //                   1 86
-    //                   2 113
-    //                   3 135
-    //                   4 190;
+        JVM INSTR tableswitch 0 4: default 80
+    //                   0 87
+    //                   1 94
+    //                   2 121
+    //                   3 143
+    //                   4 198;
            goto _L1 _L2 _L3 _L4 _L5 _L6
 _L1:
         return super.onMenuItemSelected(i, menuitem);
@@ -376,14 +398,15 @@ _L7:
 
     public void onPlayerNotification(int i, int j, int k)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onPlayerNotification(III)V");
         i;
-        JVM INSTR lookupswitch 6: default 60
-    //                   20481: 61
-    //                   20482: 301
-    //                   20483: 1023
-    //                   20484: 580
-    //                   20494: 919
-    //                   20495: 988;
+        JVM INSTR lookupswitch 6: default 68
+    //                   20481: 69
+    //                   20482: 309
+    //                   20483: 1031
+    //                   20484: 588
+    //                   20494: 927
+    //                   20495: 996;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
 _L9:
         return;
@@ -404,14 +427,16 @@ _L2:
 
                     public void run()
                     {
-                        if(mMtvPlayerOneSeg != null)
-                            mMtvPlayerOneSeg.delete(mMtvAppPlaybackContext);
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$2;->run()V");
+                        if(Log.d(MtvUiTestMode.this) != null)
+                            Log.d(MtvUiTestMode.this).delete(Log.d(MtvUiTestMode.this));
                     }
 
                     final MtvUiTestMode this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$2;-><init>(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)V");
                 this$0 = MtvUiTestMode.this;
                 super();
             }
@@ -495,14 +520,16 @@ _L5:
 
                     public void run()
                     {
-                        if(mMtvPlayerOneSeg != null)
-                            mMtvPlayerOneSeg.delete(mMtvAppPlaybackContext);
+                        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$3;->run()V");
+                        if(Log.d(MtvUiTestMode.this) != null)
+                            Log.d(MtvUiTestMode.this).delete(Log.d(MtvUiTestMode.this));
                     }
 
                     final MtvUiTestMode this$0;
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$3;-><init>(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)V");
                 this$0 = MtvUiTestMode.this;
                 super();
             }
@@ -530,7 +557,8 @@ _L7:
 
                 public void run()
                 {
-                    releaseMtvPlayer();
+                    Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$4;->run()V");
+                    Log.d(MtvUiTestMode.this);
                     finish();
                 }
 
@@ -538,6 +566,7 @@ _L7:
 
             
             {
+                Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode$4;-><init>(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)V");
                 this$0 = MtvUiTestMode.this;
                 super();
             }
@@ -559,6 +588,7 @@ _L13:
 
     public boolean onPrepareOptionsMenu(Menu menu)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onPrepareOptionsMenu(Landroid/view/Menu;)Z");
         menu.clear();
         menu.add(0, 0, 0, "stop");
         if(mShowSignalState)
@@ -579,9 +609,10 @@ _L13:
 
     public void onProgramAttributeUpdated(int i)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onProgramAttributeUpdated(I)V");
         i;
-        JVM INSTR tableswitch 16 16: default 20
-    //                   16 21;
+        JVM INSTR tableswitch 16 16: default 28
+    //                   16 29;
            goto _L1 _L2
 _L1:
         return;
@@ -593,6 +624,7 @@ _L3:
 
     public void onStateChanged(com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state, com.samsung.sec.mtv.app.context.MtvAppPlaybackState.State state1)
     {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->onStateChanged(Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackState$State;)V");
     }
 
     private static boolean mCurrentLayoutState = false;
@@ -616,12 +648,89 @@ _L3:
     private ListView mTestmodeChannelListView;
     private SurfaceView mVideoSurfaceView;
 
+    static 
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;-><clinit>()V");
+    }
 
 
+/*
+    static boolean access$000()
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->access$000()Z");
+        return mShowSignalState;
+    }
+
+*/
 
 
+/*
+    static MtvOneSegSignal access$100(MtvUiTestMode mtvuitestmode)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->access$100(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)Landroid/broadcast/helper/types/MtvOneSegSignal;");
+        return mtvuitestmode.getSignalValue();
+    }
+
+*/
 
 
+/*
+    static String access$200(MtvUiTestMode mtvuitestmode, MtvOneSegSignal mtvonesegsignal)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->access$200(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;Landroid/broadcast/helper/types/MtvOneSegSignal;)Ljava/lang/String;");
+        return mtvuitestmode.getSignalValue(mtvonesegsignal);
+    }
+
+*/
 
 
+/*
+    static TextView access$300(MtvUiTestMode mtvuitestmode)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->access$300(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)Landroid/widget/TextView;");
+        return mtvuitestmode.mSignalDetailsTextView;
+    }
+
+*/
+
+
+/*
+    static TextView access$400(MtvUiTestMode mtvuitestmode)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->access$400(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)Landroid/widget/TextView;");
+        return mtvuitestmode.mSignalInfoTextView;
+    }
+
+*/
+
+
+/*
+    static IMtvAppPlayerOneSeg access$500(MtvUiTestMode mtvuitestmode)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->access$500(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)Lcom/samsung/sec/mtv/app/player/IMtvAppPlayerOneSeg;");
+        return mtvuitestmode.mMtvPlayerOneSeg;
+    }
+
+*/
+
+
+/*
+    static MtvAppPlaybackContext access$600(MtvUiTestMode mtvuitestmode)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->access$600(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)Lcom/samsung/sec/mtv/app/context/MtvAppPlaybackContext;");
+        return mtvuitestmode.mMtvAppPlaybackContext;
+    }
+
+*/
+
+
+/*
+    static void access$700(MtvUiTestMode mtvuitestmode)
+    {
+        Log.d("smali", "Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;->access$700(Lcom/samsung/sec/mtv/ui/TestMode/MtvUiTestMode;)V");
+        mtvuitestmode.releaseMtvPlayer();
+        return;
+    }
+
+*/
 }
